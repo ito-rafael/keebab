@@ -1,0 +1,4 @@
+#+TITLE: keebab
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Keyboard-related dotfiles and docs/info for some tools and devices I daily drive.
+#+STARTUP: showeverything
