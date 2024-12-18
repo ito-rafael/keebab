@@ -5,8 +5,11 @@
 
 * Table of contents :toc_2:
 - [[#software][Software]]
+  - [[#kmonad][KMonad]]
   - [[#kanata][kanata]]
 
 * Software
+** KMonad
+Deprecated in favor of [[kanata][kanata]].
 ** kanata
 https://github.com/jtroo/kanata
