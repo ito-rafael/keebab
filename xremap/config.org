@@ -1,0 +1,643 @@
+#+TITLE: Config file for xremap
+#+AUTHOR: Rafael Ito
+# +PROPERTY: header-args :noweb-sep "\n\n"
+#+DESCRIPTION: config file for xremap
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#information][Information]]
+  - [[#table][Table]]
+  - [[#fn-keys][Fn keys]]
+  - [[#workspace-navigation][Workspace navigation]]
+  - [[#move-to-workspace][Move to workspace]]
+  - [[#keeb-misc-layer][Keeb "misc" layer]]
+- [[#modifiers][Modifiers]]
+- [[#shared][Shared]]
+  - [[#terminals][Terminals]]
+  - [[#scratchpads][Scratchpads]]
+  - [[#emacs-over-ssh][Emacs over SSH]]
+- [[#keymap][Keymap]]
+  - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
+  - [[#emacs-inhabitant][Emacs inhabitant]]
+  - [[#emacs-over-ssh-1][Emacs over SSH]]
+  - [[#kitty][Kitty]]
+  - [[#brave][Brave]]
+  - [[#dead-acute][Dead acute]]
+  - [[#emote-navigation][Emote navigation]]
+  - [[#capslock][Capslock]]
+  - [[#scratchpad-navigation][Scratchpad navigation]]
+  - [[#miscellaneous][Miscellaneous]]
+  - [[#pdfpc][pdfpc]]
+
+* Information
+** Table
+|----------------+------------------+---------+---------------------+---------------|
+| Key name       | Xmodmap          | keycode | input-event-codes.h | used for      |
+|----------------+------------------+---------+---------------------+---------------|
+| left shift     | Shift_L          |      42 | KEY_LEFTSHIFT       | shift (xkb)   |
+| right shift    | Shift_R          |      54 | KEY_RIGHTSHIFT      | shift (xkb)   |
+|----------------+------------------+---------+---------------------+---------------|
+| left ctrl      | Control_L        |      29 | KEY_LEFTCTRL        | control (xkb) |
+| right ctrl     | Control_R        |      97 | KEY_RIGHTCTRL       | control (xkb) |
+|----------------+------------------+---------+---------------------+---------------|
+| left alt       | Alt_L            |      56 | KEY_LEFTALT         | mod1 (xkb)    |
+| right alt      | ISO_Level3_Shift |     100 | KEY_RIGHTALT        | mod5 (xkb)    |
+|----------------+------------------+---------+---------------------+---------------|
+| win/super/meta | Super_L          |     125 | KEY_LEFTMETA        | mod4 (xkb)    |
+| ???            | Super_R          |     126 | KEY_RIGHTMETA       | mod4 (xkb)    |
+|----------------+------------------+---------+---------------------+---------------|
+| ???            | Hyper_L          |         | ?????               | ?????         |
+|----------------+------------------+---------+---------------------+---------------|
+| F13            | XF86Tools        |     183 | KEY_F13             | apostrophe    |
+| F14            | XF86Launch5      |     184 | KEY_F14             | microphone    |
+| F15            | XF86Launch6      |     185 | KEY_F15             | volume        |
+| F16            | XF86Launch7      |     186 | KEY_F16             | cut           |
+| F17            | XF86Launch8      |     187 | KEY_F17             | copy          |
+| F18            | XF86Launch9      |     188 | KEY_F18             | paste         |
+| F19            | -----            |     189 | KEY_F19             | opacity       |
+| F20            | -----            |     190 | KEY_F20             |               |
+| F21            | -----            |     191 | KEY_F21             |               |
+| F22            | -----            |     192 | KEY_F22             |               |
+| F23            | -----            |     193 | KEY_F23             |               |
+| F24            | -----            |     194 | KEY_F24             |               |
+|----------------+------------------+---------+---------------------+---------------|
+** Fn keys
+*** F13
+Apostrophe - single/double quotes (xremap).
+*** F14
+Microphone (Oryx/QKM and xremap)
+|------------------+-------------|
+| binding          | description |
+|------------------+-------------|
+| F14              | mic- coarse |
+| ctrl+F14         | mic+ coarse |
+| shift+F14        | mic- fine   |
+| shift+ctrl+F14   | mic+ fine   |
+| meta+F14         | mic 50%     |
+| XF86AudioMicMute | mic mute    |
+|------------------+-------------|
+*** F15
+Volume (Oryx/QKM and xremap)
+|----------+-------------|
+| binding  | description |
+|----------+-------------|
+| F15      | vol- fine   |
+| ctrl+F15 | vol+ fine   |
+| meta+F15 | vol 50%     |
+|----------+-------------|
+*** F16/F17/F18
+Cut, copy, paste.
+|---------+-------------|
+| binding | description |
+|---------+-------------|
+| F16     | cut         |
+| F17     | copy        |
+| F18     | paste       |
+|---------+-------------|
+*** F19
+Opacity (Oryx/QKM and xremap)
+|----------------+---------------------------------|
+| binding        | description                     |
+|----------------+---------------------------------|
+| F19            | stop IWT && opacity current dec |
+| ctrl+F19       | stop IWT && opacity current inc |
+| shift+F19      | stop IWT && opacity all dec     |
+| shift+ctrl+F19 | stop IWT && opacity all inc     |
+| meta+F19       | run IWT with --opacity 0.85     |
+|----------------+---------------------------------|
+obs: IWT = inactive-windows-transparency.py
+*** F20
+TBD (suggestion: monitor LED strip)
+*** F21
+TBD (suggestion: keyboard underglow)
+*** F22
+TBD
+*** F23
+TBD
+*** F24
+TBD
+** Workspace navigation
+|---------------------------+-----------------------|
+| binding                   | description           |
+|---------------------------+-----------------------|
+| Super_L   + {1,2,...,9,0} | navigate to output #0 |
+| S-Super_L + {1,2,...,9,0} | navigate to output #1 |
+| Super_R   + {1,2,...,9,0} | navigate to output #2 |
+|---------------------------+-----------------------|
+** Move to workspace
+|-----------------------------+-------------------|
+| binding                     | description       |
+|-----------------------------+-------------------|
+| C-Super_L   + {1,2,...,9,0} | move to output #0 |
+| C-S-Super_L + {1,2,...,9,0} | move to output #1 |
+| C-Super_R   + {1,2,...,9,0} | move to output #2 |
+|-----------------------------+-------------------|
+** Keeb "misc" layer
+|-----------+-------------+-------------|
+| binding   | category    | description |
+|-----------+-------------+-------------|
+| Alt_R + a | superscript | ª           |
+| Alt_R + o | superscript | º           |
+| Alt_R + p | currency    | £           |
+| Alt_R + e | currency    | €           |
+| Alt_R + y | currency    | ￥          |
+| Alt_R + r | currency    | ₽           |
+| Alt_R + s | macro       | address_1   |
+| Alt_R + t | macro       | address_2   |
+| Alt_R + c | macro       | zip_code    |
+| Alt_R + d | macro       | phone       |
+| Alt_R + n | macro       | email_1     |
+| Alt_R + l | macro       | email_2     |
+| Alt_R + u | macro       | email_3     |
+| Alt_R + h | macro       | name        |
+| Alt_R + i | macro       | id          |
+|-----------+-------------+-------------|
+* Modifiers
+Used for i3wm
+#+begin_src conf :noweb-ref modifiers
+virtual_modifiers:
+  - Henkan
+  - Muhenkan
+#+end_src
+* Shared
+#+begin_src conf :noweb-ref shared
+shared:
+#+end_src
+** Terminals
+#+begin_src conf :noweb-ref shared
+  terminals: &terminals
+    - kitty
+    - dropdown_terminal
+    - dropdown_python
+#+end_src
+** Scratchpads
+#+begin_src conf :noweb-ref shared
+  scratchpads: &scratchpads
+    - dropdown_terminal
+    - dropdown_python
+    - scrcpy
+    - Brave-browser-beta
+    - Keymapp
+    - keymapp
+#+end_src
+** Emacs over SSH
+#+begin_src conf :noweb-ref shared
+  emacs-ssh: &emacs-ssh
+    - "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c.* -a .*emacs.*/"
+    - "/.*: ecd/"
+    - "/.*: ec/"
+#+end_src
+* Keymap
+#+begin_src conf :noweb-ref keymap
+keymap:
+#+end_src
+** CPC: Copy/Paste/Cut
+*** Terminal
+#+begin_src conf :noweb-ref cpc-terminal
+  - name: copy/paste/cut - terminal
+    application:
+      only: *terminals
+    remap:
+      F16: Ctrl-Shift-x
+      F17: Ctrl-Shift-c
+      F18: Ctrl-Shift-v
+#+end_src
+*** Default
+#+begin_src conf :noweb-ref cpc-default
+  - name: copy/paste/cut - general
+    application:
+      not: [Emacs, "/emacs.*/"]
+    remap:
+      F16: Ctrl-x
+      F17: Ctrl-c
+      F18: Ctrl-v
+#+end_src
+** Emacs inhabitant
+*** i3wm
+#+begin_src conf :noweb-ref i3-navigation
+  - name: Emacs inhabitant
+    exact_match: true
+    application:
+      not: [Emacs, "/emacs.*/"]
+    remap:
+      # window navigation
+      Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
+      Super_L-down:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh down"] }
+      Super_L-up:    { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh up"] }
+      Super_L-right: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh right"] }
+      # fullscreen
+      #Alt_L-Super_L-f:  { launch: ["bash", "-c", "i3-msg", "fullscreen", "toggle"] }
+      Alt_L-Super_L-f:  { launch: ["i3-msg", "fullscreen", "toggle"] }
+      # terminal
+      #Alt_L-Super_L-t:  { launch: ["bash", "-c", "i3-msg", "exec", "kitty"] }
+      Alt_L-Super_L-t:  { launch: ["i3-msg", "exec", "kitty"] }
+      # kill window
+      #Alt_L-Super_L-q:  { launch: ["bash", "-c", "i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+      Alt_L-Super_L-q:  { launch: ["i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-navigation
+  - name: Emacs inhabitant
+    exact_match: true
+    application:
+      not: [Emacs, "/emacs.*/"]
+    remap:
+      # window navigation
+      Super_L-left:  { launch: ["swaymsg", "focus", "left"] }
+      Super_L-down:  { launch: ["swaymsg", "focus", "down"] }
+      Super_L-up:    { launch: ["swaymsg", "focus", "up"] }
+      Super_L-right: { launch: ["swaymsg", "focus", "right"] }
+      # fullscreen
+      Alt_L-Super_L-f:  { launch: ["swaymsg", "fullscreen", "toggle"] }
+      # terminal
+      Alt_L-Super_L-t:  { launch: ["swaymsg", "exec", "kitty"] }
+      # kill window
+      Alt_L-Super_L-q:  { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+#+end_src
+** Emacs over SSH
+:PROPERTIES:
+:header-args: :noweb-sep "\n\n"
+:END:
+*** Window navigation
+#+begin_src conf :noweb-ref emacs-ssh
+  - name: Window navigation
+    exact_match: true
+    application:
+      only: kitty
+    window:
+      only: *emacs-ssh
+    remap:
+      Super_L-left:  [C-w, C-h]
+      Super_L-down:  [C-w, C-j]
+      Super_L-up:    [C-w, C-k]
+      Super_L-right: [C-w, C-l]
+#+end_src
+** Kitty
+#+begin_src conf :noweb-ref kitty
+  - name: delete next word
+    application:
+      only: kitty
+    remap:
+      Ctrl-Shift-Backspace: Ctrl-Delete
+#+end_src
+** Brave
+*** Tab navigation with on forbidden pages (Surfingkeys)
+#+begin_src conf :noweb-ref surfingkeys
+  - name: Prev/Next tab
+    exact_match: true
+    application:
+      only: brave-browser
+    window:
+      only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
+    remap:
+      Shift-N: Alt-Left        # go back
+      Shift-E: Ctrl-Tab        # next tab
+      Shift-I: Ctrl-Shift-Tab  # previous tab
+      Shift-O: Alt-Right       # go forward
+      Shift-X: Ctrl-Shift-T    # reopen tab
+#+end_src
+** Dead acute
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
+#+begin_src conf :noweb-ref dead-acute
+  - name: forward char / dead_acute
+    exact_match: true
+    application:
+      not: [Emacs, "/emacs.*/"]
+    remap:
+#+end_src
+*** F13
+#+begin_src conf :noweb-ref dead-acute
+      F13:
+        remap:
+#+end_src
+**** Apostrophe
+#+begin_src conf :noweb-ref dead-acute
+          # apostrophe
+          F13: [APOSTROPHE, SPACE]
+          space: [APOSTROPHE, SPACE]
+#+end_src
+**** Cedilla
+#+begin_src conf :noweb-ref dead-acute
+          # cedilla
+          c: [APOSTROPHE, c]
+          Shift-c: [APOSTROPHE, Shift-c]
+#+end_src
+**** Vowel lowercase
+#+begin_src conf :noweb-ref dead-acute
+          # lowercase vowels
+          a: [APOSTROPHE, a]
+          e: [APOSTROPHE, e]
+          i: [APOSTROPHE, i]
+          o: [APOSTROPHE, o]
+          u: [APOSTROPHE, u]
+#+end_src
+**** Vowel uppercase
+#+begin_src conf :noweb-ref dead-acute
+          # uppercase vowels
+          Shift-a: [APOSTROPHE, Shift-a]
+          Shift-e: [APOSTROPHE, Shift-e]
+          Shift-i: [APOSTROPHE, Shift-i]
+          Shift-o: [APOSTROPHE, Shift-o]
+          Shift-u: [APOSTROPHE, Shift-u]
+#+end_src
+**** Misc lowercase
+#+begin_src conf :noweb-ref dead-acute
+          # miscellaneous lowercase
+          n: [APOSTROPHE, SPACE, n]
+          m: [APOSTROPHE, SPACE, m]
+          r: [APOSTROPHE, SPACE, r]
+          s: [APOSTROPHE, SPACE, s]
+          t: [APOSTROPHE, SPACE, t]
+#+end_src
+**** Misc uppercase
+#+begin_src conf :noweb-ref dead-acute
+          # miscellaneous uppercase
+          Shift-n: [APOSTROPHE, SPACE, Shift-n]
+          Shift-m: [APOSTROPHE, SPACE, Shift-m]
+          Shift-r: [APOSTROPHE, SPACE, Shift-r]
+          Shift-s: [APOSTROPHE, SPACE, Shift-s]
+          Shift-t: [APOSTROPHE, SPACE, Shift-t]
+#+end_src
+*** Shift-F13
+#+begin_src conf :noweb-ref dead-acute
+      Shift-F13:
+        remap:
+#+end_src
+**** Double quotes
+#+begin_src conf :noweb-ref dead-acute
+          # double quotes
+          F13: [Shift-APOSTROPHE, SPACE]
+          space: [Shift-APOSTROPHE, SPACE]
+          #Shift-F13: [Shift-APOSTROPHE, SPACE]
+#+end_src
+**** Tilde lowercase
+#+begin_src conf :noweb-ref dead-acute
+          # tilde lowercase
+          a: [Shift-GRAVE, a]
+          o: [Shift-GRAVE, o]
+          n: [Shift-GRAVE, n]
+#+end_src
+**** Tilde uppercase
+#+begin_src conf :noweb-ref dead-acute
+          # tilde uppercase
+          Shift-A: [Shift-GRAVE, Shift-A]
+          Shift-O: [Shift-GRAVE, Shift-O]
+          Shift-N: [Shift-GRAVE, Shift-N]
+#+end_src
+**** Tilde misc
+#+begin_src conf :noweb-ref dead-acute
+          # tilde miscellaneous
+          Shift-F13: [Shift-GRAVE, SPACE]
+          SLASH:     [Shift-GRAVE, SPACE, SLASH]
+          DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
+#+end_src
+**** Tilde paths
+#+begin_src conf :noweb-ref dead-acute
+          # tilde paths
+          g: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH]
+          d: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH, d,o,t,f,i,l,e,s, SLASH]
+          c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
+          e: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, e,m,a,c,s,minus,e,f,s, SLASH]
+          s: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,c,r,i,p,t,s, SLASH]
+          v: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, n,v,i,m, SLASH]
+          x: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, x,r,e,m,a,p, SLASH]
+          w: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, w,a,y,b,a,r, SLASH]
+          z: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, z,s,h, SLASH]
+#+end_src
+***** i3wm/Sway
+#+name: dead-acute-i3sway
+#+begin_src python :var wm="s,w,a,y" :results output
+print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm + ', SLASH]')
+#+end_src
+** Emote navigation
+*** Common
+#+begin_src conf :noweb-ref emote
+  - name: navigate through emoji categories
+    application:
+      only: [emote, Emote]
+    remap:
+      Shift-N: Ctrl-Shift-Tab  # previous category
+      Shift-O: Ctrl-Tab        # next category
+      Shift-I: Ctrl-F          # focus search
+      Ctrl-n:  left            # arrow left
+      Ctrl-e:  down            # arrow down
+      Ctrl-i:  up              # arrow up
+      Ctrl-o:  right           # arrow right
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref emote-sway
+      # Enter; Ctrl+V
+      Enter: { launch: ["bash", "-c", "ydotool key 28:1 28:0 29:1 47:1 47:0 29:0"] }
+#+end_src
+** Capslock
+#+begin_src conf :noweb-ref capslock
+  - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
+    remap:
+      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
+#+end_src
+** Scratchpad navigation
+#+name: scratchpad-navigation
+#+begin_src python :var ipc_cmd="swaymsg" :results output
+print('  - name: window navigation from scratchpads')
+print('    application:')
+print('      only: *scratchpads')
+print('    remap:')
+print('      Super-Left:  { launch: ["' + ipc_cmd + '", "focus", "output", "left"] }')
+print('      Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "right"] }')
+#+end_src
+** Miscellaneous
+*** Macros (terminal)
+#+name: macros-terminal
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - macros (terminal)')
+print('    application:')
+print('      only: *terminals')
+print('    remap:')
+print('      # macro')
+print('      Alt_R-s: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_1)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-t: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_2)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-g: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_3)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-c: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/zip_code)\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-d: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/phone)\\"     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-n: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_1)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-l: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_2)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-u: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_3)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-h: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/name)\\"      | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-i: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/id)\\"        | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+#+end_src
+*** Macros
+#+name: macros
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - macros')
+print('    application:')
+print('      not: *terminals')
+print('    remap:')
+print('      # macro')
+print('      Alt_R-s: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-t: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-g: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-c: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-d: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-n: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-l: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-u: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-h: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-i: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+#+end_src
+*** Currency & superscript (terminal)
+#+name: currency-superscript-terminal
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - currency & superscript (terminal)')
+print('    application:')
+print('      only: *terminals')
+print('    remap:')
+print('      # currency')
+print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      # superscript')
+print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+#+end_src
+*** Currency & superscript
+#+name: currency-superscript
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - currency & superscript')
+print('    application:')
+print('      not: *terminals')
+print('    remap:')
+print('      # currency')
+print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      # superscript')
+print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+#+end_src
+** pdfpc
+#+begin_src conf :noweb-ref pdfpc
+  - name: presentation with pdfpc
+    exact_match: true
+    application:
+      only: pdfpc
+    remap:
+#+end_src
+*** Home row: RST
+#+begin_src conf :noweb-ref pdfpc
+      KEY_R: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "camera"] }
+      KEY_S: KEY_1
+      KEY_T: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "presentation"] }
+#+end_src
+*** Top row: WFP
+#+begin_src conf :noweb-ref pdfpc
+      KEY_W: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-4"] }
+      KEY_F: KEY_2
+      KEY_P: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-6"] }
+#+end_src
+*** Bottom row: XCD
+#+begin_src conf :noweb-ref pdfpc
+      KEY_X: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-7"] }
+      KEY_C: KEY_3
+      KEY_D: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-9"] }
+#+end_src
+*** Right column: BGV
+#+begin_src conf :noweb-ref pdfpc
+      KEY_B: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--record"] }
+      KEY_G: KEY_MINUS
+      KEY_V: S-EQUAL
+#+end_src
+*** Right column: QAZ
+#+begin_src conf :noweb-ref pdfpc
+      KEY_Q: KEY_5
+      KEY_A: KEY_4
+      #KEY_Z:
+#+end_src
+*** Thumb cluster: Space, ESC, Tab
+#+begin_src conf :noweb-ref pdfpc
+      KEY_SPACE: KEY_DOWN
+      KEY_ESC: KEY_UP
+      #KEY_TAB:
+#+end_src
+* Tangle :noexport:
+** i3
+#+begin_src conf :noweb yes :tangle config_i3.yml
+<<modifiers>>
+
+<<shared>>
+
+<<keymap>>
+
+<<cpc-terminal>>
+
+<<cpc-emacs>>
+
+<<cpc-default>>
+
+<<i3-navigation>>
+
+<<emacs>>
+
+<<emacs-ssh>>
+
+<<kitty>>
+
+<<surfingkeys>>
+
+<<dead-acute>>
+<<dead-acute-i3sway(wm="i,3")>>
+
+<<emote>>
+
+<<scratchpad-navigation(ipc_cmd="i3-msg")>>
+<<macros-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<macros(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<currency-superscript-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<currency-superscript(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+
+#<<pdfpc>>
+#+end_src
+** Sway
+#+begin_src conf :noweb yes :tangle config_sway.yml :results output
+<<shared>>
+
+<<keymap>>
+
+<<cpc-terminal>>
+
+<<cpc-emacs>>
+
+<<cpc-default>>
+
+<<sway-navigation>>
+
+<<emacs>>
+
+<<emacs-ssh>>
+
+<<kitty>>
+
+<<surfingkeys>>
+
+<<dead-acute>>
+<<dead-acute-i3sway(wm="s,w,a,y")>>
+
+<<emote>>
+<<emote-sway>>
+
+<<capslock>>
+
+<<scratchpad-navigation(ipc_cmd="swaymsg")>>
+<<macros-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<macros(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<currency-superscript-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<currency-superscript(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+
+#<<pdfpc>>
+#+end_src
+#+end_src
