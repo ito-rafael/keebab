@@ -7,9 +7,13 @@
 - [[#software][Software]]
   - [[#kmonad][KMonad]]
   - [[#kanata][kanata]]
+  - [[#xremap][xremap]]
 
 * Software
 ** KMonad
+https://github.com/kmonad/kmonad/
 Deprecated in favor of [[kanata][kanata]].
 ** kanata
 https://github.com/jtroo/kanata
+** xremap
+https://github.com/xremap/xremap
