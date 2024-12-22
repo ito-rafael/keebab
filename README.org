@@ -5,11 +5,17 @@
 
 * Table of contents :toc_2:
 - [[#software][Software]]
+  - [[#udev][udev]]
   - [[#kmonad][KMonad]]
   - [[#kanata][kanata]]
   - [[#xremap][xremap]]
 
 * Software
+** udev
+https://wiki.archlinux.org/title/Udev
+*** hwdb
+sources:
+- https://wiki.archlinux.org/title/Map_scancodes_to_keycodes
 ** KMonad
 https://github.com/kmonad/kmonad/
 Deprecated in favor of [[kanata][kanata]].
