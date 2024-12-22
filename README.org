@@ -3,9 +3,11 @@
 #+DESCRIPTION: Keyboard-related dotfiles and docs/info for some tools and devices I daily drive.
 #+STARTUP: showeverything
 
-* Table of contents :toc_2:
+* Table of contents :toc_3:
 - [[#software][Software]]
   - [[#udev][udev]]
+    - [[#hwdb][hwdb]]
+    - [[#rules][rules]]
   - [[#kmonad][KMonad]]
   - [[#kanata][kanata]]
   - [[#xremap][xremap]]
@@ -16,6 +18,10 @@ https://wiki.archlinux.org/title/Udev
 *** hwdb
 sources:
 - https://wiki.archlinux.org/title/Map_scancodes_to_keycodes
+*** rules
+**** ZSA
+In order to flash a firmware on a ZSA keyboard using either [[Keymapp][Keymapp]] or [[Oryx][Oryx]] while on Linux, a =.rules= udev file must be created first. This file can be found here: [[udev/rules.d/50-zsa.rules][50-zsa.rules]].
+For more information about this topic, please check this page: https://github.com/zsa/wally/wiki/Linux-install
 ** KMonad
 https://github.com/kmonad/kmonad/
 Deprecated in favor of [[kanata][kanata]].
