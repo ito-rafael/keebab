@@ -23,6 +23,7 @@
   - [[#emacs-over-ssh-1][Emacs over SSH]]
   - [[#kitty][Kitty]]
   - [[#brave][Brave]]
+  - [[#cedilla][Cedilla]]
   - [[#dead-acute][Dead acute]]
   - [[#emote-navigation][Emote navigation]]
   - [[#capslock][Capslock]]
@@ -299,6 +300,17 @@ keymap:
       Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
 ** Cedilla
+*** Terminal applications
+#+begin_src conf :noweb-ref cedilla
+  - name: cedilla (terminal)
+    application:
+      only: *terminals
+    remap:
+      F13:
+        remap:
+          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+#+end_src
 *** Non-terminal applications
 #+begin_src conf :noweb-ref cedilla
   - name: cedilla
