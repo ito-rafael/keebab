@@ -109,9 +109,18 @@ Opacity (Oryx/QMK and xremap)
 |----------------+---------------------------------|
 obs: IWT = inactive-windows-transparency.py
 *** F20
-TBD (suggestion: monitor LED strip)
+Keyboard backlit and underglow LEDs
+|----------------+---------------------------|
+| binding        | description               |
+|----------------+---------------------------|
+| F20            | keyboard backlit-         |
+| ctrl+F20       | keyboard backlit+         |
+| shift+F20      | @TBD: keyboard underglow- |
+| shift+ctrl+F20 | @TBD: keyboard underglow+ |
+| meta+F20       | keyboard backlit on/off   |
+|----------------+---------------------------|
 *** F21
-TBD (suggestion: keyboard underglow)
+TBD (suggestion: monitor LED strip)
 *** F22
 TBD
 *** F23
