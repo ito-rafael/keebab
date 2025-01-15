@@ -67,7 +67,7 @@
 *** F13
 Apostrophe - single/double quotes (xremap).
 *** F14
-Microphone (Oryx/QKM and xremap)
+Microphone (Oryx/QMK and xremap)
 |------------------+-------------|
 | binding          | description |
 |------------------+-------------|
@@ -79,7 +79,7 @@ Microphone (Oryx/QKM and xremap)
 | XF86AudioMicMute | mic mute    |
 |------------------+-------------|
 *** F15
-Volume (Oryx/QKM and xremap)
+Volume (Oryx/QMK and xremap)
 |----------+-------------|
 | binding  | description |
 |----------+-------------|
@@ -97,7 +97,7 @@ Cut, copy, paste.
 | F18     | paste       |
 |---------+-------------|
 *** F19
-Opacity (Oryx/QKM and xremap)
+Opacity (Oryx/QMK and xremap)
 |----------------+---------------------------------|
 | binding        | description                     |
 |----------------+---------------------------------|
