@@ -20,57 +20,57 @@
 )
 
 (defalias
-  hm  (tap-hold-release 150 150 XX   lmet)   ;; hold meta_L
-  ha  (tap-hold-release 150 150 XX   lalt)   ;; hold alt_L
-  hc  (tap-hold-release 150 150 XX   lctl)   ;; hold ctrl_L
   hs  (tap-hold-release 150 150 XX   lsft)   ;; hold shift_L
-  hra (tap-hold-release 150 150 XX   ralt)   ;; hold alt_R
-  hsm (tap-hold-release 150 150 XX   S-lmet) ;; hold shift_L-meta_L
+  hm  (tap-hold-release $mt $mt XX   lmet)   ;; hold meta_l
+  ha  (tap-hold-release $mt $mt XX   lalt)   ;; hold alt_l
+  hc  (tap-hold-release $mt $mt XX   lctl)   ;; hold ctrl_l
+  hra (tap-hold-release $mt $mt XX   ralt)   ;; hold alt_r
+  hsm (tap-hold-release $mt $mt XX   S-lmet) ;; hold shift_l-meta_l
 )
 
 (defalias
-  s2m (tap-hold-release 150 150 spc  lmet) ;; space to meta_L
-  c2e (tap-hold-release 150 150 esc  lctl) ;; esc to ctrl_L (caps2esc)
+  s2m (tap-hold-release $mt $mt spc  lmet) ;; space to meta_L
+  c2e (tap-hold-release $mt $mt esc  lctl) ;; esc to ctrl_L (caps2esc)
 )
 
 (defalias
   ;; thumbs
-  nav (tap-hold-release 150 150 esc  (layer-toggle navigation))
-  num (tap-hold-release 150 150 ret  (layer-toggle number))
-  sym (tap-hold-release 150 150 bspc (layer-toggle symbol))
-  wm  (tap-hold-release 150 150 spc  (layer-toggle window-manager))
-  mou (tap-hold-release 150 150 tab  (layer-toggle mouse))
+  nav (tap-hold-release $mt $mt esc  (layer-toggle navigation))
+  num (tap-hold-release $mt $mt ret  (layer-toggle number))
+  sym (tap-hold-release $mt $mt bspc (layer-toggle symbol))
+  wm  (tap-hold-release $mt $mt spc  (layer-toggle window-manager))
+  mou (tap-hold-release $mt $mt tab  (layer-toggle mouse))
 
   ;; colemak-dh
-  msc (tap-hold-release 150 150 w (layer-toggle misc))
-  med (tap-hold-release 150 150 f (layer-toggle media))
-  lum (tap-hold-release 150 150 z (layer-toggle luminosity))
-  fn1 (tap-hold-release 150 150 k (layer-toggle function-keys-1))
-  fn2 (tap-hold-release 150 150 v (layer-toggle function-keys-2))
+  msc (tap-hold-release $mt $mt w (layer-toggle misc))
+  med (tap-hold-release $mt $mt f (layer-toggle media))
+  lum (tap-hold-release $mt $mt z (layer-toggle luminosity))
+  fn1 (tap-hold-release $mt $mt k (layer-toggle function-keys-1))
+  fn2 (tap-hold-release $mt $mt v (layer-toggle function-keys-2))
 
   ;; qwerty
-  qmd (tap-hold-release 150 150 e (layer-toggle media))
-  qlm (tap-hold-release 150 150 z (layer-toggle luminosity))
-  qf1 (tap-hold-release 150 150 n (layer-toggle function-keys-1))
-  qf2 (tap-hold-release 150 150 b (layer-toggle function-keys-2))
+  qmd (tap-hold-release $mt $mt e (layer-toggle media))
+  qlm (tap-hold-release $mt $mt z (layer-toggle luminosity))
+  qf1 (tap-hold-release $mt $mt n (layer-toggle function-keys-1))
+  qf2 (tap-hold-release $mt $mt b (layer-toggle function-keys-2))
 )
 
 (defalias
   ;; miryoku qwerty
-  mqa (tap-hold-release 150 150 a lmet) ;; a to meta_L
-  mqs (tap-hold-release 150 150 s lalt) ;; s to alt_L
-  mqd (tap-hold-release 150 150 d lctl) ;; d to ctrl_L
   mqf (tap-hold-release 150 150 f lsft) ;; f to shift_L
-  mqg (tap-hold-release 150 150 g ralt) ;; g to alt_R
+  mqa (tap-hold-release $mt $mt a lmet) ;; a to meta_L
+  mqs (tap-hold-release $mt $mt s lalt) ;; s to alt_L
+  mqd (tap-hold-release $mt $mt d lctl) ;; d to ctrl_L
+  mqg (tap-hold-release $mt $mt g ralt) ;; g to alt_R
 )
 
 (defalias
   ;; miryoku qwerty
-  mqh (tap-hold-release 150 150 h    ralt)   ;; h to alt_R
   mqj (tap-hold-release 150 150 j    lsft)   ;; j to shift_L
-  mqk (tap-hold-release 150 150 k    lctl)   ;; k to ctrl_R
-  mql (tap-hold-release 150 150 l    S-lmet) ;; l to shift_L-meta_L
-  mq; (tap-hold-release 150 150 f13  lmet)   ;; semicolon to meta_L
+  mqh (tap-hold-release $mt $mt h    ralt)   ;; h to alt_R
+  mqk (tap-hold-release $mt $mt k    lctl)   ;; k to ctrl_R
+  mql (tap-hold-release $mt $mt l    S-lmet) ;; l to shift_L-meta_L
+  mq; (tap-hold-release $mt $mt f13  lmet)   ;; semicolon to meta_L
 )
 
 (deflayer colemak
@@ -83,20 +83,20 @@
 
 (defalias
   ;; miryoku colemak-dh
-  mka (tap-hold-release 150 150 a lmet) ;; a to meta_L
-  mkr (tap-hold-release 150 150 r lalt) ;; r to alt_L
-  mks (tap-hold-release 150 150 s lctl) ;; s to ctrl_L
   mkt (tap-hold-release 150 150 t lsft) ;; t to shift_L
-  mkg (tap-hold-release 150 150 g ralt) ;; g to alt_R
+  mka (tap-hold-release $mt $mt a lmet) ;; a to meta_L
+  mkr (tap-hold-release $mt $mt r lalt) ;; r to alt_L
+  mks (tap-hold-release $mt $mt s lctl) ;; s to ctrl_L
+  mkg (tap-hold-release $mt $mt g ralt) ;; g to alt_R
 )
 
 (defalias
   ;; miryoku colemak-dh
-  mkm (tap-hold-release 150 150 m (layer-toggle out3))
   mkn (tap-hold-release 150 150 n lsft)   ;; n to shift_L
-  mke (tap-hold-release 150 150 e lctl)   ;; e to ctrl_R
-  mki (tap-hold-release 150 150 i (layer-toggle out2))
-  mko (tap-hold-release 150 150 o (layer-toggle out1))
+  mkm (tap-hold-release $mt $mt m (layer-toggle out3))
+  mke (tap-hold-release $mt $mt e lctl)   ;; e to ctrl_R
+  mki (tap-hold-release $mt $mt i (layer-toggle out2))
+  mko (tap-hold-release $mt $mt o (layer-toggle out1))
 )
 
 (deflayer number
@@ -108,13 +108,13 @@
 )
 
 (defalias
-  t2n (tap-hold-release 150 150 tab (layer-toggle navigation))  ;; tab to nav layer
+  t2n (tap-hold-release $mt $mt tab (layer-toggle navigation))  ;; tab to nav layer
   : S-;  ;; colon
   ~ S-grave
   ;;!!! FIX ME !!!
-  mo1 (tap-hold-release 150 150 XX (multi lctl lmet))     ;; move container to ws 0~9
-  mo2 (tap-hold-release 150 150 XX (multi lctl shft lmet))   ;; move container to ws 10~19
-  mo3 (tap-hold-release 150 150 XX (multi lctl ralt))  ;; move container to ws 20~29
+  mo1 (tap-hold-release $mt $mt XX (multi lctl lmet))     ;; move container to ws 0~9
+  mo2 (tap-hold-release $mt $mt XX (multi lctl shft lmet))   ;; move container to ws 10~19
+  mo3 (tap-hold-release $mt $mt XX (multi lctl ralt))  ;; move container to ws 20~29
   ;;!!! FIX ME !!!
 
   vp1 M-A-1  ;; connect to VPN #1: La Casa Nostra
@@ -184,7 +184,7 @@
   rcd S-A-f14   ;; OBS toggle recording
 
   ;; activate layer for OBS numbers
-  onl (tap-hold-release 150 150 XX (layer-toggle obs-num))
+  onl (tap-hold-release $mt $mt XX (layer-toggle obs-num))
   ;; activate base layer (Colemak-DH)
   clk (layer-toggle colemak)
 )
@@ -203,11 +203,11 @@
   fsc A-M-f   ;; fullscreen
   lck M-home  ;; i3/sway mode_system
 
-  e2m (tap-hold-release 150 150 ret   lmet)  ;; enter to left meta
-  res (tap-hold-release 150 150 A-M-r lalt)  ;; i3/sway resize container
-  flt (tap-hold-release 150 150 A-M-d lctl)  ;; i3/sway floating mode
   ter (tap-hold-release 150 150 A-M-t lsft)  ;; open terminal
-  spy (tap-hold-release 150 150 M-g   ralt)  ;; scratchpad YouTube Music
+  e2m (tap-hold-release $mt $mt ret   lmet)  ;; enter to left meta
+  res (tap-hold-release $mt $mt A-M-r lalt)  ;; i3/sway resize container
+  flt (tap-hold-release $mt $mt A-M-d lctl)  ;; i3/sway floating mode
+  spy (tap-hold-release $mt $mt M-g   ralt)  ;; scratchpad YouTube Music
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
   emx f16    ;; Emacs M-x --> redirected with xremap
@@ -255,8 +255,8 @@
   ps  prnt             ;; PrintScreen
   pss S-prnt           ;; Shift-PrintScreen
   key A-C-k            ;; launch screenkey
-  ren (tap-hold-release 150 150 f2 lalt) ;; rename (F2) to alt_L
-  obs (tap-hold-release 150 150 XX (layer-toggle obs))  ;; OBS recording layer
+  ren (tap-hold-release $mt $mt f2 lalt) ;; rename (F2) to alt_L
+  obs (tap-hold-release $mt $mt XX (layer-toggle obs))  ;; OBS recording layer
 )
 
 (deflayer out1
