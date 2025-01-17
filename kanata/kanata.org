@@ -67,6 +67,7 @@
 * Variables
 #+begin_src kbd
 (defvar
+  st 125  ;; shift timeout
   mt 150  ;; other modifiers timeout
 )
 #+end_src
@@ -170,10 +171,10 @@
 *** hold
 #+begin_src kbd
 (defalias
-  hs  (tap-hold-release 150 150 XX   lsft)   ;; hold shift_L
   hm  (tap-hold-release $mt $mt XX   lmet)   ;; hold meta_l
   ha  (tap-hold-release $mt $mt XX   lalt)   ;; hold alt_l
   hc  (tap-hold-release $mt $mt XX   lctl)   ;; hold ctrl_l
+  hs  (tap-hold-release $st $st XX   lsft)   ;; hold shift_l
   hra (tap-hold-release $mt $mt XX   ralt)   ;; hold alt_r
   hsm (tap-hold-release $mt $mt XX   S-lmet) ;; hold shift_l-meta_l
 )
@@ -224,10 +225,10 @@
 #+begin_src kbd
 (defalias
   ;; miryoku qwerty
-  mqf (tap-hold-release 150 150 f lsft) ;; f to shift_L
   mqa (tap-hold-release $mt $mt a lmet) ;; a to meta_L
   mqs (tap-hold-release $mt $mt s lalt) ;; s to alt_L
   mqd (tap-hold-release $mt $mt d lctl) ;; d to ctrl_L
+  mqf (tap-hold-release $st $st f lsft) ;; f to shift_L
   mqg (tap-hold-release $mt $mt g ralt) ;; g to alt_R
 )
 #+end_src
@@ -235,8 +236,8 @@
 #+begin_src kbd
 (defalias
   ;; miryoku qwerty
-  mqj (tap-hold-release 150 150 j    lsft)   ;; j to shift_L
   mqh (tap-hold-release $mt $mt h    ralt)   ;; h to alt_R
+  mqj (tap-hold-release $st $st j    lsft)   ;; j to shift_L
   mqk (tap-hold-release $mt $mt k    lctl)   ;; k to ctrl_R
   mql (tap-hold-release $mt $mt l    S-lmet) ;; l to shift_L-meta_L
   mq; (tap-hold-release $mt $mt f13  lmet)   ;; semicolon to meta_L
@@ -257,10 +258,10 @@
 #+begin_src kbd
 (defalias
   ;; miryoku colemak-dh
-  mkt (tap-hold-release 150 150 t lsft) ;; t to shift_L
   mka (tap-hold-release $mt $mt a lmet) ;; a to meta_L
   mkr (tap-hold-release $mt $mt r lalt) ;; r to alt_L
   mks (tap-hold-release $mt $mt s lctl) ;; s to ctrl_L
+  mkt (tap-hold-release $st $st t lsft) ;; t to shift_L
   mkg (tap-hold-release $mt $mt g ralt) ;; g to alt_R
 )
 #+end_src
@@ -268,8 +269,8 @@
 #+begin_src kbd
 (defalias
   ;; miryoku colemak-dh
-  mkn (tap-hold-release 150 150 n lsft)   ;; n to shift_L
   mkm (tap-hold-release $mt $mt m (layer-toggle out3))
+  mkn (tap-hold-release $st $st n lsft)   ;; n to shift_L
   mke (tap-hold-release $mt $mt e lctl)   ;; e to ctrl_R
   mki (tap-hold-release $mt $mt i (layer-toggle out2))
   mko (tap-hold-release $mt $mt o (layer-toggle out1))
@@ -399,10 +400,10 @@
   fsc A-M-f   ;; fullscreen
   lck M-home  ;; i3/sway mode_system
 
-  ter (tap-hold-release 150 150 A-M-t lsft)  ;; open terminal
   e2m (tap-hold-release $mt $mt ret   lmet)  ;; enter to left meta
   res (tap-hold-release $mt $mt A-M-r lalt)  ;; i3/sway resize container
   flt (tap-hold-release $mt $mt A-M-d lctl)  ;; i3/sway floating mode
+  ter (tap-hold-release $mt $mt A-M-t lsft)  ;; open terminal
   spy (tap-hold-release $mt $mt M-g   ralt)  ;; scratchpad YouTube Music
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
