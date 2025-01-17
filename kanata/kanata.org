@@ -548,7 +548,7 @@
 #+begin_src kbd
 (deflayer media
   XX   XX   XX   f2   XX        @mm  XX   @mdc @muc XX        _  _  _
-  @hm  @ha  @hc  @hs  @hra      @pp  @sp  @vdc @vuc @sn       _  _  _
+  @hpp @hsp @hc  @hsn @hra      @pp  @sp  @vdc @vuc @sn       _  _  _
   XX   XX   XX   XX   XX        @vm  XX   @vdf @vuf XX        _  _  _
             _    _    _         _    XX   XX                  _  _  _
                                                               _  _  _
@@ -572,6 +572,11 @@
   sp  prev     ;; song previous
   sn  next     ;; song next
   pp  pp       ;; song play/pause
+
+  ;; one-hand media ctl
+  hpp (tap-hold-release $mt $mt pp lalt)    ;; hold for mod / song play/pause
+  hsp (tap-hold-release $mt $mt prev lmet)  ;; hold for mod / song previous
+  hsn (tap-hold-release $mt $mt next lalt)  ;; hold for mod / song next
 )
 #+end_src
 ** luminosity :noexport_1:
