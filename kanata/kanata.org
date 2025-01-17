@@ -307,9 +307,9 @@
 ** symbol :noexport_1:
 #+begin_src kbd
 (deflayer symbol
-  {    @$   @%   @^   }         @emo {    vold volu }         _  _  _
   ;    @!   @@   @#   @_        @hra @hs  @hc  @hsm @hm       _  _  _
   grv  @&   @*   @lp  \         spc  left down up   rght      _  _  _
+  @{   @$   @%   @^   @}        @emo {    vold volu }         _  _  _
             _    @rp  @|        _    XX   XX                  _  _  _
                                                               _  _  _
 )
@@ -330,6 +330,8 @@
   rp  S-0    ;; right parenthesis
 
   ;; misc
+  {  S-[     ;; left  curly bracket
+  }  S-]     ;; right curly bracket
   _   S--    ;; underscore
   |   S-\    ;; vertical bar
   emo A-C-e  ;; launch Emote emoji picker
