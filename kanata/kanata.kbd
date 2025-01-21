@@ -259,7 +259,7 @@
 )
 
 (deflayer navigation
-  XX   XX   XX   f2   XX        @cw  @ps  home end  XX        _  _  _
+  XX   XX   XX   XX   XX        @cw  @ps  home end  XX        _  _  _
   @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
   XX   x    XX   @obs XX        @key @pss pgdn pgup XX        _  _  _
             _    _    _         _    _    del                 _  _  _
@@ -338,7 +338,7 @@
 )
 
 (deflayer media
-  XX   XX   XX   f2   XX        @mm  XX   @mdc @muc XX        _  _  _
+  XX   XX   XX   XX   XX        @mm  XX   @mdc @muc XX        _  _  _
   @hpp @hsp @hc  @hsn @hra      @pp  @sp  @vdc @vuc @sn       _  _  _
   XX   XX   XX   XX   XX        @vm  XX   @vdf @vuf XX        _  _  _
             _    _    _         _    XX   XX                  _  _  _
@@ -369,8 +369,8 @@
 )
 
 (deflayer luminosity
-  XX   XX   XX   f2   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
             _    _    _         _    XX   XX                  _  _  _
+  XX   XX   XX   XX   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
   @hm  @ha  @hbd @hbu @hra      @goo @gmd @bnd @bnu @gmu      _  _  _
   XX   XX   XX   XX   XX        @ooo @opd @bld @blu @opu      _  _  _
                                                               _  _  _
