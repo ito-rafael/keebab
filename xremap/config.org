@@ -27,6 +27,7 @@
   - [[#dead-acute][Dead acute]]
   - [[#emote-navigation][Emote navigation]]
   - [[#capslock][Capslock]]
+  - [[#system-control][System control]]
   - [[#scratchpad-navigation][Scratchpad navigation]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#pdfpc][pdfpc]]
@@ -473,6 +474,17 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
     remap:
       CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
 #+end_src
+** System control
+*** Media
+#+begin_src conf :noweb-ref control
+  - name: media control
+    remap:
+      F15-esc:       { launch: ["bash", "-c", "amixer -q sset Master 0%"] }
+      F15-space:     { launch: ["bash", "-c", "amixer -q sset Master 25%"] }
+      F15-tab:       { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+      F15-enter:     { launch: ["bash", "-c", "amixer -q sset Master 75%"] }
+      F15-backspace: { launch: ["bash", "-c", "amixer -q sset Master 100%"] }
+#+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
 #+begin_src python :var ipc_cmd="swaymsg" :results output
@@ -629,6 +641,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 
 <<emote>>
 
+<<control>>
+
 <<scratchpad-navigation(ipc_cmd="i3-msg")>>
 <<macros-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
 <<macros(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
@@ -667,6 +681,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<emote-sway>>
 
 <<capslock>>
+
+<<control>>
 
 <<scratchpad-navigation(ipc_cmd="swaymsg")>>
 <<macros-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
