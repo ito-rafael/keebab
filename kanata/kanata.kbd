@@ -341,7 +341,7 @@
   XX   XX   XX   XX   XX        @mm  XX   @mdc @muc XX        _  _  _
   @hpp @hsp @hc  @hsn @hra      @pp  @sp  @vdc @vuc @sn       _  _  _
   XX   XX   XX   XX   XX        @vm  XX   @vdf @vuf XX        _  _  _
-            _    _    _         _    XX   XX                  _  _  _
+            @v00 @v25 @v50      _    @v75 @v99                _  _  _
                                                               _  _  _
 )
 
@@ -366,6 +366,13 @@
   hpp (tap-hold-release $mt $mt pp lalt)    ;; hold for mod / song play/pause
   hsp (tap-hold-release $mt $mt prev lmet)  ;; hold for mod / song previous
   hsn (tap-hold-release $mt $mt next lalt)  ;; hold for mod / song next
+
+  ;; set volume to specific values
+  v00 (multi f15 esc  reverse-release-order)  ;; set volume to 0 %
+  v25 (multi f15 spc  reverse-release-order)  ;; set volume to 25 %
+  v50 (multi f15 tab  reverse-release-order)  ;; set volume to 50 %
+  v75 (multi f15 ret  reverse-release-order)  ;; set volume to 75 %
+  v99 (multi f15 bspc reverse-release-order)  ;; set volume to 100 %
 )
 
 (deflayer luminosity
