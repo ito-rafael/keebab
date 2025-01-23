@@ -165,11 +165,16 @@ TBD
 | Alt_R + i | macro       | id          |
 |-----------+-------------+-------------|
 * Modifiers
-Used for i3wm
-#+begin_src conf :noweb-ref modifiers
+*** i3wm
+#+begin_src conf :noweb-ref i3-modifiers
 virtual_modifiers:
   - Henkan
   - Muhenkan
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-modifiers
+virtual_modifiers:
+  - F15
 #+end_src
 * Shared
 #+begin_src conf :noweb-ref shared
@@ -613,7 +618,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
-<<modifiers>>
+<<i3-modifiers>>
 
 <<shared>>
 
@@ -653,6 +658,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
+<<sway-modifiers>>
+
 <<shared>>
 
 <<keymap>>

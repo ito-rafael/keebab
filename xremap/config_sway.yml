@@ -1,3 +1,6 @@
+virtual_modifiers:
+  - F15
+
 shared:
   terminals: &terminals
     - kitty
