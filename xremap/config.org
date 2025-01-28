@@ -17,13 +17,14 @@
   - [[#terminals][Terminals]]
   - [[#scratchpads][Scratchpads]]
   - [[#emacs-over-ssh][Emacs over SSH]]
+  - [[#cedilla][Cedilla]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs-inhabitant][Emacs inhabitant]]
   - [[#emacs-over-ssh-1][Emacs over SSH]]
   - [[#kitty][Kitty]]
   - [[#brave][Brave]]
-  - [[#cedilla][Cedilla]]
+  - [[#cedilla-1][Cedilla]]
   - [[#dead-acute][Dead acute]]
   - [[#emote-navigation][Emote navigation]]
   - [[#capslock][Capslock]]
@@ -205,6 +206,12 @@ shared:
     - "/.*: ecd/"
     - "/.*: ec/"
 #+end_src
+** Cedilla
+#+begin_src conf :noweb-ref shared
+  cedilla: &cedilla
+    - chromium
+    - "/brave.*/"
+#+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
 keymap:
@@ -318,7 +325,7 @@ keymap:
 #+begin_src conf :noweb-ref cedilla
   - name: cedilla
     application:
-      only: "/brave.*/"
+      only: *cedilla
     remap:
       F13:
         remap:
