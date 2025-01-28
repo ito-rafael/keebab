@@ -315,28 +315,15 @@ keymap:
       Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
 ** Cedilla
-*** Terminal applications
 #+begin_src conf :noweb-ref cedilla
-  - name: cedilla (terminal)
+  - name: cedilla
     application:
-      only: *terminals
+      only: "/brave.*/"
     remap:
       F13:
         remap:
           c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
           Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-#+end_src
-*** Non-terminal applications
-#+begin_src conf :noweb-ref cedilla
-  - name: cedilla
-    exact_match: true
-    application:
-      not: *terminals
-    remap:
-      F13:
-        remap:
-          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
 #+end_src
 ** Dead acute
 :PROPERTIES:
@@ -363,8 +350,8 @@ keymap:
 **** Cedilla
 #+begin_src conf :noweb-ref dead-acute
           # cedilla
-          #c: [APOSTROPHE, c]
-          #Shift-c: [APOSTROPHE, Shift-c]
+          c: [APOSTROPHE, c]
+          Shift-c: [APOSTROPHE, Shift-c]
 #+end_src
 **** Vowel lowercase
 #+begin_src conf :noweb-ref dead-acute
