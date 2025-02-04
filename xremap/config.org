@@ -231,7 +231,7 @@ keymap:
 #+begin_src conf :noweb-ref cpc-default
   - name: copy/paste/cut - general
     application:
-      not: [Emacs, "/emacs.*/"]
+      not: [Emacs, "/emacs.*/", libreoffice-calc]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c
@@ -609,6 +609,19 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       KEY_ESC: KEY_UP
       #KEY_TAB:
 #+end_src
+** LibreOffice
+#+begin_src conf :noweb-ref libreoffice
+  - name: LibreOffice custom bindings
+    application:
+      only: libreoffice-calc
+    remap:
+#+end_src
+*** Copy/paste/cut
+#+begin_src conf :noweb-ref libreoffice
+      F16: Ctrl-x        # cut
+      F17: Ctrl-Shift-c  # copy
+      F18: Ctrl-v        # paste
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
@@ -649,6 +662,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<currency-superscript(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
 
 #<<pdfpc>>
+
+<<libreoffice>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
@@ -692,5 +707,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<currency-superscript(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
 
 #<<pdfpc>>
+
+<<libreoffice>>
 #+end_src
 #+end_src
