@@ -178,18 +178,18 @@ virtual_modifiers:
   - F15
 #+end_src
 * Shared
-#+begin_src conf :noweb-ref shared
+#+begin_src conf :noweb-ref shared-common
 shared:
 #+end_src
 ** Terminals
-#+begin_src conf :noweb-ref shared
+#+begin_src conf :noweb-ref shared-common
   terminals: &terminals
     - kitty
     - dropdown_terminal
     - dropdown_python
 #+end_src
 ** Scratchpads
-#+begin_src conf :noweb-ref shared
+#+begin_src conf :noweb-ref shared-common
   scratchpads: &scratchpads
     - dropdown_terminal
     - dropdown_python
@@ -199,7 +199,7 @@ shared:
     - keymapp
 #+end_src
 ** Emacs over SSH
-#+begin_src conf :noweb-ref shared
+#+begin_src conf :noweb-ref shared-common
   emacs-ssh: &emacs-ssh
     - "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
     - "/.*: emacsclient -c.* -a .*emacs.*/"
@@ -207,10 +207,11 @@ shared:
     - "/.*: ec/"
 #+end_src
 ** Cedilla
-#+begin_src conf :noweb-ref shared
+Obs.: Sway only
+#+begin_src conf :noweb-ref shared-sway
   cedilla: &cedilla
-    - chromium
     - "/brave.*/"
+    - chromium
 #+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
@@ -627,7 +628,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 #+begin_src conf :noweb yes :tangle config_i3.yml
 <<i3-modifiers>>
 
-<<shared>>
+<<shared-common>>
 
 <<keymap>>
 
@@ -647,7 +648,6 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 
 <<surfingkeys>>
 
-<<cedilla>>
 <<dead-acute>>
 <<dead-acute-i3sway(wm="i,3")>>
 
@@ -669,7 +669,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
 <<sway-modifiers>>
 
-<<shared>>
+<<shared-common>>
+<<shared-sway>>
 
 <<keymap>>
 

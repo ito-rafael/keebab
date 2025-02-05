@@ -92,23 +92,6 @@ keymap:
       Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
 
-  - name: cedilla (terminal)
-    application:
-      only: *terminals
-    remap:
-      F13:
-        remap:
-          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-  - name: cedilla
-    exact_match: true
-    application:
-      not: *terminals
-    remap:
-      F13:
-        remap:
-          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
   - name: forward char / dead_acute
     exact_match: true
     application:
@@ -120,8 +103,8 @@ keymap:
           F13: [APOSTROPHE, SPACE]
           space: [APOSTROPHE, SPACE]
           # cedilla
-          #c: [APOSTROPHE, c]
-          #Shift-c: [APOSTROPHE, Shift-c]
+          c: [APOSTROPHE, c]
+          Shift-c: [APOSTROPHE, Shift-c]
           # lowercase vowels
           a: [APOSTROPHE, a]
           e: [APOSTROPHE, e]
