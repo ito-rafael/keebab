@@ -83,6 +83,13 @@ keymap:
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
 
+  - name: Prev tab
+    exact_match: true
+    application:
+      only: *browsers
+    remap:
+      Ctrl-space: Shift-Ctrl-Tab
+
   - name: Prev/Next tab
     exact_match: true
     application:

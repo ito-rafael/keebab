@@ -317,6 +317,16 @@ keymap:
       Ctrl-Shift-Backspace: Ctrl-Delete
 #+end_src
 ** Browser
+*** All
+**** Previous tab
+#+begin_src conf :noweb-ref browsers
+  - name: Prev tab
+    exact_match: true
+    application:
+      only: *browsers
+    remap:
+      Ctrl-space: Shift-Ctrl-Tab
+#+end_src
 *** Brave
 **** Tab navigation with on forbidden pages (Surfingkeys)
 #+begin_src conf :noweb-ref surfingkeys
