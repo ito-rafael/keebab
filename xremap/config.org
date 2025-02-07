@@ -35,36 +35,38 @@
 
 * Information
 ** Table
-|----------------+------------------+---------+---------------------+---------------|
-| Key name       | Xmodmap          | keycode | input-event-codes.h | used for      |
-|----------------+------------------+---------+---------------------+---------------|
-| left shift     | Shift_L          |      42 | KEY_LEFTSHIFT       | shift (xkb)   |
-| right shift    | Shift_R          |      54 | KEY_RIGHTSHIFT      | shift (xkb)   |
-|----------------+------------------+---------+---------------------+---------------|
-| left ctrl      | Control_L        |      29 | KEY_LEFTCTRL        | control (xkb) |
-| right ctrl     | Control_R        |      97 | KEY_RIGHTCTRL       | control (xkb) |
-|----------------+------------------+---------+---------------------+---------------|
-| left alt       | Alt_L            |      56 | KEY_LEFTALT         | mod1 (xkb)    |
-| right alt      | ISO_Level3_Shift |     100 | KEY_RIGHTALT        | mod5 (xkb)    |
-|----------------+------------------+---------+---------------------+---------------|
-| win/super/meta | Super_L          |     125 | KEY_LEFTMETA        | mod4 (xkb)    |
-| ???            | Super_R          |     126 | KEY_RIGHTMETA       | mod4 (xkb)    |
-|----------------+------------------+---------+---------------------+---------------|
-| ???            | Hyper_L          |         | ?????               | ?????         |
-|----------------+------------------+---------+---------------------+---------------|
-| F13            | XF86Tools        |     183 | KEY_F13             | apostrophe    |
-| F14            | XF86Launch5      |     184 | KEY_F14             | microphone    |
-| F15            | XF86Launch6      |     185 | KEY_F15             | volume        |
-| F16            | XF86Launch7      |     186 | KEY_F16             | cut           |
-| F17            | XF86Launch8      |     187 | KEY_F17             | copy          |
-| F18            | XF86Launch9      |     188 | KEY_F18             | paste         |
-| F19            | -----            |     189 | KEY_F19             | opacity       |
-| F20            | -----            |     190 | KEY_F20             |               |
-| F21            | -----            |     191 | KEY_F21             |               |
-| F22            | -----            |     192 | KEY_F22             |               |
-| F23            | -----            |     193 | KEY_F23             |               |
-| F24            | -----            |     194 | KEY_F24             |               |
-|----------------+------------------+---------+---------------------+---------------|
+|----------------+------------------+---------+---------------------+---------------------|
+| Key name       | Xmodmap          | keycode | input-event-codes.h | used for            |
+|----------------+------------------+---------+---------------------+---------------------|
+| left shift     | Shift_L          |      42 | KEY_LEFTSHIFT       | shift (xkb)         |
+| right shift    | Shift_R          |      54 | KEY_RIGHTSHIFT      | shift (xkb)         |
+|----------------+------------------+---------+---------------------+---------------------|
+| left ctrl      | Control_L        |      29 | KEY_LEFTCTRL        | control (xkb)       |
+| right ctrl     | Control_R        |      97 | KEY_RIGHTCTRL       | control (xkb)       |
+|----------------+------------------+---------+---------------------+---------------------|
+| left alt       | Alt_L            |      56 | KEY_LEFTALT         | mod1 (xkb)          |
+| right alt      | ISO_Level3_Shift |     100 | KEY_RIGHTALT        | mod5 (xkb)          |
+|----------------+------------------+---------+---------------------+---------------------|
+| win/super/meta | Super_L          |     125 | KEY_LEFTMETA        | mod4 (xkb)          |
+| ???            | Super_R          |     126 | KEY_RIGHTMETA       | mod4 (xkb)          |
+|----------------+------------------+---------+---------------------+---------------------|
+| ???            | Hyper_L          |         | ?????               | ?????               |
+|----------------+------------------+---------+---------------------+---------------------|
+| F13            | XF86Tools        |     183 | KEY_F13             | apostrophe          |
+| F14            | XF86Launch5      |     184 | KEY_F14             | microphone          |
+| F15            | XF86Launch6      |     185 | KEY_F15             | volume              |
+| F16            | XF86Launch7      |     186 | KEY_F16             | cut                 |
+| F17            | XF86Launch8      |     187 | KEY_F17             | copy                |
+| F18            | XF86Launch9      |     188 | KEY_F18             | paste               |
+| F19            | -----            |     189 | KEY_F19             | opacity             |
+| F20            | -----            |     190 | KEY_F20             | backlit & underglow |
+| F21            | -----            |     191 | KEY_F21             |                     |
+| F22            | -----            |     192 | KEY_F22             |                     |
+| F23            | -----            |     193 | KEY_F23             |                     |
+| F24            | -----            |     194 | KEY_F24             |                     |
+|----------------+------------------+---------+---------------------+---------------------|
+| Power button   | XF86PowerOff     |     124 | KEY_POWER           | i3/sway mode_system |
+|----------------+------------------+---------+---------------------+---------------------|
 ** Fn keys
 *** F13
 Apostrophe - single/double quotes (xremap).
