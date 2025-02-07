@@ -18,6 +18,10 @@ shared:
     - "/.*: emacsclient -c.* -a .*emacs.*/"
     - "/.*: ecd/"
     - "/.*: ec/"
+  browsers: &browsers
+    - "/brave.*/"
+    - "/firefox.*/"
+    - chromium
   cedilla: &cedilla
     - "/brave.*/"
     - chromium

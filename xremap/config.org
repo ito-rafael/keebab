@@ -17,6 +17,7 @@
   - [[#terminals][Terminals]]
   - [[#scratchpads][Scratchpads]]
   - [[#emacs-over-ssh][Emacs over SSH]]
+  - [[#browsers][Browsers]]
   - [[#cedilla][Cedilla]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
@@ -208,6 +209,13 @@ shared:
     - "/.*: ecd/"
     - "/.*: ec/"
 #+end_src
+** Browsers
+#+begin_src conf :noweb-ref shared-common
+  browsers: &browsers
+    - "/brave.*/"
+    - "/firefox.*/"
+    - chromium
+#+end_src
 ** Cedilla
 Obs.: Sway only
 #+begin_src conf :noweb-ref shared-sway
@@ -308,8 +316,9 @@ keymap:
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
 #+end_src
-** Brave
-*** Tab navigation with on forbidden pages (Surfingkeys)
+** Browser
+*** Brave
+**** Tab navigation with on forbidden pages (Surfingkeys)
 #+begin_src conf :noweb-ref surfingkeys
   - name: Prev/Next tab
     exact_match: true
