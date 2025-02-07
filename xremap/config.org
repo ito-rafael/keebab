@@ -24,7 +24,7 @@
   - [[#emacs-inhabitant][Emacs inhabitant]]
   - [[#emacs-over-ssh-1][Emacs over SSH]]
   - [[#kitty][Kitty]]
-  - [[#brave][Brave]]
+  - [[#browser][Browser]]
   - [[#cedilla-1][Cedilla]]
   - [[#dead-acute][Dead acute]]
   - [[#emote-navigation][Emote navigation]]
@@ -667,6 +667,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 
 <<kitty>>
 
+<<browsers>>
+
 <<surfingkeys>>
 
 <<dead-acute>>
@@ -708,6 +710,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<emacs-ssh>>
 
 <<kitty>>
+
+<<browsers>>
 
 <<surfingkeys>>
 
