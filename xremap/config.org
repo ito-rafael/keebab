@@ -33,6 +33,7 @@
   - [[#scratchpad-navigation][Scratchpad navigation]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#pdfpc][pdfpc]]
+  - [[#libreoffice][LibreOffice]]
 
 * Information
 ** Table
@@ -637,6 +638,13 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
     application:
       only: libreoffice-calc
     remap:
+#+end_src
+*** Navigation
+#+begin_src conf :noweb-ref libreoffice
+      Ctrl-n: left       # navigation
+      Ctrl-e: down       # navigation
+      Ctrl-i: up         # navigation
+      Ctrl-o: right      # navigation
 #+end_src
 *** Copy/paste/cut
 #+begin_src conf :noweb-ref libreoffice

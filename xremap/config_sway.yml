@@ -40,7 +40,7 @@ keymap:
 
   - name: copy/paste/cut - general
     application:
-      not: [Emacs, "/emacs.*/"]
+      not: [Emacs, "/emacs.*/", libreoffice-calc]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c
@@ -293,3 +293,16 @@ keymap:
 #      KEY_SPACE: KEY_DOWN
 #      KEY_ESC: KEY_UP
 #      #KEY_TAB:
+
+  - name: LibreOffice custom bindings
+    application:
+      only: libreoffice-calc
+    remap:
+      Ctrl-n: left       # navigation
+      Ctrl-e: down       # navigation
+      Ctrl-i: up         # navigation
+      Ctrl-o: right      # navigation
+      F16: Ctrl-x        # cut
+      F17: Ctrl-Shift-c  # copy
+      F18: Ctrl-v        # paste
+      Alt-o: Ctrl-o      # open file
