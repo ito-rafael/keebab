@@ -672,7 +672,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<surfingkeys>>
 
 <<dead-acute>>
-<<dead-acute-i3sway(wm="i,3")>>
+<<dead-acute-i3sway(wm="i,\"3\"")>>
 
 <<emote>>
 
