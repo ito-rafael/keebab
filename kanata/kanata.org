@@ -47,7 +47,7 @@
 #+end_src
 ** Output
 #+begin_src kbd
-  ;;output (uinput-sink "KMonad INKL output")
+  ;;output (uinput-sink "kanata INKL output")
 #+end_src
 ** Other settings
 - process-unmapped-keys: if yes, process keys not defined in =defsrc=

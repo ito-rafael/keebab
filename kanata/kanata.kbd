@@ -2,7 +2,7 @@
 
   linux-dev "/dev/input/by-path/platform-i8042-serio-0-event"
 
-  ;;output (uinput-sink "KMonad INKL output")
+  ;;output (uinput-sink "kanata INKL output")
 
   process-unmapped-keys yes
   danger-enable-cmd yes
