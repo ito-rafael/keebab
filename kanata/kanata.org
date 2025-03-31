@@ -54,11 +54,13 @@
 - danger-enable-cmd: enable command-execution
 - linux-output-device-bus-type: bus type for output device
 - log-layer-changes: enable/disable layer changes logging
+- movemouse-inherit-accel-state: use same mouse acceleration for vertical/horizontal (like in QMK)
 #+begin_src kbd
   process-unmapped-keys yes
   danger-enable-cmd yes
   linux-output-device-bus-type USB
   log-layer-changes no
+  ;;movemouse-inherit-accel-state yes
 #+end_src
 ** EoS
 #+begin_src kbd
