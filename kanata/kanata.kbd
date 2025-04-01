@@ -436,13 +436,18 @@
 
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
-  @hm  @ha  @hc  @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
+  @hm  @ha  @mft @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
   XX   XX   XX   XX   XX        XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
 )
 
 (defalias
+  ;; mouse movement fine
+  ;;   the position under "ctrl" was chosen to avoid key ghosting (common on
+  ;;   laptops) that happens if "shift" is used instead.
+  mft (movemouse-speed 15)
+
   ;; cursor navigation
   mcl (movemouse-accel-left  5 1000 1 15) ;; mouse cursor left
   mcd (movemouse-accel-down  5 1000 1 15) ;; mouse cursor down
@@ -458,8 +463,8 @@
   ;; mouse clicks
   ;; obs:
   ;;   the "mbl" is duplicated to avoid key ghosting when holding
-  ;;   mlft and moving the cursor with movemouse-accel-* (neio keys)
-  ;;     --> this is a chronicle problem with laptops
+  ;;   mlft and moving the cursor with movemouse-accel-* (neio keys).
+  ;;     --> this is a chronicle problem with laptops.
   mbl mlft  ;; left button click   (button1)
   mbm mmid  ;; middle button click (button2)
   mbr mrgt  ;; right button click  (button3)
