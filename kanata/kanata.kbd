@@ -260,9 +260,9 @@
 )
 
 (deflayer navigation
-  XX   XX   XX   XX   XX        @cw  @ps  home end  XX        _  _  _
-  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
-  XX   x    XX   @obs XX        @key @pss pgdn pgup XX        _  _  _
+  XX   4    5    6    XX        @cw  @ps  home end  XX        _  _  _
+  @ren @hn1 @hn2 @hn3 @hra      caps left down up   rght      _  _  _
+  @obs 7    8    9    0         @key @pss pgdn pgup XX        _  _  _
             _    _    _         _    _    del                 _  _  _
                                                               _  _  _
 )
@@ -272,8 +272,13 @@
   ps  prnt             ;; PrintScreen
   pss S-prnt           ;; Shift-PrintScreen
   key A-C-k            ;; launch screenkey
-  ren (tap-hold-release $mt $mt f2 lalt) ;; rename (F2) to alt_L
+  ren (tap-hold-release $mt $mt f2 lmet) ;; rename (F2) to meta_l
   obs (tap-hold-release $mt $mt XX (layer-toggle obs))  ;; OBS recording layer
+
+  ;; one-hand numbers
+  hn1  (tap-hold-release $mt $mt 1 lalt)  ;; hold for mod / tap for number 1
+  hn2  (tap-hold-release $mt $mt 2 lctl)  ;; hold for mod / tap for number 2
+  hn3  (tap-hold-release $mt $mt 3 lsft)  ;; hold for mod / tap for number 3
 )
 
 (deflayer out1
