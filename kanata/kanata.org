@@ -566,9 +566,9 @@
 (defalias
   vdc vold     ;; volume down (coarse)
   vuc volu     ;; volume up (coarse)
-  vdf f15      ;; volume down (fine)
-  vuf C-f15    ;; volume up (fine)
   vm  mute     ;; mute volume
+  vdf (multi f15 , reverse-release-order)  ;; volume down (fine)
+  vuf (multi f15 . reverse-release-order)  ;; volume up (fine)
 
   mdc f14      ;; microphone down (coarse)
   muc C-f14    ;; microphone up (coarse)
