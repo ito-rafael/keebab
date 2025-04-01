@@ -419,9 +419,9 @@
   blt (multi f19 d reverse-release-order)  ;; backlit toggle (on/off)
 
   ;; opacity
-  opd f19    ;; opacity down
-  opu C-f19  ;; opacity up
-  ooo M-f19  ;; opacity on/off
+  opd (multi f19 h reverse-release-order)  ;; opacity down
+  opu (multi f19 / reverse-release-order)  ;; opacity up
+  ooo (multi f19 k reverse-release-order)  ;; opacity on/off
 
   ;; one-hand brightness ctl
   hbd (tap-hold-release $mt $mt brdn lsft)  ;; hold for mod / brightness down
