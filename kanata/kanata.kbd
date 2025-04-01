@@ -450,10 +450,10 @@
   mcr (movemouse-accel-right 5 1000 1 15) ;; mouse cursor right
 
   ;; mouse wheel
-  mwu kp1  ;; mouse wheel up    (button4)
-  mwd kp3  ;; mouse wheel down  (button5)
-  mwr kp5  ;; mouse wheel right (button6)
-  mwl kp7  ;; mouse wheel left  (button7)
+  mwu (mwheel-up    50 120)  ;; mouse wheel up    (button4)
+  mwd (mwheel-down  50 120)  ;; mouse wheel down  (button5)
+  mwr (mwheel-right 50 120)  ;; mouse wheel right (button6)
+  mwl (mwheel-left  50 120)  ;; mouse wheel left  (button7)
 
   ;; mouse clicks
   mbl kp/  ;; left button click   (button1)
