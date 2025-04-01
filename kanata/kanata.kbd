@@ -369,9 +369,9 @@
   pp  pp       ;; song play/pause
 
   ;; one-hand media ctl
-  hpp (tap-hold-release $mt $mt pp lalt)    ;; hold for mod / song play/pause
-  hsp (tap-hold-release $mt $mt prev lmet)  ;; hold for mod / song previous
-  hsn (tap-hold-release $mt $mt next lalt)  ;; hold for mod / song next
+  hpp (tap-hold-release $mt $mt pp lmet)    ;; hold for mod / song play/pause
+  hsp (tap-hold-release $mt $mt prev lalt)  ;; hold for mod / song previous
+  hsn (tap-hold-release $mt $mt next lsft)  ;; hold for mod / song next
 
   ;; set volume to specific values
   v00 (multi f15 esc  reverse-release-order)  ;; set volume to 0 %
