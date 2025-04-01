@@ -570,11 +570,11 @@
   vdf (multi f15 , reverse-release-order)  ;; volume down (fine)
   vuf (multi f15 . reverse-release-order)  ;; volume up (fine)
 
-  mdc f14      ;; microphone down (coarse)
-  muc C-f14    ;; microphone up (coarse)
-  mdf S-f14    ;; microphone down (fine)
-  muf C-S-f14  ;; microphone up (fine)
-  mm  M-S-f14  ;; mute microphone
+  mdc (multi f15 u   reverse-release-order)  ;; microphone down (coarse)
+  muc (multi f15 y   reverse-release-order)  ;; microphone up (coarse)
+  mdf (multi S-f15 u reverse-release-order)  ;; microphone down (fine)
+  muf (multi S-f15 y reverse-release-order)  ;; microphone up (fine)
+  mm  (multi f15 j   reverse-release-order)  ;; mute microphone
 
   sp  prev     ;; song previous
   sn  next     ;; song next
