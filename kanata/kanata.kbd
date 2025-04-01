@@ -382,10 +382,10 @@
 )
 
 (deflayer luminosity
-            _    _    _         _    XX   XX                  _  _  _
   XX   XX   XX   XX   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
   @hm  @ha  @hbd @hbu @hra      @goo @gmd @bnd @bnu @gmu      _  _  _
   XX   XX   XX   XX   XX        @ooo @opd @bld @blu @opu      _  _  _
+            @b00 @b25 @b50      _    @b75 @b99                _  _  _
                                                               _  _  _
 )
 
@@ -425,6 +425,13 @@
   ;; one-hand brightness ctl
   hbd (tap-hold-release $mt $mt brdn lsft)  ;; hold for mod / brightness down
   hbu (tap-hold-release $mt $mt brup lctl)  ;; hold for mod / brightness down
+
+  ;; set brightness to specific values
+  b00 (multi f19 esc  reverse-release-order)  ;; set brightness to 0 %
+  b25 (multi f19 spc  reverse-release-order)  ;; set brightness to 25 %
+  b50 (multi f19 tab  reverse-release-order)  ;; set brightness to 50 %
+  b75 (multi f19 ret  reverse-release-order)  ;; set brightness to 75 %
+  b99 (multi f19 bspc reverse-release-order)  ;; set brightness to 100 %
 )
 
 (deflayer mouse
