@@ -344,7 +344,7 @@
 )
 
 (deflayer media
-  XX   XX   XX   XX   XX        @mm  XX   @mdc @muc XX        _  _  _
+  XX   @vdc XX   @vuc XX        @mm  XX   @mdc @muc XX        _  _  _
   @hpp @hsp @hc  @hsn @hra      @pp  @sp  @vdc @vuc @sn       _  _  _
   XX   XX   XX   XX   XX        @vm  XX   @vdf @vuf XX        _  _  _
             @v00 @v25 @v50      _    @v75 @v99                _  _  _
