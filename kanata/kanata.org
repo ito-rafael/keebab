@@ -656,7 +656,7 @@
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
   @hm  @ha  @hc  @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
   XX   XX   XX   XX   XX        XX   @mwl @mwd @mwu @mwr      _  _  _
-            _    _    XX        _    @mbl @mbr                _  _  _
+            _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
 )
 #+end_src
@@ -676,6 +676,10 @@
   mwl (mwheel-left  50 120)  ;; mouse wheel left  (button7)
 
   ;; mouse clicks
+  ;; obs:
+  ;;   the "mbl" is duplicated to avoid key ghosting when holding
+  ;;   mlft and moving the cursor with movemouse-accel-* (neio keys)
+  ;;     --> this is a chronicle problem with laptops
   mbl mlft  ;; left button click   (button1)
   mbm mmid  ;; middle button click (button2)
   mbr mrgt  ;; right button click  (button3)
