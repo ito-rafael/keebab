@@ -130,7 +130,7 @@
 )
 
 (deflayer symbol
-  @{   @$   @%   @^   @}        @emo {    vold volu }         _  _  _
+  @{   @$   @%   @^   @}        @emo @{   vold volu @}        _  _  _
   ;    @!   @@   @#   @_        @hra @hal @had @hau @har      _  _  _
   grv  @&   @*   @lp  \         spc  XX   XX   XX   XX        _  _  _
             _    @rp  @|        _    XX   XX                  _  _  _
