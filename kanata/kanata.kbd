@@ -360,7 +360,7 @@
 
   mdc (multi f15 u   reverse-release-order)  ;; microphone down (coarse)
   muc (multi f15 y   reverse-release-order)  ;; microphone up (coarse)
-  mdf (multi S-f15 u reverse-release-order)  ;; microphone down (fine)
+  mdf (multi S-f15 u reverse-release-order)  ;; microphone down (fine) --> NOT WORKING DUE TO KEYBOARD GHOSTING
   muf (multi S-f15 y reverse-release-order)  ;; microphone up (fine)
   mm  (multi f15 j   reverse-release-order)  ;; mute microphone
 
