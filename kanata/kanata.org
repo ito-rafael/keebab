@@ -664,10 +664,10 @@
 #+begin_src kbd
 (defalias
   ;; cursor navigation
-  mcl kp4  ;; mouse cursor left
-  mcd kp2  ;; mouse cursor down
-  mcu kp8  ;; mouse cursor up
-  mcr kp6  ;; mouse cursor right
+  mcl (movemouse-accel-left  5 1000 1 15) ;; mouse cursor left
+  mcd (movemouse-accel-down  5 1000 1 15) ;; mouse cursor down
+  mcu (movemouse-accel-up    5 1000 1 15) ;; mouse cursor up
+  mcr (movemouse-accel-right 5 1000 1 15) ;; mouse cursor right
 
   ;; mouse wheel
   mwu kp1  ;; mouse wheel up    (button4)
