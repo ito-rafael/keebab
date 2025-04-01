@@ -413,9 +413,9 @@
   ;;bld KeyKbdIllumUp      ;; backlit up
   ;;blu KeyKbdIllumDown    ;; backlit down
   ;;boo KeyKbdIllumToggle  ;; backlit on/off
-  bld blup  ;; backlit up
-  blu bldn  ;; backlit down
   ;;boo 230 (?)  ;; backlit on/off
+  blu (multi f19 . reverse-release-order)  ;; backlit up
+  bld (multi f19 , reverse-release-order)  ;; backlit down
 
   ;; opacity
   opd f19    ;; opacity down
