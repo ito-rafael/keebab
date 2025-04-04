@@ -184,13 +184,16 @@ keymap:
       Ctrl-i:  up              # arrow up
       Ctrl-o:  right           # arrow right
 
-  - name: media control
+  - name: speaker control
+    exact_match: true
     remap:
       F15-esc:       { launch: ["bash", "-c", "amixer -q sset Master 0%"] }
       F15-space:     { launch: ["bash", "-c", "amixer -q sset Master 25%"] }
       F15-tab:       { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F15-enter:     { launch: ["bash", "-c", "amixer -q sset Master 75%"] }
       F15-backspace: { launch: ["bash", "-c", "amixer -q sset Master 100%"] }
+      F15-e:         { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
+      F15-i:         { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads

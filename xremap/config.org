@@ -85,14 +85,13 @@ Microphone (Oryx/QMK and xremap)
 | XF86AudioMicMute | mic mute    |
 |------------------+-------------|
 *** F15
-Volume (Oryx/QMK and xremap)
-|----------+-------------|
-| binding  | description |
-|----------+-------------|
-| F15      | vol- fine   |
-| ctrl+F15 | vol+ fine   |
-| meta+F15 | vol 50%     |
-|----------+-------------|
+Volume (Oryx/QMK and xremap):
+|-----------------+-------------|
+| binding         | description |
+|-----------------+-------------|
+| F15-e           | vol- coarse |
+| F15-i           | vol+ coarse |
+|-----------------+-------------|
 *** F16/F17/F18
 Cut, copy, paste.
 |---------+-------------|
@@ -499,14 +498,24 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+end_src
 ** System control
 *** Media
+**** Speaker
 #+begin_src conf :noweb-ref control
-  - name: media control
+  - name: speaker control
+    exact_match: true
     remap:
+#+end_src
+***** Levels
+#+begin_src conf :noweb-ref control
       F15-esc:       { launch: ["bash", "-c", "amixer -q sset Master 0%"] }
       F15-space:     { launch: ["bash", "-c", "amixer -q sset Master 25%"] }
       F15-tab:       { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F15-enter:     { launch: ["bash", "-c", "amixer -q sset Master 75%"] }
       F15-backspace: { launch: ["bash", "-c", "amixer -q sset Master 100%"] }
+#+end_src
+***** Coarse
+#+begin_src conf :noweb-ref control
+      F15-e:         { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
+      F15-i:         { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
