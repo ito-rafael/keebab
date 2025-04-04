@@ -93,6 +93,8 @@ Volume (Oryx/QMK and xremap):
 | F15-i           | vol+ coarse |
 | S-F15-e         | vol- fine   |
 | S-F15-i         | vol+ fine   |
+| F15-comma       | vol- fine   |
+| F15-dot         | vol+ fine   |
 |-----------------+-------------|
 *** F16/F17/F18
 Cut, copy, paste.
@@ -523,6 +525,9 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
       Shift-F15-e:   { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
       Shift-F15-i:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
+      F15-comma:     { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
+      F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
+#+end_src
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
