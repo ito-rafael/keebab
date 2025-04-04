@@ -202,6 +202,11 @@ keymap:
   - name: microphone control
     remap:
       F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
+      Alt-F15-esc:       { launch: ["bash", "-c", "amixer -q sset Capture 0%"] }
+      Alt-F15-space:     { launch: ["bash", "-c", "amixer -q sset Capture 25%"] }
+      Alt-F15-tab:       { launch: ["bash", "-c", "amixer -q sset Capture 50%"] }
+      Alt-F15-enter:     { launch: ["bash", "-c", "amixer -q sset Capture 75%"] }
+      Alt-F15-backspace: { launch: ["bash", "-c", "amixer -q sset Capture 100%"] }
       F15-u:         { launch: ["bash", "-c", "amixer -q sset Capture 5%-"] }
       F15-y:         { launch: ["bash", "-c", "amixer -q sset Capture 5%+"] }
       Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
