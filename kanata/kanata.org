@@ -640,8 +640,8 @@
   ooo (multi f19 k reverse-release-order)  ;; opacity on/off
 
   ;; one-hand brightness ctl
-  hbd (tap-hold-release $mt $mt brdn lsft)  ;; hold for mod / brightness down
-  hbu (tap-hold-release $mt $mt brup lctl)  ;; hold for mod / brightness down
+  hbd (tap-hold-release $mt $mt brdn lctl)  ;; hold for mod / brightness down
+  hbu (tap-hold-release $mt $mt brup lsft)  ;; hold for mod / brightness down
 
   ;; set brightness to specific values
   b00 (multi f19 esc  reverse-release-order)  ;; set brightness to 0 %
