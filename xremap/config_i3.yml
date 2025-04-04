@@ -194,6 +194,8 @@ keymap:
       F15-backspace: { launch: ["bash", "-c", "amixer -q sset Master 100%"] }
       F15-e:         { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
       F15-i:         { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
+      Shift-F15-e:   { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-i:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads
