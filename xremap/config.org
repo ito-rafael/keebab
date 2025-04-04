@@ -136,6 +136,14 @@ Opacity (Oryx/QMK and xremap)
 | meta+F19       | run IWT with --opacity 0.85     |
 |----------------+---------------------------------|
 obs: IWT = inactive-windows-transparency.py
+Luminosity (Oryx/QMK and xremap):
+  - brightness
+|---------------+---------------------------------|
+| binding       | description                     |
+|---------------+---------------------------------|
+| F19-e         | brightness- coarse              |
+| F19-i         | brightness+ coarse              |
+|---------------+---------------------------------|
 *** F20
 Keyboard backlit and underglow LEDs
 |----------------+---------------------------|
@@ -202,6 +210,7 @@ virtual_modifiers:
 #+begin_src conf :noweb-ref sway-modifiers
 virtual_modifiers:
   - F15
+  - F19
 #+end_src
 * Shared
 #+begin_src conf :noweb-ref shared-common
@@ -577,6 +586,17 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
       Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
       Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
+#+end_src
+*** Luminosity
+**** Brightness
+#+begin_src conf :noweb-ref control
+  - name: brightness control
+    remap:
+#+end_src
+***** Coarse
+#+begin_src conf :noweb-ref control
+      F19-e:         { launch: ["bash", "-c", "brightnessctl set 5%-"] }
+      F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation
