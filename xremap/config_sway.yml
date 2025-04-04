@@ -216,6 +216,8 @@ keymap:
   - name: microphone control
     remap:
       F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
+      F15-u:         { launch: ["bash", "-c", "amixer -q sset Capture 5%-"] }
+      F15-y:         { launch: ["bash", "-c", "amixer -q sset Capture 5%+"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads

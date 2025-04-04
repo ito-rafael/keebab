@@ -105,6 +105,8 @@ Volume (Oryx/QMK and xremap):
 | F15-backspace   | vol 100%    |
 |-----------------+-------------|
 | F15-j           | mic toggle  |
+| F15-u           | mic- coarse |
+| F15-y           | mic+ coarse |
 *** F16/F17/F18
 Cut, copy, paste.
 |---------+-------------|
@@ -549,6 +551,11 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 ***** Toggle
 #+begin_src conf :noweb-ref control
       F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
+#+end_src
+***** Coarse
+#+begin_src conf :noweb-ref control
+      F15-u:         { launch: ["bash", "-c", "amixer -q sset Capture 5%-"] }
+      F15-y:         { launch: ["bash", "-c", "amixer -q sset Capture 5%+"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation
