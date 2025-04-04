@@ -107,6 +107,8 @@ Volume (Oryx/QMK and xremap):
 | F15-j           | mic toggle  |
 | F15-u           | mic- coarse |
 | F15-y           | mic+ coarse |
+| S-F15-u         | mic- fine   |
+| S-F15-y         | mic+ fine   |
 *** F16/F17/F18
 Cut, copy, paste.
 |---------+-------------|
@@ -556,6 +558,11 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
       F15-u:         { launch: ["bash", "-c", "amixer -q sset Capture 5%-"] }
       F15-y:         { launch: ["bash", "-c", "amixer -q sset Capture 5%+"] }
+#+end_src
+***** Fine
+#+begin_src conf :noweb-ref control
+      Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation
