@@ -187,6 +187,7 @@ keymap:
   - name: speaker control
     exact_match: true
     remap:
+      F15-k: { launch: ["bash", "-c", "amixer -q sset Master toggle"] }
       F15-esc:       { launch: ["bash", "-c", "amixer -q sset Master 0%"] }
       F15-space:     { launch: ["bash", "-c", "amixer -q sset Master 25%"] }
       F15-tab:       { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
