@@ -96,6 +96,11 @@ Volume (Oryx/QMK and xremap):
 | S-F15-i         | vol+ fine   |
 | F15-comma       | vol- fine   |
 | F15-dot         | vol+ fine   |
+| F15-esc         | vol 0%      |
+| F15-space       | vol 25%     |
+| F15-tab         | vol 50%     |
+| F15-enter       | vol 75%     |
+| F15-backspace   | vol 100%    |
 |-----------------+-------------|
 *** F16/F17/F18
 Cut, copy, paste.
