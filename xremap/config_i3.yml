@@ -215,6 +215,8 @@ keymap:
     remap:
       F19-e:         { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+"] }
+      S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
+      S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads

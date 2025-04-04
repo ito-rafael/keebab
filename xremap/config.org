@@ -143,6 +143,8 @@ Luminosity (Oryx/QMK and xremap):
 |---------------+---------------------------------|
 | F19-e         | brightness- coarse              |
 | F19-i         | brightness+ coarse              |
+| S-F19-e       | brightness- fine                |
+| S-F19-i       | brightness+ fine                |
 |---------------+---------------------------------|
 *** F20
 Keyboard backlit and underglow LEDs
@@ -597,6 +599,11 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
       F19-e:         { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+"] }
+#+end_src
+***** Fine
+#+begin_src conf :noweb-ref control
+      S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
+      S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation
