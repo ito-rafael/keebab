@@ -228,6 +228,11 @@ keymap:
       Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
   - name: brightness control
     remap:
+      F19-esc:       { launch: ["bash", "-c", "brightnessctl set 0%"] }
+      F19-space:     { launch: ["bash", "-c", "brightnessctl set 25%"] }
+      F19-tab:       { launch: ["bash", "-c", "brightnessctl set 50%"] }
+      F19-enter:     { launch: ["bash", "-c", "brightnessctl set 75%"] }
+      F19-backspace: { launch: ["bash", "-c", "brightnessctl set 100%"] }
       F19-e:         { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+"] }
       S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }

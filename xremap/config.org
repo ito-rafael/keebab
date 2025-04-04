@@ -145,6 +145,11 @@ Luminosity (Oryx/QMK and xremap):
 | F19-i         | brightness+ coarse              |
 | S-F19-e       | brightness- fine                |
 | S-F19-i       | brightness+ fine                |
+| F19-esc       | brightness 0%                   |
+| F19-space     | brightness 25%                  |
+| F19-tab       | brightness 50%                  |
+| F19-enter     | brightness 75%                  |
+| F19-backspace | brightness 100%                 |
 |---------------+---------------------------------|
 *** F20
 Keyboard backlit and underglow LEDs
@@ -594,6 +599,14 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
   - name: brightness control
     remap:
+#+end_src
+***** Levels
+#+begin_src conf :noweb-ref control
+      F19-esc:       { launch: ["bash", "-c", "brightnessctl set 0%"] }
+      F19-space:     { launch: ["bash", "-c", "brightnessctl set 25%"] }
+      F19-tab:       { launch: ["bash", "-c", "brightnessctl set 50%"] }
+      F19-enter:     { launch: ["bash", "-c", "brightnessctl set 75%"] }
+      F19-backspace: { launch: ["bash", "-c", "brightnessctl set 100%"] }
 #+end_src
 ***** Coarse
 #+begin_src conf :noweb-ref control
