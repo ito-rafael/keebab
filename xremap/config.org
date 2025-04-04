@@ -86,6 +86,8 @@ Microphone (Oryx/QMK and xremap)
 |------------------+-------------|
 *** F15
 Volume (Oryx/QMK and xremap):
+  - speaker
+  - microphone
 |-----------------+-------------|
 | binding         | description |
 |-----------------+-------------|
@@ -102,6 +104,7 @@ Volume (Oryx/QMK and xremap):
 | F15-enter       | vol 75%     |
 | F15-backspace   | vol 100%    |
 |-----------------+-------------|
+| F15-j           | mic toggle  |
 *** F16/F17/F18
 Cut, copy, paste.
 |---------+-------------|
@@ -537,6 +540,15 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
       Shift-F15-i:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
       F15-comma:     { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
       F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
+#+end_src
+**** Microphone
+#+begin_src conf :noweb-ref control
+  - name: microphone control
+    remap:
+#+end_src
+***** Toggle
+#+begin_src conf :noweb-ref control
+      F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation

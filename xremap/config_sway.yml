@@ -213,6 +213,9 @@ keymap:
       Shift-F15-i:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
       F15-comma:     { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
       F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
+  - name: microphone control
+    remap:
+      F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads
