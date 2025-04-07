@@ -127,6 +127,7 @@ Cut, copy, paste.
 *** F19
 Luminosity (Oryx/QMK and xremap):
   - brightness
+  - backlit
   - opacity
 |---------------+---------------------------------|
 | binding       | description                     |
@@ -146,6 +147,10 @@ Luminosity (Oryx/QMK and xremap):
 | S-F19-h       | stop IWT && opacity all dec     |
 | S-F19-slash   | stop IWT && opacity all inc     |
 | F19-k         | run IWT with --opacity 0.85     |
+|---------------+---------------------------------|
+| F19-comma     | backlit-                        |
+| F19-dot       | backlit+                        |
+| F19-d         | backlit toggle                  |
 |---------------+---------------------------------|
 obs.: IWT = inactive-windows-transparency.py
 *** F20
@@ -632,6 +637,13 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
       S-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
       S-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
 #+end_src
+**** Backlit
+#+begin_src conf :noweb-ref control
+  - name: backlit control
+    remap:
+      F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle"] }
+      F19-comma: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "dec"] }
+      F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc"] }
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation

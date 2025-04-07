@@ -230,6 +230,12 @@ keymap:
       F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
       S-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
       S-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
+  - name: backlit control
+    remap:
+      F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle"] }
+      F19-comma: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "dec"] }
+      F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc"] }
+
   - name: window navigation from scratchpads
     application:
       only: *scratchpads
