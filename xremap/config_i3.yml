@@ -228,6 +228,8 @@ keymap:
       F19-h:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "dec"] }
       F19-slash:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "inc"] }
       F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
+      S-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
+      S-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads

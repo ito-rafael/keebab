@@ -143,6 +143,8 @@ Luminosity (Oryx/QMK and xremap):
 |---------------+---------------------------------|
 | F19-h         | stop IWT && opacity current dec |
 | F19-slash     | stop IWT && opacity current inc |
+| S-F19-h       | stop IWT && opacity all dec     |
+| S-F19-slash   | stop IWT && opacity all inc     |
 | F19-k         | run IWT with --opacity 0.85     |
 |---------------+---------------------------------|
 obs.: IWT = inactive-windows-transparency.py
@@ -624,6 +626,11 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
       F19-h:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "dec"] }
       F19-slash:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "inc"] }
       F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
+#+end_src
+***** All windows
+#+begin_src conf :noweb-ref control
+      S-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
+      S-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation
