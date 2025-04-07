@@ -125,19 +125,9 @@ Cut, copy, paste.
 | F18     | paste       |
 |---------+-------------|
 *** F19
-Opacity (Oryx/QMK and xremap)
-|----------------+---------------------------------|
-| binding        | description                     |
-|----------------+---------------------------------|
-| F19            | stop IWT && opacity current dec |
-| ctrl+F19       | stop IWT && opacity current inc |
-| shift+F19      | stop IWT && opacity all dec     |
-| shift+ctrl+F19 | stop IWT && opacity all inc     |
-| meta+F19       | run IWT with --opacity 0.85     |
-|----------------+---------------------------------|
-obs: IWT = inactive-windows-transparency.py
 Luminosity (Oryx/QMK and xremap):
   - brightness
+  - opacity
 |---------------+---------------------------------|
 | binding       | description                     |
 |---------------+---------------------------------|
@@ -151,6 +141,11 @@ Luminosity (Oryx/QMK and xremap):
 | F19-enter     | brightness 75%                  |
 | F19-backspace | brightness 100%                 |
 |---------------+---------------------------------|
+| F19-h         | stop IWT && opacity current dec |
+| F19-slash     | stop IWT && opacity current inc |
+| F19-k         | run IWT with --opacity 0.85     |
+|---------------+---------------------------------|
+obs.: IWT = inactive-windows-transparency.py
 *** F20
 Keyboard backlit and underglow LEDs
 |----------------+---------------------------|
@@ -617,6 +612,18 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
       S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
       S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
+#+end_src
+**** Opacity
+#+begin_src conf :noweb-ref control
+  - name: opacity control
+    exact_match: true
+    remap:
+#+end_src
+***** Current window
+#+begin_src conf :noweb-ref control
+      F19-h:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "dec"] }
+      F19-slash:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "inc"] }
+      F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
 #+end_src
 #+end_src
 ** Scratchpad navigation

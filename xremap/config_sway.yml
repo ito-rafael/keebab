@@ -237,6 +237,12 @@ keymap:
       F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+"] }
       S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
       S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
+  - name: opacity control
+    exact_match: true
+    remap:
+      F19-h:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "dec"] }
+      F19-slash:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "inc"] }
+      F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
   - name: window navigation from scratchpads
     application:
       only: *scratchpads
