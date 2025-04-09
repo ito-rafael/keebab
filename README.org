@@ -11,6 +11,7 @@
   - [[#kmonad][KMonad]]
   - [[#kanata][kanata]]
   - [[#xremap][xremap]]
+  - [[#ydotool][ydotool]]
 
 * Software
 ** udev
@@ -29,3 +30,5 @@ Deprecated in favor of [[kanata][kanata]].
 https://github.com/jtroo/kanata
 ** xremap
 https://github.com/xremap/xremap
+** ydotool
+https://github.com/ReimuNotMoe/ydotool
