@@ -1,0 +1,215 @@
+#+TITLE: Workflow for building QMK firmware for ZSA keyboards
+#+AUTHOR: Rafael Ito
+# +PROPERTY: header-args :tangle test.yml
+# +PROPERTY: header-args :noweb-sep "\n\n"
+#+DESCRIPTION: fetch firmware from Oryx and merge with custom QMK features for the Moonlander and Planck EZ keyboards
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_2:
+- [[#title-and-permission][Title and permission]]
+- [[#dispatch][Dispatch]]
+- [[#job-and-steps][Job and Steps]]
+  - [[#checkout-to-moonlander-branch][Checkout to moonlander branch]]
+  - [[#pull-history][Pull history]]
+  - [[#download-source-files-from-oryx][Download source files from Oryx]]
+  - [[#unzip-oryx-firmware][Unzip Oryx firmware]]
+  - [[#commit-and-push-changes][Commit and push changes]]
+  - [[#merge-oryx-with-custom-qmk-features][Merge Oryx with custom QMK features]]
+  - [[#update-qmk_firmware-submodule][Update qmk_firmware submodule]]
+  - [[#build-docker-image][Build Docker image]]
+  - [[#build-the-qmk-firmware][Build the QMK firmware]]
+  - [[#upload-the-builded-firmware][Upload the builded firmware]]
+
+* Title and permission
+#+name: workflow-name
+#+begin_src python :var name="moonlander" :results output
+print('name: "' + name + '"')
+print('permissions:')
+print('  contents: write')
+#+end_src
+* Dispatch
+#+name: layout-options
+#+begin_src python :var layout_id="z4Qyd" keyboard_type="moonlander" :results output
+print('on:')
+print('  workflow_dispatch:')
+print('    inputs:')
+print('      layout_id:')
+print('        description: "Layout id available in URL https://configure.zsa.io/voyager/layouts/[ID_IS_HERE]/latest"')
+print('        required: true')
+print('        default: "' + layout_id + '"')
+print('      layout_geometry:')
+print('        description: "Keyboard type"')
+print('        type: choice')
+print('        options:')
+print('          - voyager')
+print('          - moonlander')
+print('          - ergodox_ez')
+print('          - ergodox_ez/stm32/glow')
+print('          - ergodox_ez/stm32/shine')
+print('          - ergodox_ez/m32u4/glow')
+print('          - ergodox_ez/m32u4/shine')
+print('          - planck_ez')
+print('          - planck_ez/glow')
+print('        default: ' + keyboard_type)
+#+end_src
+* Job and Steps
+#+begin_src conf :noweb-ref jobs
+jobs:
+  fetch-and-build-layout:
+    runs-on: ubuntu-latest
+    steps:
+#+end_src
+** Checkout to moonlander branch
+#+name: checkout
+#+begin_src python :var branch_name="moonlander" :results output
+print('      - name: Checkout Repository')
+print('        uses: actions/checkout@v4')
+print('        with:')
+print('          ref: ' + branch_name)
+#+end_src
+** Pull history
+#+begin_src conf :noweb-ref pull
+      - name: Download the full history for the merge to work correctly
+        run: git pull --unshallow
+#+end_src
+** Download source files from Oryx
+#+begin_src conf :noweb-ref download-oryx
+      - name: Download layout source
+        id: download-layout-source
+        run: |
+          response=$(curl --location 'https://oryx.zsa.io/graphql' --header 'Content-Type: application/json' --data '{"query":"query getLayout($hashId: String!, $revisionId: String!, $geometry: String) {layout(hashId: $hashId, geometry: $geometry, revisionId: $revisionId) {  revision { hashId, qmkVersion, title }}}","variables":{"hashId":"${{ github.event.inputs.layout_id }}","geometry":"${{ github.event.inputs.layout_geometry }}","revisionId":"latest"}}' | jq '.data.layout.revision | [.hashId, .qmkVersion, .title]')
+          hash_id=$(echo "${response}" | jq -r '.[0]')
+          firmware_version=$(printf "%.0f" $(echo "${response}" | jq -r '.[1]'))
+          change_description=$(echo "${response}" | jq -r '.[2]')
+          if [[ -z "${change_description}" ]]; then
+            change_description="latest layout modification made with Oryx"
+          fi
+          
+          curl -L "https://oryx.zsa.io/source/${hash_id}" -o source.zip
+          
+          echo firmware_version=${firmware_version} >> "$GITHUB_OUTPUT"
+          echo change_description=${change_description} >> "$GITHUB_OUTPUT"
+#+end_src
+** Unzip Oryx firmware
+#+name: unzip
+#+begin_src python :var directory="${{ github.event.inputs.layout_id }}" :results output
+print('      - name: Unzip the source file')
+print('        run: |')
+print('          mkdir -p ' + directory)
+print('          unzip -oj source.zip \'*_source/*\' -d ' + directory)
+print('          rm source.zip')
+#+end_src
+** Commit and push changes
+#+name: commit
+#+begin_src python :var message="✨(oryx): ${{ steps.download-layout-source.outputs.change_description }}" keyboard="moonlander" :results output
+print('      - name: Commit and Push changes')
+print('        run: |')
+print('          git config --local user.name "github-actions"')
+print('          git config --local user.email "github-actions@github.com"')
+print('          git config --local merge.ours.driver true')
+print('          git add ' + keyboard)
+print('          git commit -m "' + message + '" || echo "No layout change"')
+print('          git push')
+#+end_src
+** Merge Oryx with custom QMK features
+#+name: merge
+#+begin_src python :var branch_name="moonlander" keyboard="moonlander" :results output
+print('      - name: Merge Oryx with custom QMK')
+print('        run: |')
+print('          git fetch origin main')
+print('          git checkout -B main origin/main')
+print('          git merge -Xignore-all-space --allow-unrelated-histories ' + branch_name + ' -m "⚙️ [GH Actions] ' + keyboard + ' (Oryx): merge branch \'' + branch_name + '\'"')
+print('          git push')
+#+end_src
+** Update qmk_firmware submodule
+#+name: update
+#+begin_src python :var message="✨(qmk): Update firmware" :results output
+print('      - name: Update QMK firmware submodule to latest version (${{ steps.download-layout-source.outputs.firmware_version }})')
+print('        run: |')
+print('          git submodule update --init --remote --depth=1')
+print('          cd qmk_firmware')
+print('          git checkout -B firmware${{ steps.download-layout-source.outputs.firmware_version }} origin/firmware${{ steps.download-layout-source.outputs.firmware_version }}')
+print('          git submodule update --init --recursive')
+print('          cd ..')
+print('          git add qmk_firmware')
+print('          git commit -m "' + message + '" || echo "No QMK change"')
+print('          git push')
+#+end_src
+** Build Docker image
+#+begin_src conf :noweb-ref docker
+      - name: Build qmk docker image
+        run: docker build -t qmk .
+#+end_src
+** Build the QMK firmware
+#+name: build
+#+begin_src python :var directory="${{ github.event.inputs.layout_id }}" :results output
+print('      - name: Build the layout')
+print('        id: build-layout')
+print('        run: |')
+print('          # Set keyboard directory and make prefix based on firmware version')
+print('          if [ "${{ steps.download-layout-source.outputs.firmware_version }}" -ge 24 ]; then')
+print('            keyboard_directory="qmk_firmware/keyboards/zsa"')
+print('            make_prefix="zsa/"')
+print('          else')
+print('            keyboard_directory="qmk_firmware/keyboards"')
+print('            make_prefix=""')
+print('          fi')
+print('          ')
+print('          # Copy layout files to the qmk folder')
+print('          rm -rf ${keyboard_directory}/${{ github.event.inputs.layout_geometry }}/keymaps/${{ github.event.inputs.layout_id }}')
+print('          mkdir -p ${keyboard_directory}/${{ github.event.inputs.layout_geometry }}/keymaps/${{ github.event.inputs.layout_id }} && cp -r ' + directory + '/* "$_"')
+print('          ')
+print('          # Build the layout')
+print('          docker run -v ./qmk_firmware:/root --rm qmk /bin/sh -c "')
+print('            qmk setup zsa/qmk_firmware -b firmware${{ steps.download-layout-source.outputs.firmware_version }} -y')
+print('            make ${make_prefix}${{ github.event.inputs.layout_geometry }}:${{ github.event.inputs.layout_id }}')
+print('          "')
+print('          ')
+print('          # Find and export built layout')
+print('          normalized_layout_geometry="$(echo "${{ github.event.inputs.layout_geometry }}" | sed \'s/\//_/g\')"')
+print('          echo built_layout_file=$(find ./qmk_firmware -maxdepth 1 -type f -regex ".*${normalized_layout_geometry}.*\.\(bin\|hex\)$") >> "$GITHUB_OUTPUT"')
+print('          echo normalized_layout_geometry=${normalized_layout_geometry} >> "$GITHUB_OUTPUT"')
+#+end_src
+** Upload the builded firmware
+#+name: upload
+#+begin_src python :var artifact="${{ steps.build-layout.outputs.normalized_layout_geometry }}_${{ github.event.inputs.layout_id }}" :results output
+print('      - name: Upload layout')
+print('        uses: actions/upload-artifact@v4')
+print('        with:')
+print('          name: ' + artifact + '_${{ github.event.inputs.layout_id }}')
+print('          path: ${{ steps.build-layout.outputs.built_layout_file }}')
+#+end_src
+* Tangle :noexport:
+** Moonlander
+#+begin_src conf :noweb yes :tangle moonlander.yml :results output
+<<workflow-name(name="Moonlander")>>
+<<layout-options(layout_id="z4Qyd", keyboard_type="moonlander")>>
+<<jobs>>
+<<checkout(branch_name="moonlander")>>
+<<pull>>
+<<download-oryx>>
+<<unzip(directory="moonlander/firmware")>>
+<<commit(message="⚙️ [GH Actions] Moonlander (Oryx): ${{ steps.download-layout-source.outputs.change_description }}", keyboard="moonlander")>>
+<<merge(branch_name="moonlander", keyboard="Moonlander")>>
+<<update(message="⚙️ [GH Actions] Moonlander (QMK): update qmk_firmware")>>
+<<docker>>
+<<build(directory="moonlander/firmware")>>
+<<upload(artifact="moolander")>>
+#+end_src
+** Planck EZ
+#+begin_src conf :noweb yes :tangle planck.yml :results output
+<<workflow-name(name="Planck EZ")>>
+<<layout-options(layout_id="zWNBJ", keyboard_type="planck_ez/glow")>>
+<<jobs>>
+<<checkout(branch_name="planck_ez")>>
+<<pull>>
+<<download-oryx>>
+<<unzip(directory="planck_ez/firmware")>>
+<<commit(message="⚙️ [GH Actions] Planck EZ (Oryx): ${{ steps.download-layout-source.outputs.change_description }}", keyboard="planck_ez")>>
+<<merge(branch_name="planck_ez", keyboard="Planck EZ")>>
+<<update(message="⚙️ [GH Actions] Planck EZ (QMK): update qmk_firmware")>>
+<<docker>>
+<<build(directory="planck_ez/firmware")>>
+<<upload(artifact="planck_ez")>>
+#+end_src
