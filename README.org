@@ -12,6 +12,7 @@
   - [[#kanata][kanata]]
   - [[#xremap][xremap]]
   - [[#ydotool][ydotool]]
+  - [[#zsa][ZSA]]
 
 * Software
 ** udev
@@ -32,3 +33,6 @@ https://github.com/jtroo/kanata
 https://github.com/xremap/xremap
 ** ydotool
 https://github.com/ReimuNotMoe/ydotool
+** ZSA :noexport_1:
+*** Oryx with QMK
+https://github.com/poulainpi/oryx-with-custom-qmk
