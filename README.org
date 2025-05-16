@@ -1,38 +1,4 @@
-#+TITLE: keebab
-#+AUTHOR: Rafael Ito
-#+DESCRIPTION: Keyboard-related dotfiles and docs/info for some tools and devices I daily drive.
-#+STARTUP: showeverything
+Moonlander firmware from Oryx
 
-* Table of contents :toc_3:
-- [[#software][Software]]
-  - [[#udev][udev]]
-    - [[#hwdb][hwdb]]
-    - [[#rules][rules]]
-  - [[#kmonad][KMonad]]
-  - [[#kanata][kanata]]
-  - [[#xremap][xremap]]
-  - [[#ydotool][ydotool]]
-  - [[#zsa][ZSA]]
-
-* Software
-** udev
-https://wiki.archlinux.org/title/Udev
-*** hwdb
-sources:
-- https://wiki.archlinux.org/title/Map_scancodes_to_keycodes
-*** rules
-**** ZSA
-In order to flash a firmware on a ZSA keyboard using either [[Keymapp][Keymapp]] or [[Oryx][Oryx]] while on Linux, a =.rules= udev file must be created first. This file can be found here: [[udev/rules.d/50-zsa.rules][50-zsa.rules]].
-For more information about this topic, please check this page: https://github.com/zsa/wally/wiki/Linux-install
-** KMonad
-https://github.com/kmonad/kmonad/
-Deprecated in favor of [[kanata][kanata]].
-** kanata
-https://github.com/jtroo/kanata
-** xremap
-https://github.com/xremap/xremap
-** ydotool
-https://github.com/ReimuNotMoe/ydotool
-** ZSA :noexport_1:
-*** Oryx with QMK
-https://github.com/poulainpi/oryx-with-custom-qmk
+#+ATTR_ORG: :width 400 pt
+[[./figure/moonlander-1-colemak.png]]
