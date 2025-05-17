@@ -1,0 +1,11 @@
+X.Org related files
+
+Files:
+  - xmodmap
+  - .XCompose
+  - .Xmodmap_original
+  - .Xmodmap
+  - .Xmodmap_numbers
+  - .xbindkeysrc
+  - .xprofile
+
