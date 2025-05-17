@@ -1,0 +1,3 @@
+xkb_symbols "backslash2shiftL" {
+    key <LSGT> { [ Shift_L ] };
+};
