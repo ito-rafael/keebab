@@ -1,0 +1,67 @@
+include "%L"
+
+#========================
+# greek letters
+#========================
+<Multi_key> <g> <a> : "α"
+<Multi_key> <g> <b> : "β"
+<Multi_key> <g> <g> : "γ"
+
+#========================
+# single quote
+#========================
+<dead_acute> <space> : "'"
+<dead_acute> <dead_acute> : "´"
+
+#========================
+# cedilla
+#========================
+<dead_acute> <C> : "Ç" Ccedilla
+<dead_acute> <c> : "ç" ccedilla
+
+#========================
+# <dead_acute>
+#========================
+# small letter
+<dead_acute> <a> : "á"
+<dead_acute> <e> : "é"
+<dead_acute> <i> : "í"
+<dead_acute> <o> : "ó"
+<dead_acute> <u> : "ú"
+#------------------------
+# capital letter
+<dead_acute> <A> : "Á"
+<dead_acute> <E> : "É"
+<dead_acute> <I> : "Í"
+<dead_acute> <O> : "Ó"
+<dead_acute> <U> : "Ú"
+
+#========================
+# <dead_grave>
+#========================
+# small letter
+<dead_grave> <a> : "à"
+<dead_grave> <e> : "è"
+<dead_grave> <i> : "ì"
+<dead_grave> <o> : "ò"
+<dead_grave> <u> : "ù"
+#------------------------
+# capital letter
+<dead_grave> <A> : "À"
+<dead_grave> <E> : "È"
+<dead_grave> <I> : "Ì"
+<dead_grave> <O> : "Ò"
+<dead_grave> <U> : "Ù"
+
+#========================
+# <dead_tild>
+#========================
+# small letter
+<dead_tilde> <a> : "ã"
+<dead_tilde> <o> : "õ"
+#------------------------
+# capital letter
+<dead_tilde> <A> : "Ã"
+<dead_tilde> <O> : "Õ"
+
+#========================
