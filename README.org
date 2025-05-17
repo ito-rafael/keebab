@@ -1,4 +1,4 @@
-Moonlander firmware from Oryx
+Planck EZ firmware from Oryx
 
 #+ATTR_ORG: :width 400 pt
-[[./figure/moonlander-1-colemak.png]]
+[[./figure/planck_ez-1-colemak.png]]
