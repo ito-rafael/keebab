@@ -1,0 +1,4 @@
+xkb_symbols "slash2shiftR" {
+    key <AB10> { [ Shift_R ] };
+    key <RTSH> { [ slash, question ] };
+};
