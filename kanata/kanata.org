@@ -29,8 +29,9 @@
   - [[#luminosity][luminosity]]
   - [[#mouse][mouse]]
   - [[#miscellaneous][miscellaneous]]
-  - [[#fn1][fn1]]
-  - [[#fn2][fn2]]
+  - [[#fn][fn]]
+    - [[#fn1][fn1]]
+    - [[#fn2][fn2]]
 
 * Initial config :noexport_1:
 #+begin_src kbd
@@ -202,8 +203,8 @@
   msc (tap-hold-release $mt $mt w (layer-toggle misc))
   med (tap-hold-release $mt $mt f (layer-toggle media))
   lum (tap-hold-release $mt $mt z (layer-toggle luminosity))
-  fn1 (tap-hold-release $mt $mt k (layer-toggle function-keys-1))
-  fn2 (tap-hold-release $mt $mt v (layer-toggle function-keys-2))
+  fn1 (tap-hold-release $mt $mt j (layer-toggle function-keys-1))
+  fn2 (tap-hold-release $mt $mt b (layer-toggle function-keys-2))
 
   ;; qwerty
   qmd (tap-hold-release $mt $mt e (layer-toggle media))
@@ -248,9 +249,9 @@
 ** colemak-dh :noexport_1:
 #+begin_src kbd
 (deflayer colemak
-  q    @msc @med p    b         j    l    u    y    f13       _  _  _
+  q    @msc @med p    @fn2      @fn1 l    u    y    f13       _  _  _
   @mka @mkr @mks @mkt @mkg      @mkm @mkn @mke @mki @mko      _  _  _
-  @lum x    c    d    @fn2      @fn1 h    ,    .    /         _  _  _
+  @lum x    c    d    v         k    h    ,    .    /         _  _  _
             @nav @wm  @mou      XX   @num @sym                _  _  _
                                                               _  _  _
 )
@@ -740,7 +741,8 @@
   sdm RA-q  ;; diameter
 )
 #+end_src
-** fn1 :noexport_1:
+** fn :noexport_2:
+*** fn1
 #+begin_src kbd
 (deflayer function-keys-1
   f11  f4   f5   f6   XX        XX   XX   XX   XX   XX        _  _  _
@@ -750,7 +752,7 @@
                                                               _  _  _
 )
 #+end_src
-** fn2 :noexport_1:
+*** fn2
 #+begin_src kbd
 (deflayer function-keys-2
   XX   XX   XX   XX   XX        XX   f17  f18  f19  f20       _  _  _
