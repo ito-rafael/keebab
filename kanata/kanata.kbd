@@ -131,8 +131,8 @@
 
 (deflayer symbol
   @{   @$   @%   @^   @}        @emo @{   vold volu @}        _  _  _
-  ;    @!   @@   @#   @_        @hra @hal @had @hau @har      _  _  _
-  grv  @&   @*   @lp  \         spc  XX   XX   XX   XX        _  _  _
+  ;    @!   @@   @#   @_        @hpa @hal @had @hau @har      _  _  _
+  grv  @&   @*   @lp  \         spc  @wsp @btp @btn @wsn      _  _  _
             _    @rp  @|        _    XX   XX                  _  _  _
                                                               _  _  _
 )
@@ -157,11 +157,20 @@
   |   S-\    ;; vertical bar
   emo A-C-e  ;; launch Emote emoji picker
 
+  ;; one-hand media control
+  hpa (tap-hold-release $mt $mt pp ralt)    ;; hold for alt_r / song play/pause
+  
   ;; one-hand arrows
   hal (tap-hold-release $mt $mt left lsft)  ;; hold for mod / arrow left
   had (tap-hold-release $mt $mt down rctl)  ;; hold for mod / arrow down
   hau (tap-hold-release $mt $mt up   lalt)  ;; hold for mod / arrow up
   har (tap-hold-release $mt $mt rght lmet)  ;; hold for mod / arrow right
+  
+  ;; one-hand navigation
+  btn C-tab    ;; browser tab previous
+  btp S-C-tab  ;; browser tab next
+  ;;wsn S-RM-down   ;; focus workspace next --> already defined in window-manager layer
+  ;;wsp S-RM-up     ;; focus workspace previous --> already defined in window-manager layer
 )
 
 (deflayer obs
