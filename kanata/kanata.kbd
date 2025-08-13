@@ -481,7 +481,7 @@
 )
 
 (deflayer misc
-  _    _    _    @cyp _         _    @me2 @me3 @cyy _         _  _  _
+  @sdm _    _    @cyp _         _    @me2 @me3 @cyy _         _  _  _
   @sla @cyr @mst @mnh @mca      _    @me1 @cye @mid @slo      _  _  _
   _    _    @mzc @mpn _         _    @mnm _    _    _         _  _  _
             _    _    _         _    _    _                   _  _  _
@@ -511,6 +511,9 @@
   me2 RA-l  ;; email #2: Unicamp/DAC
   me3 RA-u  ;; email #3: Unicamp/Recod
   mid RA-i  ;; ID number
+  
+  ;; symbol
+  sdm RA-q  ;; diameter
 )
 
 (deflayer function-keys-1
