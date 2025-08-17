@@ -32,6 +32,7 @@
   - [[#fn][fn]]
     - [[#fn1][fn1]]
     - [[#fn2][fn2]]
+    - [[#alias-1][alias]]
 
 * Initial config :noexport_1:
 #+begin_src kbd
@@ -745,7 +746,7 @@
 *** fn1
 #+begin_src kbd
 (deflayer function-keys-1
-  f11  f4   f5   f6   XX        XX   XX   XX   XX   XX        _  _  _
+  f11  f4   f5   f6   XX        XX   @tty XX   XX   XX        _  _  _
   f10  f1   f2   f3   XX        @hra @hs  @hc  @hsm @hm       _  _  _
   f12  f7   f8   f9   XX        XX   XX   XX   XX   XX        _  _  _
             _    _    _         _    _    _                   _  _  _
@@ -755,10 +756,16 @@
 *** fn2
 #+begin_src kbd
 (deflayer function-keys-2
-  XX   XX   XX   XX   XX        XX   f17  f18  f19  f20       _  _  _
+  XX   XX   XX   @tty XX        XX   f17  f18  f19  f20       _  _  _
   @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16       _  _  _
   XX   XX   XX   XX   XX        XX   f21  f22  f23  f24       _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
+)
+#+end_src
+*** alias
+#+begin_src kbd
+(defalias
+  tty (tap-hold-release $mt $mt XX (multi lctl lalt))  ;; hold ctrl_l-alt_l to switch tty
 )
 #+end_src
