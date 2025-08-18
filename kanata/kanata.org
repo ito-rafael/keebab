@@ -210,16 +210,16 @@
   ;; qwerty
   qmd (tap-hold-release $mt $mt e (layer-toggle media))
   qlm (tap-hold-release $mt $mt z (layer-toggle luminosity))
-  qf1 (tap-hold-release $mt $mt n (layer-toggle function-keys-1))
-  qf2 (tap-hold-release $mt $mt b (layer-toggle function-keys-2))
+  qf1 (tap-hold-release $mt $mt y (layer-toggle function-keys-1))
+  qf2 (tap-hold-release $mt $mt t (layer-toggle function-keys-2))
 )
 #+end_src
 ** qwerty :noexport_1:
 #+begin_src kbd :tangle no
 (deflayer qwerty
-  q    w    @qmd r    t         y    u    i    o    p         /  *  -
+  q    w    @qmd r    @qf2      @qf1 u    i    o    p         /  *  -
   @mqa @mqs @mqd @mqf @mqg      @mqh @mqj @mqk @mql @mq;      7  8  9
-  @qlm x    c    v    @qf2      @qf1 m    ,    .    /         4  5  6
+  @qlm x    c    v    b         n    m    ,    .    /         4  5  6
             @nav @wm  @mou      XX   @num @sym                1  2  3
                                                               0  .  +
 )
