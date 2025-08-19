@@ -57,8 +57,8 @@
   ;; qwerty
   qmd (tap-hold-release $mt $mt e (layer-toggle media))
   qlm (tap-hold-release $mt $mt z (layer-toggle luminosity))
-  qf1 (tap-hold-release $mt $mt n (layer-toggle function-keys-1))
-  qf2 (tap-hold-release $mt $mt b (layer-toggle function-keys-2))
+  qf1 (tap-hold-release $mt $mt y (layer-toggle function-keys-1))
+  qf2 (tap-hold-release $mt $mt t (layer-toggle function-keys-2))
 )
 
 (defalias
@@ -517,7 +517,7 @@
 )
 
 (deflayer function-keys-1
-  f11  f4   f5   f6   XX        XX   XX   XX   XX   XX        _  _  _
+  f11  f4   f5   f6   XX        XX   @tty XX   XX   XX        _  _  _
   f10  f1   f2   f3   XX        @hra @hs  @hc  @hsm @hm       _  _  _
   f12  f7   f8   f9   XX        XX   XX   XX   XX   XX        _  _  _
             _    _    _         _    _    _                   _  _  _
@@ -525,9 +525,13 @@
 )
 
 (deflayer function-keys-2
-  XX   XX   XX   XX   XX        XX   f17  f18  f19  f20       _  _  _
+  XX   XX   XX   @tty XX        XX   f17  f18  f19  f20       _  _  _
   @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16       _  _  _
   XX   XX   XX   XX   XX        XX   f21  f22  f23  f24       _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
+)
+
+(defalias
+  tty (tap-hold-release $mt $mt XX (multi lctl lalt))  ;; hold ctrl_l-alt_l to switch tty
 )
