@@ -59,7 +59,7 @@ keymap:
       Alt_L-Super_L-f:  { launch: ["i3-msg", "fullscreen", "toggle"] }
       # terminal
       #Alt_L-Super_L-t:  { launch: ["bash", "-c", "i3-msg", "exec", "kitty"] }
-      Alt_L-Super_L-t:  { launch: ["i3-msg", "exec", "kitty"] }
+      Alt_L-Super_L-g:  { launch: ["i3-msg", "exec", "kitty"] }
       # kill window
       #Alt_L-Super_L-q:  { launch: ["bash", "-c", "i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
       Alt_L-Super_L-q:  { launch: ["i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
