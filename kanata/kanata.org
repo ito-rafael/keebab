@@ -666,7 +666,7 @@
 #+begin_src kbd
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
-  @hm  @ha  @trl @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
+  @hm  @ha  @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
   XX   XX   XX   XX   XX        XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
@@ -702,6 +702,7 @@
   mbr mrgt  ;; right button click  (button3)
 
   ;; scratchpads
+  llm (tap-hold-release $mt $mt M-A-t lsft)                  ;; large language model
   trl (tap-hold-release $mt $mt M-A-s (movemouse-speed 15))  ;; translator / slowdown mouse cursor
 )
 #+end_src
