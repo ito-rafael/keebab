@@ -446,7 +446,7 @@
 
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
-  @hm  @ha  XX   @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
+  @hm  @ha  @trl @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
   XX   XX   XX   XX   XX        XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
@@ -478,6 +478,9 @@
   mbl mlft  ;; left button click   (button1)
   mbm mmid  ;; middle button click (button2)
   mbr mrgt  ;; right button click  (button3)
+
+  ;; scratchpads
+  trl (tap-hold-release $mt $mt M-A-s (movemouse-speed 15))  ;; translator / slowdown mouse cursor
 )
 
 (deflayer misc
