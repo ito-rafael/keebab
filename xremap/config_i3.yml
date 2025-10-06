@@ -1,6 +1,6 @@
 virtual_modifiers:
-  - Henkan
-  - Muhenkan
+  - F21
+  - F22
 
 shared:
   terminals: &terminals
@@ -351,3 +351,9 @@ keymap:
       F17: Ctrl-Shift-c  # copy
       F18: Ctrl-v        # paste
       Alt-o: Ctrl-o      # open file
+
+  - name: volume control with mouse
+    exact_match: true
+    remap:
+      F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
+      F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }

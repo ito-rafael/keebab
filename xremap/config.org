@@ -37,6 +37,7 @@
   - [[#miscellaneous][Miscellaneous]]
   - [[#pdfpc][pdfpc]]
   - [[#libreoffice][LibreOffice]]
+  - [[#mouse-controller][Mouse controller]]
 
 * Information
 ** Table
@@ -168,11 +169,17 @@ Keyboard backlit and underglow LEDs
 | meta+F20       | keyboard backlit on/off   |
 |----------------+---------------------------|
 *** F21
-TBD (suggestion: monitor LED strip)
+Volume control with MX Master 3 mouse.
+|---------------+-------------|
+| binding       | description |
+|---------------+-------------|
+| F21-wheelup   | vol+ coarse |
+| F21-wheeldown | vol- coarse |
+|---------------+-------------|
 *** F22
 TBD
 *** F23
-TBD
+TBD (suggestion: monitor LED strip)
 *** F24
 TBD
 ** Workspace navigation
@@ -215,14 +222,14 @@ TBD
 *** i3wm
 #+begin_src conf :noweb-ref i3-modifiers
 virtual_modifiers:
-  - Henkan
-  - Muhenkan
+  - F21
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-modifiers
 virtual_modifiers:
   - F15
   - F19
+  - F21
 #+end_src
 * Shared
 #+begin_src conf :noweb-ref shared-common
@@ -815,6 +822,15 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F17: Ctrl-Shift-c  # copy
       F18: Ctrl-v        # paste
 #+end_src
+** Mouse controller
+*** Volume control
+#+begin_src conf :noweb-ref mouse
+  - name: volume control with mouse
+    exact_match: true
+    remap:
+      F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
+      F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
@@ -822,6 +838,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 
 <<shared-common>>
 
+<<modmap>>
 <<keymap>>
 
 <<cpc-terminal>>
@@ -858,6 +875,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 #<<pdfpc>>
 
 <<libreoffice>>
+
+<<mouse>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
@@ -866,6 +885,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<shared-common>>
 <<shared-sway>>
 
+<<modmap>>
 <<keymap>>
 
 <<cpc-terminal>>
@@ -906,5 +926,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 #<<pdfpc>>
 
 <<libreoffice>>
+
+<<mouse>>
 #+end_src
 #+end_src
