@@ -31,6 +31,12 @@ modmap:
         held: F21
         alone: KEY_PAGEDOWN
         alone_timeout_millis: 200
+  - name: zoom control with side-top mouse button
+    remap:
+      BTN_FORWARD:
+        held: F22
+        alone: KEY_PAGEUP
+        alone_timeout_millis: 200
 keymap:
 
   - name: copy/paste/cut - terminal
