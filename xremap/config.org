@@ -66,8 +66,8 @@
 | F18            | XF86Launch9      |     188 | KEY_F18             | paste               |
 | F19            | -----            |     189 | KEY_F19             | opacity             |
 | F20            | -----            |     190 | KEY_F20             | backlit & underglow |
-| F21            | -----            |     191 | KEY_F21             |                     |
-| F22            | -----            |     192 | KEY_F22             |                     |
+| F21            | -----            |     191 | KEY_F21             | volume via mouse    |
+| F22            | -----            |     192 | KEY_F22             | zoom via mouse      |
 | F23            | -----            |     193 | KEY_F23             |                     |
 | F24            | -----            |     194 | KEY_F24             |                     |
 |----------------+------------------+---------+---------------------+---------------------|
@@ -205,25 +205,25 @@ TBD
 | C-Super_R   + {1,2,...,9,0} | move to output #2 |
 |-----------------------------+-------------------|
 ** Keeb "misc" layer
-|-----------+-------------+-------------|
-| binding   | category    | description |
-|-----------+-------------+-------------|
-| Alt_R + a | superscript | ª           |
-| Alt_R + o | superscript | º           |
-| Alt_R + p | currency    | £           |
-| Alt_R + e | currency    | €           |
-| Alt_R + y | currency    | ￥          |
-| Alt_R + r | currency    | ₽           |
-| Alt_R + s | macro       | address_1   |
-| Alt_R + t | macro       | address_2   |
-| Alt_R + c | macro       | zip_code    |
-| Alt_R + d | macro       | phone       |
-| Alt_R + n | macro       | email_1     |
-| Alt_R + l | macro       | email_2     |
-| Alt_R + u | macro       | email_3     |
-| Alt_R + h | macro       | name        |
-| Alt_R + i | macro       | id          |
-|-----------+-------------+-------------|
+|-----------+----------+-------------|
+| binding   | category | description |
+|-----------+----------+-------------|
+| Alt_R + a | symbol   | ª           |
+| Alt_R + o | symbol   | º           |
+| Alt_R + p | currency | £           |
+| Alt_R + e | currency | €           |
+| Alt_R + y | currency | ￥          |
+| Alt_R + r | currency | ₽           |
+| Alt_R + s | macro    | address_1   |
+| Alt_R + t | macro    | address_2   |
+| Alt_R + c | macro    | zip_code    |
+| Alt_R + d | macro    | phone       |
+| Alt_R + n | macro    | email_1     |
+| Alt_R + l | macro    | email_2     |
+| Alt_R + u | macro    | email_3     |
+| Alt_R + h | macro    | name        |
+| Alt_R + i | macro    | id          |
+|-----------+----------+-------------|
 * Modifiers
 *** i3wm
 #+begin_src conf :noweb-ref i3-modifiers
