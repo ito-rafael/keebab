@@ -5,6 +5,7 @@ Description=xremap
 ExecStart=%h/.cargo/bin/xremap \
     --mouse \
     --device "Logitech Wireless Mouse MX Master 3" \
+    --device "LogiOps Virtual Input" \
     --device "ZSA Technology Labs Moonlander Mark I" \
     --device "ZSA Technology Labs Planck EZ Glow" \
     --device "KMonad INKL output" \
