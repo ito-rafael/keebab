@@ -177,7 +177,13 @@ Volume control with MX Master 3 mouse.
 | F21-wheeldown | vol- coarse |
 |---------------+-------------|
 *** F22
-TBD
+Zoom control with MX Master 3 mouse.
+|---------------+-------------|
+| binding       | description |
+|---------------+-------------|
+| F22-wheelup   | zoom+ (C-+) |
+| F22-wheeldown | zoom- (C--) |
+|---------------+-------------|
 *** F23
 TBD (suggestion: monitor LED strip)
 *** F24
@@ -223,6 +229,7 @@ TBD
 #+begin_src conf :noweb-ref i3-modifiers
 virtual_modifiers:
   - F21
+  - F22
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-modifiers
@@ -230,6 +237,7 @@ virtual_modifiers:
   - F15
   - F19
   - F21
+  - F22
 #+end_src
 * Shared
 #+begin_src conf :noweb-ref shared-common
@@ -830,6 +838,14 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
     remap:
       F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
       F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
+#+end_src
+*** Zoom control
+#+begin_src conf :noweb-ref mouse
+  - name: zoom control with mouse
+    exact_match: true
+    remap:
+      F22-XDOWNSCROLL: Ctrl-minus
+      F22-XUPSCROLL:   Ctrl-Shift-equal
 #+end_src
 * Tangle :noexport:
 ** i3

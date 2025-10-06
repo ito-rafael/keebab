@@ -374,3 +374,8 @@ keymap:
     remap:
       F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
       F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
+  - name: zoom control with mouse
+    exact_match: true
+    remap:
+      F22-XDOWNSCROLL: Ctrl-minus
+      F22-XUPSCROLL:   Ctrl-Shift-equal
