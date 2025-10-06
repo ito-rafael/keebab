@@ -1,0 +1,209 @@
+#+TITLE: Logitech MX related files
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Logitech MX devices
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_2:
+- [[#hw-info][HW info]]
+  - [[#mx-master-3][MX Master 3]]
+  - [[#mx-keys][MX Keys]]
+- [[#sw-info][SW info]]
+  - [[#tools][Tools]]
+  - [[#useful-links][Useful links]]
+  - [[#logiops][LogiOps]]
+  - [[#solaar][Solaar]]
+  - [[#host-change-support-logitech-flow][Host change support (Logitech Flow)]]
+
+* HW info
+** MX Master 3
+*** MAC addresses
+- Easy-Switch #1: C4:C1:64:EB:D4:44
+- Easy-Switch #2: C4:C1:64:EB:D4:45
+- Easy-Switch #3: C4:C1:64:EB:D4:46
+*** udev
+udev (udevadm info -a -p <SYSFS-PATH>)
+- SUBSYSTEM=="input"
+- ATTR{id/product}=="b023"
+- ATTR{id/vendor}=="046d"
+- ATTR{name}=="Logitech Wireless Mouse MX Master 3"
+** MX Keys
+*** MAC addresses
+- Easy-Switch #1: CF:FB:B1:85:A5:DC
+- Easy-Switch #2: CF:FB:B1:85:A5:DB
+- Easy-Switch #3: CF:FB:B1:85:A5:DD
+*** udev
+udev (udevadm info -a -p <SYSFS-PATH>):
+- SUBSYSTEM=="input"
+- ATTR{id/product}=="b35b"
+- ATTR{id/vendor}=="046d"
+- ATTR{name}=="MX Keys Keyboard"
+* SW info
+** Tools
+*** LogiOps
+- Description: unofficial driver for Logitech mice and keyboard.
+- Usage: driver used to remap keys/buttons.
+*** Solaar
+- Description: Linux device manager for Logitech devices.
+- Usage:
+  - used to change connection between host.
+  - used to connect devices with the Unifying Receiver.
+** Useful links
+*** GitHub repository
+https://github.com/PixlOne/logiops
+*** Arch wiki
+https://wiki.archlinux.org/title/Logitech_MX_Master
+** LogiOps
+*** Installation
+#+begin_src sh
+yay -S logiops-git
+#+end_src
+*** Config file
+#+begin_src sh
+touch /etc/logid.cfg
+#+end_src
+*** Start service from command line
+#+begin_src sh
+logid
+#+end_src
+*** Start as a systemd service
+#+begin_src sh
+systemctl start logid
+#+end_src
+*** Info about devices
+#+begin_src sh
+logid -v
+#+end_src
+** Solaar
+*** Installation
+#+begin_src sh
+sudo pacman -S solaar
+#+end_src
+*** Info about devices
+#+begin_src sh
+solaar show
+#+end_src
+*** Get info about configurable settings
+#+begin_src sh
+solaar config "MX Master 3"
+solaar config "MX Keys"
+#+end_src
+*** Change settings
+#+begin_src sh
+solaar config <device> <setting> <value_key>
+#+end_src
+*** Example
+#+begin_src sh
+solaar config 'MX Master 3' change-host 2
+#+end_src
+** Host change support (Logitech Flow)
+*** Description:
+change host connection for both MX Master 3 and 
+MX Keys when one of the situations bellow happens:
+  - MX Master 3: press "i" button + Left gesture
+  - MX Master 3: press "i" button + Right gesture
+  - MX Keys: Easy-switch #3 is pressed
+*** Step 1: script to identify host
+**** Create script
+#+begin_src sh
+vim ~/mx_script.sh
+#+end_src
+**** Script
+#+begin_src sh
+#!/bin/sh
+# use Solaar to check in which host Logitech MX peripherals are connected to
+HOST=$(solaar config "MX Master 3" change-host | grep change-host | awk '{print $3}')
+if [ $HOST = '1:catuaba' ]
+then
+    solaar config 'MX Master 3' change-host 2;
+    solaar config 'MX Keys' change-host 2;
+elif [ $HOST = '2:Y2P-ArchLinux' ]
+then
+    solaar config 'MX Master 3' change-host 1;
+    solaar config 'MX Keys' change-host 1;
+fi
+#+end_src
+**** Give it execution permissions
+#+begin_src sh
+chmod +x ~/mx_script.sh
+#+end_src
+*** Step 2: make logiops generate F13 key
+#+begin_src sh
+vim /etc/logid.cfg
+#+end_src
+**** Config file
+#+begin_src conf
+# (...)
+{name: "Wireless Mouse MX Master 3";
+  # (...)
+      #-----------------------------
+      # press "i" button under wheel
+      #-----------------------------
+      {cid: 0xc4
+        action = {
+          type: "Gestures"
+          gestures: (
+            #-----------------------
+            # Left
+            #-----------------------
+            {
+              direction: "Left"
+              mode: "OnRelease"
+              action: {
+                #type: "ChangeHost" 
+                #host: 2
+                type: "Keypress" 
+                keys: ["KEY_F13"]
+              }
+            },
+            #-----------------------
+            # Right
+            #-----------------------
+            {
+              direction: "Right"
+              mode: "OnRelease"
+              action: {
+                #type: "ChangeHost" 
+                #host: 1
+                type: "Keypress" 
+                keys: ["KEY_F13"]
+              }
+            },
+            #-----------------------
+          )
+        }
+      },
+# (...)
+{name: "MX Keys Wireless Keyboard";
+  # (...)
+      #-----------------------
+      # Easy-Switch key #3
+      #-----------------------
+      {cid: 0xd3;
+        action = {
+          type : "Keypress";
+          keys: ["KEY_F13"];
+        };
+      },
+# (...)
+#+end_src
+*** Step 3: change key in Xmodmap
+#+begin_src sh
+vim ~/.Xmodmap
+#+end_src
+**** Config file
+#+begin_src conf
+!keycode 191 = XF86Tools NoSymbol XF86Tools
+keycode 191 = F13 NoSymbol XF86Tools
+#+end_src
+**** Reload xmodmap
+xmodmap ~/.Xmodmap
+*** Step 4: make a bindsym in i3wm
+#+begin_src sh
+vim ~/.config/i3/_config
+#+end_src
+**** Config file
+#+begin_src sh
+bindsym F13 exec /home/rafael/mx_script.sh
+#+end_src
+**** Reload i3wm
