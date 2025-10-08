@@ -11,7 +11,7 @@
     - [[#settings][Settings]]
     - [[#thumbwheel][Thumbwheel]]
     - [[#buttons][Buttons]]
-      - [[#wheel][Wheel]]
+      - [[#magspeed-scroll-wheel][MagSpeed scroll wheel]]
       - [[#side-top][Side-top]]
       - [[#side-bottom][Side-bottom]]
       - [[#press-i-button-under-wheel][Press "i" button under wheel]]
@@ -215,7 +215,7 @@ Gestures for thumbwheel.
 #+begin_src conf
     buttons: (
 #+end_src
-**** Wheel
+**** MagSpeed scroll wheel
 #+begin_src conf
       #{cid: 0x52
       #  action = {
