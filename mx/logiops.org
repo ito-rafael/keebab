@@ -41,11 +41,10 @@ devices: (
 | scroll X wheel left  | button 7     | ---- |
 | side-bottom button   | button 8     | 0x53 |
 | side-top button      | button 9     | 0x56 |
-| gesture button       | Ctrl+Alt+Tab | 0xc3 |
+| gesture button       | C-A-Tab      | 0xc3 |
 |----------------------+--------------+------|
-| press "i" button     | Not detected | 0xc4 |
+| mode shift           | not detected | 0xc4 |
 |----------------------+--------------+------|
-| under wheel          | by xbindkeys |      |
 | switch receivers     | ----         | 0xd7 |
 |----------------------+--------------+------|
 *** logid -v :noexport:
