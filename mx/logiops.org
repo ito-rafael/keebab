@@ -8,7 +8,6 @@
 * Table of Contents :toc_4:
 - [[#devices][Devices]]
   - [[#mx-master-3][MX Master 3]]
-    - [[#logid--v][logid -v]]
     - [[#settings][Settings]]
     - [[#thumbwheel][Thumbwheel]]
     - [[#buttons][Buttons]]
@@ -19,7 +18,6 @@
       - [[#gesture-button][Gesture button]]
       - [[#switch-receivers][Switch receivers]]
   - [[#mx-keys][MX Keys]]
-    - [[#logid--v-1][logid -v]]
     - [[#name--buttons][Name & Buttons]]
     - [[#f-keys][F-keys]]
     - [[#easy-switch][Easy-Switch]]
@@ -50,7 +48,7 @@ devices: (
 | under wheel          | by xbindkeys |      |
 | switch receivers     | ----         | 0xd7 |
 |----------------------+--------------+------|
-*** logid -v
+*** logid -v :noexport:
 #+begin_src txt
     #[DEBUG] Unsupported device /dev/hidraw0 ignored
     #[INFO] Device found: Wireless Mouse MX Master 3 on /dev/hidraw1:255
@@ -440,7 +438,7 @@ Gestures for thumbwheel.
 | Right arrow    |           | 0xeb |
 | Left arrow     |           | 0xec |
 |----------------+-----------+------|
-*** logid -v
+*** logid -v :noexport:
 #+begin_src txt
     # logid -v
     #[INFO] Device found: MX Keys Wireless Keyboard on /dev/hidraw0:2
