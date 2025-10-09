@@ -9,7 +9,7 @@
 - [[#devices][Devices]]
   - [[#mx-master-3][MX Master 3]]
     - [[#settings][Settings]]
-    - [[#thumbwheel][Thumbwheel]]
+    - [[#thumb-wheel][Thumb wheel]]
     - [[#buttons][Buttons]]
       - [[#magspeed-scroll-wheel][MagSpeed scroll wheel]]
       - [[#side-top][Side-top]]
@@ -93,7 +93,7 @@ Defines the HiRes mouse-scrolling.
       target: false        # HID++ notification or normal
     };
 #+end_src
-*** Thumbwheel :noexport_1:
+*** Thumb wheel :noexport_1:
 #+begin_src conf
     thumbwheel: {
       divert: true          # enable/disable
