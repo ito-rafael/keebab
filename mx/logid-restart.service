@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart LogiOps (Logitech unofficial driver) when device is connected
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl restart logid.service
