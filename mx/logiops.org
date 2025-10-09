@@ -228,8 +228,7 @@ Gestures for thumbwheel.
       {cid: 0x56
         action = {
           type: "KeyPress"
-          # keycode 102 (input code 94)
-          keys: ["KEY_MUHENKAN"]
+          keys: ["BTN_FORWARD"]
         }
       },
 #+end_src
