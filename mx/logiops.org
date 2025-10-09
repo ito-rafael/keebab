@@ -237,8 +237,7 @@ Gestures for thumbwheel.
       {cid: 0x53
         action = {
           type: "KeyPress"
-          # keycode 100 (input code 92)
-          keys: ["KEY_HENKAN"]
+          keys: ["BTN_BACK"]
         }
       },
 #+end_src
