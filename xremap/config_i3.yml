@@ -174,6 +174,7 @@ keymap:
           # tilde paths
           h: [Shift-GRAVE, SPACE, SLASH]
           g: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH]
+          k: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH, k,e,e,b,a,b, SLASH]
           d: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH, d,o,t,f,i,l,e,s, SLASH]
           c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
           e: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, e,m,a,c,s,minus,e,f,s, SLASH]
