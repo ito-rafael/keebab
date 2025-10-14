@@ -72,7 +72,7 @@
 * Variables
 #+begin_src kbd
 (defvar
-  st 125  ;; shift timeout
+  st 110  ;; shift timeout
   mt 150  ;; other modifiers timeout
 )
 #+end_src
