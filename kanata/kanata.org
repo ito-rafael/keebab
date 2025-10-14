@@ -29,6 +29,7 @@
   - [[#luminosity][luminosity]]
   - [[#mouse][mouse]]
   - [[#miscellaneous][miscellaneous]]
+  - [[#youtube][youtube]]
   - [[#fn][fn]]
     - [[#fn1][fn1]]
     - [[#fn2][fn2]]
@@ -204,6 +205,7 @@
   msc (tap-hold-release $mt $mt w (layer-toggle misc))
   med (tap-hold-release $mt $mt f (layer-toggle media))
   lum (tap-hold-release $mt $mt z (layer-toggle luminosity))
+  yts (tap-hold-release $mt $mt y (layer-toggle youtube-speed))
   fn1 (tap-hold-release $mt $mt j (layer-toggle function-keys-1))
   fn2 (tap-hold-release $mt $mt b (layer-toggle function-keys-2))
 
@@ -250,7 +252,7 @@
 ** colemak-dh :noexport_1:
 #+begin_src kbd
 (deflayer colemak
-  q    @msc @med p    @fn2      @fn1 l    u    y    f13       _  _  _
+  q    @msc @med p    @fn2      @fn1 l    u    @yts f13       _  _  _
   @mka @mkr @mks @mkt @mkg      @mkm @mkn @mke @mki @mko      _  _  _
   @lum x    c    d    v         k    h    ,    .    /         _  _  _
             @nav @wm  @mou      XX   @num @sym                _  _  _
@@ -744,6 +746,16 @@
   
   ;; symbol
   sdm RA-q  ;; diameter
+)
+#+end_src
+** youtube :noexport_1:
+#+begin_src kbd
+(deflayer youtube-speed
+  _    _    _    _    _         _    _    _    _    _         _  _  _
+  _    _    _    _    _         _    _    _    _    _         _  _  _
+  _    _    _    _    _         _    _    _    _    _         _  _  _
+            -    u    \         _    h    a                   _  _  _
+                                                              _  _  _
 )
 #+end_src
 ** fn :noexport_2:
