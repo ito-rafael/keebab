@@ -20,8 +20,8 @@
   - [[#browsers][Browsers]]
   - [[#cedilla][Cedilla]]
 - [[#modmap][Modmap]]
-  - [[#volume-control-mouse][Volume control [mouse]]]
   - [[#zoom-control-mouse][Zoom control [mouse]]]
+  - [[#btn_back-mouse][BTN_BACK [mouse]]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs-inhabitant][Emacs inhabitant]]
@@ -286,7 +286,8 @@ Obs.: Sway only
 #+begin_src conf :noweb-ref modmap
 modmap:
 #+end_src
-** Volume control [mouse]
+** BTN_BACK [mouse]
+tap: PageDown / hold: volume control (F21)
 #+begin_src conf :noweb-ref modmap
   - name: volume control with side-bottom mouse button
     remap:
