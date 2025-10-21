@@ -4,6 +4,8 @@
 #+STARTUP: showeverything
 
 * Table of contents :toc_3:
+- [[#hardware][Hardware]]
+  - [[#built-in-laptop][Built-in laptop]]
 - [[#software][Software]]
   - [[#udev][udev]]
     - [[#hwdb][hwdb]]
@@ -14,6 +16,10 @@
   - [[#ydotool][ydotool]]
   - [[#zsa][ZSA]]
 
+* Hardware
+** Built-in laptop :noexport_1:
+*** Troubleshooting
+Key ghosting.
 * Software
 ** udev
 https://wiki.archlinux.org/title/Udev
