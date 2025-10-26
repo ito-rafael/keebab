@@ -20,8 +20,8 @@
   - [[#browsers][Browsers]]
   - [[#cedilla][Cedilla]]
 - [[#modmap][Modmap]]
-  - [[#zoom-control-mouse][Zoom control [mouse]]]
   - [[#btn_back-mouse][BTN_BACK [mouse]]]
+  - [[#btn_forward-mouse][BTN_FORWARD [mouse]]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs-inhabitant][Emacs inhabitant]]
@@ -296,7 +296,8 @@ tap: PageDown / hold: volume control (F21)
         alone: KEY_PAGEDOWN
         alone_timeout_millis: 200
 #+end_src
-** Zoom control [mouse]
+** BTN_FORWARD [mouse]
+tap: PageUp / hold: zoom control (F22)
 #+begin_src conf :noweb-ref modmap
   - name: zoom control with side-top mouse button
     remap:
