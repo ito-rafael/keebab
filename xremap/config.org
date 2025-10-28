@@ -22,6 +22,7 @@
 - [[#modmap][Modmap]]
   - [[#btn_back-mouse][BTN_BACK [mouse]]]
   - [[#btn_forward-mouse][BTN_FORWARD [mouse]]]
+  - [[#btn_side-mouse][BTN_SIDE [mouse]]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs-inhabitant][Emacs inhabitant]]
@@ -185,9 +186,13 @@ Zoom control with MX Master 3 mouse.
 | F22-wheeldown | zoom- (C--) |
 |---------------+-------------|
 *** F23
-TBD (suggestion: monitor LED strip)
+Brightness control with MX Master 3 mouse.
+|-------------------+--------------|
+| binding           | description  |
+|-------------------+--------------|
+|-------------------+--------------|
 *** F24
-TBD
+TBD (suggestion: monitor LED strip)
 ** Workspace navigation
 |---------------------------+-----------------------|
 | binding                   | description           |
@@ -238,6 +243,7 @@ virtual_modifiers:
   - F19
   - F21
   - F22
+  - F23
 #+end_src
 * Shared
 #+begin_src conf :noweb-ref shared-common
@@ -304,6 +310,16 @@ tap: PageUp / hold: zoom control (F22)
       BTN_FORWARD:
         held: F22
         alone: KEY_PAGEUP
+        alone_timeout_millis: 200
+#+end_src
+** BTN_SIDE [mouse]
+tap: Enter / hold: brightness control (F23)
+#+begin_src conf :noweb-ref modmap
+  - name: brightness control with mode shift mouse button
+    remap:
+      BTN_SIDE:
+        held: F23
+        alone: BTN_SIDE
         alone_timeout_millis: 200
 #+end_src
 * Keymap
