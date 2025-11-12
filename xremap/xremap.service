@@ -2,7 +2,7 @@
 Description=xremap
 
 [Service]
-ExecStart=%h/.cargo/bin/xremap \
+ExecStart=/usr/bin/xremap \
     --mouse \
     --device "Logitech Wireless Mouse MX Master 3" \
     --device "LogiOps Virtual Input" \
