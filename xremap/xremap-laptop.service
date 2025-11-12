@@ -11,6 +11,8 @@ ExecStart=/usr/bin/xremap \
     --device "KMonad INKL output" \
     --device "kanata" \
     --watch %h/.config/xremap/config.yml
+ExecStartPost=/usr/bin/sleep 2
+ExecStartPost=systemctl start --user kanata.service
 ExecStop=/usr/bin/killall xremap
 Restart=always
 Environment=DISPLAY=:1
