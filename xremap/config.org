@@ -514,19 +514,19 @@ keymap:
 #+begin_src conf :noweb-ref dead-acute
           # miscellaneous lowercase
           n: [APOSTROPHE, SPACE, n]
-          m: [APOSTROPHE, SPACE, m]
+          m: [APOSTROPHE, SPACE, m, SPACE]
           r: [APOSTROPHE, SPACE, r]
-          s: [APOSTROPHE, SPACE, s]
-          t: [APOSTROPHE, SPACE, t]
+          s: [APOSTROPHE, SPACE, s, SPACE]
+          t: [APOSTROPHE, SPACE, t, SPACE]
 #+end_src
 **** Misc uppercase
 #+begin_src conf :noweb-ref dead-acute
           # miscellaneous uppercase
           Shift-n: [APOSTROPHE, SPACE, Shift-n]
-          Shift-m: [APOSTROPHE, SPACE, Shift-m]
+          Shift-m: [APOSTROPHE, SPACE, Shift-m, SPACE]
           Shift-r: [APOSTROPHE, SPACE, Shift-r]
-          Shift-s: [APOSTROPHE, SPACE, Shift-s]
-          Shift-t: [APOSTROPHE, SPACE, Shift-t]
+          Shift-s: [APOSTROPHE, SPACE, Shift-s, SPACE]
+          Shift-t: [APOSTROPHE, SPACE, Shift-t, SPACE]
 #+end_src
 *** Shift-F13
 #+begin_src conf :noweb-ref dead-acute
