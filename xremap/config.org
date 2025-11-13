@@ -514,10 +514,10 @@ keymap:
 #+begin_src conf :noweb-ref dead-acute
           # miscellaneous lowercase
           n: [APOSTROPHE, SPACE, n]
-          m: [APOSTROPHE, SPACE, m]
+          m: [APOSTROPHE, SPACE, m, SPACE]
           r: [APOSTROPHE, SPACE, r]
-          s: [APOSTROPHE, SPACE, s]
-          t: [APOSTROPHE, SPACE, t]
+          s: [APOSTROPHE, SPACE, s, SPACE]
+          t: [APOSTROPHE, SPACE, t, SPACE]
 #+end_src
 **** Misc uppercase
 #+begin_src conf :noweb-ref dead-acute
