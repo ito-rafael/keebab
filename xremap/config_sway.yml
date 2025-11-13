@@ -105,6 +105,14 @@ keymap:
       only: *browsers
     remap:
       Ctrl-space: Shift-Ctrl-Tab
+  - name: open browser in private window
+    # Firefox
+    application:
+      only: firefox-developer-edition
+    remap:
+      Ctrl-Shift-n:
+        # remap to C-S-p
+        launch: ["bash", "-c", "ydotool key 29:1 42:1 25:1 25:0 42:0 29:0"]
 
   - name: Prev/Next tab
     exact_match: true

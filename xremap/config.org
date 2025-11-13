@@ -442,6 +442,17 @@ keymap:
       Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
+*** Firefox
+#+begin_src conf :noweb-ref browsers
+  - name: open browser in private window
+    # Firefox
+    application:
+      only: firefox-developer-edition
+    remap:
+      Ctrl-Shift-n:
+        # remap to C-S-p
+        launch: ["bash", "-c", "ydotool key 29:1 42:1 25:1 25:0 42:0 29:0"]
+#+end_src
 ** Cedilla
 #+begin_src conf :noweb-ref cedilla
   - name: cedilla
