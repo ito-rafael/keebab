@@ -26,7 +26,7 @@
       - [[#gesture-button-1][Gesture button]]
       - [[#switch-receivers][Switch receivers]]
   - [[#mx-keys][MX Keys]]
-    - [[#name--buttons][Name & Buttons]]
+    - [[#documentation-1][Documentation]]
     - [[#f-keys][F-keys]]
     - [[#easy-switch][Easy-Switch]]
     - [[#numpad][Numpad]]
@@ -423,6 +423,15 @@ Gestures for thumb wheel.
   },
 #+end_src
 ** MX Keys
+:PROPERTIES:
+:header-args: :tangle no
+:END:
+#+begin_src conf
+  {name: "MX Keys Wireless Keyboard";
+
+    buttons: (
+#+end_src
+*** Documentation
 |----------------+-----------+------|
 | Key            | xbindkeys |  CID |
 |----------------+-----------+------|
@@ -453,7 +462,7 @@ Gestures for thumb wheel.
 | Left arrow     |           | 0xec |
 |----------------+-----------+------|
 *** logid -v :noexport:
-#+begin_src txt
+#+begin_src txt :tangle no:
     # logid -v
     #[INFO] Device found: MX Keys Wireless Keyboard on /dev/hidraw0:2
     #[DEBUG] /dev/hidraw0:2 remappable buttons:
@@ -483,12 +492,6 @@ Gestures for thumb wheel.
     #[DEBUG] 0xeb | YES     |         |            | 
     #[DEBUG] 0xec | YES     |         |            | 
 #+end_src
-*** Name & Buttons
-#+begin_src conf
-  {name: "MX Keys Wireless Keyboard";
-
-    buttons: (
-#+end_src
 *** F-keys :noexport_1:
 **** F1
 F1 key: Screen Brightness Down
@@ -515,12 +518,12 @@ F2 key: Screen Brightness Up
 #+end_src
 **** F3
 #+begin_src conf
-      #{cid: 0xe0;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_F3"];
-      #  };
-      #},
+#      {cid: 0xe0;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_F3"];
+#        };
+#      },
 #+end_src
 **** F4
 #+begin_src conf
@@ -624,21 +627,21 @@ F7 key: Backlight Brightness Up
 *** Easy-Switch :noexport_1:
 **** Easy-Switch #1
 #+begin_src conf
-      #{cid: 0xd1;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_MACRO1"];
-      #  };
-      #},
+#      {cid: 0xd1;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_MACRO1"];
+#        };
+#      },
 #+end_src
 **** Easy-Switch #2
 #+begin_src conf
-      #{cid: 0xd2;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_MACRO2"];
-      #  };
-      #},
+#      {cid: 0xd2;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_MACRO2"];
+#        };
+#      },
 #+end_src
 **** Easy-Switch #3
 #+begin_src conf
@@ -662,21 +665,21 @@ F7 key: Backlight Brightness Up
 #+end_src
 **** Camera
 #+begin_src conf
-      #{cid: 0xbf;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_SCREENSAVER"];
-      #  };
-      #},
+#      {cid: 0xbf;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_SCREENSAVER"];
+#        };
+#      },
 #+end_src
 **** Menu
 #+begin_src conf
-      #{cid: 0xea;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_CONTEXT_MENU"];
-      #  };
-      #},
+#      {cid: 0xea;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_CONTEXT_MENU"];
+#        };
+#      },
 #+end_src
 **** Lock Screen
 #+begin_src conf
@@ -692,25 +695,28 @@ F7 key: Backlight Brightness Up
 *** Arrows :noexport_1:
 **** Right
 #+begin_src conf
-      #{cid: 0xeb;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_RIGHT"];
-      #  };
-      #},
+#      {cid: 0xeb;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_RIGHT"];
+#        };
+#      },
 #+end_src
 **** Left
 #+begin_src conf
-      #{cid: 0xec;
-      #  action = {
-      #    type : "Keypress";
-      #    keys: ["KEY_LEFT"];
-      #  };
-      #}
+#      {cid: 0xec;
+#        action = {
+#          type : "Keypress";
+#          keys: ["KEY_LEFT"];
+#        };
+#      }
 #+end_src
 **** EoS
 #+begin_src conf
     )
-  }
+  },
+#+end_src
+* EoS :noexport:
+#+begin_src conf
 );
 #+end_src
