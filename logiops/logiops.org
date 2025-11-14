@@ -15,8 +15,8 @@
     - [[#documentation][Documentation]]
       - [[#thumb-wheel][Thumb wheel]]
       - [[#side-bottom][Side-bottom]]
-      - [[#press-i-button-under-wheel][Press "i" button under wheel]]
       - [[#gesture-button][Gesture button]]
+      - [[#mode-shift][Mode shift]]
       - [[#switch-receivers][Switch receivers]]
   - [[#mx-keys][MX Keys]]
     - [[#name--buttons][Name & Buttons]]
@@ -57,6 +57,14 @@ devices: (
 | wheel right | REL_HWHEEL (multiplier +0.5)    |
 | tap wheel   | Super-Alt-F (toggle fullscreen) |
 |-------------+---------------------------------|
+**** Mode shift
+|----------------------------------+---------------------------------------|
+| Keybindings                      | Function                              |
+|----------------------------------+---------------------------------------|
+| mode shift                       | Enter                                 |
+| mode shift + down                | F17 (copy)                            |
+| mode shift + up                  | F18 (paste)                           |
+|----------------------------------+---------------------------------------|
 *** logid -v :noexport:
 #+begin_src txt
     #[DEBUG] Unsupported device /dev/hidraw0 ignored
@@ -243,34 +251,36 @@ Gestures for thumb wheel.
         }
       },
 #+end_src
-**** Press "i" button under wheel
+**** Mode shift
 #+begin_src conf
       {cid: 0xc4
         action = {
           type: "Gestures"
           gestures: (
 #+end_src
-***** Up
-#+begin_src conf
-            {
-              direction: "Up"
-              mode: "OnRelease"
-              action: {
-                type: "KeyPress" 
-                # bind to "paste" in xremap
-                keys: ["KEY_F18"]
-              }
-            },
-#+end_src
 ***** Down
 #+begin_src conf
             {
               direction: "Down"
+              threshold: 50
               mode: "OnRelease"
               action: {
                 type: "KeyPress" 
-                # bind to "copy" in xremap
+                # binded to "copy" in xremap
                 keys: ["KEY_F17"]
+              }
+            },
+#+end_src
+***** Up
+#+begin_src conf
+            {
+              direction: "Up"
+              threshold: 50
+              mode: "OnRelease"
+              action: {
+                type: "KeyPress" 
+                # binded to "paste" in xremap
+                keys: ["KEY_F18"]
               }
             },
 #+end_src
