@@ -238,6 +238,13 @@ keymap:
       F15-y:         { launch: ["bash", "-c", "amixer -q sset Capture 5%+"] }
       Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
       Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
+  - name: YouTube speed control
+    remap:
+      Shift-F15-esc:       j  # x1.00
+      Shift-F15-space:     l  # x1.25
+      Shift-F15-tab:       u  # x1.50
+      Shift-F15-enter:     k  # x2.00
+      Shift-F15-backspace: h  # x3.00
   - name: brightness control
     remap:
       F19-esc:       { launch: ["bash", "-c", "brightnessctl set 0%"] }
