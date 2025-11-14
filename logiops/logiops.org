@@ -179,7 +179,7 @@ Defines the HiRes mouse-scrolling.
     hiresscroll: {
       hires: true
       invert: false
-      target: false        # HID++ notification or normal
+      target: false         # HID++ notification or normal
     };
 #+end_src
 *** Thumb wheel :noexport_1:
@@ -207,9 +207,9 @@ Defines the HiRes mouse-scrolling.
 **** Proxy
 Action when thumb is near the thumb wheel.
 #+begin_src conf
-      #proxy: {
-      #  type: "ToggleSmartshift" 
-      #}
+#      proxy: {
+#        type: "ToggleSmartshift"
+#      }
 #+end_src
 **** Tap
 Action when thumb button is tapped.
@@ -297,12 +297,12 @@ Gestures for thumb wheel.
 #+end_src
 **** MagSpeed scroll wheel
 #+begin_src conf
-      #{cid: 0x52
-      #  action = {
-      #    type: "KeyPress"
-      #    keys: ["BTN_MIDDLE"]
-      #  }
-      #},
+      {cid: 0x52
+        action = {
+          type: "KeyPress"
+          keys: ["BTN_MIDDLE"]
+        }
+      },
 #+end_src
 **** Side-top
 #+begin_src conf
