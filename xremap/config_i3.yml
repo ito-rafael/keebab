@@ -261,9 +261,9 @@ keymap:
     remap:
       F19-h:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "dec"] }
       F19-slash:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "inc"] }
-      F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
-      S-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
-      S-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
+      F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "reset"] }
+      C-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
+      C-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
   - name: backlit control
     remap:
       F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle"] }
@@ -309,7 +309,7 @@ keymap:
       Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
 
-  - name: miscellaneous text - currency & superscript (terminal)
+  - name: miscellaneous text - currency & symbol (terminal)
     application:
       only: *terminals
     remap:
@@ -318,11 +318,11 @@ keymap:
       Alt_R-p: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-y: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-r: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      # superscript
+      # symbol
       Alt_R-a: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-o: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
-  - name: miscellaneous text - currency & superscript
+  - name: miscellaneous text - currency & symbol
     application:
       not: *terminals
     remap:
@@ -331,7 +331,7 @@ keymap:
       Alt_R-p: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-y: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-r: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      # superscript
+      # symbol
       Alt_R-a: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-o: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
 

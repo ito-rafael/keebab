@@ -42,38 +42,38 @@
 
 * Information
 ** Table
-|----------------+------------------+---------+---------------------+---------------------|
-| Key name       | Xmodmap          | keycode | input-event-codes.h | used for            |
-|----------------+------------------+---------+---------------------+---------------------|
-| left shift     | Shift_L          |      42 | KEY_LEFTSHIFT       | shift (xkb)         |
-| right shift    | Shift_R          |      54 | KEY_RIGHTSHIFT      | shift (xkb)         |
-|----------------+------------------+---------+---------------------+---------------------|
-| left ctrl      | Control_L        |      29 | KEY_LEFTCTRL        | control (xkb)       |
-| right ctrl     | Control_R        |      97 | KEY_RIGHTCTRL       | control (xkb)       |
-|----------------+------------------+---------+---------------------+---------------------|
-| left alt       | Alt_L            |      56 | KEY_LEFTALT         | mod1 (xkb)          |
-| right alt      | ISO_Level3_Shift |     100 | KEY_RIGHTALT        | mod5 (xkb)          |
-|----------------+------------------+---------+---------------------+---------------------|
-| win/super/meta | Super_L          |     125 | KEY_LEFTMETA        | mod4 (xkb)          |
-| ???            | Super_R          |     126 | KEY_RIGHTMETA       | mod4 (xkb)          |
-|----------------+------------------+---------+---------------------+---------------------|
-| ???            | Hyper_L          |         | ?????               | ?????               |
-|----------------+------------------+---------+---------------------+---------------------|
-| F13            | XF86Tools        |     183 | KEY_F13             | apostrophe          |
-| F14            | XF86Launch5      |     184 | KEY_F14             | microphone          |
-| F15            | XF86Launch6      |     185 | KEY_F15             | volume              |
-| F16            | XF86Launch7      |     186 | KEY_F16             | cut                 |
-| F17            | XF86Launch8      |     187 | KEY_F17             | copy                |
-| F18            | XF86Launch9      |     188 | KEY_F18             | paste               |
-| F19            | -----            |     189 | KEY_F19             | opacity             |
-| F20            | -----            |     190 | KEY_F20             | backlit & underglow |
-| F21            | -----            |     191 | KEY_F21             | volume via mouse    |
-| F22            | -----            |     192 | KEY_F22             | zoom via mouse      |
-| F23            | -----            |     193 | KEY_F23             |                     |
-| F24            | -----            |     194 | KEY_F24             |                     |
-|----------------+------------------+---------+---------------------+---------------------|
-| Power button   | XF86PowerOff     |     124 | KEY_POWER           | i3/sway mode_system |
-|----------------+------------------+---------+---------------------+---------------------|
+|----------------+------------------+---------+---------------------+------------------------|
+| Key name       | Xmodmap          | keycode | input-event-codes.h | used for               |
+|----------------+------------------+---------+---------------------+------------------------|
+| left shift     | Shift_L          |      42 | KEY_LEFTSHIFT       | shift (xkb)            |
+| right shift    | Shift_R          |      54 | KEY_RIGHTSHIFT      | shift (xkb)            |
+|----------------+------------------+---------+---------------------+------------------------|
+| left ctrl      | Control_L        |      29 | KEY_LEFTCTRL        | control (xkb)          |
+| right ctrl     | Control_R        |      97 | KEY_RIGHTCTRL       | control (xkb)          |
+|----------------+------------------+---------+---------------------+------------------------|
+| left alt       | Alt_L            |      56 | KEY_LEFTALT         | mod1 (xkb)             |
+| right alt      | ISO_Level3_Shift |     100 | KEY_RIGHTALT        | mod5 (xkb)             |
+|----------------+------------------+---------+---------------------+------------------------|
+| win/super/meta | Super_L          |     125 | KEY_LEFTMETA        | mod4 (xkb)             |
+| ???            | Super_R          |     126 | KEY_RIGHTMETA       | mod4 (xkb)             |
+|----------------+------------------+---------+---------------------+------------------------|
+| ???            | Hyper_L          |         | ?????               | ?????                  |
+|----------------+------------------+---------+---------------------+------------------------|
+| F13            | XF86Tools        |     183 | KEY_F13             | apostrophe             |
+| F14            | XF86Launch5      |     184 | KEY_F14             | microphone             |
+| F15            | XF86Launch6      |     185 | KEY_F15             | volume                 |
+| F16            | XF86Launch7      |     186 | KEY_F16             | cut                    |
+| F17            | XF86Launch8      |     187 | KEY_F17             | copy                   |
+| F18            | XF86Launch9      |     188 | KEY_F18             | paste                  |
+| F19            | -----            |     189 | KEY_F19             | opacity                |
+| F20            | -----            |     190 | KEY_F20             | backlit & underglow    |
+| F21            | -----            |     191 | KEY_F21             | [mouse] volume ctl     |
+| F22            | -----            |     192 | KEY_F22             | [mouse] zoom ctl       |
+| F23            | -----            |     193 | KEY_F23             | [mouse] brightness ctl |
+| F24            | -----            |     194 | KEY_F24             |                        |
+|----------------+------------------+---------+---------------------+------------------------|
+| Power button   | XF86PowerOff     |     124 | KEY_POWER           | i3/sway mode_system    |
+|----------------+------------------+---------+---------------------+------------------------|
 ** Fn keys
 *** F13
 Apostrophe - single/double quotes (xremap).
@@ -83,10 +83,10 @@ Microphone (Oryx/QMK and xremap)
 | binding          | description |
 |------------------+-------------|
 | F14              | mic- coarse |
-| ctrl+F14         | mic+ coarse |
-| shift+F14        | mic- fine   |
-| shift+ctrl+F14   | mic+ fine   |
-| meta+F14         | mic 50%     |
+| ctrl-F14         | mic+ coarse |
+| shift-F14        | mic- fine   |
+| shift-ctrl-F14   | mic+ fine   |
+| meta-F14         | mic 50%     |
 | XF86AudioMicMute | mic mute    |
 |------------------+-------------|
 *** F15
@@ -134,6 +134,8 @@ Luminosity (Oryx/QMK and xremap):
   - brightness
   - backlit
   - opacity
+  - underglow LED
+  - monitor LED strip (TBD)
 |---------------+---------------------------------|
 | binding       | description                     |
 |---------------+---------------------------------|
@@ -164,27 +166,27 @@ Keyboard backlit and underglow LEDs
 | binding        | description               |
 |----------------+---------------------------|
 | F20            | keyboard backlit-         |
-| ctrl+F20       | keyboard backlit+         |
-| shift+F20      | @TBD: keyboard underglow- |
-| shift+ctrl+F20 | @TBD: keyboard underglow+ |
-| meta+F20       | keyboard backlit on/off   |
+| ctrl-F20       | keyboard backlit+         |
+| shift-F20      | @TBD: keyboard underglow- |
+| shift-ctrl-F20 | @TBD: keyboard underglow+ |
+| meta-F20       | keyboard backlit on/off   |
 |----------------+---------------------------|
 *** F21
 Volume control with MX Master 3 mouse.
-|---------------+-------------|
-| binding       | description |
-|---------------+-------------|
-| F21-wheelup   | vol+ coarse |
-| F21-wheeldown | vol- coarse |
-|---------------+-------------|
+|-------------------+-----------------|
+| binding           | description     |
+|-------------------+-----------------|
+| F21-wheel up      | vol+ coarse     |
+| F21-wheel down    | vol- coarse     |
+|-------------------+-----------------|
 *** F22
 Zoom control with MX Master 3 mouse.
-|---------------+-------------|
-| binding       | description |
-|---------------+-------------|
-| F22-wheelup   | zoom+ (C-+) |
-| F22-wheeldown | zoom- (C--) |
-|---------------+-------------|
+|-------------------+-------------|
+| binding           | description |
+|-------------------+-------------|
+| F22-wheel up      | zoom+ (C-+) |
+| F22-wheel down    | zoom- (C--) |
+|-------------------+-------------|
 *** F23
 Brightness control with MX Master 3 mouse.
 |-------------------+--------------|
@@ -716,12 +718,12 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref control
       F19-h:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "dec"] }
       F19-slash:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "current", "inc"] }
-      F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "toggle"] }
+      F19-k:       { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "reset"] }
 #+end_src
 ***** All windows
 #+begin_src conf :noweb-ref control
-      S-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
-      S-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
+      C-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
+      C-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
 #+end_src
 **** Backlit
 #+begin_src conf :noweb-ref control
@@ -780,10 +782,10 @@ print('      Alt_R-u: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $X
 print('      Alt_R-h: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-i: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
-*** Currency & superscript (terminal)
-#+name: currency-superscript-terminal
+*** Currency & symbol (terminal)
+#+name: currency-symbol-terminal
 #+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
-print('  - name: miscellaneous text - currency & superscript (terminal)')
+print('  - name: miscellaneous text - currency & symbol (terminal)')
 print('    application:')
 print('      only: *terminals')
 print('    remap:')
@@ -792,14 +794,14 @@ print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      # superscript')
+print('      # symbol')
 print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 #+end_src
-*** Currency & superscript
-#+name: currency-superscript
+*** Currency & symbol
+#+name: currency-symbol
 #+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
-print('  - name: miscellaneous text - currency & superscript')
+print('  - name: miscellaneous text - currency & symbol')
 print('    application:')
 print('      not: *terminals')
 print('    remap:')
@@ -808,7 +810,7 @@ print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      # superscript')
+print('      # symbol')
 print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
@@ -931,8 +933,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<scratchpad-navigation(ipc_cmd="i3-msg")>>
 <<macros-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
 <<macros(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
-<<currency-superscript-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
-<<currency-superscript(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<currency-symbol-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<currency-symbol(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
 
 #<<pdfpc>>
 
@@ -982,8 +984,8 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 <<scratchpad-navigation(ipc_cmd="swaymsg")>>
 <<macros-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
 <<macros(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
-<<currency-superscript-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
-<<currency-superscript(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<currency-symbol-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<currency-symbol(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
 
 #<<pdfpc>>
 
