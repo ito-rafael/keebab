@@ -423,3 +423,9 @@ keymap:
     remap:
       F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
+  - name: video speed control with mouse
+    exact_match: true
+    remap:
+      F23-BTN_LEFT:    Shift-leftbrace   # decrease speed
+      F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
+      F23-BTN_MIDDLE:  u                 # reset speed

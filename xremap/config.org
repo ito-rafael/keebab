@@ -202,6 +202,9 @@ Brightness control with MX Master 3 mouse.
 | F23               | enter        |
 | F23-wheel up      | brightness+  |
 | F23-wheel down    | brightness-  |
+| F23-left click    | video speed- |
+| F23-right click   | video speed+ |
+| F23-middle click  | video speed= |
 |-------------------+--------------|
 *** F24
 TBD (suggestion: monitor LED strip)
@@ -929,6 +932,15 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
     remap:
       F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
+#+end_src
+**** Video speed control
+#+begin_src conf :noweb-ref mouse
+  - name: video speed control with mouse
+    exact_match: true
+    remap:
+      F23-BTN_LEFT:    Shift-leftbrace   # decrease speed
+      F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
+      F23-BTN_MIDDLE:  u                 # reset speed
 #+end_src
 * Tangle :noexport:
 ** i3
