@@ -8,15 +8,22 @@
 * Table of Contents :toc_4:
 - [[#devices][Devices]]
   - [[#mx-master-3][MX Master 3]]
-    - [[#settings][Settings]]
     - [[#buttons][Buttons]]
-      - [[#magspeed-scroll-wheel][MagSpeed scroll wheel]]
-      - [[#side-top][Side-top]]
     - [[#documentation][Documentation]]
+      - [[#general][General]]
       - [[#thumb-wheel][Thumb wheel]]
       - [[#side-bottom][Side-bottom]]
+      - [[#side-top][Side-top]]
       - [[#gesture-button][Gesture button]]
       - [[#mode-shift][Mode shift]]
+    - [[#settings][Settings]]
+    - [[#thumb-wheel-1][Thumb wheel]]
+    - [[#buttons-1][Buttons]]
+      - [[#magspeed-scroll-wheel][MagSpeed scroll wheel]]
+      - [[#side-top-1][Side-top]]
+      - [[#side-bottom-1][Side-bottom]]
+      - [[#mode-shift-1][Mode shift]]
+      - [[#gesture-button-1][Gesture button]]
       - [[#switch-receivers][Switch receivers]]
   - [[#mx-keys][MX Keys]]
     - [[#name--buttons][Name & Buttons]]
@@ -30,25 +37,35 @@
 devices: (
 #+end_src
 ** MX Master 3
-|----------------------+--------------+------|
-| Physical Action      | xbindkeys    | CID  |
-|----------------------+--------------+------|
-| left button          | button 1     | ---- |
-| press to wheel       | button 2     | 0x52 |
-| right button         | button 3     | ---- |
-| scroll Y wheel up    | button 4     | ---- |
-| scroll Y wheel down  | button 5     | ---- |
-| scroll X wheel right | button 6     | ---- |
-| scroll X wheel left  | button 7     | ---- |
-| side-bottom button   | button 8     | 0x53 |
-| side-top button      | button 9     | 0x56 |
-| gesture button       | C-A-Tab      | 0xc3 |
-|----------------------+--------------+------|
-| mode shift           | not detected | 0xc4 |
-|----------------------+--------------+------|
-| switch receivers     | ----         | 0xd7 |
-|----------------------+--------------+------|
+*** Buttons
+|----------------------+--------------+------+---------|
+| Physical Action      | xbindkeys    | CID  | gesture |
+|----------------------+--------------+------+---------|
+| left button          | button 1     | ---- | ---     |
+| MagSpeed wheel       | button 2     | 0x52 | yes     |
+| right button         | button 3     | ---- | ---     |
+| scroll Y wheel up    | button 4     | ---- | ---     |
+| scroll Y wheel down  | button 5     | ---- | ---     |
+| scroll X wheel right | button 6     | ---- | ---     |
+| scroll X wheel left  | button 7     | ---- | ---     |
+| side-bottom button   | button 8     | 0x53 | yes     |
+| side-top button      | button 9     | 0x56 | yes     |
+| gesture button       | C-A-Tab      | 0xc3 | yes     |
+|----------------------+--------------+------+---------|
+| mode shift           | not detected | 0xc4 | yes     |
+|----------------------+--------------+------+---------|
+| switch receivers     | ----         | 0xd7 | yes     |
+|----------------------+--------------+------+---------|
+Obs.: function names from https://github.com/PixlOne/logiops/wiki/CIDs
 *** Documentation
+**** General
+|---------------+------------|
+| Keybindings   | Function   |
+|---------------+------------|
+| left button   | unchanged  |
+| right button  | unchanged  |
+| middle button | BTN_MIDDLE |
+|---------------+------------|
 **** Thumb wheel
 |-------------+---------------------------------|
 | Keybindings | Function                        |
@@ -57,6 +74,58 @@ devices: (
 | wheel right | REL_HWHEEL (multiplier +0.5)    |
 | tap wheel   | Super-Alt-F (toggle fullscreen) |
 |-------------+---------------------------------|
+**** Side-bottom
+|----------------------------------+--------------------------------------|
+| Keybindings                      | Function                             |
+|----------------------------------+--------------------------------------|
+| side-bottom                      | BTN_BACK (tap: PageDown / hold: F21) |
+| side-bottom + wheel down         | vol-                                 |
+| side-bottom + wheel up           | vol+                                 |
+| side-bottom + left click         | vol- (prev 25%)                      |
+| side-bottom + right click        | vol+ (next 25%)                      |
+| side-bottom + middle click       |                                      |
+|----------------------------------+--------------------------------------|
+| side-bottom + mode shift (click) |                                      |
+| side-bottom + mode shift (down)  |                                      |
+| side-bottom + mode shift (up)    |                                      |
+| side-bottom + mode shift (left)  |                                      |
+| side-bottom + mode shift (right) |                                      |
+|----------------------------------+--------------------------------------|
+**** Side-top
+|-------------------------------+---------------------------------------|
+| Keybindings                   | Function                              |
+|-------------------------------+---------------------------------------|
+| side-top                      | BTN_FORWARD (tap: PageUp / hold: F22) |
+| side-top + wheel down         | zoom-                                 |
+| side-top + wheel up           | zoom+                                 |
+| side-top + left click         | ws prev                               |
+| side-top + right click        | ws next                               |
+| side-top + middle click       |                                       |
+|-------------------------------+---------------------------------------|
+| side-top + mode shift (click) |                                       |
+| side-top + mode shift (down)  |                                       |
+| side-top + mode shift (up)    |                                       |
+| side-top + mode shift (left)  |                                       |
+| side-top + mode shift (right) |                                       |
+|-------------------------------+---------------------------------------|
+**** Gesture button
+|------------------------------+---------------------------------|
+| Keybindings                  | Function                        |
+|------------------------------+---------------------------------|
+| gesture                      | BTN_SIDE (tap: ??? / hold: F23) |
+| gesture + wheel down         | brightness- (coarse)            |
+| gesture + wheel up           | brightness+ (coarse)            |
+| gesture + left click         |                                 |
+| gesture + right click        |                                 |
+| gesture + middle click       |                                 |
+| gesture + mode shift         |                                 |
+|------------------------------+---------------------------------|
+| gesture + mode shift (click) |                                 |
+| gesture + mode shift (down)  |                                 |
+| gesture + mode shift (up)    |                                 |
+| gesture + mode shift (left)  |                                 |
+| gesture + mode shift (right) |                                 |
+|------------------------------+---------------------------------|
 **** Mode shift
 |----------------------------------+---------------------------------------|
 | Keybindings                      | Function                              |
@@ -64,6 +133,8 @@ devices: (
 | mode shift                       | Enter                                 |
 | mode shift + down                | F17 (copy)                            |
 | mode shift + up                  | F18 (paste)                           |
+| mode shift + left                | S-n (go back in browser history)      |
+| mode shift + right               | S-o (go forward browser history)      |
 |----------------------------------+---------------------------------------|
 *** logid -v :noexport:
 #+begin_src txt
