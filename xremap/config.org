@@ -199,6 +199,11 @@ Zoom control with MX Master 3 mouse.
 | F22-left click    | ws prev     |
 | F22-right click   | ws next     |
 |-------------------+-------------|
+| F22-gesture down  |             |
+| F22-gesture up    |             |
+| F22-gesture left  |             |
+| F22-gesture right |             |
+|-------------------+-------------|
 *** F23
 Brightness control with MX Master 3 mouse.
 |-------------------+--------------|
@@ -933,6 +938,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       # right
       F21-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 44%"] }
 #+end_src
+*** Side-top
 **** Zoom control
 #+begin_src conf :noweb-ref mouse
   - name: zoom control with mouse
@@ -942,6 +948,19 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
+**** Gestures
+#+begin_src conf :noweb-ref mouse
+  - name: placeholder for side-top button + mode shift gestures control with mouse
+    exact_match: true
+    remap:
+      # down
+      F22-F17:     { launch: ["bash", "-c", "amixer -q sset Master 55%"] }
+      # up
+      F22-F18:     { launch: ["bash", "-c", "amixer -q sset Master 66%"] }
+      # left
+      F22-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 77%"] }
+      # right
+      F22-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 88%"] }
 #+end_src
 *** Gesture button
 **** Brightness control

@@ -412,6 +412,17 @@ keymap:
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
+  - name: placeholder for side-top button + mode shift gestures control with mouse
+    exact_match: true
+    remap:
+      # down
+      F22-F17:     { launch: ["bash", "-c", "amixer -q sset Master 55%"] }
+      # up
+      F22-F18:     { launch: ["bash", "-c", "amixer -q sset Master 66%"] }
+      # left
+      F22-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 77%"] }
+      # right
+      F22-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 88%"] }
   - name: brightness control with mouse
     exact_match: true
     remap:
