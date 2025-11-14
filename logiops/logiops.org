@@ -359,13 +359,12 @@ Gestures for thumb wheel.
 #+begin_src conf
             {
               direction: "Left"
+              threshold: 50
               mode: "OnRelease"
               action: {
-                #type: "ChangeHost" 
-                #host: 2
-                # F20 binded to script that change host
-                type: "Keypress" 
-                keys: ["KEY_F20"]
+                type: "KeyPress"
+                # used in web browser to navigate to previous page in history
+                keys: ["KEY_LEFTSHIFT", "KEY_N"]
               }
             },
 #+end_src
@@ -373,13 +372,12 @@ Gestures for thumb wheel.
 #+begin_src conf
             {
               direction: "Right"
+              threshold: 50
               mode: "OnRelease"
               action: {
-                #type: "ChangeHost"
-                #host: 1
-                # F20 binded to script that change host
-                type: "Keypress" 
-                keys: ["KEY_F20"]
+                type: "KeyPress"
+                # used in web browser to navigate to next page in history
+                keys: ["KEY_LEFTSHIFT", "KEY_O"]
               }
             },
 #+end_src
@@ -390,8 +388,7 @@ Gestures for thumb wheel.
               mode: "OnRelease"
               action: {
                 type: "KeyPress" 
-                #keys: ["KEY_RIGHT"]
-                keys: ["KEY_E"]
+                keys: ["KEY_ENTER"]
               }
             },
 #+end_src
