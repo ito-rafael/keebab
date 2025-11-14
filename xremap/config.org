@@ -182,6 +182,8 @@ Volume control with MX Master 3 mouse.
 | F21-wheel down    | vol- coarse     |
 | F21-left click    | vol- (prev 25%) |
 | F21-right click   | vol+ (next 25%) |
+| F21-middle click  |                 |
+| F21-mode shift    |                 |
 |-------------------+-----------------|
 | F21-gesture down  |                 |
 | F21-gesture up    |                 |
@@ -198,6 +200,8 @@ Zoom control with MX Master 3 mouse.
 | F22-wheel down    | zoom- (C--) |
 | F22-left click    | ws prev     |
 | F22-right click   | ws next     |
+| F22-middle click  |             |
+| F22-mode shift    |             |
 |-------------------+-------------|
 | F22-gesture down  |             |
 | F22-gesture up    |             |
@@ -215,6 +219,7 @@ Brightness control with MX Master 3 mouse.
 | F23-left click    | video speed- |
 | F23-right click   | video speed+ |
 | F23-middle click  | video speed= |
+| F23-mode shift    |              |
 |-------------------+--------------|
 | F23-gesture down  |              |
 | F23-gesture up    |              |
@@ -928,6 +933,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+      F21-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 98%"] }
 #+end_src
 **** Gestures
 #+begin_src conf :noweb-ref mouse
@@ -953,6 +959,9 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
+      F22-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+      F22-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 76%"] }
+#+end_src
 **** Gestures
 #+begin_src conf :noweb-ref mouse
   - name: placeholder for side-top button + mode shift gestures control with mouse
@@ -984,6 +993,7 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F23-BTN_LEFT:    Shift-leftbrace   # decrease speed
       F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
       F23-BTN_MIDDLE:  u                 # reset speed
+      F23-Enter:       { launch: ["bash", "-c", "brightnessctl set 54%"] }
 #+end_src
 **** Gestures
 #+begin_src conf :noweb-ref mouse

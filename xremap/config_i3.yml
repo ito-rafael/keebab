@@ -394,6 +394,7 @@ keymap:
       F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+      F21-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 98%"] }
   - name: placeholder for side-bottom button + mode shift gestures control with mouse
     exact_match: true
     remap:
@@ -412,6 +413,8 @@ keymap:
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
+      F22-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+      F22-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 76%"] }
   - name: placeholder for side-top button + mode shift gestures control with mouse
     exact_match: true
     remap:
@@ -434,6 +437,7 @@ keymap:
       F23-BTN_LEFT:    Shift-leftbrace   # decrease speed
       F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
       F23-BTN_MIDDLE:  u                 # reset speed
+      F23-Enter:       { launch: ["bash", "-c", "brightnessctl set 54%"] }
   - name: placeholder for gestures button + mode shift gestures control with mouse
     exact_match: true
     remap:
