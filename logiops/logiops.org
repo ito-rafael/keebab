@@ -9,10 +9,11 @@
 - [[#devices][Devices]]
   - [[#mx-master-3][MX Master 3]]
     - [[#settings][Settings]]
-    - [[#thumb-wheel][Thumb wheel]]
     - [[#buttons][Buttons]]
       - [[#magspeed-scroll-wheel][MagSpeed scroll wheel]]
       - [[#side-top][Side-top]]
+    - [[#documentation][Documentation]]
+      - [[#thumb-wheel][Thumb wheel]]
       - [[#side-bottom][Side-bottom]]
       - [[#press-i-button-under-wheel][Press "i" button under wheel]]
       - [[#gesture-button][Gesture button]]
@@ -47,6 +48,15 @@ devices: (
 |----------------------+--------------+------|
 | switch receivers     | ----         | 0xd7 |
 |----------------------+--------------+------|
+*** Documentation
+**** Thumb wheel
+|-------------+---------------------------------|
+| Keybindings | Function                        |
+|-------------+---------------------------------|
+| wheel left  | REL_HWHEEL (multiplier -0.5)    |
+| wheel right | REL_HWHEEL (multiplier +0.5)    |
+| tap wheel   | Super-Alt-F (toggle fullscreen) |
+|-------------+---------------------------------|
 *** logid -v :noexport:
 #+begin_src txt
     #[DEBUG] Unsupported device /dev/hidraw0 ignored
@@ -102,23 +112,17 @@ Defines the HiRes mouse-scrolling.
 **** Right
 #+begin_src conf
       right: {
-        mode: "OnInterval"
-        pixels: 2
-        action: { 
-          type: "Keypress"
-          keys: ["KEY_RIGHT"]
-        }
+        mode: "Axis"
+        axis: "REL_HWHEEL"
+        axis_multiplier: 0.5
       }
 #+end_src
 **** Left
 #+begin_src conf
       left: {
-        mode: "OnInterval"
-        pixels: 2
-        action: { 
-          type: "Keypress"
-          keys: ["KEY_LEFT"]
-        }
+        mode: "Axis"
+        axis: "REL_HWHEEL"
+        axis_multiplier: -0.5
       }
 #+end_src
 **** Proxy
