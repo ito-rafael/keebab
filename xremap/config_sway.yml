@@ -451,3 +451,14 @@ keymap:
       F23-BTN_LEFT:    Shift-leftbrace   # decrease speed
       F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
       F23-BTN_MIDDLE:  u                 # reset speed
+  - name: placeholder for gestures button + mode shift gestures control with mouse
+    exact_match: true
+    remap:
+      # down
+      F23-F17:     { launch: ["bash", "-c", "amixer -q sset Master 12%"] }
+      # up
+      F23-F18:     { launch: ["bash", "-c", "amixer -q sset Master 34%"] }
+      # left
+      F23-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 56%"] }
+      # right
+      F23-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 78%"] }
