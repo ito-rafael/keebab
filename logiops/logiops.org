@@ -331,75 +331,12 @@ Gestures for thumb wheel.
       },
 #+end_src
 **** Gesture button
+***** KeyPress
 #+begin_src conf
       {cid: 0xc3
         action = {
-          type: "Gestures"
-          gestures: (
-#+end_src
-***** Up
-#+begin_src conf
-            {
-              direction: "Up"
-              mode: "OnRelease"
-              action: {
-                type: "KeyPress" 
-                #keys: ["KEY_LEFTCTRL", "KEY_V"]
-                keys: ["KEY_PASTE"]
-              }
-            },
-#+end_src
-***** Down
-#+begin_src conf
-            {
-              direction: "Down"
-              mode: "OnRelease"
-              action: {
-                type: "KeyPress" 
-                #keys: ["KEY_LEFTCTRL", "KEY_C"]
-                keys: ["KEY_COPY"]
-              }
-            },
-#+end_src
-***** Left
-#+begin_src conf
-            {
-              direction: "Left"
-              mode: "OnRelease"
-              action: {
-                type: "KeyPress" 
-                keys: ["KEY_BACKSPACE"]
-              }
-              #action: {
-              #  type: "CycleDPI" 
-              #  dpis: [200, 4000]
-              #}
-            },
-#+end_src
-***** Right
-#+begin_src conf
-            {
-              direction: "Right"
-              mode: "OnRelease"
-              action: {
-                type: "KeyPress" 
-                keys: ["KEY_ENTER"]
-              }
-              #action: {
-              #  type: "ToggleSmartshift" 
-              #}
-            },
-#+end_src
-***** None
-#+begin_src conf
-            {
-              direction: "None"
-              mode: "NoPress"
-            }
-#+end_src
-***** EoS
-#+begin_src conf
-          )
+          type: "KeyPress"
+          keys: ["BTN_SIDE"]
         }
       },
 #+end_src
