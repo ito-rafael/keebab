@@ -137,7 +137,7 @@ Obs.: function names from https://github.com/PixlOne/logiops/wiki/CIDs
 | mode shift + right               | S-o (go forward browser history)      |
 |----------------------------------+---------------------------------------|
 *** logid -v :noexport:
-#+begin_src txt
+#+begin_src txt :tangle no:
     #[DEBUG] Unsupported device /dev/hidraw0 ignored
     #[INFO] Device found: Wireless Mouse MX Master 3 on /dev/hidraw1:255
     #[DEBUG] /dev/hidraw1:255 remappable buttons:
@@ -409,13 +409,13 @@ Gestures for thumb wheel.
       },
 #+end_src
 **** Switch receivers
-#+begin_src conf
-      #{cid: 0xd7
-      #  action = {
-      #    type: "KeyPress"
-      #    keys: [""]
-      #  }
-      #},
+#+begin_src conf :tangle no:
+      {cid: 0xd7
+        action = {
+          type: "KeyPress"
+          keys: ["KEY_UNKNOWN"]
+        }
+      },
 #+end_src
 *** EoS :noexport:
 #+begin_src conf
