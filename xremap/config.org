@@ -198,6 +198,9 @@ Brightness control with MX Master 3 mouse.
 |-------------------+--------------|
 | binding           | description  |
 |-------------------+--------------|
+| F23               | enter        |
+| F23-wheel up      | brightness+  |
+| F23-wheel down    | brightness-  |
 |-------------------+--------------|
 *** F24
 TBD (suggestion: monitor LED strip)
@@ -906,6 +909,15 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
+#+end_src
+*** Gesture button
+**** Brightness control
+#+begin_src conf :noweb-ref mouse
+  - name: brightness control with mouse
+    exact_match: true
+    remap:
+      F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
+      F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
 #+end_src
 * Tangle :noexport:
 ** i3

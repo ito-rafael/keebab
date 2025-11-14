@@ -37,6 +37,12 @@ modmap:
         held: F22
         alone: KEY_PAGEUP
         alone_timeout_millis: 200
+  - name: brightness control with mode shift mouse button
+    remap:
+      BTN_SIDE:
+        held: F23
+        alone: BTN_SIDE
+        alone_timeout_millis: 200
 keymap:
 
   - name: copy/paste/cut - terminal
@@ -388,3 +394,8 @@ keymap:
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
+  - name: brightness control with mouse
+    exact_match: true
+    remap:
+      F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
+      F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
