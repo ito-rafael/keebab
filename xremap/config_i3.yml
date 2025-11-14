@@ -205,6 +205,11 @@ keymap:
       Ctrl-e:  down            # arrow down
       Ctrl-i:  up              # arrow up
       Ctrl-o:  right           # arrow right
+      # launch script that will:
+      #   - copy emoji (S-Enter)
+      #   - exit emote (Esc)
+      #   - paste according to context
+      Enter: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/emote-paste.sh"] }
 
   - name: speaker control
     exact_match: true

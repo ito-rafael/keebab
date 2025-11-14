@@ -216,8 +216,12 @@ keymap:
       Ctrl-e:  down            # arrow down
       Ctrl-i:  up              # arrow up
       Ctrl-o:  right           # arrow right
-#      # Enter; Ctrl+V
-#      Enter: { launch: ["bash", "-c", "ydotool key 28:1 28:0 29:1 47:1 47:0 29:0"] }
+      # launch script that will:
+      #   - copy emoji (S-Enter)
+      #   - exit emote (Esc)
+      #   - paste according to context
+      Enter: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/emote-paste.sh"] }
+
 
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:
