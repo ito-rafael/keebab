@@ -394,6 +394,17 @@ keymap:
       F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+  - name: placeholder for side-bottom button + mode shift gestures control with mouse
+    exact_match: true
+    remap:
+      # down
+      F21-F17:     { launch: ["bash", "-c", "amixer -q sset Master 11%"] }
+      # up
+      F21-F18:     { launch: ["bash", "-c", "amixer -q sset Master 22%"] }
+      # left
+      F21-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 33%"] }
+      # right
+      F21-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 44%"] }
   - name: zoom control with mouse
     exact_match: true
     remap:

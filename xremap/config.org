@@ -183,6 +183,11 @@ Volume control with MX Master 3 mouse.
 | F21-left click    | vol- (prev 25%) |
 | F21-right click   | vol+ (next 25%) |
 |-------------------+-----------------|
+| F21-gesture down  |                 |
+| F21-gesture up    |                 |
+| F21-gesture left  |                 |
+| F21-gesture right |                 |
+|-------------------+-----------------|
 *** F22
 Zoom control with MX Master 3 mouse.
 |-------------------+-------------|
@@ -913,6 +918,20 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
+#+end_src
+**** Gestures
+#+begin_src conf :noweb-ref mouse
+  - name: placeholder for side-bottom button + mode shift gestures control with mouse
+    exact_match: true
+    remap:
+      # down
+      F21-F17:     { launch: ["bash", "-c", "amixer -q sset Master 11%"] }
+      # up
+      F21-F18:     { launch: ["bash", "-c", "amixer -q sset Master 22%"] }
+      # left
+      F21-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 33%"] }
+      # right
+      F21-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 44%"] }
 #+end_src
 **** Zoom control
 #+begin_src conf :noweb-ref mouse
