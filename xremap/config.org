@@ -176,16 +176,22 @@ Volume control with MX Master 3 mouse.
 |-------------------+-----------------|
 | binding           | description     |
 |-------------------+-----------------|
+| F21               | PageDown        |
 | F21-wheel up      | vol+ coarse     |
 | F21-wheel down    | vol- coarse     |
+| F21-left click    | vol- (prev 25%) |
+| F21-right click   | vol+ (next 25%) |
 |-------------------+-----------------|
 *** F22
 Zoom control with MX Master 3 mouse.
 |-------------------+-------------|
 | binding           | description |
 |-------------------+-------------|
+| F22               | PageUp      |
 | F22-wheel up      | zoom+ (C-+) |
 | F22-wheel down    | zoom- (C--) |
+| F22-left click    | ws prev     |
+| F22-right click   | ws next     |
 |-------------------+-------------|
 *** F23
 Brightness control with MX Master 3 mouse.
@@ -891,13 +897,15 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
 #+end_src
-*** Zoom control
+**** Zoom control
 #+begin_src conf :noweb-ref mouse
   - name: zoom control with mouse
     exact_match: true
     remap:
       F22-XDOWNSCROLL: Ctrl-minus
       F22-XUPSCROLL:   Ctrl-Shift-equal
+      F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
+      F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
 #+end_src
 * Tangle :noexport:
 ** i3

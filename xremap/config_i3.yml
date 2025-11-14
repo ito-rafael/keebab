@@ -386,3 +386,5 @@ keymap:
     remap:
       F22-XDOWNSCROLL: Ctrl-minus
       F22-XUPSCROLL:   Ctrl-Shift-equal
+      F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
+      F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
