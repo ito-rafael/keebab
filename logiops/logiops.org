@@ -141,77 +141,75 @@ Action when thumb button is tapped.
       }
 #+end_src
 **** Touch
-Gestures for thumbwheel.
+Gestures for thumb wheel.
 #+begin_src conf
-      #touch: {
-      #  type: "Gestures"
-      #  gestures: (
-#+end_src
-***** Up
-#+begin_src conf
-      #    {
-      #      direction: "Up"
-      #      mode: "OnRelease"
-      #      action: {
-      #        type: "KeyPress" 
-      #        #keys: ["KEY_UP"]
-      #        keys: ["KEY_A"]
-      #      }
-      #    },
+#      touch: {
+#        type: "Gestures"
+#        gestures: (
 #+end_src
 ***** Down
 #+begin_src conf
-      #    {
-      #      direction: "Down"
-      #      mode: "OnRelease"
-      #      action: {
-      #        type: "KeyPress" 
-      #        #keys: ["KEY_DOWN"]
-      #        keys: ["KEY_B"]
-      #      }
-      #    },
+#          {
+#            direction: "Down"
+#            threshold: 50
+#            mode: "OnRelease"
+#            action: {
+#              type: "KeyPress"
+#              keys: ["KEY_A"]
+#            }
+#          },
+#+end_src
+***** Up
+#+begin_src conf
+#          {
+#            direction: "Up"
+#            threshold: 50
+#            mode: "OnRelease"
+#            action: {
+#              type: "KeyPress"
+#              keys: ["KEY_B"]
+#            }
+#          },
 #+end_src
 ***** Left
 #+begin_src conf
-      #    {
-      #      direction: "Left"
-      #      mode: "OnRelease"
-      #      action: {
-      #        type: "KeyPress" 
-      #        #keys: ["KEY_LEFT"]
-      #        keys: ["KEY_C"]
-      #      }
-      #    },
+#          {
+#            direction: "Left"
+#            threshold: 50
+#            mode: "OnRelease"
+#            action: {
+#              type: "KeyPress"
+#              keys: ["KEY_C"]
+#            }
+#          },
 #+end_src
 ***** Right
 #+begin_src conf
-      #    {
-      #      direction: "Right"
-      #      mode: "OnRelease"
-      #      action: {
-      #        type: "KeyPress" 
-      #        #keys: ["KEY_RIGHT"]
-      #        keys: ["KEY_D"]
-      #      }
-      #    },
+#          {
+#            direction: "Right"
+#            threshold: 50
+#            mode: "OnRelease"
+#            action: {
+#              type: "KeyPress"
+#              keys: ["KEY_D"]
+#            }
+#          },
 #+end_src
 ***** None
 #+begin_src conf
-      #    {
-      #      direction: "None"
-      #      mode: "OnRelease"
-      #    #  mode: "NoPress"
-      #      action: {
-      #        type: "KeyPress" 
-      #    #    keys: ["KEY_RIGHT"]
-      #        keys: ["KEY_E"]
-      #      }
-      #    },
+#          {
+#            direction: "None"
+#            mode: "OnRelease"
+#            action: {
+#              type: "KeyPress"
+#              keys: ["KEY_E"]
+#            }
+#          },
 #+end_src
 ***** EoS
 #+begin_src conf
-      #  )
-      #}
+#        )
+#      }
     };
 #+end_src
 *** Buttons
