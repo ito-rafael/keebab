@@ -102,6 +102,13 @@ keymap:
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
 
+  - name: terminal zoom with mouse
+    application:
+      only: *terminals
+    remap:
+      F22-XDOWNSCROLL: Ctrl-Shift-minus
+      F22-XUPSCROLL:   Ctrl-Shift-equal
+
   - name: Prev tab
     exact_match: true
     application:

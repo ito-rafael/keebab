@@ -28,6 +28,7 @@
   - [[#emacs-inhabitant][Emacs inhabitant]]
   - [[#emacs-over-ssh-1][Emacs over SSH]]
   - [[#kitty][Kitty]]
+  - [[#terminals-1][Terminals]]
   - [[#browser][Browser]]
   - [[#cedilla-1][Cedilla]]
   - [[#dead-acute][Dead acute]]
@@ -425,6 +426,16 @@ keymap:
       only: kitty
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
+#+end_src
+** Terminals
+*** Zoom control
+#+begin_src conf :noweb-ref kitty
+  - name: terminal zoom with mouse
+    application:
+      only: *terminals
+    remap:
+      F22-XDOWNSCROLL: Ctrl-Shift-minus
+      F22-XUPSCROLL:   Ctrl-Shift-equal
 #+end_src
 ** Browser
 *** All
