@@ -879,13 +879,17 @@ print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
       F18: Ctrl-v        # paste
 #+end_src
 ** Mouse controller
-*** Volume control
+*** Side-bottom
+**** Volume control
 #+begin_src conf :noweb-ref mouse
   - name: volume control with mouse
     exact_match: true
     remap:
       F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
       F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
+      F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
+      F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
+      F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
 #+end_src
 *** Zoom control
 #+begin_src conf :noweb-ref mouse
