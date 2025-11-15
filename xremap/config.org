@@ -864,6 +864,7 @@ print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 print('      # symbol')
 print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-q: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"⌀\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 #+end_src
 *** Currency & symbol
 #+name: currency-symbol
@@ -880,6 +881,7 @@ print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 print('      # symbol')
 print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-q: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"⌀\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
 ** pdfpc
 #+begin_src conf :noweb-ref pdfpc

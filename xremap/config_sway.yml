@@ -363,6 +363,7 @@ keymap:
       # symbol
       Alt_R-a: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-o: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-q: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"⌀\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
   - name: miscellaneous text - currency & symbol
     application:
@@ -376,6 +377,7 @@ keymap:
       # symbol
       Alt_R-a: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-o: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-q: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"⌀\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
 
 
 #  - name: presentation with pdfpc
