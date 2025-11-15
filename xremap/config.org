@@ -66,7 +66,7 @@
 | F16            | XF86Launch7      |     186 | KEY_F16             | cut                    |
 | F17            | XF86Launch8      |     187 | KEY_F17             | copy                   |
 | F18            | XF86Launch9      |     188 | KEY_F18             | paste                  |
-| F19            | -----            |     189 | KEY_F19             | opacity                |
+| F19            | -----            |     189 | KEY_F19             | luminosity             |
 | F20            | -----            |     190 | KEY_F20             | backlit & underglow    |
 | F21            | -----            |     191 | KEY_F21             | [mouse] volume ctl     |
 | F22            | -----            |     192 | KEY_F22             | [mouse] zoom ctl       |
@@ -159,6 +159,18 @@ Luminosity (Oryx/QMK and xremap):
 | F19-comma     | backlit-                        |
 | F19-dot       | backlit+                        |
 | F19-d         | backlit toggle                  |
+|---------------+---------------------------------|
+| F19-n         | gamma-                          |
+| F19-o         | gamma+                          |
+| F19-m         | gamma toggle                    |
+|---------------+---------------------------------|
+| F19-l         | LED strip-                      |
+| F19-f         | LED strip+                      |
+| F19-j         | LED strip toggle                |
+|---------------+---------------------------------|
+| F19-u         | underglow LED-                  |
+| F19-y         | underglow LED+                  |
+| F19-v         | underglow LED toggle            |
 |---------------+---------------------------------|
 obs.: IWT = inactive-windows-transparency.py
 *** F20
