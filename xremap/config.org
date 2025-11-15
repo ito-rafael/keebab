@@ -948,16 +948,20 @@ print('      Alt_R-q: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -
 #+end_src
 *** Navigation
 #+begin_src conf :noweb-ref libreoffice
-      Ctrl-n: left       # navigation
-      Ctrl-e: down       # navigation
-      Ctrl-i: up         # navigation
-      Ctrl-o: right      # navigation
+      #Ctrl-n: left       # navigation
+      #Ctrl-e: down       # navigation
+      #Ctrl-i: up         # navigation
+      #Ctrl-o: right      # navigation
 #+end_src
 *** Copy/paste/cut
 #+begin_src conf :noweb-ref libreoffice
       F16: Ctrl-x        # cut
       F17: Ctrl-Shift-c  # copy
       F18: Ctrl-v        # paste
+#+end_src
+*** Miscellaneous
+#+begin_src conf :noweb-ref libreoffice
+      #Alt-o: Ctrl-o      # open file
 #+end_src
 ** Mouse controller
 *** Side-bottom

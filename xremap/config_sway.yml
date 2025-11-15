@@ -408,14 +408,14 @@ keymap:
     application:
       only: libreoffice-calc
     remap:
-      Ctrl-n: left       # navigation
-      Ctrl-e: down       # navigation
-      Ctrl-i: up         # navigation
-      Ctrl-o: right      # navigation
+      #Ctrl-n: left       # navigation
+      #Ctrl-e: down       # navigation
+      #Ctrl-i: up         # navigation
+      #Ctrl-o: right      # navigation
       F16: Ctrl-x        # cut
       F17: Ctrl-Shift-c  # copy
       F18: Ctrl-v        # paste
-      Alt-o: Ctrl-o      # open file
+      #Alt-o: Ctrl-o      # open file
 
   - name: volume control with mouse
     exact_match: true
