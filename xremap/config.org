@@ -443,7 +443,8 @@ keymap:
       Super_L-right: [C-w, C-l]
 #+end_src
 ** Kitty
-#+begin_src conf :noweb-ref kitty
+*** Delete word
+#+begin_src conf :noweb-sep "\n\n" :noweb-ref kitty
   - name: delete next word
     application:
       only: kitty
@@ -463,6 +464,11 @@ keymap:
       Ctrl-e: down
       Ctrl-i: up
       Ctrl-o: right
+#+end_src
+**** Beginning/End of line
+#+begin_src conf :noweb-ref kitty
+      Alt-n: home
+      Alt-o: end
 #+end_src
 ** Terminals
 *** Zoom control
