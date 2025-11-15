@@ -285,8 +285,8 @@
 ** number :noexport_1:
 #+begin_src kbd
 (deflayer number
-  [    4    5    6    ]         XX   @vp1 @vp2 @vp3 @vp4      _  _  _
-  @:   1    2    3    -         @mo3 @hs  @hc  @mo2 @mo1      _  _  _
+  [    4    5    6    ]         @sps @vp1 @vp2 @vp3 @vp4      _  _  _
+  @:   1    2    3    -         @mo3 @spt @spp @mo2 @mo1      _  _  _
   @~   7    8    9    +         XX   spc  ,    .    /         _  _  _
             @t2n 0    =         _    _    _                   _  _  _
                                                               _  _  _
@@ -304,6 +304,12 @@
   mo3 (tap-hold-release $mt $mt XX (multi lctl ralt))       ;; move container to ws 20~29
   ;;!!! FIX ME !!!
 
+  ;; scratchpads
+  spt (tap-hold-release $mt $mt M-n rsft)  ;; terminal
+  spp (tap-hold-release $mt $mt M-e rctl)  ;; python
+  sps M-i    ;; scratchpad scrcpy
+
+  ;; VPNs
   vp1 M-A-1  ;; connect to VPN #1: La Casa Nostra
   vp2 M-A-2  ;; connect to VPN #2: Unicamp
   vp3 M-A-3  ;; connect to VPN #3: LBiC
@@ -410,9 +416,9 @@
 ** window manager :noexport_1:
 #+begin_src kbd
 (deflayer window-manager
-  @klw @klt @fsc @lck @spw      @spp @ofl @wsn @wsp @ofr      _  _  _
-  @e2m @res @flt @ter @spy      @spt @wfl @wfd @wfu @wfr      _  _  _
-  @spl @emx @cpy @pst @sps      @spu @spa @sp1 @sp2 @sp3      _  _  _
+  @klw @klt @fsc @lck @flt      _    @ofl @wsn @wsp @ofr      _  _  _
+  @res @sag @spy @spw @ter      _    @wfl @wfd @wfu @wfr      _  _  _
+  @spl @emx @cpy @pst _         @spu @spa @sp1 @sp2 @sp3      _  _  _
             _    XX   _         _    @rof @emc                _  _  _
                                                               _  _  _
 )
@@ -421,24 +427,22 @@
 **** left hand
 #+begin_src kbd
 (defalias
-  klw A-M-q   ;; kill window
-  klt A-M-w   ;; kill tab
-  fsc A-M-f   ;; fullscreen
-  lck M-home  ;; i3/sway mode_system
+  klw A-M-q     ;; kill window
+  klt A-M-w     ;; kill tab
+  fsc A-M-f     ;; fullscreen
+  lck M-home    ;; i3/sway mode_system
+  flt M-b       ;; i3/sway floating mode
 
-  e2m (tap-hold-release $mt $mt ret   lmet)  ;; enter to left meta
-  res (tap-hold-release $mt $mt A-M-r lalt)  ;; i3/sway resize container
-  flt (tap-hold-release $mt $mt A-M-d lctl)  ;; i3/sway floating mode
-  ter (tap-hold-release $mt $mt A-M-t lsft)  ;; open terminal
-  spy (tap-hold-release $mt $mt M-g   ralt)  ;; scratchpad YouTube Music
+  ;;e2m (tap-hold-release $mt $mt ret lmet)  ;; enter to left meta
+  res (tap-hold-release $mt $mt M-a lmet)  ;; i3/sway resize container
+  spy (tap-hold-release $mt $mt M-s lctl)  ;; scratchpad YouTube Music
+  spw (tap-hold-release $mt $mt M-t lsft)  ;; scratchpad WhatsApp
+  ter (tap-hold-release $mt $mt A-M-g rmet)  ;; open terminal
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
   emx f16    ;; Emacs M-x --> redirected with xremap
   cpy f17    ;; copy --> redirected with xremap
   pst f18    ;; paste --> redirected with xremap
-
-  spw M-b  ;; scratchpad WhatsApp
-  sps M-v  ;; scratchpad scrcpy
 )
 #+end_src
 **** right hand
@@ -459,8 +463,6 @@
   sp3 M-/  ;; scratchpad temp #3
 
   spa M-h  ;; scratchpad agenda
-  spp M-j  ;; scratchpad python
-  spt M-m  ;; scratchpad terminal
   spu M-k  ;; scratchpad Keymapp
 
   rof M-ret  ;; open rofi (application launcher)
