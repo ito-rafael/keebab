@@ -425,10 +425,6 @@
   loo XX  ;; LED strip on/off
 
   ;; backlit
-  ;;bld KeyKbdIllumUp      ;; backlit up
-  ;;blu KeyKbdIllumDown    ;; backlit down
-  ;;boo KeyKbdIllumToggle  ;; backlit on/off
-  ;;boo 230 (?)  ;; backlit on/off
   blu (multi f19 . reverse-release-order)  ;; backlit up
   bld (multi f19 , reverse-release-order)  ;; backlit down
   blt (multi f19 d reverse-release-order)  ;; backlit toggle (on/off)
