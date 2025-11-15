@@ -116,6 +116,7 @@ keymap:
       Ctrl-o: right
       Alt-n: home
       Alt-o: end
+      Ctrl-Alt-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/wlprop.sh focused"] }
 
   - name: terminal zoom with mouse
     application:

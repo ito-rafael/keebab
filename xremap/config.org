@@ -470,6 +470,10 @@ keymap:
       Alt-n: home
       Alt-o: end
 #+end_src
+**** Fix window properties snapshot
+#+begin_src conf :noweb-sep "\n\n" :noweb-ref kitty
+      Ctrl-Alt-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/wlprop.sh focused"] }
+#+end_src
 ** Terminals
 *** Zoom control
 #+begin_src conf :noweb-ref kitty
