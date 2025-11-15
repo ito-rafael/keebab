@@ -240,6 +240,13 @@ Brightness control with MX Master 3 mouse.
 |-------------------+--------------|
 *** F24
 TBD (suggestion: monitor LED strip)
+*** FN_F1
+Host control with MX Master 3 mouse.
+|---------+-------------|
+| binding | description |
+|---------+-------------|
+| FN_F1   | switch host |
+|---------+-------------|
 ** Workspace navigation
 |---------------------------+-----------------------|
 | binding                   | description           |
