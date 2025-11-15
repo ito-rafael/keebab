@@ -435,6 +435,7 @@
 
   ;;e2m (tap-hold-release $mt $mt ret lmet)  ;; enter to left meta
   res (tap-hold-release $mt $mt M-a lmet)  ;; i3/sway resize container
+  sag (tap-hold-release $mt $mt M-r lalt)  ;; scratchpad Agenda/Calendar
   spy (tap-hold-release $mt $mt M-s lctl)  ;; scratchpad YouTube Music
   spw (tap-hold-release $mt $mt M-t lsft)  ;; scratchpad WhatsApp
   ter (tap-hold-release $mt $mt A-M-g rmet)  ;; open terminal
@@ -463,6 +464,8 @@
   sp3 M-/  ;; scratchpad temp #3
 
   spa M-h  ;; scratchpad agenda
+  ;;tbd M-j
+  ;;tbd M-m
   spu M-k  ;; scratchpad Keymapp
 
   rof M-ret  ;; open rofi (application launcher)
