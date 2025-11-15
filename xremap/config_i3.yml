@@ -102,6 +102,15 @@ keymap:
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
 
+  - name: arrow up/down
+    application:
+      only: kitty
+    remap:
+
+      Ctrl-n: left
+      Ctrl-e: down
+      Ctrl-i: up
+      Ctrl-o: right
   - name: terminal zoom with mouse
     application:
       only: *terminals

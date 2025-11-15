@@ -450,6 +450,20 @@ keymap:
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
 #+end_src
+*** Navigation
+#+begin_src conf :noweb-ref kitty
+  - name: arrow up/down
+    application:
+      only: kitty
+    remap:
+#+end_src
+**** Arrows
+#+begin_src conf :noweb-ref kitty
+      Ctrl-n: left
+      Ctrl-e: down
+      Ctrl-i: up
+      Ctrl-o: right
+#+end_src
 ** Terminals
 *** Zoom control
 #+begin_src conf :noweb-ref kitty
