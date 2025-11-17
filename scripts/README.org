@@ -1,0 +1,45 @@
+#+TITLE: Custom scripts
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: random keyboard-related scripts that I daily drive
+#+STARTUP: showeverything
+
+* Table of Contents :toc_2:
+- [[#overview][Overview]]
+- [[#temporary-files][Temporary files]]
+  - [[#caps-lock-status][Caps Lock status]]
+  - [[#kmonad-service-status][KMonad service status]]
+- [[#scripts][Scripts]]
+  - [[#adb-mdns-pair][adb-mdns-pair]]
+  - [[#capslock-led][capslock-led]]
+  - [[#capslock-status][capslock-status]]
+  - [[#mx-script][mx-script]]
+  - [[#xremap-keeb-config][xremap-keeb-config]]
+- [[#template][Template]]
+
+* Overview
+All scripts are assumed to be shell scripts (with the =.sh= extension and the =#!/usr/bin/env bash= shebang), unless when the extension is explicit written (some few Python =.py= scripts).
+Below there is a list of all scripts and a brief description of its functionality:
+|--------------------+-------------|
+| script             | description |
+|--------------------+-------------|
+| capslock-led       |             |
+| capslock-status    |             |
+| mx-script          |             |
+| xremap-keeb-config |             |
+|--------------------+-------------|
+* Temporary files
+** Caps Lock status
+- /tmp/capslock-status.tmp
+** KMonad service status
+- /tmp/kmonad-status.tmp
+* Scripts
+** adb-mdns-pair
+** capslock-led
+** capslock-status
+** mx-script
+** xremap-keeb-config
+* Template
+- requirements:
+- input:
+- output:
+- description:
