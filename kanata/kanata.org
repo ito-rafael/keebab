@@ -418,7 +418,7 @@
 (deflayer window-manager
   @klw @klt @fsc @lck @flt      _    @ofl @wsn @wsp @ofr      _  _  _
   @res @sag @spy @spw @ter      _    @wfl @wfd @wfu @wfr      _  _  _
-  @spl @emx @cpy @pst _         @spu @spa @sp1 @sp2 @sp3      _  _  _
+  @spl @emx @cpy @pst _         @spu @sp1 @sp2 @sp3 @spa      _  _  _
             _    XX   _         _    @rof @emc                _  _  _
                                                               _  _  _
 )
@@ -459,11 +459,11 @@
   wfu M-up     ;; focus window up
   wfr M-right  ;; focus window right
 
-  sp1 M-,  ;; scratchpad temp #1
-  sp2 M-.  ;; scratchpad temp #2
-  sp3 M-/  ;; scratchpad temp #3
+  sp1 M-h  ;; scratchpad temp #1
+  sp2 M-,  ;; scratchpad temp #2
+  sp3 M-.  ;; scratchpad temp #3
 
-  spa M-h  ;; scratchpad agenda
+  spa M-/  ;; scratchpad agenda
   ;;tbd M-j
   ;;tbd M-m
   spu M-k  ;; scratchpad Keymapp
