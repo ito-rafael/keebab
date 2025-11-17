@@ -696,7 +696,7 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref capslock
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:
-      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
+      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock-status.sh toggle"] }
 #+end_src
 ** System control
 *** Media

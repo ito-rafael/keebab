@@ -251,7 +251,7 @@ keymap:
 
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:
-      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
+      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock-status.sh toggle"] }
 
   - name: speaker control
     exact_match: true
