@@ -821,13 +821,15 @@ keymap:
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
-#+begin_src python :var ipc_cmd="swaymsg" :results output
-print('  - name: window navigation from scratchpads')
-print('    application:')
-print('      only: *scratchpads')
-print('    remap:')
-print('      Super-Left:  { launch: ["' + ipc_cmd + '", "focus", "output", "left"] }')
-print('      Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "right"] }')
+#+begin_src emacs-lisp :var ipc_cmd="swaymsg" :results raw
+(concat
+  (format "  - name: window navigation from scratchpads\n")
+  (format "    application:\n")
+  (format "      only: *scratchpads\n")
+  (format "    remap:\n")
+  (format "      Super-Left:  { launch: [\"%s\", \"focus\", \"output\", \"left\"] }\n" ipc_cmd)
+  (format "      Super-Right: { launch: [\"%s\", \"focus\", \"output\", \"right\"] }\n" ipc_cmd)
+)
 #+end_src
 ** Miscellaneous
 *** Macros (terminal)
