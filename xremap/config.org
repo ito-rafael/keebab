@@ -895,20 +895,22 @@ keymap:
 #+end_src
 *** Currency & symbol
 #+name: currency-symbol
-#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
-print('  - name: miscellaneous text - currency & symbol')
-print('    application:')
-print('      not: *terminals')
-print('    remap:')
-print('      # currency')
-print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      # symbol')
-print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-q: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"⌀\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+#+begin_src emacs-lisp :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results raw
+(concat
+  (format "  - name: miscellaneous text - currency & symbol\n")
+  (format "    application:\n")
+  (format "      not: *terminals\n")
+  (format "    remap:\n")
+  (format "      # currency\n")
+  (format "      Alt_R-e: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"€\\\"  | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-p: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"£\\\"  | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-y: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"￥\\\" | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-r: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"₽\\\"  | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      # symbol\n")
+  (format "      Alt_R-a: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"ª\\\"  | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-o: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"º\\\"  | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-q: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"⌀\\\"  | %s && ydotool key 29:1 47:1 47:0 29:0\"] }\n" ipc_cmd copy_cmd)
+)
 #+end_src
 ** pdfpc
 #+begin_src conf :noweb-ref pdfpc
