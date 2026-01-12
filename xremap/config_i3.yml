@@ -217,7 +217,6 @@ keymap:
           z: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, z,s,h, SLASH]
           i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, i,"3", SLASH]
 
-
   - name: navigate through emoji categories
     application:
       only: [emote, Emote]
