@@ -834,22 +834,24 @@ keymap:
 ** Miscellaneous
 *** Macros (terminal)
 #+name: macros-terminal
-#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
-print('  - name: miscellaneous text - macros (terminal)')
-print('    application:')
-print('      only: *terminals')
-print('    remap:')
-print('      # macro')
-print('      Alt_R-s: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_1)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-t: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_2)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-g: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_3)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-c: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/zip_code)\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-d: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/phone)\\"     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-n: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_1)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-l: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_2)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-u: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_3)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-h: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/name)\\"      | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-i: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/id)\\"        | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+#+begin_src emacs-lisp :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results raw
+(concat
+  (format "  - name: miscellaneous text - macros (terminal)\n")
+  (format "    application:\n")
+  (format "      only: *terminals\n")
+  (format "    remap:\n")
+  (format "      # macro\n")
+  (format "      Alt_R-s: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/address_1)\\\" | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-t: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/address_2)\\\" | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-g: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/address_3)\\\" | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-c: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/zip_code)\\\"  | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-d: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/phone)\\\"     | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-n: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/email_1)\\\"   | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-l: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/email_2)\\\"   | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-u: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/email_3)\\\"   | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-h: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/name)\\\"      | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+  (format "      Alt_R-i: { launch: [\"%s\", \"exec\", \"sleep 0.1 && echo -n \\\"$(<$XDG_CONFIG_HOME/macros/id)\\\"        | %s && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0\"] }\n" ipc_cmd copy_cmd)
+)
 #+end_src
 *** Macros
 #+name: macros
