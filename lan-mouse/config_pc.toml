@@ -9,3 +9,4 @@ position = "bottom"
 hostname = "ipf-archlinux"
 activate_on_startup = true
 ips = ["192.168.0.125"]
+enter_hook="/home/rafael/.config/scripts/push-clipboard.sh ipf"
