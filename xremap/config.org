@@ -395,7 +395,7 @@ keymap:
 #+begin_src conf :noweb-ref cpc-default
   - name: copy/paste/cut - general
     application:
-      not: [Emacs, "/emacs.*/", libreoffice-calc]
+      not: [Emacs, "/emacs.*/", libreoffice-calc, edge_bottom]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c
@@ -407,7 +407,7 @@ keymap:
   - name: Emacs inhabitant
     exact_match: true
     application:
-      not: [Emacs, "/emacs.*/"]
+      not: [Emacs, "/emacs.*/", edge_bottom]
     remap:
       # window navigation
       Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
@@ -429,7 +429,7 @@ keymap:
   - name: Emacs inhabitant
     exact_match: true
     application:
-      not: [Emacs, "/emacs.*/"]
+      not: [Emacs, "/emacs.*/", edge_bottom]
     remap:
       # window navigation
       Super_L-left:  { launch: ["swaymsg", "focus", "left"] }
