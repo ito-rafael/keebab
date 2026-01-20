@@ -6,10 +6,12 @@ virtual_modifiers:
   - F23
 
 shared:
+
   terminals: &terminals
     - kitty
     - dropdown_terminal
     - dropdown_python
+
   scratchpads: &scratchpads
     - dropdown_terminal
     - dropdown_python
@@ -17,11 +19,13 @@ shared:
     - Brave-browser-beta
     - Keymapp
     - keymapp
+
   emacs-ssh: &emacs-ssh
     - "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
     - "/.*: emacsclient -c.* -a .*emacs.*/"
     - "/.*: ecd/"
     - "/.*: ec/"
+
   browsers: &browsers
     - "/brave.*/"
     - "/firefox.*/"
@@ -31,18 +35,21 @@ shared:
     - chromium
 
 modmap:
+
   - name: volume control with side-bottom mouse button
     remap:
       BTN_BACK:
         held: F21
         alone: KEY_PAGEDOWN
         alone_timeout_millis: 200
+
   - name: zoom control with side-top mouse button
     remap:
       BTN_FORWARD:
         held: F22
         alone: KEY_PAGEUP
         alone_timeout_millis: 200
+
   - name: brightness control with mode shift mouse button
     remap:
       BTN_SIDE:
@@ -56,6 +63,7 @@ keymap:
     remap:
       # enter "lan-mouse" mode
       FN_F1: { set_mode: lan-mouse }
+
   - name: disable lan-mouse bypass
     mode: lan-mouse
     remap:
@@ -70,8 +78,6 @@ keymap:
       F17: Ctrl-Shift-c
       F18: Ctrl-Shift-v
     mode: default
-
-
 
   - name: copy/paste/cut - general
     application:
@@ -99,8 +105,6 @@ keymap:
       # kill window
       Alt_L-Super_L-q:  { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
     mode: default
-
-
 
   - name: Window navigation
     exact_match: true
@@ -150,6 +154,7 @@ keymap:
     remap:
       Ctrl-space: Shift-Ctrl-Tab
     mode: default
+
   - name: open browser in private window
     # Firefox
     application:
@@ -183,6 +188,7 @@ keymap:
           c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
           Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
     mode: default
+
   - name: forward char / dead_acute
     exact_match: true
     application:
@@ -271,7 +277,6 @@ keymap:
       Enter: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/emote-paste.sh"] }
     mode: default
 
-
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:
       CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock-status.sh toggle"] }
@@ -293,6 +298,7 @@ keymap:
       F15-comma:     { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
       F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
     mode: default
+
   - name: microphone control
     remap:
       F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
@@ -306,6 +312,7 @@ keymap:
       Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
       Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
     mode: default
+
   - name: YouTube speed control
     remap:
       Shift-F15-esc:       j  # x1.00
@@ -314,6 +321,7 @@ keymap:
       Shift-F15-enter:     k  # x2.00
       Shift-F15-backspace: h  # x3.00
     mode: default
+
   - name: brightness control
     remap:
       F19-esc:       { launch: ["bash", "-c", "brightnessctl set 0%"] }
@@ -326,6 +334,7 @@ keymap:
       S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
       S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
     mode: default
+
   - name: opacity control
     exact_match: true
     remap:
@@ -335,6 +344,7 @@ keymap:
       C-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
       C-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
     mode: default
+
   - name: backlit control
     remap:
       F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle"] }
@@ -459,6 +469,7 @@ keymap:
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F21-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 98%"] }
     mode: default
+
   - name: placeholder for side-bottom button + mode shift gestures control with mouse
     exact_match: true
     remap:
@@ -471,6 +482,7 @@ keymap:
       # right
       F21-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 44%"] }
     mode: default
+
   - name: zoom control with mouse
     exact_match: true
     remap:
@@ -481,6 +493,7 @@ keymap:
       F22-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F22-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 76%"] }
     mode: default
+
   - name: placeholder for side-top button + mode shift gestures control with mouse
     exact_match: true
     remap:
@@ -493,12 +506,14 @@ keymap:
       # right
       F22-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 88%"] }
     mode: default
+
   - name: brightness control with mouse
     exact_match: true
     remap:
       F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
     mode: default
+
   - name: video speed control with mouse
     exact_match: true
     remap:
@@ -507,6 +522,7 @@ keymap:
       F23-BTN_MIDDLE:  u                 # reset speed
       F23-Enter:       { launch: ["bash", "-c", "brightnessctl set 54%"] }
     mode: default
+
   - name: placeholder for gestures button + mode shift gestures control with mouse
     exact_match: true
     remap:

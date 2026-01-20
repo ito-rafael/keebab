@@ -1,6 +1,6 @@
 #+TITLE: Config file for xremap
 #+AUTHOR: Rafael Ito
-# +PROPERTY: header-args :noweb-sep "\n\n"
+#+PROPERTY: header-args :noweb-sep "\n\n"
 #+DESCRIPTION: config file for xremap
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -466,9 +466,6 @@ keymap:
     mode: default
 #+end_src
 ** Emacs over SSH
-:PROPERTIES:
-:header-args: :noweb-sep "\n\n"
-:END:
 *** Window navigation
 #+begin_src conf :noweb-ref emacs-ssh
   - name: Window navigation
@@ -486,7 +483,7 @@ keymap:
 #+end_src
 ** Kitty
 *** Delete word
-#+begin_src conf :noweb-sep "\n\n" :noweb-ref kitty
+#+begin_src conf :noweb-ref kitty
   - name: delete next word
     application:
       only: kitty
@@ -495,6 +492,9 @@ keymap:
     mode: default
 #+end_src
 *** Navigation
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
 #+begin_src conf :noweb-ref kitty
   - name: arrow up/down
     application:
@@ -707,6 +707,9 @@ keymap:
     mode: default
 #+end_src
 ** Emote navigation
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
 *** Navigation
 #+begin_src conf :noweb-ref emote
   - name: navigate through emoji categories
@@ -741,6 +744,9 @@ keymap:
     mode: default
 #+end_src
 ** System control
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
 *** Media
 **** Speaker
 #+begin_src conf :noweb-ref control
@@ -773,7 +779,7 @@ keymap:
       F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
 #+end_src
 ***** EoS :noexport:
-#+begin_src conf :noweb-ref control
+#+begin_src conf :noweb-ref control :noweb-sep "\n\n"
     mode: default
 #+end_src
 **** Microphone
@@ -804,7 +810,7 @@ keymap:
       Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
 #+end_src
 ***** EoS :noexport:
-#+begin_src conf :noweb-ref control
+#+begin_src conf :noweb-ref control :noweb-sep "\n\n"
     mode: default
 #+end_src
 **** YouTube speed control
@@ -813,7 +819,7 @@ keymap:
     remap:
 #+end_src
 ***** Levels
-#+begin_src conf :noweb-ref control
+#+begin_src conf :noweb-ref control :noweb-sep "\n\n"
       Shift-F15-esc:       j  # x1.00
       Shift-F15-space:     l  # x1.25
       Shift-F15-tab:       u  # x1.50
@@ -846,7 +852,7 @@ keymap:
       S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
 #+end_src
 ***** EoS :noexport:
-#+begin_src conf :noweb-ref control
+#+begin_src conf :noweb-ref control :noweb-sep "\n\n"
     mode: default
 #+end_src
 **** Opacity
@@ -867,7 +873,7 @@ keymap:
       C-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
 #+end_src
 ***** EoS :noexport:
-#+begin_src conf :noweb-ref control
+#+begin_src conf :noweb-ref control :noweb-sep "\n\n"
     mode: default
 #+end_src
 **** Backlit
@@ -973,6 +979,9 @@ keymap:
 )
 #+end_src
 ** pdfpc
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
 #+begin_src conf :noweb-ref pdfpc
   - name: presentation with pdfpc
     exact_match: true
@@ -1021,6 +1030,9 @@ keymap:
     mode: default
 #+end_src
 ** LibreOffice
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
 #+begin_src conf :noweb-ref libreoffice
   - name: LibreOffice custom bindings
     application:
@@ -1156,15 +1168,11 @@ keymap:
 <<modes>>
 
 <<cpc-terminal>>
-
 <<cpc-emacs>>
-
 <<cpc-default>>
 
 <<i3-navigation>>
-
 <<emacs>>
-
 <<emacs-ssh>>
 
 <<kitty>>
@@ -1206,15 +1214,11 @@ keymap:
 <<modes>>
 
 <<cpc-terminal>>
-
 <<cpc-emacs>>
-
 <<cpc-default>>
 
 <<sway-navigation>>
-
 <<emacs>>
-
 <<emacs-ssh>>
 
 <<kitty>>
@@ -1224,13 +1228,13 @@ keymap:
 <<surfingkeys>>
 
 <<cedilla>>
+
 <<dead-acute>>
 <<dead-acute-i3sway(wm="s,w,a,y")>>
 <<dead-acute-eos>>
 
 <<emote>>
 <<emote-sway>>
-
 <<capslock>>
 
 <<control>>
