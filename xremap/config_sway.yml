@@ -56,6 +56,7 @@ modmap:
         held: F23
         alone: BTN_SIDE
         alone_timeout_millis: 200
+
 keymap:
 
   - name: enter lan-mouse mode (enable keybindings bypass)

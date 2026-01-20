@@ -1163,6 +1163,7 @@ keymap:
 <<shared-common>>
 
 <<modmap>>
+
 <<keymap>>
 
 <<modes>>
@@ -1209,6 +1210,7 @@ keymap:
 <<shared-sway>>
 
 <<modmap>>
+
 <<keymap>>
 
 <<modes>>
