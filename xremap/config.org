@@ -24,6 +24,7 @@
   - [[#btn_forward-mouse][BTN_FORWARD [mouse]]]
   - [[#btn_side-mouse][BTN_SIDE [mouse]]]
 - [[#keymap][Keymap]]
+  - [[#modes][Modes]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs-inhabitant][Emacs inhabitant]]
   - [[#emacs-over-ssh-1][Emacs over SSH]]
@@ -240,13 +241,13 @@ Brightness control with MX Master 3 mouse.
 |-------------------+--------------|
 *** F24
 TBD (suggestion: monitor LED strip)
-*** FN_F1
-Host control with MX Master 3 mouse.
-|---------+-------------|
-| binding | description |
-|---------+-------------|
-| FN_F1   | switch host |
-|---------+-------------|
+*** FN_Fx
+|---------+----------------------------------------|
+| binding | description                            |
+|---------+----------------------------------------|
+| FN_F1   | switch xremap mode {default,lan-mouse} |
+| FN_F2   | host control with MX Master 3 mouse    |
+|---------+----------------------------------------|
 ** Workspace navigation
 |---------------------------+-----------------------|
 | binding                   | description           |
@@ -379,6 +380,23 @@ tap: Enter / hold: brightness control (F23)
 * Keymap
 #+begin_src conf :noweb-ref keymap
 keymap:
+#+end_src
+** Modes
+*** Default
+#+begin_src conf :noweb-ref modes
+  - name: enter lan-mouse mode (enable keybindings bypass)
+    mode: default
+    remap:
+      # enter "lan-mouse" mode
+      FN_F1: { set_mode: lan-mouse }
+#+end_src
+*** lan-mouse
+#+begin_src conf :noweb-ref modes
+  - name: disable lan-mouse bypass
+    mode: lan-mouse
+    remap:
+      # return to "default" mode
+      FN_F1: { set_mode: default }
 #+end_src
 ** CPC: Copy/Paste/Cut
 *** Terminal
@@ -1135,6 +1153,8 @@ keymap:
 <<modmap>>
 <<keymap>>
 
+<<modes>>
+
 <<cpc-terminal>>
 
 <<cpc-emacs>>
@@ -1182,6 +1202,8 @@ keymap:
 
 <<modmap>>
 <<keymap>>
+
+<<modes>>
 
 <<cpc-terminal>>
 
