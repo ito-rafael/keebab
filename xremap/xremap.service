@@ -10,6 +10,7 @@ ExecStart=/usr/bin/xremap \
     --device "ZSA Technology Labs Planck EZ Glow" \
     --device "KMonad INKL output" \
     --device "kanata" \
+    --device "ydotool" \
     --watch %h/.config/xremap/config.yml
 ExecStop=/usr/bin/killall xremap
 Restart=always
