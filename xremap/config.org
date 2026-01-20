@@ -390,6 +390,7 @@ keymap:
       F16: Ctrl-Shift-x
       F17: Ctrl-Shift-c
       F18: Ctrl-Shift-v
+    mode: default
 #+end_src
 *** Default
 #+begin_src conf :noweb-ref cpc-default
@@ -400,6 +401,7 @@ keymap:
       F16: Ctrl-x
       F17: Ctrl-c
       F18: Ctrl-v
+    mode: default
 #+end_src
 ** Emacs inhabitant
 *** i3wm
@@ -423,6 +425,7 @@ keymap:
       # kill window
       #Alt_L-Super_L-q:  { launch: ["bash", "-c", "i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
       Alt_L-Super_L-q:  { launch: ["i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+    mode: default
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-navigation
@@ -442,6 +445,7 @@ keymap:
       Alt_L-Super_L-g:  { launch: ["swaymsg", "exec", "kitty"] }
       # kill window
       Alt_L-Super_L-q:  { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+    mode: default
 #+end_src
 ** Emacs over SSH
 :PROPERTIES:
@@ -460,6 +464,7 @@ keymap:
       Super_L-down:  [C-w, C-j]
       Super_L-up:    [C-w, C-k]
       Super_L-right: [C-w, C-l]
+    mode: default
 #+end_src
 ** Kitty
 *** Delete word
@@ -469,6 +474,7 @@ keymap:
       only: kitty
     remap:
       Ctrl-Shift-Backspace: Ctrl-Delete
+    mode: default
 #+end_src
 *** Navigation
 #+begin_src conf :noweb-ref kitty
@@ -490,8 +496,12 @@ keymap:
       Alt-o: end
 #+end_src
 **** Fix window properties snapshot
-#+begin_src conf :noweb-sep "\n\n" :noweb-ref kitty
+#+begin_src conf :noweb-ref kitty
       Ctrl-Alt-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/wlprop.sh focused"] }
+#+end_src
+**** EoS :noexport:
+#+begin_src conf :noweb-sep "\n\n" :noweb-ref kitty
+    mode: default
 #+end_src
 ** Terminals
 *** Zoom control
@@ -502,6 +512,7 @@ keymap:
     remap:
       F22-XDOWNSCROLL: Ctrl-Shift-minus
       F22-XUPSCROLL:   Ctrl-Shift-equal
+    mode: default
 #+end_src
 ** Browser
 *** All
@@ -513,6 +524,7 @@ keymap:
       only: *browsers
     remap:
       Ctrl-space: Shift-Ctrl-Tab
+    mode: default
 #+end_src
 *** Brave
 **** Tab navigation with on forbidden pages (Surfingkeys)
@@ -529,6 +541,7 @@ keymap:
       Shift-I: Ctrl-Shift-Tab  # previous tab
       Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
+    mode: default
 #+end_src
 *** Firefox
 #+begin_src conf :noweb-ref browsers
@@ -540,6 +553,7 @@ keymap:
       Ctrl-Shift-n:
         # remap to C-S-p
         launch: ["bash", "-c", "ydotool key 29:1 42:1 25:1 25:0 42:0 29:0"]
+    mode: default
 #+end_src
 ** Cedilla
 #+begin_src conf :noweb-ref cedilla
@@ -551,6 +565,7 @@ keymap:
         remap:
           c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
           Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+    mode: default
 #+end_src
 ** Dead acute
 :PROPERTIES:
@@ -669,6 +684,10 @@ keymap:
 #+begin_src emacs-lisp :var wm="s,w,a,y" :results raw
 (format "          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, %s, SLASH]" wm)
 #+end_src
+*** EoS :noexport:
+#+begin_src conf :noweb-ref dead-acute-eos
+    mode: default
+#+end_src
 ** Emote navigation
 *** Navigation
 #+begin_src conf :noweb-ref emote
@@ -692,11 +711,16 @@ keymap:
       #   - paste according to context
       Enter: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/emote-paste.sh"] }
 #+end_src
+*** EoS :noexport:
+#+begin_src conf :noweb-ref emote
+    mode: default
+#+end_src
 ** Capslock
 #+begin_src conf :noweb-ref capslock
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:
       CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock-status.sh toggle"] }
+    mode: default
 #+end_src
 ** System control
 *** Media
@@ -730,6 +754,10 @@ keymap:
       F15-comma:     { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
       F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
 #+end_src
+***** EoS :noexport:
+#+begin_src conf :noweb-ref control
+    mode: default
+#+end_src
 **** Microphone
 #+begin_src conf :noweb-ref control
   - name: microphone control
@@ -757,6 +785,10 @@ keymap:
       Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
       Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
 #+end_src
+***** EoS :noexport:
+#+begin_src conf :noweb-ref control
+    mode: default
+#+end_src
 **** YouTube speed control
 #+begin_src conf :noweb-ref control
   - name: YouTube speed control
@@ -769,6 +801,7 @@ keymap:
       Shift-F15-tab:       u  # x1.50
       Shift-F15-enter:     k  # x2.00
       Shift-F15-backspace: h  # x3.00
+    mode: default
 #+end_src
 *** Luminosity
 **** Brightness
@@ -794,6 +827,10 @@ keymap:
       S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
       S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
 #+end_src
+***** EoS :noexport:
+#+begin_src conf :noweb-ref control
+    mode: default
+#+end_src
 **** Opacity
 #+begin_src conf :noweb-ref control
   - name: opacity control
@@ -811,6 +848,10 @@ keymap:
       C-F19-h:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "dec"] }
       C-F19-slash: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/opacity.sh", "all", "inc"] }
 #+end_src
+***** EoS :noexport:
+#+begin_src conf :noweb-ref control
+    mode: default
+#+end_src
 **** Backlit
 #+begin_src conf :noweb-ref control
   - name: backlit control
@@ -818,6 +859,7 @@ keymap:
       F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle"] }
       F19-comma: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "dec"] }
       F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc"] }
+    mode: default
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
@@ -956,6 +998,10 @@ keymap:
       KEY_ESC: KEY_UP
       #KEY_TAB:
 #+end_src
+*** EoS :noexport:
+#+begin_src conf :noweb-ref pdfpc
+    mode: default
+#+end_src
 ** LibreOffice
 #+begin_src conf :noweb-ref libreoffice
   - name: LibreOffice custom bindings
@@ -980,6 +1026,10 @@ keymap:
 #+begin_src conf :noweb-ref libreoffice
       #Alt-o: Ctrl-o      # open file
 #+end_src
+*** EoS :noexport:
+#+begin_src conf :noweb-ref libreoffice
+    mode: default
+#+end_src
 ** Mouse controller
 *** Side-bottom
 **** Volume control
@@ -993,6 +1043,7 @@ keymap:
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F21-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 98%"] }
+    mode: default
 #+end_src
 **** Gestures
 #+begin_src conf :noweb-ref mouse
@@ -1007,6 +1058,7 @@ keymap:
       F21-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 33%"] }
       # right
       F21-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 44%"] }
+    mode: default
 #+end_src
 *** Side-top
 **** Zoom control
@@ -1020,6 +1072,7 @@ keymap:
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
       F22-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F22-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 76%"] }
+    mode: default
 #+end_src
 **** Gestures
 #+begin_src conf :noweb-ref mouse
@@ -1034,6 +1087,7 @@ keymap:
       F22-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 77%"] }
       # right
       F22-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 88%"] }
+    mode: default
 #+end_src
 *** Gesture button
 **** Brightness control
@@ -1043,6 +1097,7 @@ keymap:
     remap:
       F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
       F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
+    mode: default
 #+end_src
 **** Video speed control
 #+begin_src conf :noweb-ref mouse
@@ -1053,6 +1108,7 @@ keymap:
       F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
       F23-BTN_MIDDLE:  u                 # reset speed
       F23-Enter:       { launch: ["bash", "-c", "brightnessctl set 54%"] }
+    mode: default
 #+end_src
 **** Gestures
 #+begin_src conf :noweb-ref mouse
@@ -1067,6 +1123,7 @@ keymap:
       F23-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 56%"] }
       # right
       F23-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 78%"] }
+    mode: default
 #+end_src
 * Tangle :noexport:
 ** i3
@@ -1098,6 +1155,7 @@ keymap:
 
 <<dead-acute>>
 <<dead-acute-i3sway(wm="i,\"3\"")>>
+<<dead-acute-eos>>
 
 <<emote>>
 
@@ -1146,6 +1204,7 @@ keymap:
 <<cedilla>>
 <<dead-acute>>
 <<dead-acute-i3sway(wm="s,w,a,y")>>
+<<dead-acute-eos>>
 
 <<emote>>
 <<emote-sway>>
