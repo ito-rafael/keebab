@@ -1,6 +1,6 @@
 #+TITLE: lan-mouse monitor for desktops (server)
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :tangle lanmouse-monitor-desktop.sh
+#+PROPERTY: header-args :tangle lanmouse-monitor_desktop.sh
 #+DESCRIPTION: monitor lan-mouse logs and run appropriate commands on desktops (server)
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -37,7 +37,7 @@
 * Variables
 #+begin_src sh
 # define systemd unit to monitor
-UNIT="lan-mouse"
+UNIT="lanmouse"
 # define message to monitor on the output of journalctl
 TRIGGER_LEAVING="client 0 acknowledged the connection!"
 TRIGGER_RETURNING="releasing capture: left remote client device region"

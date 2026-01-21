@@ -13,7 +13,7 @@
 #   is responsible for launching and controlling it.
 
 # define systemd unit to monitor
-UNIT="lan-mouse"
+UNIT="lanmouse"
 # define message to monitor on the output of journalctl
 TRIGGER_ENTERING=".*releasing capture: [0-9.:]+ entered this device.*"
 TRIGGER_LEAVING="releasing capture: no active client at this position"

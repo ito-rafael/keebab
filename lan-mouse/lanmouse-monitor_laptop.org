@@ -1,6 +1,6 @@
 #+TITLE: lan-mouse monitor for laptops (client)
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :tangle lanmouse-monitor-laptop.sh
+#+PROPERTY: header-args :tangle lanmouse-monitor_laptop.sh
 #+DESCRIPTION: monitor lan-mouse logs and run appropriate commands on laptops (client)
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -37,7 +37,7 @@
 * Variables
 #+begin_src sh
 # define systemd unit to monitor
-UNIT="lan-mouse"
+UNIT="lanmouse"
 # define message to monitor on the output of journalctl
 TRIGGER_ENTERING=".*releasing capture: [0-9.:]+ entered this device.*"
 TRIGGER_LEAVING="releasing capture: no active client at this position"

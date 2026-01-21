@@ -13,7 +13,7 @@
 #   is responsible for launching and controlling it.
 
 # define systemd unit to monitor
-UNIT="lan-mouse"
+UNIT="lanmouse"
 # define message to monitor on the output of journalctl
 TRIGGER_LEAVING="client 0 acknowledged the connection!"
 TRIGGER_RETURNING="releasing capture: left remote client device region"
