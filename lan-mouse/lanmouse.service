@@ -1,0 +1,20 @@
+[Unit]
+Description=Lan Mouse
+# lan mouse needs an active graphical session
+After=graphical-session.target
+# make sure the service terminates with the graphical session
+#BindsTo=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/lan-mouse daemon
+Restart=on-failure
+# give Sway 3 seconds to finish initializing the socket before the first try
+ExecStartPre=/usr/bin/bash -c 'while [ ! -S $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY ]; do sleep 1; done'
+RestartSec=3
+# set environment variables
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+#WantedBy=graphical-session.target
+WantedBy=default.target
