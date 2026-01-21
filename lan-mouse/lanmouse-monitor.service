@@ -1,0 +1,15 @@
+[Unit]
+Description=Monitor lan-mouse logs to trigger appropriate commands
+# starts after lan-mouse and graphical session
+After=lanmouse.service
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/bash %h/.config/scripts/lanmouse-monitor.sh
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=sway-session.target
