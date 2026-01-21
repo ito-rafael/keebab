@@ -82,7 +82,7 @@ keymap:
 
   - name: copy/paste/cut - general
     application:
-      not: [Emacs, "/emacs.*/", libreoffice-calc, edge_bottom]
+      not: [Emacs, "/emacs.*/", libreoffice-calc]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c
@@ -92,7 +92,7 @@ keymap:
   - name: Emacs inhabitant
     exact_match: true
     application:
-      not: [Emacs, "/emacs.*/", edge_bottom]
+      not: [Emacs, "/emacs.*/"]
     remap:
       # window navigation
       Super_L-left:  { launch: ["swaymsg", "focus", "left"] }
