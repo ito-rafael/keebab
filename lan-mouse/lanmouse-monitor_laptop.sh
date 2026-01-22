@@ -29,9 +29,11 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
     if [[ "$line" == *"$TRIGGER_LEAVING"* ]]; then
         # check if enough time (cooldown) has passed since the last trigger
         if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
-            echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse returned to PC. Sending clipboard..."
+            echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse returned to PC. Sending clipboard and re-enabling xremap default mode..."
             # send clipboard via SSH forced command
             $HOME/.config/scripts/push-clipboard.sh catuaba >/dev/null
+            # re-enable xremap's default mode (FN_F2)
+            ssh catuaba "ydotool key 467:1 467:0"
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
