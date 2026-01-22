@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# alternative to ydotool: wlrctl
+# eg: "wlrctl pointer move -9999 -9999"
+
+#=============================
+# [local]
+#=============================
+
+# force cursor @ (1920,1200)
+ydotool mousemove -x 9999 -y 9999
+
+# and then to top middle of the screen (x=1920/2; y=0)
+# !!! I don't know why, but it's dividing by 4: (x=1920/4) !!!
+ydotool mousemove -x -480 -y -9999
+
+#=============================
+# [remote]
+#=============================
+# force cursor @ (0,0)
+# and then to middle of the screen (x=1.5*1920; y=1080/2)
+# !!! I don't know why, but it's dividing by 4: (x=1.5*1920/2; y=1080/4) !!!
+ssh catuaba "ydotool mousemove -x -9999 -y -9999 && ydotool mousemove -x 1440 -y 270"
