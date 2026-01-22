@@ -69,7 +69,7 @@ keymap:
     mode: lan-mouse
     remap:
       # return to "default" mode
-      FN_F1: { set_mode: default }
+      FN_F2: { set_mode: default }
 
   - name: copy/paste/cut - terminal
     application:
