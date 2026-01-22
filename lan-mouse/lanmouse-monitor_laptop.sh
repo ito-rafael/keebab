@@ -17,13 +17,13 @@ UNIT="lanmouse"
 # define message to monitor on the output of journalctl
 TRIGGER_ENTERING=".*releasing capture: [0-9.:]+ entered this device.*"
 TRIGGER_LEAVING="releasing capture: no active client at this position"
-# set cooldown (in seconds) to avoid double trigger
-COOLDOWN=1
+# set cooldown (in miliseconds) to avoid double trigger
+COOLDOWN=250
 LAST_TRIGGER=0
 
 # monitor the journal for the specific user unit
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
-    CURRENT_TIME=$(date +%s)
+    CURRENT_TIME=$(($(date +%s%N) / 1000000))
 
     # leaving this host --> returning to desktop
     if [[ "$line" == *"$TRIGGER_LEAVING"* ]]; then
