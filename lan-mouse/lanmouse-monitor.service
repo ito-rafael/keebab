@@ -5,10 +5,13 @@ After=lanmouse.service
 
 [Service]
 ExecStart=/usr/bin/bash %h/.config/scripts/lanmouse-monitor.sh
-Restart=always
+Restart=on-failure
 RestartSec=3
 StandardOutput=journal
 StandardError=journal
+# set environment variables
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/%U
 
 [Install]
 WantedBy=default.target
