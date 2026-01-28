@@ -20,6 +20,12 @@ SCRATCHPAD_LIST=(
     "Keymapp"
     "keymapp"
 )
+EMACS_SSH_LIST=(
+    "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
+    "/.*: emacsclient -c.* -a .*emacs.*/"
+    "/.*: ecd/"
+    "/.*: ec/"
+)
 
 IFS='|' # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"

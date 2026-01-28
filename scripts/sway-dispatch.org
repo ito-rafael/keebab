@@ -55,12 +55,22 @@ SCRATCHPAD_LIST=(
     "keymapp"
 )
 #+end_src
+*** Emacs over SSH
+#+begin_src sh
+EMACS_SSH_LIST=(
+    "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
+    "/.*: emacsclient -c.* -a .*emacs.*/"
+    "/.*: ecd/"
+    "/.*: ec/"
+)
+#+end_src
 *** Merge list with "|"
 #+begin_src sh :padline yes
 IFS='|'  # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"
 BROWSERS="@(${BROWSER_LIST[*]})"
 SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
+EMACS_SSHS="@(${EMACS_SSH_LIST[*]})"
 unset IFS  # reset separator
 #+end_src
 ** Help menu
