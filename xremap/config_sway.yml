@@ -63,13 +63,17 @@ keymap:
     mode: default
     remap:
       # enter "lan-mouse" mode
-      FN_F1: { set_mode: lan-mouse }
+      FN_F1:
+        - { set_mode: lan-mouse }
+        - { launch: ["swaymsg", "exec", "echo lan-mouse > /tmp/xremap_mode.tmp"] }
 
   - name: disable lan-mouse bypass
     mode: lan-mouse
     remap:
       # return to "default" mode
-      FN_F2: { set_mode: default }
+      FN_F2:
+        - { set_mode: default }
+        - { launch: ["swaymsg", "exec", "echo default > /tmp/xremap_mode.tmp"] }
 
   - name: copy/paste/cut - terminal
     application:
