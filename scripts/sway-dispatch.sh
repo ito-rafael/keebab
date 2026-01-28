@@ -12,9 +12,19 @@ BROWSER_LIST=(
     "/firefox.*/"
     "chromium"
 )
+SCRATCHPAD_LIST=(
+    "dropdown_terminal"
+    "dropdown_python"
+    "scrcpy"
+    "Brave-browser-beta"
+    "Keymapp"
+    "keymapp"
+)
 
 IFS='|' # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"
+BROWSERS="@(${BROWSER_LIST[*]})"
+SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
 unset IFS # reset separator
 
 # Usage:
