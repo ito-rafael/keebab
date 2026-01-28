@@ -7,6 +7,11 @@ TERMINAL_LIST=(
     "dropdown_terminal"
     "dropdown_python"
 )
+BROWSER_LIST=(
+    "/brave.*/"
+    "/firefox.*/"
+    "chromium"
+)
 
 IFS='|' # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"

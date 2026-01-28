@@ -36,6 +36,14 @@ TERMINAL_LIST=(
     "dropdown_python"
 )
 #+end_src
+*** Browsers
+#+begin_src sh
+BROWSER_LIST=(
+    "/brave.*/"
+    "/firefox.*/"
+    "chromium"
+)
+#+end_src
 *** Merge list with "|"
 #+begin_src sh :padline yes
 IFS='|'  # set separator to pipe temporarily
