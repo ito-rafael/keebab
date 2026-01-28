@@ -26,11 +26,17 @@ EMACS_SSH_LIST=(
     "/.*: ecd/"
     "/.*: ec/"
 )
+CEDILLA_LIST=(
+    "/brave.*/"
+    "chromium"
+)
 
 IFS='|' # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"
 BROWSERS="@(${BROWSER_LIST[*]})"
 SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
+EMACS_SSHS="@(${EMACS_SSH_LIST[*]})"
+CEDILLAS="@(${CEDILLA_LIST[*]})"
 unset IFS # reset separator
 
 # Usage:

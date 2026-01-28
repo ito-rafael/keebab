@@ -64,6 +64,13 @@ EMACS_SSH_LIST=(
     "/.*: ec/"
 )
 #+end_src
+*** Cedilla
+#+begin_src sh
+CEDILLA_LIST=(
+    "/brave.*/"
+    "chromium"
+)
+#+end_src
 *** Merge list with "|"
 #+begin_src sh :padline yes
 IFS='|'  # set separator to pipe temporarily
@@ -71,6 +78,7 @@ TERMINALS="@(${TERMINAL_LIST[*]})"
 BROWSERS="@(${BROWSER_LIST[*]})"
 SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
 EMACS_SSHS="@(${EMACS_SSH_LIST[*]})"
+CEDILLAS="@(${CEDILLA_LIST[*]})"
 unset IFS  # reset separator
 #+end_src
 ** Help menu
