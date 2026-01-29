@@ -98,6 +98,7 @@ case "${ACTION}" in
             for attempt in {1..3}; do
                 kontroll set-rgb --led "$led" --color "$COLOR"
                 [ $? -eq 0 ] && break
+                sleep 0.1
             done
         done
         exit 0
