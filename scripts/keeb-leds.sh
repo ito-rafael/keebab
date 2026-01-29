@@ -20,52 +20,60 @@ COLOR="110000"
 # get parameters
 ACTION=$1
 
-# get keyboard
+# get/connect keyboard
 STATUS=$(kontroll status | grep "No keyboard connected")
 if [[ $STATUS ]]; then
     # keyboard not connected
-    echo "Keyboard not connected. Exiting..."
-    exit 1
+    echo "Keyboard not connected. Trying to connect to the first keyboard detected..."
+    kontroll connect-any > /dev/null
+    if [ $? -eq 0 ]; then
+        KEYBOARD=$(kontroll status | grep "Connected keyboard" | sed "s/Connected keyboard: *\s\(.*\)/\1/")
+        echo "Connected to the first keyboard connected by keymapp: $KEYBOARD"
+    else
+        echo "Couldn't find/connect keyboard. Exiting..."
+        exit 1
+    fi
 else
     KEYBOARD=$(kontroll status | grep "Connected keyboard" | sed "s/Connected keyboard: *\s\(.*\)/\1/")
     echo "Found ZSA keyboard connected: $KEYBOARD"
-    case "${KEYBOARD}" in
-        # Planck EZ keyboard connected
-        "Planck EZ Glow")
-            # Planck EZ Left
-            L1=$(seq 0 4)
-            L2=$(seq 12 16)
-            L3=$(seq 24 28)
-            L4=$(seq 38 40)
-            LT=""
-            # Planck EZ Right
-            R1=$(seq 7 11)
-            R2=$(seq 19 23)
-            R3=$(seq 31 35)
-            R4=$(seq 42 44)
-            RT=""
-            ;;
-        # Moonlander keyboard connected
-        "Moonlander MK1")
-            # Moonlander Left
-            L1=$(seq 1 5)
-            L2=$(seq 8 12)
-            L3=$(seq 15 19)
-            L4=$(seq 25 26)
-            LT="33"
-            # Moonlander Right
-            R1=$(seq 37 41)
-            R2=$(seq 44 48)
-            R3=$(seq 51 55)
-            R4=""
-            RT=$(seq 57 58)
-            ;;
-        *)
-            echo "Keyboard not supported!"
-            exit 1
-            ;;
-    esac
 fi
+
+case "${KEYBOARD}" in
+    # Planck EZ keyboard connected
+    "Planck EZ Glow")
+        # Planck EZ Left
+        L1=$(seq 0 4)
+        L2=$(seq 12 16)
+        L3=$(seq 24 28)
+        L4=$(seq 38 40)
+        LT=""
+        # Planck EZ Right
+        R1=$(seq 7 11)
+        R2=$(seq 19 23)
+        R3=$(seq 31 35)
+        R4=$(seq 42 44)
+        RT=""
+        ;;
+    # Moonlander keyboard connected
+    "Moonlander MK1")
+        # Moonlander Left
+        L1=$(seq 1 5)
+        L2=$(seq 8 12)
+        L3=$(seq 15 19)
+        L4=$(seq 25 26)
+        LT="33"
+        # Moonlander Right
+        R1=$(seq 37 41)
+        R2=$(seq 44 48)
+        R3=$(seq 51 55)
+        R4=""
+        RT=$(seq 57 58)
+        ;;
+    *)
+        echo "Keyboard not supported!"
+        exit 1
+        ;;
+esac
 
 case "${ACTION}" in
     "on")
