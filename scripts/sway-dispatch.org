@@ -7,7 +7,8 @@
 
 * Table of Contents :toc_3:
 - [[#header][Header]]
-- [[#change-focus][Change focus]]
+- [[#change-window-focus][Change window focus]]
+- [[#change-output-focus][Change output focus]]
 - [[#kill-window][Kill window]]
 - [[#cutcopypaste][Cut/Copy/Paste]]
   - [[#cut][Cut]]
@@ -101,7 +102,7 @@ FOCUSED_APP=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | if .
 #+begin_src sh
 case "$COMMAND" in
 #+end_src
-* Change focus
+* Change window focus
 #+begin_src sh
 "focus")
     DIRECTION="$PARAM"
@@ -109,6 +110,19 @@ case "$COMMAND" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-window-$DIRECTION 1)" > /dev/null 2>&1 ;;
         *) swaymsg focus "$DIRECTION" ;;
     esac
+    ;;
+#+end_src
+* Change output focus
+#+begin_src sh
+"focus_output")
+    DIRECTION="$PARAM"
+    # check if there is only one screen (lan-mouse client)
+    if [[ $(swaymsg -t get_outputs | jq length) -eq 1 ]]; then
+        swaymsg exec $XDG_CONFIG_HOME/scripts/lanmouse-switch.sh $DIRECTION
+    # proceed with normal output focus switch
+    else
+        swaymsg focus output $DIRECTION
+    fi
     ;;
 #+end_src
 * Kill window

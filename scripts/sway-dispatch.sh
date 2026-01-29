@@ -61,6 +61,17 @@ case "$COMMAND" in
     esac
     ;;
 
+"focus_output")
+    DIRECTION="$PARAM"
+    # check if there is only one screen (lan-mouse client)
+    if [[ $(swaymsg -t get_outputs | jq length) -eq 1 ]]; then
+        swaymsg exec $XDG_CONFIG_HOME/scripts/lanmouse-switch.sh $DIRECTION
+    # proceed with normal output focus switch
+    else
+        swaymsg focus output $DIRECTION
+    fi
+    ;;
+
 "kill")
     case "$FOCUSED_APP" in
     [Ee]macs*) emacsclient -s efs --eval "(evil-quit)" >/dev/null 2>&1 ;;
