@@ -4,4 +4,4 @@
 sleep 2
 
 # use kontroll to connect keyboard to Keymapp
-/usr/bin/kontroll connect-any
+sudo -u rafael /usr/bin/kontroll connect-any
