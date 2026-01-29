@@ -93,9 +93,12 @@ case "${ACTION}" in
         RIGHT="$R1 $R2 $R3 $R4 $RT"
         LEDS="$LEFT $RIGHT"
         
-        for led in $LEDS;
-        do
-            kontroll set-rgb --led $led --color $COLOR
+        # try up to 3 times
+        for led in $LEDS; do
+            for attempt in {1..3}; do
+                kontroll set-rgb --led "$led" --color "$COLOR"
+                [ $? -eq 0 ] && break
+            done
         done
         exit 0
         ;;
