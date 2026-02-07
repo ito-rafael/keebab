@@ -155,6 +155,7 @@ case "$COMMAND" in
         #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-yank)" ;;
         [Ee]macs*) ;;
         $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+        libreoffice-calc) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
         *) ydotool key 29:1 46:1 46:0 29:0 ;; # C-c
     esac
     ;;
