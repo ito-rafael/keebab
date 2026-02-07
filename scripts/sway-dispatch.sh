@@ -56,7 +56,8 @@ case "$COMMAND" in
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(evil-window-$DIRECTION 1)" >/dev/null 2>&1 ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
+    [Ee]macs*) ;;
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
@@ -74,14 +75,16 @@ case "$COMMAND" in
 
 "kill")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(evil-quit)" >/dev/null 2>&1 ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
+    [Ee]macs*) ;;
     *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
     esac
     ;;
 
 "cut")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(execute-extended-command)" >/dev/null 2>&1 ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(execute-extended-command 1)" ;;
+    [Ee]macs*) ;;
     $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
     *) ydotool key 29:1 45:1 45:0 29:0 ;;                    # C-x
     esac
@@ -89,15 +92,18 @@ case "$COMMAND" in
 
 "copy")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(evil-yank)" >/dev/null 2>&1 ;;
-    $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
-    *) ydotool key 29:1 46:1 46:0 29:0 ;;                    # C-c
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-yank)" ;;
+    [Ee]macs*) ;;
+    $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;;       # C-S-c
+    libreoffice-calc) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+    *) ydotool key 29:1 46:1 46:0 29:0 ;;                          # C-c
     esac
     ;;
 
 "paste")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(evil-paste-before)" >/dev/null 2>&1 ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-paste-after 1)" ;;
+    [Ee]macs*) ;;
     $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
     *) ydotool key 29:1 47:1 47:0 29:0 ;;                    # C-v
     esac
@@ -105,14 +111,16 @@ case "$COMMAND" in
 
 "fullscreen")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(zoom-window-zoom)" >/dev/null 2>&1 ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(zoom-window-zoom)" ;;
+    [Ee]macs*) ;;
     *) swaymsg fullscreen toggle ;;
     esac
     ;;
 
 "new_terminal")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -n -s efs --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" >/dev/null 2>&1 ;;
+    #[Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
+    [Ee]macs*) ;;
     *) kitty ;;
     esac
     ;;
