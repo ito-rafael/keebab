@@ -8,8 +8,8 @@ TERMINAL_LIST=(
     "dropdown_python"
 )
 BROWSER_LIST=(
-    "/brave.*/"
-    "/firefox.*/"
+    "brave*"
+    "firefox*"
     "chromium"
 )
 SCRATCHPAD_LIST=(
@@ -21,13 +21,13 @@ SCRATCHPAD_LIST=(
     "keymapp"
 )
 EMACS_SSH_LIST=(
-    "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
-    "/.*: emacsclient -c.* -a .*emacs.*/"
-    "/.*: ecd/"
-    "/.*: ec/"
+    "*: emacsclient --create-frame* --alternate-editor=*emacs*"
+    "*: emacsclient -c* -a *emacs*"
+    "*: ecd"
+    "*: ec"
 )
 CEDILLA_LIST=(
-    "/brave.*/"
+    "brave*"
     "chromium"
 )
 

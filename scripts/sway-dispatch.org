@@ -40,8 +40,8 @@ TERMINAL_LIST=(
 *** Browsers
 #+begin_src sh
 BROWSER_LIST=(
-    "/brave.*/"
-    "/firefox.*/"
+    "brave*"
+    "firefox*"
     "chromium"
 )
 #+end_src
@@ -59,16 +59,16 @@ SCRATCHPAD_LIST=(
 *** Emacs over SSH
 #+begin_src sh
 EMACS_SSH_LIST=(
-    "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
-    "/.*: emacsclient -c.* -a .*emacs.*/"
-    "/.*: ecd/"
-    "/.*: ec/"
+    "*: emacsclient --create-frame* --alternate-editor=*emacs*"
+    "*: emacsclient -c* -a *emacs*"
+    "*: ecd"
+    "*: ec"
 )
 #+end_src
 *** Cedilla
 #+begin_src sh
 CEDILLA_LIST=(
-    "/brave.*/"
+    "brave*"
     "chromium"
 )
 #+end_src
