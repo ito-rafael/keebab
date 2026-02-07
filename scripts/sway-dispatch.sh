@@ -12,6 +12,10 @@ BROWSER_LIST=(
     "firefox*"
     "chromium"
 )
+CHROMIUM_BROWSER_LIST=(
+    "brave*"
+    "chromium"
+)
 SCRATCHPAD_LIST=(
     "dropdown_terminal"
     "dropdown_python"
@@ -34,6 +38,7 @@ CEDILLA_LIST=(
 IFS='|' # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"
 BROWSERS="@(${BROWSER_LIST[*]})"
+CHROMIUM_BROWSER="@(${CHROMIUM_BROWSER_LIST[*]})"
 SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
 EMACS_SSHS="@(${EMACS_SSH_LIST[*]})"
 CEDILLAS="@(${CEDILLA_LIST[*]})"
@@ -118,6 +123,14 @@ case "$COMMAND" in
     case "$FOCUSED_APP" in
     [Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
     *) kitty ;;
+    esac
+    ;;
+
+"type")
+    CHAR="$PARAM"
+    case "$FOCUSED_APP" in
+    $CHROMIUM_BROWSER) wl-copy "$CHAR" && wtype -M ctrl v -m ctrl ;;
+    *) wtype $CHAR ;;
     esac
     ;;
 

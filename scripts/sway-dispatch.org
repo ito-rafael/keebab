@@ -16,6 +16,7 @@
   - [[#paste][Paste]]
 - [[#fullscreen][Fullscreen]]
 - [[#new-terminal][New terminal]]
+- [[#type][Type]]
 
 * Header :noexport_1:
 ** Shebang
@@ -42,6 +43,13 @@ TERMINAL_LIST=(
 BROWSER_LIST=(
     "brave*"
     "firefox*"
+    "chromium"
+)
+#+end_src
+*** Chromium-based browsers
+#+begin_src sh
+CHROMIUM_BROWSER_LIST=(
+    "brave*"
     "chromium"
 )
 #+end_src
@@ -77,6 +85,7 @@ CEDILLA_LIST=(
 IFS='|'  # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"
 BROWSERS="@(${BROWSER_LIST[*]})"
+CHROMIUM_BROWSER="@(${CHROMIUM_BROWSER_LIST[*]})"
 SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
 EMACS_SSHS="@(${EMACS_SSH_LIST[*]})"
 CEDILLAS="@(${CEDILLA_LIST[*]})"
@@ -107,8 +116,7 @@ case "$COMMAND" in
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
-        [Ee]macs*) ;;
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
         *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
@@ -130,8 +138,7 @@ case "$COMMAND" in
 #+begin_src sh
 "kill")
     case "$FOCUSED_APP" in
-        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
-        [Ee]macs*) ;;
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
         *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
     esac
     ;;
@@ -175,8 +182,7 @@ case "$COMMAND" in
 #+begin_src sh
 "fullscreen")
     case "$FOCUSED_APP" in
-        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(zoom-window-zoom)" ;;
-        [Ee]macs*) ;;
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(zoom-window-zoom)" ;;
         *) swaymsg fullscreen toggle ;;
     esac
     ;;
@@ -185,14 +191,22 @@ case "$COMMAND" in
 #+begin_src sh
 "new_terminal")
     case "$FOCUSED_APP" in
-        #[Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
-        [Ee]macs*) ;;
+        [Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
         *) kitty ;;
     esac
     ;;
 #+end_src
-(global-set-key (kbd "M-s-g") '(lambda () (interactive) (split-window-autotiling) (other-window 1) (counsel-find-file)))
-
+* Type
+Acute, Tilde, special chars.
+#+begin_src sh
+"type")
+    CHAR="$PARAM"
+    case "$FOCUSED_APP" in
+        $CHROMIUM_BROWSER) wl-copy "$CHAR" && wtype -M ctrl v -m ctrl ;;
+        ,*) wtype $CHAR ;;
+    esac
+    ;;
+#+end_src
 * EoS :noexport:
 #+begin_src sh
 esac
