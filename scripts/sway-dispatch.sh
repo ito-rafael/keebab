@@ -56,8 +56,7 @@ case "$COMMAND" in
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
-    [Ee]macs*) ;;
+    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
@@ -75,8 +74,7 @@ case "$COMMAND" in
 
 "kill")
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
-    [Ee]macs*) ;;
+    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
     *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
     esac
     ;;
@@ -111,16 +109,14 @@ case "$COMMAND" in
 
 "fullscreen")
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(zoom-window-zoom)" ;;
-    [Ee]macs*) ;;
+    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(zoom-window-zoom)" ;;
     *) swaymsg fullscreen toggle ;;
     esac
     ;;
 
 "new_terminal")
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
-    [Ee]macs*) ;;
+    [Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
     *) kitty ;;
     esac
     ;;
