@@ -62,7 +62,15 @@ case "$COMMAND" in
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
     #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
-    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(efs/external-window-move '$DIRECTION)" ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(efs/external-window-move '$DIRECTION)" ;;
+    [Ee]macs*)
+        case "$DIRECTION" in
+        "left") wtype -M ctrl -k c -m ctrl -k n ;;
+        "down") wtype -M ctrl -k c -m ctrl -k e ;;
+        "up") wtype -M ctrl -k c -m ctrl -k i ;;
+        "right") wtype -M ctrl -k c -m ctrl -k o ;;
+        esac
+        ;;
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
