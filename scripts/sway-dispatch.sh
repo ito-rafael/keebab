@@ -61,7 +61,8 @@ case "$COMMAND" in
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
+    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
+    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(efs/external-window-move '$DIRECTION)" ;;
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
