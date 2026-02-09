@@ -773,9 +773,9 @@
 *** fn2
 #+begin_src kbd
 (deflayer function-keys-2
-  XX   XX   XX   @tty XX        XX   f17  f18  f19  f20       _  _  _
-  @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16       _  _  _
-  XX   XX   XX   XX   XX        XX   f21  f22  f23  f24       _  _  _
+  XX   XX   XX   @tty XX        XX   f16  f17  f18  f23       _  _  _
+  @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f22       _  _  _
+  XX   XX   XX   XX   XX        XX   f19  f20  f21  f24       _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
 )
