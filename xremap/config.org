@@ -639,6 +639,7 @@ keymap:
 **** Misc lowercase
 #+begin_src conf :noweb-ref dead-acute
           # miscellaneous lowercase
+          l: [APOSTROPHE, SPACE, l]
           n: [APOSTROPHE, SPACE, n]
           m: [APOSTROPHE, SPACE, m, SPACE]
           r: [APOSTROPHE, SPACE, r]
@@ -648,6 +649,7 @@ keymap:
 **** Misc uppercase
 #+begin_src conf :noweb-ref dead-acute
           # miscellaneous uppercase
+          Shift-l: [APOSTROPHE, SPACE, Shift-l]
           Shift-n: [APOSTROPHE, SPACE, Shift-n]
           Shift-m: [APOSTROPHE, SPACE, Shift-m, SPACE]
           Shift-r: [APOSTROPHE, SPACE, Shift-r]

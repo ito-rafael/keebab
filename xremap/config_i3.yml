@@ -208,12 +208,14 @@ keymap:
           Shift-o: [APOSTROPHE, Shift-o]
           Shift-u: [APOSTROPHE, Shift-u]
           # miscellaneous lowercase
+          l: [APOSTROPHE, SPACE, l]
           n: [APOSTROPHE, SPACE, n]
           m: [APOSTROPHE, SPACE, m, SPACE]
           r: [APOSTROPHE, SPACE, r]
           s: [APOSTROPHE, SPACE, s, SPACE]
           t: [APOSTROPHE, SPACE, t, SPACE]
           # miscellaneous uppercase
+          Shift-l: [APOSTROPHE, SPACE, Shift-l]
           Shift-n: [APOSTROPHE, SPACE, Shift-n]
           Shift-m: [APOSTROPHE, SPACE, Shift-m, SPACE]
           Shift-r: [APOSTROPHE, SPACE, Shift-r]
