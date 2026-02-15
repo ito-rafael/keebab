@@ -276,7 +276,7 @@
 
 (deflayer navigation
   XX   4    5    6    XX        @cw  @ps  home end  XX        _  _  _
-  @ren @hn1 @hn2 @hn3 @hra      caps left down up   rght      _  _  _
+  @mwp @hn1 @hn2 @hn3 @mwn      caps left down up   rght      _  _  _
   @obs 7    8    9    0         @key @pss pgdn pgup XX        _  _  _
             _    _    _         _    _    del                 _  _  _
                                                               _  _  _
@@ -287,8 +287,11 @@
   ps  prnt             ;; PrintScreen
   pss S-prnt           ;; Shift-PrintScreen
   key A-C-k            ;; launch screenkey
-  ren (tap-hold-release $mt $mt f2 lmet) ;; rename (F2) to meta_l
   obs (tap-hold-release $mt $mt XX (layer-toggle obs))  ;; OBS recording layer
+
+  ;; workspaces navigation
+  mwp (tap-hold-release $mt $mt S-RM-up lmet)    ;; modifier + focus workspace previous
+  mwn (tap-hold-release $mt $mt S-RM-down ralt)  ;; modifier + focus workspace next
 
   ;; one-hand numbers
   hn1  (tap-hold-release $mt $mt 1 lalt)  ;; hold for mod / tap for number 1
