@@ -669,7 +669,7 @@
 #+begin_src kbd
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
-  @hm  XX   @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
+  @ren XX   @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
   XX   XX   XX   XX   XX        XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
@@ -682,6 +682,8 @@
   ;;   the position under "ctrl" was chosen to avoid key ghosting (common on
   ;;   laptops) that happens if "shift" is used instead.
   ;;mft (movemouse-speed 15)
+
+  ren (tap-hold-release $mt $mt f2 lmet) ;; rename (F2) to meta_l
 
   ;; cursor navigation
   mcl (movemouse-accel-left  5 1000 1 15) ;; mouse cursor left
