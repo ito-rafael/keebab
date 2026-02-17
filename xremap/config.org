@@ -785,7 +785,7 @@ keymap:
 #+end_src
 ***** Toggle
 #+begin_src conf :noweb-ref control
-      F15-k: { launch: ["bash", "-c", "amixer -q sset Master toggle"] }
+      F15-k:         { launch: ["bash", "-c", "amixer -q sset Master toggle"] }
 #+end_src
 ***** Levels
 #+begin_src conf :noweb-ref control
@@ -1096,10 +1096,10 @@ keymap:
   - name: volume control with mouse
     exact_match: true
     remap:
-      F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
-      F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
       F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
+      F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
+      F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
       F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
       F21-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 98%"] }
     mode: default
