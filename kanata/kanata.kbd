@@ -245,9 +245,9 @@
   ter (tap-hold-release $mt $mt A-M-g rmet)  ;; open terminal
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
-  emx f16    ;; Emacs M-x --> redirected with xremap
-  cpy f17    ;; copy --> redirected with xremap
-  pst f18    ;; paste --> redirected with xremap
+  emx A-f16  ;; Emacs M-x --> redirected with xremap
+  cpy S-f16  ;; copy --> redirected with xremap
+  pst C-f16  ;; paste --> redirected with xremap
 )
 
 (defalias
