@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-shopt -s extglob # enable special variable syntax
+shopt -s extglob  # enable special variable syntax
 
 TERMINAL_LIST=(
     "kitty"
@@ -35,14 +35,14 @@ CEDILLA_LIST=(
     "chromium"
 )
 
-IFS='|' # set separator to pipe temporarily
+IFS='|'  # set separator to pipe temporarily
 TERMINALS="@(${TERMINAL_LIST[*]})"
 BROWSERS="@(${BROWSER_LIST[*]})"
 CHROMIUM_BROWSER="@(${CHROMIUM_BROWSER_LIST[*]})"
 SCRATCHPADS="@(${SCRATCHPAD_LIST[*]})"
 EMACS_SSHS="@(${EMACS_SSH_LIST[*]})"
 CEDILLAS="@(${CEDILLA_LIST[*]})"
-unset IFS # reset separator
+unset IFS  # reset separator
 
 # Usage:
 # ./smart_dispatch.sh focus left
@@ -61,17 +61,17 @@ case "$COMMAND" in
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(efs/external-window-move '$DIRECTION)" ;;
-    [Ee]macs*)
-        case "$DIRECTION" in
-        "left") wtype -M ctrl -k c -m ctrl -k n ;;
-        "down") wtype -M ctrl -k c -m ctrl -k e ;;
-        "up") wtype -M ctrl -k c -m ctrl -k i ;;
-        "right") wtype -M ctrl -k c -m ctrl -k o ;;
-        esac
-        ;;
-    *) swaymsg focus "$DIRECTION" ;;
+        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-window-$DIRECTION 1)" ;;
+        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(efs/external-window-move '$DIRECTION)" ;;
+        [Ee]macs*)
+            case "$DIRECTION" in
+                 "left")  wtype -M ctrl -k c -m ctrl -k n ;;
+                 "down")  wtype -M ctrl -k c -m ctrl -k e ;;
+                 "up")    wtype -M ctrl -k c -m ctrl -k i ;;
+                 "right") wtype -M ctrl -k c -m ctrl -k o ;;
+            esac
+            ;;
+        *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
 
@@ -88,36 +88,36 @@ case "$COMMAND" in
 
 "kill")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
-    *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
+        *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
     esac
     ;;
 
 "cut")
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(execute-extended-command 1)" ;;
-    [Ee]macs*) ;;
-    $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
-    *) ydotool key 29:1 45:1 45:0 29:0 ;;                    # C-x
+        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(execute-extended-command 1)" ;;
+        [Ee]macs*) ;;
+        $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
+        *) ydotool key 29:1 45:1 45:0 29:0 ;; # C-x
     esac
     ;;
 
 "copy")
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-yank)" ;;
-    [Ee]macs*) ;;
-    $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;;       # C-S-c
-    libreoffice-calc) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
-    *) ydotool key 29:1 46:1 46:0 29:0 ;;                          # C-c
+        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-yank)" ;;
+        [Ee]macs*) wtype -M shift -k f17 ;; # S-f17
+        $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+        libreoffice-calc) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+        *) ydotool key 29:1 46:1 46:0 29:0 ;; # C-c
     esac
     ;;
 
 "paste")
     case "$FOCUSED_APP" in
-    #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-paste-after 1)" ;;
-    [Ee]macs*) ;;
-    $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
-    *) ydotool key 29:1 47:1 47:0 29:0 ;;                    # C-v
+        #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-paste-after 1)" ;;
+        [Ee]macs*) wtype -M ctrl -k f17 ;; # C-f17
+        $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
+        *) ydotool key 29:1 47:1 47:0 29:0 ;; # C-v
     esac
     ;;
 
@@ -130,16 +130,16 @@ case "$COMMAND" in
 
 "new_terminal")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
-    *) kitty ;;
+        [Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;
+        *) kitty ;;
     esac
     ;;
 
 "type")
     CHAR="$PARAM"
     case "$FOCUSED_APP" in
-    $CHROMIUM_BROWSER) wl-copy "$CHAR" && wtype -M ctrl v -m ctrl ;;
-    *) wtype $CHAR ;;
+        $CHROMIUM_BROWSER) wl-copy "$CHAR" && wtype -M ctrl v -m ctrl ;;
+        *) wtype $CHAR ;;
     esac
     ;;
 

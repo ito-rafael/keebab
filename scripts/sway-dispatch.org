@@ -169,7 +169,7 @@ case "$COMMAND" in
 "copy")
     case "$FOCUSED_APP" in
         #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-yank)" ;;
-        [Ee]macs*) ;;
+        [Ee]macs*) wtype -M shift -k f17 ;; # S-f17
         $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
         libreoffice-calc) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
         *) ydotool key 29:1 46:1 46:0 29:0 ;; # C-c
@@ -181,9 +181,9 @@ case "$COMMAND" in
 "paste")
     case "$FOCUSED_APP" in
         #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-paste-after 1)" ;;
-        [Ee]macs*) ;;
+        [Ee]macs*) wtype -M ctrl -k f17 ;; # C-f17
         $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
-        *) ydotool key 29:1 47:1 47:0 29:0 ;; # C-v
+        ,*) ydotool key 29:1 47:1 47:0 29:0 ;; # C-v
     esac
     ;;
 #+end_src
