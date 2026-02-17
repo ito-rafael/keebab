@@ -64,15 +64,14 @@
 | F13            | XF86Tools        |     183 | KEY_F13             | apostrophe             |
 | F14            | XF86Launch5      |     184 | KEY_F14             | microphone             |
 | F15            | XF86Launch6      |     185 | KEY_F15             | volume                 |
-| F16            | XF86Launch7      |     186 | KEY_F16             | cut                    |
-| F17            | XF86Launch8      |     187 | KEY_F17             | copy                   |
-| F18            | XF86Launch9      |     188 | KEY_F18             | paste                  |
+| F16            | XF86Launch7      |     186 | KEY_F16             | cut/copy/paste         |
+| F18            | XF86Launch9      |     188 | KEY_F18             | ---                    |
 | F19            | -----            |     189 | KEY_F19             | luminosity             |
 | F20            | -----            |     190 | KEY_F20             | backlit & underglow    |
 | F21            | -----            |     191 | KEY_F21             | [mouse] volume ctl     |
 | F22            | -----            |     192 | KEY_F22             | [mouse] zoom ctl       |
 | F23            | -----            |     193 | KEY_F23             | [mouse] brightness ctl |
-| F24            | -----            |     194 | KEY_F24             |                        |
+| F24            | -----            |     194 | KEY_F24             | ---                    |
 |----------------+------------------+---------+---------------------+------------------------|
 | Power button   | XF86PowerOff     |     124 | KEY_POWER           | i3/sway mode_system    |
 |----------------+------------------+---------+---------------------+------------------------|
@@ -122,15 +121,17 @@ Volume (Oryx/QMK and xremap):
 | S-F15-enter     | mic 75%     |
 | S-F15-backspace | mic 100%    |
 |-----------------+-------------|
-*** F16/F17/F18
-Cut, copy, paste.
+*** F16
+Cut, copy, and paste.
 |---------+-------------|
 | binding | description |
 |---------+-------------|
-| F16     | cut         |
-| F17     | copy        |
-| F18     | paste       |
+| M-F16   | cut         |
+| S-F16   | copy        |
+| C-F16   | paste       |
 |---------+-------------|
+*** F18
+TBD
 *** F19
 Luminosity (Oryx/QMK and xremap):
   - brightness
@@ -410,9 +411,9 @@ keymap:
     application:
       only: *terminals
     remap:
-      F16: Ctrl-Shift-x
-      F17: Ctrl-Shift-c
-      F18: Ctrl-Shift-v
+      Alt_L-F16: Ctrl-Shift-x  # cut
+      Shift-F16: Ctrl-Shift-c  # copy
+      Ctrl-F16:  Ctrl-Shift-v  # paste
     mode: default
 #+end_src
 *** Default
@@ -421,9 +422,9 @@ keymap:
     application:
       not: [Emacs, "/emacs.*/", libreoffice-calc]
     remap:
-      F16: Ctrl-x
-      F17: Ctrl-c
-      F18: Ctrl-v
+      Alt_L-F16: Ctrl-x  # cut
+      Shift-F16: Ctrl-c  # copy
+      Ctrl-F16: Ctrl-v   # paste
     mode: default
 #+end_src
 ** Emacs inhabitant

@@ -73,18 +73,18 @@ keymap:
     application:
       only: *terminals
     remap:
-      F16: Ctrl-Shift-x
-      F17: Ctrl-Shift-c
-      F18: Ctrl-Shift-v
+      Alt_L-F16: Ctrl-Shift-x  # cut
+      Shift-F16: Ctrl-Shift-c  # copy
+      Ctrl-F16:  Ctrl-Shift-v  # paste
     mode: default
 
   - name: copy/paste/cut - general
     application:
       not: [Emacs, "/emacs.*/", libreoffice-calc]
     remap:
-      F16: Ctrl-x
-      F17: Ctrl-c
-      F18: Ctrl-v
+      Alt_L-F16: Ctrl-x  # cut
+      Shift-F16: Ctrl-c  # copy
+      Ctrl-F16: Ctrl-v   # paste
     mode: default
 
   - name: Emacs inhabitant
