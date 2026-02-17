@@ -80,6 +80,15 @@ keymap:
 
   - name: copy/paste/cut - general
     application:
+      only: [Emacs, "/emacs.*/"]
+    remap:
+      Alt_L-F16: Alt_L-F17  # M-x
+      Shift-F16: Shift-F17  # copy
+      Ctrl-F16: Ctrl-F17    # paste
+    mode: default
+
+  - name: copy/paste/cut - general
+    application:
       not: [Emacs, "/emacs.*/", libreoffice-calc]
     remap:
       Alt_L-F16: Ctrl-x  # cut

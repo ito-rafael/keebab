@@ -65,6 +65,7 @@
 | F14            | XF86Launch5      |     184 | KEY_F14             | microphone             |
 | F15            | XF86Launch6      |     185 | KEY_F15             | volume                 |
 | F16            | XF86Launch7      |     186 | KEY_F16             | cut/copy/paste         |
+| F17            | XF86Launch8      |     187 | KEY_F17             | cut/copy/paste (Emacs) |
 | F18            | XF86Launch9      |     188 | KEY_F18             | ---                    |
 | F19            | -----            |     189 | KEY_F19             | luminosity             |
 | F20            | -----            |     190 | KEY_F20             | backlit & underglow    |
@@ -130,6 +131,15 @@ Cut, copy, and paste.
 | S-F16   | copy        |
 | C-F16   | paste       |
 |---------+-------------|
+*** F17
+Cut, copy, and paste (Emacs edition).
+|---------+------------------|
+| binding | description      |
+|---------+------------------|
+| M-F17   | M-x              |
+| S-F17   | evil-yank        |
+| C-F17   | evil-paste-after |
+|---------+------------------|
 *** F18
 TBD
 *** F19
@@ -414,6 +424,17 @@ keymap:
       Alt_L-F16: Ctrl-Shift-x  # cut
       Shift-F16: Ctrl-Shift-c  # copy
       Ctrl-F16:  Ctrl-Shift-v  # paste
+    mode: default
+#+end_src
+*** Emacs
+#+begin_src conf :noweb-ref cpc-default
+  - name: copy/paste/cut - general
+    application:
+      only: [Emacs, "/emacs.*/"]
+    remap:
+      Alt_L-F16: Alt_L-F17  # M-x
+      Shift-F16: Shift-F17  # copy
+      Ctrl-F16: Ctrl-F17    # paste
     mode: default
 #+end_src
 *** Default
