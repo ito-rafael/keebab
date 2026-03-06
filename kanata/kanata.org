@@ -416,8 +416,8 @@
 ** window manager :noexport_1:
 #+begin_src kbd
 (deflayer window-manager
-  @klw @klt @fsc @lck @flt      _    @ofl @wsn @wsp @ofr      _  _  _
   @res @sag @spy @spw @ter      _    @wfl @wfd @wfu @wfr      _  _  _
+  @klw @klt @fsc @lck @flt      @pom @ofl @wsn @wsp @ofr      _  _  _
   @spl @emx @cpy @pst _         @spu @sp1 @sp2 @sp3 @spa      _  _  _
             _    XX   _         _    @rof @emc                _  _  _
                                                               _  _  _
@@ -464,8 +464,8 @@
   sp3 M-.  ;; scratchpad temp #3
 
   spa M-/  ;; scratchpad agenda
-  ;;tbd M-j
   ;;tbd M-m
+  pom M-j  ;; pomodoro timer
   spu M-k  ;; scratchpad Keymapp
 
   rof M-ret  ;; open rofi (application launcher)
