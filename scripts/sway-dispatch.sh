@@ -123,8 +123,8 @@ case "$COMMAND" in
 
 "fullscreen")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --suppress-output --eval "(zoom-window-zoom)" ;;
-    *) swaymsg fullscreen toggle ;;
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(with-current-buffer (window-buffer (selected-window)) (zoom-window-zoom))" ;;
+        *) swaymsg fullscreen toggle ;;
     esac
     ;;
 
