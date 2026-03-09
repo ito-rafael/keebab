@@ -15,8 +15,10 @@
 # define systemd unit to monitor
 UNIT="lanmouse"
 # define message to monitor on the output of journalctl
-TRIGGER_ENTERING=".*releasing capture: [0-9.:]+ entered this device.*"
+TRIGGER_ENTERING="releasing capture: * entered this device"
 TRIGGER_LEAVING="releasing capture: no active client at this position"
+TRIGGER_CONNECTION="lan_mouse::listen] dtls client connected, ip: "
+
 # set cooldown (in miliseconds) to avoid double trigger
 COOLDOWN=250
 LAST_TRIGGER=0
@@ -24,9 +26,10 @@ LAST_TRIGGER=0
 # monitor the journal for the specific user unit
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
     CURRENT_TIME=$(($(date +%s%N) / 1000000))
+    case "$line" in
 
     # leaving this host --> returning to desktop
-    if [[ "$line" == *"$TRIGGER_LEAVING"* ]]; then
+    *"$TRIGGER_LEAVING"*)
         # check if enough time (cooldown) has passed since the last trigger
         if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
             echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse returned to PC. Sending clipboard and re-enabling xremap default mode..."
@@ -38,14 +41,16 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
         fi
+        ;;
 
-        ## entering this host
-        #elif [[ "$line" =~ $TRIGGER_ENTERING ]]; then
-        #    #IP_ADDRESS=${BASH_REMATCH[1]}  # --> not working
-        #    echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse just entered in this host. Do something useful..."
-        #    #ssh catuaba 'export SWAYSOCK=$(ls -t /run/user/1000/sway-ipc.1000.*.sock | head -1); swaymsg "[app_id=edge_bottom] focus"'
-        #    # append "Done!" or "Failed!" to the previous line according to the script status
-        #    [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
+    ## entering this host
+    #    *"$TRIGGER_ENTERING"*)
+    #    #IP_ADDRESS=${BASH_REMATCH[1]}  # --> not working
+    #    echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse just entered in this host. Do something useful..."
+    #    #ssh catuaba 'export SWAYSOCK=$(ls -t /run/user/1000/sway-ipc.1000.*.sock | head -1); swaymsg "[app_id=edge_bottom] focus"'
+    #    # append "Done!" or "Failed!" to the previous line according to the script status
+    #    [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
+    #    ;;
 
-    fi
+    esac
 done
