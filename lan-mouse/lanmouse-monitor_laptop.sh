@@ -15,9 +15,12 @@
 # define systemd unit to monitor
 UNIT="lanmouse"
 # define message to monitor on the output of journalctl
+STATUS_FILE="/tmp/lanmouse-status.tmp"
 TRIGGER_ENTERING="releasing capture: * entered this device"
 TRIGGER_LEAVING="releasing capture: no active client at this position"
 TRIGGER_CONNECTION="lan_mouse::listen] dtls client connected, ip: "
+TRIGGER_DISCONNECTION_START="lan_mouse::emulation] releasing keys: "
+TRIGGER_DISCONNECTION_END=" not responding!"
 
 # set cooldown (in miliseconds) to avoid double trigger
 COOLDOWN=250
@@ -27,6 +30,14 @@ LAST_TRIGGER=0
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
     CURRENT_TIME=$(($(date +%s%N) / 1000000))
     case "$line" in
+
+    *"$TRIGGER_CONNECTION"*)
+        echo "connected" >$STATUS_FILE
+        ;;
+
+    *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
+        echo "disconnected" >$STATUS_FILE
+        ;;
 
     # leaving this host --> returning to desktop
     *"$TRIGGER_LEAVING"*)
