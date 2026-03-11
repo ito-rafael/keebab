@@ -77,7 +77,7 @@ case "$COMMAND" in
             LANMOUSE_STATUS=$(cat $LANMOUSE_FILE)
             # if lan-mouse is connected, use special script for window navigation
             if [[ "$CAPSLOCK" == "connected" ]]; then
-                swaymsg exec $XDG_CONFIG_HOME/scripts/sway-window-navigation.py
+                swaymsg exec $XDG_CONFIG_HOME/scripts/sway-window-nav.py
             # if lan-mouse is not connected, use standard sway navigation
             else
                 swaymsg focus "$DIRECTION"
