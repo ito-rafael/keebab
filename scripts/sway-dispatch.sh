@@ -52,6 +52,8 @@ unset IFS  # reset separator
 COMMAND="$1"
 PARAM="$2"
 
+LANMOUSE_FILE="/tmp/lanmouse-status.tmp"
+
 # get the app_id of the focused window
 # some XWayland apps might have null app_id, so we fallback to window_properties.class if needed
 FOCUSED_APP=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | if .app_id then .app_id else .window_properties.class end')
@@ -71,7 +73,16 @@ case "$COMMAND" in
                  "right") wtype -M ctrl -k c -m ctrl -k o ;;
             esac
             ;;
-        *) swaymsg focus "$DIRECTION" ;;
+        *)
+            LANMOUSE_STATUS=$(cat $LANMOUSE_FILE)
+            # if lan-mouse is connected, use special script for window navigation
+            if [[ "$CAPSLOCK" == "connected" ]]; then
+                swaymsg exec $XDG_CONFIG_HOME/scripts/sway-window-navigation.py
+            # if lan-mouse is not connected, use standard sway navigation
+            else
+                swaymsg focus "$DIRECTION"
+            fi
+            ;;
     esac
     ;;
 
