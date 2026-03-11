@@ -50,6 +50,7 @@ LAST_TRIGGER=0
 # monitor the journal for the specific user unit
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
 CURRENT_TIME=$(($(date +%s%N)/1000000))
+case "$line" in
 #+end_src
 ** Desktop --> Laptop
 Leaving desktop. Enter in xremap's lan-mouse mode (bypass keybindings).
@@ -57,7 +58,7 @@ Leaving desktop. Enter in xremap's lan-mouse mode (bypass keybindings).
   - sender --> receiving
 #+begin_src sh
 # switching to client
-if [[ "$line" == *"$TRIGGER_LEAVING"* ]]; then
+,*"$TRIGGER_LEAVING"*)
     # check if enough time (cooldown) has passed since the last trigger
     if (( CURRENT_TIME - LAST_TRIGGER >= COOLDOWN )); then
         echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Switching mouse/keyboard to the client. Disabling xremap..."
@@ -67,6 +68,7 @@ if [[ "$line" == *"$TRIGGER_LEAVING"* ]]; then
         [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
         LAST_TRIGGER=$CURRENT_TIME
     fi
+    ;;
 #+end_src
 ** Laptop --> Desktop
 Returning to desktop. Enter in xremap's default mode (re-enable keybindings).
@@ -74,7 +76,7 @@ Returning to desktop. Enter in xremap's default mode (re-enable keybindings).
   - receiving --> sender
 #+begin_src sh
 # returning to server
-elif [[ "$line" =~ $TRIGGER_RETURNING ]]; then
+,*"$TRIGGER_RETURNING"*)
     # check if enough time (cooldown) has passed since the last trigger
     if (( CURRENT_TIME - LAST_TRIGGER >= COOLDOWN )); then
         echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse/keyboard returned to server. Enabling xremap back..."
@@ -84,9 +86,10 @@ elif [[ "$line" =~ $TRIGGER_RETURNING ]]; then
         [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
         LAST_TRIGGER=$CURRENT_TIME
     fi
+    ;;
 #+end_src
 ** EoS
 #+begin_src sh
-fi
+esac
 done
 #+end_src

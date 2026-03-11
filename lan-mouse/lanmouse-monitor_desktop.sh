@@ -24,9 +24,10 @@ LAST_TRIGGER=0
 # monitor the journal for the specific user unit
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
     CURRENT_TIME=$(($(date +%s%N) / 1000000))
+    case "$line" in
 
     # switching to client
-    if [[ "$line" == *"$TRIGGER_LEAVING"* ]]; then
+    *"$TRIGGER_LEAVING"*)
         # check if enough time (cooldown) has passed since the last trigger
         if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
             echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Switching mouse/keyboard to the client. Disabling xremap..."
@@ -36,9 +37,10 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
         fi
+        ;;
 
     # returning to server
-    elif [[ "$line" =~ $TRIGGER_RETURNING ]]; then
+    *"$TRIGGER_RETURNING"*)
         # check if enough time (cooldown) has passed since the last trigger
         if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
             echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse/keyboard returned to server. Enabling xremap back..."
@@ -48,6 +50,7 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
         fi
+        ;;
 
-    fi
+    esac
 done
