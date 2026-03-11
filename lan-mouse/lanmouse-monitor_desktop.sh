@@ -31,7 +31,7 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
         # check if enough time (cooldown) has passed since the last trigger
         if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
             echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Switching mouse/keyboard to the client. Disabling xremap..."
-            # FN_F1: xremap keybinding for switching between default/lan-mouse modes
+            # FN_F1: xremap keybinding for switching mode: default --> lan-mouse
             ydotool key 466:1 466:0 # FN_F1
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
@@ -44,8 +44,8 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
         # check if enough time (cooldown) has passed since the last trigger
         if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
             echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse/keyboard returned to server. Enabling xremap back..."
-            # FN_F1: xremap keybinding for switching between default/lan-mouse modes
-            ydotool key 466:1 466:0 # FN_F1
+            # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
+            ydotool key 467:1 467:0 # FN_F2
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
