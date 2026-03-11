@@ -1,4 +1,4 @@
 port = 4242
 
 [authorized_fingerprints]
-"00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff:00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff" = "catuaba"
+"e5:ef:f6:64:ee:f0:04:33:ed:6f:53:95:29:8c:88:9a:7d:6b:ea:84:fa:30:c6:06:30:6e:58:d1:79:a9:ef:d4" = "catuaba"
