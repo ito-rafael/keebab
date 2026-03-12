@@ -16,7 +16,9 @@
 UNIT="lanmouse"
 # define message to monitor on the output of journalctl
 STATUS_FILE="/tmp/lanmouse-status.tmp"
-TRIGGER_ENTERING="releasing capture: * entered this device"
+#TRIGGER_ENTERING_START="releasing capture: * entered this device"
+TRIGGER_ENTERING_START="releasing capture: "
+TRIGGER_ENTERING_END=" entered this device"
 TRIGGER_LEAVING="releasing capture: no active client at this position"
 TRIGGER_CONNECTION="lan_mouse::listen] dtls client connected, ip: "
 TRIGGER_DISCONNECTION_START="lan_mouse::emulation] releasing keys: "
@@ -31,13 +33,9 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
     CURRENT_TIME=$(($(date +%s%N) / 1000000))
     case "$line" in
 
-    *"$TRIGGER_CONNECTION"*)
-        echo "connected" >$STATUS_FILE
-        ;;
+    *"$TRIGGER_CONNECTION"*) ;;
 
-    *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
-        echo "disconnected" >$STATUS_FILE
-        ;;
+    *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*) ;;
 
     # leaving this host --> returning to desktop
     *"$TRIGGER_LEAVING"*)
@@ -51,17 +49,18 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
+
+            # update status file
+            echo "disconnected" >$STATUS_FILE
         fi
         ;;
 
-    ## entering this host
-    #    *"$TRIGGER_ENTERING"*)
-    #    #IP_ADDRESS=${BASH_REMATCH[1]}  # --> not working
-    #    echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse just entered in this host. Do something useful..."
-    #    #ssh catuaba 'export SWAYSOCK=$(ls -t /run/user/1000/sway-ipc.1000.*.sock | head -1); swaymsg "[app_id=edge_bottom] focus"'
-    #    # append "Done!" or "Failed!" to the previous line according to the script status
-    #    [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
-    #    ;;
+    # entering this host
+    *"$TRIGGER_ENTERING_START"*"$TRIGGER_ENTERING_END"*)
+        # update status file
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse entered in client. Updating lan-mouse status file."
+        echo "connected" >$STATUS_FILE
+        ;;
 
     esac
 done
