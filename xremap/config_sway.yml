@@ -74,6 +74,13 @@ keymap:
       FN_F2:
         - { set_mode: default }
         - { launch: ["swaymsg", "exec", "echo default > /tmp/xremap_mode.tmp"] }
+  - name: control server volume from remote
+    mode: lan-mouse
+    remap:
+      VOLUMEUP:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
+      VOLUMEDOWN: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
+      F15-comma:  { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
+      F15-dot:    { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
 
   - name: copy/paste/cut - terminal
     application:
