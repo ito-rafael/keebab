@@ -52,7 +52,7 @@ def main():
     parser = argparse.ArgumentParser(description="Check if a window exists above or below the focused window in Sway.")
     parser.add_argument("direction", choices=["up", "down", "right", "left"], help="Direction to check.")
     args = parser.parse_args()
-    
+
     # window navigation dispatcher: lan-mouse toggle / normal window navigation
     if (args.direction == "down"):
         # check for window below
@@ -65,7 +65,7 @@ def main():
             if "$XDG_CONFIG_HOME" in script_path:
                 script_path = os.path.expanduser("~/.config/scripts/lanmouse-switch.sh")
             subprocess.run(["swaymsg", "exec", f"{script_path} toggle"])
-                
+
     # normal window navigation
     elif (args.direction in ["up", "left", "right"]):
         subprocess.run(["swaymsg", "focus", args.direction])
