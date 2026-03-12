@@ -85,7 +85,7 @@ keymap:
   - name: open scratchpads in server from remote
     mode: lan-mouse
     remap:
-      Super_L-s: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"] }
+      Super_L-s: { launch: ["swaymsg", "exec", "'$XDG_CONFIG_HOME/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9 --primary'"] }
 
   - name: copy/paste/cut - terminal
     application:
