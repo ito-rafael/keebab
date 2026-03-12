@@ -14,9 +14,8 @@
 
 # define systemd unit to monitor
 UNIT="lanmouse"
-# define message to monitor on the output of journalctl
 STATUS_FILE="/tmp/lanmouse-status.tmp"
-#TRIGGER_ENTERING_START="releasing capture: * entered this device"
+# define messages to monitor on the output of journalctl
 TRIGGER_ENTERING_START="releasing capture: "
 TRIGGER_ENTERING_END=" entered this device"
 TRIGGER_LEAVING="releasing capture: no active client at this position"

@@ -14,7 +14,8 @@
 
 # define systemd unit to monitor
 UNIT="lanmouse"
-# define message to monitor on the output of journalctl
+STATUS_FILE="/tmp/lanmouse-status.tmp"
+# define messages to monitor on the output of journalctl
 TRIGGER_LEAVING="client 0 acknowledged the connection!"
 TRIGGER_RETURNING="releasing capture: left remote client device region"
 # set cooldown (in miliseconds) to avoid double trigger
@@ -36,6 +37,9 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
+
+            # update status file
+            echo "connected" >$STATUS_FILE
         fi
         ;;
 
@@ -49,6 +53,9 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME
+
+            # update status file
+            echo "disconnected" >$STATUS_FILE
         fi
         ;;
 
