@@ -67,10 +67,10 @@ case "$COMMAND" in
         #[Ee]macs*) emacsclient -s efs --suppress-output --eval "(efs/external-window-move '$DIRECTION)" ;;
         [Ee]macs*)
             case "$DIRECTION" in
-                 "left")  wtype -M ctrl -k c -m ctrl -k n ;;
-                 "down")  wtype -M ctrl -k c -m ctrl -k e ;;
-                 "up")    wtype -M ctrl -k c -m ctrl -k i ;;
-                 "right") wtype -M ctrl -k c -m ctrl -k o ;;
+                 "left")  wtype -M ctrl -k c -m ctrl -k n ;;  # (C-c n) evil-window-left
+                 "down")  wtype -M ctrl -k c -m ctrl -k e ;;  # (C-c e) evil-window-down
+                 "up")    wtype -M ctrl -k c -m ctrl -k i ;;  # (C-c i) evil-window-up
+                 "right") wtype -M ctrl -k c -m ctrl -k o ;;  # (C-c o) evil-window-right
             esac
             ;;
         *)
