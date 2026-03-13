@@ -12,6 +12,7 @@ StandardError=journal
 # set environment variables
 Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_RUNTIME_DIR=/run/user/%U
+Environment=XDG_CONFIG_HOME=%h/.config
 
 [Install]
 WantedBy=default.target
