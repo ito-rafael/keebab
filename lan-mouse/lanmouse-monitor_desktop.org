@@ -63,14 +63,14 @@ case "$line" in
 ** Connection stablished
 #+begin_src sh
 ,*"$TRIGGER_CONNECTION"*)
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file."
+    echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file to "connected".'
     echo "connected" > $STATUS_FILE
     ;;
 #+end_src
 ** Connection interrupted
 #+begin_src sh
 ,*"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file."
+    echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to "disconnected".'
     echo "disconnected" > $STATUS_FILE
     ;;
 #+end_src

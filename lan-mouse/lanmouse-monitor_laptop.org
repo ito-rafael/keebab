@@ -53,6 +53,9 @@ TRIGGER_LEAVING='releasing capture: no active client at this position'
 # set cooldown (in miliseconds) to avoid double trigger
 COOLDOWN=250
 LAST_TRIGGER=0
+
+# set env var
+export SWAYSOCK="$(ls /run/user/$(id -u)/sway-ipc.*.sock)";
 #+end_src
 * Monitoring
 #+begin_src sh
@@ -64,7 +67,7 @@ case "$line" in
 ** Connection stablished
 #+begin_src sh
 ,*"$TRIGGER_CONNECTION"*)
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Setting Sway scale and updating lanmouse-status file."
+    echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Setting Sway scale and updating lanmouse-status file to "connected".'
     # adjust Sway scale
     swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
     echo "connected" > $STATUS_FILE
@@ -73,7 +76,7 @@ case "$line" in
 ** Connection interrupted
 #+begin_src sh
 ,*"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Resetting Sway scale and updating lanmouse-status file."
+    echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Resetting Sway scale and updating lanmouse-status file to "disconnected".'
     # adjust Sway scale
     swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00
     echo "disconnected" > $STATUS_FILE
