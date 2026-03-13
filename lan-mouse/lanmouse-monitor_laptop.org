@@ -62,11 +62,19 @@ case "$line" in
 #+end_src
 ** Connection stablished
 #+begin_src sh
-,*"$TRIGGER_CONNECTION"*) ;;
+,*"$TRIGGER_CONNECTION"*)
+    # adjust Sway scale
+    $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
+    echo "connected" > $STATUS_FILE
+    ;;
 #+end_src
 ** Connection interrupted
 #+begin_src sh
-*"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*) ;;
+,*"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
+    # adjust Sway scale
+    $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00
+    echo "disconnected" > $STATUS_FILE
+    ;;
 #+end_src
 ** Keyboard and mouse LEAVING host
 Leaving laptop. Share clipboard with sender.
@@ -88,7 +96,7 @@ Leaving laptop. Share clipboard with sender.
         LAST_TRIGGER=$CURRENT_TIME
 
         # update status file
-        echo "disconnected" > $STATUS_FILE
+        echo "connected" > $STATUS_FILE
     fi
     ;;
 #+end_src
@@ -99,10 +107,11 @@ Entering laptop. No functionality yet.
   - sender --> receiving
 #+begin_src sh
 # entering this host
-*"$TRIGGER_ENTERING_START"*"$TRIGGER_ENTERING_END"*)
+,*"$TRIGGER_ENTERING_START"*"$TRIGGER_ENTERING_END"*)
     # update status file
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse entered in client. Updating lan-mouse status file."
-    echo "connected" > $STATUS_FILE ;;
+    echo "active" > $STATUS_FILE
+    ;;
 #+end_src
 ** EoS
 #+begin_src sh

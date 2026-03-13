@@ -32,9 +32,17 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
     CURRENT_TIME=$(($(date +%s%N) / 1000000))
     case "$line" in
 
-    *"$TRIGGER_CONNECTION"*) ;;
+    *"$TRIGGER_CONNECTION"*)
+        # adjust Sway scale
+        $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
+        echo "connected" >$STATUS_FILE
+        ;;
 
-    *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*) ;;
+    *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
+        # adjust Sway scale
+        $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00
+        echo "disconnected" >$STATUS_FILE
+        ;;
 
     # leaving this host --> returning to desktop
     *"$TRIGGER_LEAVING"*)
@@ -50,7 +58,7 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
             LAST_TRIGGER=$CURRENT_TIME
 
             # update status file
-            echo "disconnected" >$STATUS_FILE
+            echo "connected" >$STATUS_FILE
         fi
         ;;
 
@@ -58,7 +66,7 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
     *"$TRIGGER_ENTERING_START"*"$TRIGGER_ENTERING_END"*)
         # update status file
         echo "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse entered in client. Updating lan-mouse status file."
-        echo "connected" >$STATUS_FILE
+        echo "active" >$STATUS_FILE
         ;;
 
     esac
