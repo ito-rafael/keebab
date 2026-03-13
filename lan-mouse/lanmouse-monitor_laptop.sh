@@ -15,13 +15,14 @@
 # define systemd unit to monitor
 UNIT="lanmouse"
 STATUS_FILE="/tmp/lanmouse-status.tmp"
+
 # define messages to monitor on the output of journalctl
-TRIGGER_ENTERING_START="releasing capture: "
-TRIGGER_ENTERING_END=" entered this device"
-TRIGGER_LEAVING="releasing capture: no active client at this position"
 TRIGGER_CONNECTION="lan_mouse::listen] dtls client connected, ip: "
 TRIGGER_DISCONNECTION_START="lan_mouse::emulation] releasing keys: "
 TRIGGER_DISCONNECTION_END=" not responding!"
+TRIGGER_ENTERING_START="releasing capture: "
+TRIGGER_ENTERING_END=" entered this device"
+TRIGGER_LEAVING="releasing capture: no active client at this position"
 
 # set cooldown (in miliseconds) to avoid double trigger
 COOLDOWN=250
@@ -33,14 +34,16 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
     case "$line" in
 
     *"$TRIGGER_CONNECTION"*)
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Setting Sway scale and updating lanmouse-status file."
         # adjust Sway scale
-        $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
+        swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
         echo "connected" >$STATUS_FILE
         ;;
 
     *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Resetting Sway scale and updating lanmouse-status file."
         # adjust Sway scale
-        $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00
+        swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00
         echo "disconnected" >$STATUS_FILE
         ;;
 
