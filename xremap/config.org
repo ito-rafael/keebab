@@ -419,6 +419,7 @@ keymap:
   - name: control server volume from remote
     mode: lan-mouse
     remap:
+      PLAYPAUSE:  { launch: ["swaymsg", "exec", "playerctl play-pause"] }
       VOLUMEUP:   { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
       VOLUMEDOWN: { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
       F15-comma:  { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
