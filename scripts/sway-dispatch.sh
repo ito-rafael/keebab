@@ -97,6 +97,25 @@ case "$COMMAND" in
     fi
     ;;
 
+"move")
+    DIRECTION="$PARAM"
+    case "$FOCUSED_APP" in
+        [Ee]macs*)
+            case "$DIRECTION" in
+                 #"left")  wtype -M ctrl -k w -m ctrl -M shift -k n -m shift ;;  # (C-w N) evil-window-move-far-left
+                 #"down")  wtype -M ctrl -k w -m ctrl -M shift -k e -m shift ;;  # (C-w E) evil-window-move-very-bottom
+                 #"up")    wtype -M ctrl -k w -m ctrl -M shift -k i -m shift ;;  # (C-w I) evil-window-move-very-top
+                 #"right") wtype -M ctrl -k w -m ctrl -M shift -k o -m shift ;;  # (C-w O) evil-window-move-far-right
+                 "left")  emacsclient -s efs --suppress-output --eval "(evil-window-move-far-left)"    ;;  # C-w N
+                 "down")  emacsclient -s efs --suppress-output --eval "(evil-window-move-very-bottom)" ;;  # C-w E
+                 "up")    emacsclient -s efs --suppress-output --eval "(evil-window-move-very-top)"    ;;  # C-w I
+                 "right") emacsclient -s efs --suppress-output --eval "(evil-window-move-far-right)"   ;;  # C-w O
+            esac
+            ;;
+        *) swaymsg move "$DIRECTION" ;;
+    esac
+    ;;
+
 "kill")
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --suppress-output --eval "(evil-quit)" ;;
