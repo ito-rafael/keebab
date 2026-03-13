@@ -43,11 +43,11 @@ UNIT="lanmouse"
 STATUS_FILE="/tmp/lanmouse-status.tmp"
 
 # define messages to monitor on the output of journalctl
-TRIGGER_CONNECTION="lan_mouse::connect] client (0) connected @ "
-TRIGGER_DISCONNECTION_START="lan_mouse::connect] "
-TRIGGER_DISCONNECTION_END=" send error `conn is closed`, closing connection"
-TRIGGER_LEAVING="client 0 acknowledged the connection!"
-TRIGGER_RETURNING="releasing capture: left remote client device region"
+TRIGGER_CONNECTION='lan_mouse::connect] client (0) connected @ '
+TRIGGER_DISCONNECTION_START='lan_mouse::connect] '
+TRIGGER_DISCONNECTION_END=' send error `conn is closed`, closing connection'
+TRIGGER_LEAVING='client 0 acknowledged the connection!'
+TRIGGER_RETURNING='releasing capture: left remote client device region'
 
 # set cooldown (in miliseconds) to avoid double trigger
 COOLDOWN=250

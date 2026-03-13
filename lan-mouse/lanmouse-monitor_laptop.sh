@@ -17,12 +17,12 @@ UNIT="lanmouse"
 STATUS_FILE="/tmp/lanmouse-status.tmp"
 
 # define messages to monitor on the output of journalctl
-TRIGGER_CONNECTION="lan_mouse::listen] dtls client connected, ip: "
-TRIGGER_DISCONNECTION_START="lan_mouse::emulation] releasing keys: "
-TRIGGER_DISCONNECTION_END=" not responding!"
-TRIGGER_ENTERING_START="releasing capture: "
-TRIGGER_ENTERING_END=" entered this device"
-TRIGGER_LEAVING="releasing capture: no active client at this position"
+TRIGGER_CONNECTION='lan_mouse::listen] dtls client connected, ip: '
+TRIGGER_DISCONNECTION_START='lan_mouse::emulation] releasing keys: '
+TRIGGER_DISCONNECTION_END=' not responding!'
+TRIGGER_ENTERING_START='releasing capture: '
+TRIGGER_ENTERING_END=' entered this device'
+TRIGGER_LEAVING='releasing capture: no active client at this position'
 
 # set cooldown (in miliseconds) to avoid double trigger
 COOLDOWN=250
