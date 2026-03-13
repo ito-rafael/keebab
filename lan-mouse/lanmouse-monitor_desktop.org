@@ -87,7 +87,7 @@ Leaving desktop. Enter in xremap's lan-mouse mode (bypass keybindings).
         LAST_TRIGGER=$CURRENT_TIME
 
         # update status file
-        echo "connected" > $STATUS_FILE
+        echo "active" > $STATUS_FILE
     fi
     ;;
 #+end_src
@@ -108,7 +108,7 @@ Returning to desktop. Enter in xremap's default mode (re-enable keybindings).
         LAST_TRIGGER=$CURRENT_TIME
 
         # update status file
-        echo "disconnected" > $STATUS_FILE
+        echo "connected" > $STATUS_FILE
     fi
     ;;
 #+end_src
