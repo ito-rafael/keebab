@@ -36,6 +36,11 @@
 #   This is script is meant to be used as a daemon. A systemd user service
 #   is responsible for launching and controlling it.
 #+end_src
+** Optname
+#+begin_src sh
+# enable extended globbing
+shopt -s extglob
+#+end_src
 * Variables
 #+begin_src sh
 # define systemd unit to monitor
@@ -45,7 +50,8 @@ STATUS_FILE="/tmp/lanmouse-status.tmp"
 # define messages to monitor on the output of journalctl
 TRIGGER_CONNECTION='lan_mouse::connect] client (0) connected @ '
 TRIGGER_DISCONNECTION_START='lan_mouse::connect] '
-TRIGGER_DISCONNECTION_END=' send error `conn is closed`, closing connection'
+TRIGGER_DISCONNECTION_END_1=' send error `conn is closed`, closing connection'
+TRIGGER_DISCONNECTION_END_2=' connection closed'
 TRIGGER_LEAVING='client 0 acknowledged the connection!'
 TRIGGER_RETURNING='releasing capture: left remote client device region'
 
@@ -69,8 +75,8 @@ case "$line" in
 #+end_src
 ** Connection interrupted
 #+begin_src sh
-,*"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
-    echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to "disconnected".'
+,*"$TRIGGER_DISCONNECTION_START"*@("$TRIGGER_DISCONNECTION_END_1"|"$TRIGGER_DISCONNECTION_END_2")*)
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to \"disconnected\"."
     echo "disconnected" > $STATUS_FILE
     # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
     ydotool key 467:1 467:0  # FN_F2

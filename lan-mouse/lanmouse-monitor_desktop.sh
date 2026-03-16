@@ -12,6 +12,9 @@
 #   This is script is meant to be used as a daemon. A systemd user service
 #   is responsible for launching and controlling it.
 
+# enable extended globbing
+shopt -s extglob
+
 # define systemd unit to monitor
 UNIT="lanmouse"
 STATUS_FILE="/tmp/lanmouse-status.tmp"
@@ -19,7 +22,8 @@ STATUS_FILE="/tmp/lanmouse-status.tmp"
 # define messages to monitor on the output of journalctl
 TRIGGER_CONNECTION='lan_mouse::connect] client (0) connected @ '
 TRIGGER_DISCONNECTION_START='lan_mouse::connect] '
-TRIGGER_DISCONNECTION_END=' send error `conn is closed`, closing connection'
+TRIGGER_DISCONNECTION_END_1=' send error `conn is closed`, closing connection'
+TRIGGER_DISCONNECTION_END_2=' connection closed'
 TRIGGER_LEAVING='client 0 acknowledged the connection!'
 TRIGGER_RETURNING='releasing capture: left remote client device region'
 
@@ -37,7 +41,7 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
         echo "connected" >$STATUS_FILE
         ;;
 
-    *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
+    *"$TRIGGER_DISCONNECTION_START"*@("$TRIGGER_DISCONNECTION_END_1"|"$TRIGGER_DISCONNECTION_END_2")*)
         echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to \"disconnected\"."
         echo "disconnected" >$STATUS_FILE
         # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
