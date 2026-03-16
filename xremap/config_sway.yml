@@ -170,8 +170,10 @@ keymap:
     application:
       only: *terminals
     remap:
-      F22-XDOWNSCROLL: Ctrl-Shift-minus
-      F22-XUPSCROLL:   Ctrl-Shift-equal
+      Ctrl-XDOWNSCROLL: Ctrl-Shift-minus
+      Ctrl-XUPSCROLL:   Ctrl-Shift-equal
+      F22-XDOWNSCROLL:  Ctrl-Shift-minus
+      F22-XUPSCROLL:    Ctrl-Shift-equal
     mode: default
 
   - name: Prev tab
