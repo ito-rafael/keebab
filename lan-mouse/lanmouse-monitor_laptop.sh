@@ -37,14 +37,14 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
     case "$line" in
 
     *"$TRIGGER_CONNECTION"*)
-        echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Setting Sway scale and updating lanmouse-status file to "connected".'
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Setting Sway scale and updating lanmouse-status file to \"connected\"."
         # adjust Sway scale
         swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
         echo "connected" >$STATUS_FILE
         ;;
 
     *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
-        echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Resetting Sway scale and updating lanmouse-status file to "disconnected".'
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Resetting Sway scale and updating lanmouse-status file to \"disconnected\"."
         # adjust Sway scale
         swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00
         echo "disconnected" >$STATUS_FILE
