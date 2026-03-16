@@ -63,7 +63,7 @@ case "$line" in
 ** Connection stablished
 #+begin_src sh
 ,*"$TRIGGER_CONNECTION"*)
-    echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file to "connected".'
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file to \"connected\"."
     echo "connected" > $STATUS_FILE
     ;;
 #+end_src
@@ -72,6 +72,8 @@ case "$line" in
 ,*"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
     echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to "disconnected".'
     echo "disconnected" > $STATUS_FILE
+    # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
+    ydotool key 467:1 467:0  # FN_F2
     ;;
 #+end_src
 ** Desktop --> Laptop

@@ -33,13 +33,15 @@ journalctl --user -u $UNIT -f -n 0 | while read -r line; do
     case "$line" in
 
     *"$TRIGGER_CONNECTION"*)
-        echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file to "connected".'
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file to \"connected\"."
         echo "connected" >$STATUS_FILE
         ;;
 
     *"$TRIGGER_DISCONNECTION_START"*"$TRIGGER_DISCONNECTION_END"*)
-        echo '[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to "disconnected".'
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to \"disconnected\"."
         echo "disconnected" >$STATUS_FILE
+        # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
+        ydotool key 467:1 467:0 # FN_F2
         ;;
 
     # switching to client
