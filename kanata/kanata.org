@@ -418,7 +418,7 @@
 (deflayer window-manager
   @klw @klt @fsc @lck @flt      @pom @ofl @wsn @wsp @ofr      _  _  _
   @res @sag @spy @spw @ter      @lms @wfl @wfd @wfu @wfr      _  _  _
-  @spl @emx @cpy @pst _         @spu @sp1 @sp2 @sp3 @spa      _  _  _
+  @spl @emx @cpy @pst @pac      @spu @sp1 @sp2 @sp3 @spa      _  _  _
             _    XX   _         _    @rof @emc                _  _  _
                                                               _  _  _
 )
@@ -444,6 +444,7 @@
   emx A-f16  ;; Emacs M-x --> redirected with xremap
   cpy S-f16  ;; copy --> redirected with xremap
   pst C-f16  ;; paste --> redirected with xremap
+  pac M-v    ;; pacman update (Arch Linux)
 )
 #+end_src
 **** right hand
