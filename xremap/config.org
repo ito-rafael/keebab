@@ -40,6 +40,7 @@
   - [[#miscellaneous][Miscellaneous]]
   - [[#pdfpc][pdfpc]]
   - [[#libreoffice][LibreOffice]]
+  - [[#wasistlos][WasIstLos]]
   - [[#mouse-controller][Mouse controller]]
 
 * Information
@@ -1109,6 +1110,15 @@ keymap:
 #+begin_src conf :noweb-ref libreoffice
     mode: default
 #+end_src
+** WasIstLos
+*** Zoom control
+#+begin_src conf :noweb-ref whatsapp
+  - name: WasIstLos (WhatsApp) zoom control
+    application:
+      only: wasistlos
+    remap:
+      Ctrl-KPPLUS: Ctrl-Shift-EQUAL  # zoom in
+#+end_src
 ** Mouse controller
 *** Side-bottom
 **** Volume control
@@ -1251,6 +1261,8 @@ keymap:
 
 <<libreoffice>>
 
+<<whatsapp>>
+
 <<mouse>>
 #+end_src
 ** Sway
@@ -1302,6 +1314,8 @@ keymap:
 #<<pdfpc>>
 
 <<libreoffice>>
+
+<<whatsapp>>
 
 <<mouse>>
 #+end_src

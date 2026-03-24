@@ -460,6 +460,12 @@ keymap:
       #Alt-o: Ctrl-o      # open file
     mode: default
 
+  - name: WasIstLos (WhatsApp) zoom control
+    application:
+      only: wasistlos
+    remap:
+      Ctrl-KPPLUS: Ctrl-Shift-EQUAL  # zoom in
+
   - name: volume control with mouse
     exact_match: true
     remap:
