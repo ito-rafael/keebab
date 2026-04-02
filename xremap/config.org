@@ -1157,6 +1157,8 @@ keymap:
   - name: zoom control with mouse
     exact_match: true
     remap:
+      Ctrl-XDOWNSCROLL: Ctrl-minus
+      Ctrl-XUPSCROLL:   Ctrl-Shift-equal
       F22-XDOWNSCROLL: Ctrl-minus
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
