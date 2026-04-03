@@ -1,11 +1,21 @@
-X.Org related files
+#+TITLE: X.Org related files
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: X.Org related files
+#+STARTUP: showeverything
+#+auto_tangle: t
 
-Files:
-  - xmodmap
-  - .XCompose
-  - .Xmodmap_original
-  - .Xmodmap
-  - .Xmodmap_numbers
-  - .xbindkeysrc
-  - .xprofile
+* Table of contents :toc_1:
+- [[#summary][Summary]]
 
+* Summary
+|------------------+---------------------+------------------------------------------------|
+| File in this dir | Destination path    | Description                                    |
+|------------------+---------------------+------------------------------------------------|
+| xbindkeysrc      | ~/.xbindkeysrc      | xbindkeys dotfile (map keys to commands).      |
+| XCompose         | ~/.XCompose         | custom key combinations for special characters |
+| Xmodmap          | ~/.Xmodmap          | File to alter keymaps (current version).       |
+| Xmodmap_original | ~/.Xmodmap_original | File to alter keymaps (original backup).       |
+| Xmodmap_numbers  | ~/.Xmodmap_numbers  | File to alter keymaps (with numpad layer).     |
+| xcape            | /usr/bin/xcape      | Makes modifiers act as keys when tapped.       |
+| xprofile         | ~/.xprofile         | Startup commands for display managers.         |
+|------------------+---------------------+------------------------------------------------|
