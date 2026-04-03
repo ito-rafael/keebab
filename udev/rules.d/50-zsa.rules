@@ -7,3 +7,4 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE:="066
 
 # Rule to trigger script to auto-connect Moonlander/Planck EZ to Keymapp
 ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="3297", ATTRS{idProduct}=="1969", RUN+="/home/rafael/.config/scripts/zsa-autoconnect.sh"
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="3297", ATTRS{idProduct}=="C6CF", RUN+="/home/rafael/.config/scripts/zsa-autoconnect.sh"
