@@ -6,6 +6,7 @@
 
 * Table of contents :toc_1:
 - [[#summary][Summary]]
+- [[#xbindkeys][xbindkeys]]
 
 * Summary
 |------------------+---------------------+------------------------------------------------|
@@ -19,3 +20,75 @@
 | xcape            | /usr/bin/xcape      | Makes modifiers act as keys when tapped.       |
 | xprofile         | ~/.xprofile         | Startup commands for display managers.         |
 |------------------+---------------------+------------------------------------------------|
+* xbindkeys
+** Using Press & Release
+Check documentation:
+http://xmacro.sourceforge.net/
+
+#+begin_src sh
+"(echo "KeyCodePress 36" | xmacroplay) && (echo "KeyCodeRelease 36" | xmacroplay)"
+#+end_src
+** Custom key combinations
+For more informations:
+http://xahlee.info/linux/linux_xvkbd_tutorial.html
+*** Ctrl + ":" --> KEY_SEMICOLON
+#+begin_src sh
+"xvkbd -xsendevent -text ";""
+    Control + semicolon
+    #m:0x4 + c:47
+#+end_src
+*** Ctrl + KEY_0 --> KEY_HOME
+#+begin_src sh
+#"xvkbd -xsendevent -text "\[Home]""
+#    Control + 0
+#+end_src
+*** Ctrl + KEY_4 --> KEY_END
+#+begin_src sh
+#"xvkbd -xsendevent -text "\[End]""
+#    Control + 4
+#+end_src
+** Volume control with the mouse
+*** Volume up
+#+begin_src sh
+"pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks"
+Alt + b:4
+#+end_src
+*** Volume down
+#+begin_src sh
+"pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+1 i3blocks"
+Alt + b:5
+#+end_src
+** Workspace navigation with the mouse
+*** Previous workspace
+#+begin_src sh
+"~/.config/scripts/navigate2ws_next.py --previous"
+Control + b:1
+#+end_src
+*** Next workspace
+#+begin_src sh
+"~/.config/scripts/navigate2ws_next.py --next"
+Control + b:3
+#+end_src
+** Window opacity with mouse
+*** All windows
+**** Increase opacity
+#+begin_src sh
+"$HOME/.config/scripts/picop.sh all +10"
+mod5 + b:4
+#+end_src
+**** Decrease opacity
+#+begin_src sh
+"$HOME/.config/scripts/picop.sh all -10"
+mod5 + b:5
+#+end_src
+*** Current window only
+**** Increase opacity
+#+begin_src sh
+"$HOME/.config/scripts/picop.sh current +10"
+mod3 + b:4
+#+end_src
+**** Decrease opacity
+#+begin_src sh
+"$HOME/.config/scripts/picop.sh current -10"
+mod3 + b:5
+#+end_src
