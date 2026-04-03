@@ -43,7 +43,8 @@ UNIT="lanmouse"
 STATUS_FILE="/tmp/lanmouse-status.tmp"
 
 # define messages to monitor on the output of journalctl
-TRIGGER_CONNECTION='lan_mouse::listen] dtls client connected, ip: '
+TRIGGER_CONNECTION_1='lan_mouse::listen] dtls client connected, ip: '
+TRIGGER_CONNECTION_2='client (0) connected @ '
 TRIGGER_DISCONNECTION_START='lan_mouse::emulation] releasing keys: '
 TRIGGER_DISCONNECTION_END=' not responding!'
 TRIGGER_ENTERING_START='releasing capture: '
@@ -66,7 +67,7 @@ case "$line" in
 #+end_src
 ** Connection stablished
 #+begin_src sh
-,*"$TRIGGER_CONNECTION"*)
+,*"$TRIGGER_CONNECTION_1"*|*"$TRIGGER_CONNECTION_2"*)
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Setting Sway scale and updating lanmouse-status file to \"connected\"."
     # adjust Sway scale
     swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25
