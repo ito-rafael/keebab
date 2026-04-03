@@ -2,11 +2,11 @@
 #+AUTHOR: Rafael Ito
 #+DESCRIPTION: X.Org related files
 #+STARTUP: showeverything
-#+auto_tangle: t
 
 * Table of contents :toc_1:
 - [[#summary][Summary]]
 - [[#xbindkeys][xbindkeys]]
+- [[#xcape][xcape]]
 
 * Summary
 |------------------+---------------------+------------------------------------------------|
@@ -91,4 +91,22 @@ mod3 + b:4
 #+begin_src sh
 "$HOME/.config/scripts/picop.sh current -10"
 mod3 + b:5
+#+end_src
+* xcape
+Launched in =$HOME/.xprofile=.
+
+#+begin_src sh
+xcape -e 'Alt_L=Page_Down;Hyper_L=Page_Up'
+#+end_src
+** PgUp / Hyper
+#+begin_src sh
+- Ctrl:
+  - Tap: Page Up
+  - Hold: Hyper_L (mapped as Ctrl in Xmodmap file)
+#+end_src
+** PgDn / Alt
+#+begin_src sh
+- Alt:
+  - Tap: Page Down
+  - Hold: Alt
 #+end_src
