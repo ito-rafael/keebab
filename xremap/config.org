@@ -20,9 +20,9 @@
   - [[#browsers][Browsers]]
   - [[#cedilla][Cedilla]]
 - [[#modmap][Modmap]]
-  - [[#btn_back-mouse][BTN_BACK [mouse]]]
-  - [[#btn_forward-mouse][BTN_FORWARD [mouse]]]
-  - [[#btn_side-mouse][BTN_SIDE [mouse]]]
+  - [[#btn_back-mouse][BTN_BACK (mouse)]]
+  - [[#btn_forward-mouse][BTN_FORWARD (mouse)]]
+  - [[#btn_side-mouse][BTN_SIDE (mouse)]]
 - [[#keymap][Keymap]]
   - [[#modes][Modes]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
@@ -360,7 +360,7 @@ Obs.: Sway only
 #+begin_src conf :noweb-ref modmap
 modmap:
 #+end_src
-** BTN_BACK [mouse]
+** BTN_BACK (mouse)
 tap: PageDown / hold: volume control (F21)
 #+begin_src conf :noweb-ref modmap
   - name: volume control with side-bottom mouse button
@@ -370,7 +370,7 @@ tap: PageDown / hold: volume control (F21)
         alone: KEY_PAGEDOWN
         alone_timeout_millis: 200
 #+end_src
-** BTN_FORWARD [mouse]
+** BTN_FORWARD (mouse)
 tap: PageUp / hold: zoom control (F22)
 #+begin_src conf :noweb-ref modmap
   - name: zoom control with side-top mouse button
@@ -380,7 +380,7 @@ tap: PageUp / hold: zoom control (F22)
         alone: KEY_PAGEUP
         alone_timeout_millis: 200
 #+end_src
-** BTN_SIDE [mouse]
+** BTN_SIDE (mouse)
 tap: Enter / hold: brightness control (F23)
 #+begin_src conf :noweb-ref modmap
   - name: brightness control with mode shift mouse button
@@ -1320,5 +1320,4 @@ keymap:
 <<whatsapp>>
 
 <<mouse>>
-#+end_src
 #+end_src
