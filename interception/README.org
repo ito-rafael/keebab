@@ -1,0 +1,366 @@
+#+TITLE: Intercteption
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Interception
+#+STARTUP: showeverything
+
+* Table of contents :toc_1:
+- [[#gitlab-repos][Gitlab repos]]
+- [[#config][Config]]
+- [[#info][Info]]
+- [[#hybrid-keyboardmouse-devices][Hybrid keyboard/mouse devices]]
+- [[#devices-in-devinput][Devices in /dev/input]]
+- [[#keys-informations][Keys informations]]
+- [[#using-tab-as-modifier-mod5][Using Tab as modifier (mod5)]]
+- [[#hybrid-devices-over-bluetooth][Hybrid devices over Bluetooth]]
+- [[#backup][Backup]]
+
+* Gitlab repos
+** Interception Tools
+https://gitlab.com/interception/linux/tools
+** caps2esc
+https://gitlab.com/interception/linux/plugins/caps2esc
+** space2meta
+https://gitlab.com/interception/linux/plugins/space2meta
+** dual-function-keys
+https://gitlab.com/interception/linux/plugins/dual-function-keys
+* Config
+Keycodes:
+https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+** dual-function-keys
+- alt2enter
+- tab2ctrlR
+- mouse2key (PgUp)
+- mouse2key (PgDn)
+
+Get device's description in yaml.
+#+begin_src sh
+sudo uinput -p -d /dev/input/by-id/DEVICE-ID > /etc/interception/DEVICE.yaml
+#+end_src
+
+Create hybrid device in yaml.
+#+begin_src sh
+sudo uinput -p -d /dev/input/by-id/DEVICE-ID-1 -d /dev/input/by-path/DEVICE-ID2 > /etc/interception/HYBRID-DEVICE.yaml
+#+end_src
+
+Configuration.
+#+begin_src sh
+sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
+less /usr/lib/systemd/system/udevmon.service
+sudo systemctl start udevmon.service
+sudo systemctl enable udevmon.service
+#+end_src
+
+Related packages installation.
+#+begin_src sh
+sudo pacman -S xbindkeys
+sudo pacman -S xdotool
+sudo pacman -S xcape
+#+end_src
+* Info
+** Y2P keyboard
+/dev/input/by-path/platform-i8042-serio-0-event-kbd
+** Rapoo RF mouse
+/dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
+** VB keyboard
+/dev/input/by-path/platform-i8042-serio-0-event-kbd
+** Logitech
+*** MX Master 3 mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+*** MX Keys
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+* Hybrid keyboard/mouse devices
+** i8042/Rapoo
+uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse > /etc/interception/hybrid-i8042-rapoo.yaml
+** i8042/MX-Master-3
+uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > /etc/interception/hybrid-mx.yaml
+** i8042/(Rapoo + MX-Master-3)
+uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > /etc/interception/hybrid.yaml
+** MX Keys + MX Master 3
+Under Solaar: 
+- pair MX Master 3 with one Unifying receiver:
+    /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mouse
+- pair MX Keys with the other Unifying receiver:
+    /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.2:1.2-event-mouse
+
+=!!! FOLLOWING COMMAND NOT WORKING !!!=
+ I needed to craft the file "hybrid-mx.yaml" by hand.
+"hybrid-mx.yaml" has the same content of "mouse-mx.yaml" with the fields EV_KEY and EV_ABS of "keyboard-mx.yaml" and a different NAME field.
+#+begin_src sh
+sudo uinput -p -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mouse -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.2:1.2-event-mouse > hybrid-mx.yaml
+#+end_src
+* Devices in /dev/input
+** Keyboard
+*** Y2P built-in (i8042)
+**** Device by-path
+/dev/input/by-path/platform-i8042-serio-0-event-kbd
+*** MX Keys
+**** Devices by-id
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse
+**** Devices by-path (i8042)
+/dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-event-mouse
+/dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
+**** Input device yaml config
+Under Solaar: 
+  - unpair MX Master 3
+  - pair MX Keys
+
+#+begin_src sh
+sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > keyboard-mx.yaml
+#+end_src
+** Mouse
+*** Logitech MX Master 3
+**** Devices by-id
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse
+**** devices by-path (i8042)
+/dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-event-mouse
+/dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
+**** Input device yaml config
+Under Solaar
+  - unpair MX Keys
+  - pair MX Master 3
+
+#+begin_src sh
+sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > mouse-mx.yaml
+#+end_src
+*** Rapoo 2.4 GHz RF
+**** Device by-id
+/dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
+** Both (Keyboard + Mouse)
+*** Presentation pointer
+**** Mouse
+***** Device by-id
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-event-if01
+***** Device by-path
+/dev/input/by-path/pci-0000:00:14.0-usb-0:2:1.1-event-mouse
+**** Keyboard
+***** Device by-id
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-event-kbd
+***** Device by-path
+/dev/input/by-path/pci-0000:00:14.0-usb-0:2:1.0-event-kbd
+* Keys informations 
+ |----------------+------------------+---------+---------------------+-------------------|
+ | Key name       | Xmodmap          | keycode | input-event-codes.h | used for          |
+ |----------------+------------------+---------+---------------------+-------------------|
+ | left shift     | Shift_L          |      50 | KEY_LEFTSHIFT       | shift (xmodmap)   |
+ | right shift    | Shift_R          |      62 | KEY_RIGHTSHIFT      | shift (xmodmap)   |
+ |----------------+------------------+---------+---------------------+-------------------|
+ | left ctrl      | Control_L        |      37 | KEY_LEFTCTRL        | control (xmodmap) |
+ | right ctrl     | Control_R        |     105 | KEY_RIGHTCTRL       | control (xmodmap) |
+ |----------------+------------------+---------+---------------------+-------------------|
+ | left alt       | Alt_L            |      64 | KEY_LEFTALT         | mod1 (xmodmap)    |
+ | right alt      | ISO_Level3_Shift |     108 | KEY_RIGHTALT        | mod5 (xmodmap)    |
+ |----------------+------------------+---------+---------------------+-------------------|
+ | win/super/meta | Super_L          |     133 | KEY_LEFTMETA        | mod4 (xmodmap)    |
+ | ???            | Super_R          |     134 | KEY_RIGHTMETA       | mod4 (xmodmap)    |
+ |----------------+------------------+---------+---------------------+-------------------|
+ | ???            | Hyper_L          |     207 | ?????               | ?????             |
+ |----------------+------------------+---------+---------------------+-------------------|
+ | F13            | XF86Tools        |     191 | KEY_F13             | change MX host    |
+ | F14            | XF86Launch5      |     192 | KEY_F14             | mod5 (xmodmap)    |
+ | F15            | XF86Launch6      |     193 | KEY_F15             | TBD               |
+ | F16            | XF86Launch7      |     194 | KEY_F16             | TBD               |
+ | F17            | XF86Launch8      |     195 | KEY_F17             | TBD               |
+ | F18            | XF86Launch9      |     196 | KEY_F18             | TBD               |
+ | F19            | -----            |     197 | KEY_F19             | TBD               |
+ |----------------+------------------+---------+---------------------+-------------------|
+* Using Tab as modifier (mod5)
+** Diagram
+These shortcuts are meant to be used with KEY_TAB working as mod5 modifier in order to achieve this, different tools are used.
+#+begin_src txt
+ +---------+    interception    +---------+   xmodmap  +-------------------------+    i3wm    +-----------------+
+ | Tab Key |------------------->| KEY_F14 |----------->| ISO_Level3_Shift (mod5) |----------->| custom keybinds |
+ +---------+ dual-function-keys +---------+ 7th column +-------------------------+ (optional) +-----------------+
+#+end_src
+** Step 1
+Change Tab key behaviour when holding this key:
+
+#+begin_src sh
+vim /etc/interception/dual-keys.yaml
+#+end_src
+
+#+begin_src conf
+#--------------------
+# tab2mod5
+#--------------------
+- KEY: KEY_TAB
+  TAP: KEY_TAB
+  HOLD: KEY_F14
+#--------------------
+#+end_src
+** Step 2
+Identify the keycode of the key that will be remapped (used with modifier).
+Edit the 7th column of its entry in ~/.Xmodmap file.
+
+#+begin_src sh
+vim ~/.Xmodmap
+#+end_src
+
+#+begin_src conf
+#------------------------------------------
+!keycode  43 = h H h H h H h
+!keycode  44 = j J j J j J j
+!keycode  45 = k K k K oe OE oe
+!keycode  46 = l L l L oslash Oslash oslash
+#---------------------
+keycode  43 = h H h H Left Left h
+keycode  44 = j J j J Down Down j
+keycode  45 = k K k K Up Up oe
+keycode  46 = l L l L Right Right oslash
+#------------------------------------------
+#+end_src
+** Step 3
+If needed, i3wm config file (=~/.config/i3/_config=) can also be used.
+#+begin_src conf
+# navigation with vim keys
+tab + h --> left
+tab + j --> down
+tab + k --> up
+tab + l --> right
+---------------------
+tab + 0 --> end
+tab + 4 --> home
+#+end_src
+* Hybrid devices over Bluetooth
+Generating hybrid devices over Bluetooth connection.
+** Get device info
+Monitor dmesg output.
+#+begin_src sh
+sudo dmesg --follow
+#+end_src
+
+Connect both MX Keys & MX Master 3 and check for an output like the following:
+#+begin_src txt
+[11529.202554] logitech-hidpp-device 0005:046D:B023.0039: HID++ 4.5 device connected.
+[11529.845957] input: MX Keys Keyboard as /devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input228
+[11529.846247] input: MX Keys Mouse as /devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input229
+[11529.846434] hid-generic 0005:046D:B35B.003A: input,hidraw1: BLUETOOTH HID v0.13 Keyboard [MX Keys] on e8:2a:ea:66:ed:e6
+[11530.394735] input: Logitech Wireless Mouse MX Master 3 as /devices/virtual/misc/uhid/0005:046D:B023.0039/input/input231
+[11530.394990] logitech-hidpp-device 0005:046D:B023.0039: input,hidraw2: BLUETOOTH HID v0.15 Keyboard [Logitech Wireless Mouse MX Master 3] on e8:2a:ea:66:ed:e6
+#+end_src
+** Get the sysfs path
+*** MX Keys Keyboard
+#+begin_src sh
+sysfs_mx_keys_k="/sys/devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input228"
+#+end_src
+*** MX Keys Mouse
+#+begin_src sh
+sysfs_mx_keys_m="/sys/devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input229"
+#+end_src
+*** MX Master 3
+#+begin_src sh
+sysfs_mx_master3="/sys/devices/virtual/misc/uhid/0005:046D:B023.0039/input/input231"
+#+end_src
+** Get events under /dev/input
+*** MX Keys Keyboard
+#+begin_src sh
+dev_mx_keys_k=$(cat $sysfs_mx_keys_k/event*/uevent | grep 'DEVNAME=' | sed 's/DEVNAME=/\/dev\//')
+#+end_src
+*** MX Keys Mouse
+#+begin_src sh
+dev_mx_keys_m=$(cat $sysfs_mx_keys_m/event*/uevent | grep 'DEVNAME=' | sed 's/DEVNAME=/\/dev\//')
+#+end_src
+*** MX Master 3
+#+begin_src sh
+dev_mx_master3=$(cat $sysfs_mx_master3/event*/uevent | grep 'DEVNAME=' | sed 's/DEVNAME=/\/dev\//')
+#+end_src
+** Get yaml device description in yaml
+*** MX Keys Keyboard
+#+begin_src sh
+sudo uinput -p -d $dev_mx_keys_k | sudo tee /etc/interception/keyboard-mx-keys-keyboard-bt.yaml
+#+end_src
+*** MX Keys Mouse
+#+begin_src sh
+sudo uinput -p -d $dev_mx_keys_m | sudo tee /etc/interception/keyboard-mx-keys-mouse-bt.yaml
+#+end_src
+*** MX Master 3
+#+begin_src sh
+sudo uinput -p -d $dev_mx_master3 | sudo tee /etc/interception/mouse-mx-master3-bt.yaml
+#+end_src
+** Generate the hybrid device
+=!!! FOLLOWING COMMAND NOT WORKING !!!=
+I needed to craft the file "hybrid-mx.yaml" by hand.
+#+begin_src sh
+sudo uinput -p -d $dev_mx_keys_k -d $dev_mx_keys_m -d $dev_mx_master3 | sudo tee /etc/interception/hybrid-mx-bt.yaml
+#+end_src
+* Backup
+** tab2ctrlR
+- Tab: KEY_TAB
+- Control_R: KEY_RIGHTCTRL
+*** Create yaml file
+#+begin_src sh
+sudo vim /etc/interception/tab2ctrlR.yaml
+#+end_src
+
+#+begin_src conf
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    - KEY: KEY_TAB
+      TAP: KEY_TAB
+      HOLD: KEY_RIGHTCTRL
+#+end_src
+*** Update udevmon file
+#+begin_src sh
+sudo vim /etc/interception/udevmon.yaml
+#+end_src
+
+#+begin_src conf
+- JOB: "intercept -g $DEVNODE | caps2esc | space2meta | dual-function-keys -c /etc/interception/tab2ctrlR.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, KEY_TAB, KEY_RIGHTCTRL]
+#+end_src
+*** Update Xmodmap
+Remove Control_R from "control" modifier and add it to "mod3" modifier.
+
+#+begin_src sh
+vim ~/.Xmodmap
+#+end_src
+
+#+begin_src conf
+! control
+clear control
+add control = Control_L
+! mod3
+clear mod3
+add mod3 = Control_R
+#+end_src
+
+Reload Xmodmap.
+#+begin_src sh
+xmodmap ~/.Xmodmap
+#+end_src
+** alt2enter
+- Alt_L: KEY_LEFTALT
+- Return: KEY_ENTER
+
+*** Create yaml file
+#+begin_src sh
+sudo vim /etc/interception/alt2enter.yaml
+#+end_src
+
+#+begin_src conf
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    - KEY: KEY_LEFTALT
+      TAP: KEY_ENTER
+      HOLD: KEY_LEFTALT
+#+end_src
+*** Update udevmon file
+#+begin_src sh
+sudo vim /etc/interception/udevmon.yaml
+#+end_src
+
+#+begin_src conf
+- JOB: "intercept -g $DEVNODE | caps2esc | space2meta | dual-function-keys -c /etc/interception/tab2ctrlR.yaml | dual-function-keys -c /etc/interception/alt2enter.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, KEY_TAB, KEY_RIGHTCTRL, KEY_LEFTALT, KEY_ENTER]
+#+end_src
