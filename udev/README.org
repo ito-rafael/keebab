@@ -1,0 +1,103 @@
+#+TITLE: udev
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: user space /dev
+#+STARTUP: showeverything
+
+* Table of contents :toc_1:
+- [[#commands][Commands]]
+- [[#files][Files]]
+- [[#example][Example]]
+
+* Commands
+** Get sysfs path
+Monitor dmesg to get device name sysfs path.
+#+begin_src sh
+sudo dmesg --follow
+#+end_src
+
+Example:
+#+begin_src txt
+[612535.859331] input: Logitech Wireless Mouse MX Master 3 as /devices/virtual/misc/uhid/0005:046D:B023.00D2/input/input380
+#+end_src
+
+- name: =Logitech Wireless Mouse MX Master 3=
+- sysfs: =/devices/virtual/misc/uhid/0005:046D:B023.00D2/input/input380=
+** Get attributes
+*** From dmesg
+Use these info to get device attributes.
+#+begin_src sh
+udevadm info -a -p /devices/virtual/misc/uhid/0005:046D:B023.00D2/input/input380
+#+end_src
+*** From /dev path
+Alternatively, if the device path under /dev is known (eg: "/dev/hidraw0"), the next command can also be used.
+#+begin_src sh
+udevadm info -a -p $(udevadm info -q path -n /dev/hidraw0)
+#+end_src
+*** From unplug/plug
+Another option to get the device attributes, is to run the following command and then plug in/off on the device.
+#+begin_src sh
+udevadm monitor --environment --udev
+#+end_src
+** Simulate an "action"
+Note: this does not run the command under the "RUN" section of the .rules file), but if the rule applies, at the end of the output of the command there should be a line with the command.
+
+For example:
+#+begin_src txt
+run: '/usr/bin/touch /home/username/test.touch'
+#+end_src
+*** Device added
+Simulation device being added.
+#+begin_src sh
+udevadm test --action="add" $(udevadm info -q path -n /dev/hidraw0)
+#+end_src
+*** Device removed
+Simulation device being removed.
+#+begin_src sh
+udevadm test --action="remove" $(udevadm info -q path -n /dev/hidraw0)
+#+end_src
+*** Reload rules
+#+begin_src sh
+sudo udevadm control --reload
+#+end_src
+* Files
+Native system rules.
+#+begin_src sh
+/usr/lib/udev/rules.d/
+#+end_src
+
+User custom rules.
+#+begin_src sh
+/etc/udev/rules.d/
+#+end_src
+* Example
+Creating udev rules.
+#+begin_src sh
+sudo vim /etc/udev/rules.d/50-mx-keys.rules
+#+end_src
+
+#+begin_src txt
+ACTION=="add",                      \
+  SUBSYSTEM=="input",               \
+  ATTR{id/product}=="b35b",         \
+  ATTR{id/vendor}=="046d",          \
+  ATTR{name}=="MX Keys Keyboard",   \
+  OWNER="<USERNAME>",                   \
+  RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx.sh"
+  #RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx_keys.sh"
+#+end_src
+
+Creating script.
+obs: the background symbol "&" for the command is necessary, since the script blocks the following steps, and therefore udevmon (interception-tools) does not work
+#+begin_src sh
+vim $HOME/.config/scripts/udev_mx.sh
+#+end_src
+
+#+begin_src txt
+#!/usr/bin/env bash
+systemctl restart udevmon &
+#+end_src
+
+Give executable permissions.
+#+begin_src sh
+chmod +x $HOME/.config/scripts/udev_mx.sh
+#+end_src
