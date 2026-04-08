@@ -1,7 +1,7 @@
 #+TITLE: Config file for KMonad
 #+AUTHOR: Rafael Ito
 #+PROPERTY: header-args :tangle inkl-1ru.kbd
-#+DESCRIPTION: config file for KMonad
+#+DESCRIPTION: config file for custom miryoku layouts in laptops
 #+STARTUP: showeverything
 #+auto_tangle: t
 
