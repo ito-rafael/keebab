@@ -1,0 +1,44 @@
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    #====================
+    # alt2enter
+    #====================
+    - KEY: KEY_LEFTALT
+      TAP: KEY_ENTER
+      HOLD: KEY_LEFTALT
+    #====================
+    # altgr2enter
+    #====================
+    - KEY: KEY_RIGHTALT
+      TAP: KEY_ENTER
+      HOLD: KEY_RIGHTALT
+    #====================
+    # tab2mod5
+    #====================
+    - KEY: KEY_TAB
+      TAP: KEY_TAB
+      HOLD: KEY_RIGHTALT
+    #====================
+    # mouse2key
+    #====================
+    # mouse PgUp
+    - KEY: BTN_SIDE
+      TAP: KEY_PAGEUP
+      HOLD: KEY_LEFTCTRL
+    #--------------------
+    # mouse PgDn
+    - KEY: BTN_EXTRA
+      TAP: KEY_PAGEDOWN
+      HOLD: KEY_LEFTSHIFT
+    #====================
+    # right2mod5
+    #====================
+    # right click
+    - KEY: BTN_RIGHT
+      TAP: BTN_RIGHT
+      HOLD: KEY_RIGHTALT
+      HOLD_START: BEFORE_CONSUME
+    #====================
