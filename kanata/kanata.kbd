@@ -15,6 +15,7 @@
 (defvar
   st 110  ;; shift timeout
   mt 150  ;; other modifiers timeout
+  rt 250  ;; repeat tap window
 )
 
 (defsrc
@@ -99,11 +100,11 @@
 
 (defalias
   ;; miryoku colemak-dh
-  mkm (tap-hold-release $mt $mt m (layer-toggle out3))
-  mkn (tap-hold-release $st $st n lsft)   ;; n to shift_L
-  mke (tap-hold-release $mt $mt e lctl)   ;; e to ctrl_R
-  mki (tap-hold-release $mt $mt i (layer-toggle out2))
-  mko (tap-hold-release $mt $mt o (layer-toggle out1))
+  mkm (tap-hold-release $rt $mt m (layer-toggle out3))
+  mkn (tap-hold-release $rt $st n lsft)   ;; n to shift_L
+  mke (tap-hold-release $rt $mt e lctl)   ;; e to ctrl_R
+  mki (tap-hold-release $rt $mt i (layer-toggle out2))
+  mko (tap-hold-release $rt $mt o (layer-toggle out1))
 )
 
 (deflayer number
