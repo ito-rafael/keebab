@@ -935,6 +935,15 @@ keymap:
       F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc"] }
     mode: default
 #+end_src
+**** Gamma
+#+begin_src conf :noweb-ref control
+  - name: gamma control
+    remap:
+      F19-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "dec"] }
+      F19-o: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "inc"] }
+      F19-m: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "toggle"] }
+    mode: default
+#+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
 #+begin_src emacs-lisp :var ipc_cmd="swaymsg" :results raw

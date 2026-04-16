@@ -352,6 +352,12 @@ keymap:
       F19-comma: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "dec"] }
       F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc"] }
     mode: default
+  - name: gamma control
+    remap:
+      F19-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "dec"] }
+      F19-o: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "inc"] }
+      F19-m: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "toggle"] }
+    mode: default
 
   - name: window navigation from scratchpads
     application:
