@@ -489,6 +489,8 @@ keymap:
       # kill window
       #Alt_L-Super_L-q:  { launch: ["bash", "-c", "i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
       Alt_L-Super_L-q:  { launch: ["i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+      # resize mode
+      Super_L-a: { launch: ["bash", "-c", "if [ \"$(swaymsg -t get_binding_state | jq -r '.name')\" = \"resize\" ]; then swaymsg mode default; else swaymsg mode resize; fi"] }
     mode: default
 #+end_src
 *** Sway
@@ -509,6 +511,8 @@ keymap:
       Alt_L-Super_L-g:  { launch: ["swaymsg", "exec", "kitty"] }
       # kill window
       Alt_L-Super_L-q:  { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+      # resize mode
+      Super_L-a: { launch: ["bash", "-c", "if [ \"$(swaymsg -t get_binding_state | jq -r '.name')\" = \"resize\" ]; then swaymsg mode default; else swaymsg mode resize; fi"] }
     mode: default
 #+end_src
 ** Emacs over SSH
