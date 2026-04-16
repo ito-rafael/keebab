@@ -634,9 +634,9 @@
   bnu brup  ;; brightness up
 
   ;; gamma
-  gmd XX  ;; gamma down
-  gmu XX  ;; gamma up
-  goo XX  ;; gamma on/off
+  gmd (multi f19 n reverse-release-order)  ;; gamma down
+  gmu (multi f19 o reverse-release-order)  ;; gamma up
+  goo (multi f19 m reverse-release-order)  ;; gamma on/off
 
   ;; underglow
   ugd XX  ;; underglow down
