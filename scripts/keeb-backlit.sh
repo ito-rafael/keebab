@@ -82,21 +82,25 @@ else
             ;;
         #------------------------
         "monitor")
+            # helper function to print the JSON state
+            print_status() {
+                if [ "$CURRENT_BRIGHTNESS" -eq 0 ]; then
+                    echo '{"text": "Off", "alt": "off", "class": "off"}'
+                elif [ "$CURRENT_BRIGHTNESS" -eq "$MAX_BRIGHTNESS" ]; then
+                    echo '{"text": "High", "alt": "high", "class": "high"}'
+                else
+                    # Anything in between 0 and Max is considered "low" (50%)
+                    echo '{"text": "Low", "alt": "low", "class": "low"}'
+                fi
+            }
+
             # set initial state
-            if [[ "$CURRENT_BRIGHTNESS" != "0" ]]; then
-                echo '{"text": "", "alt": "enabled", "class": "enabled"}'
-            else
-                echo '{"text": "", "alt": "disabled", "class": "disabled"}'
-            fi
+            print_status
 
             # infinite loop that updates everytime the keyboard brightness file changes
-            inotifywait --quiet --monitor --event close_write $FILE | while read; do
-                CURRENT_BRIGHTNESS=$(cat $FILE)
-                if [[ "$CURRENT_BRIGHTNESS" != "0" ]]; then
-                    echo '{"text": "", "alt": "enabled", "class": "enabled"}'
-                else
-                    echo '{"text": "", "alt": "disabled", "class": "disabled"}'
-                fi
+            inotifywait --quiet --monitor --event close_write "$FILE" | while read -r _; do
+                CURRENT_BRIGHTNESS=$(cat "$FILE")
+                print_status
                 sleep 0.1
             done
             ;;
