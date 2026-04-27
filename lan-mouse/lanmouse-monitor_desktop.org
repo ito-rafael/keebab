@@ -63,7 +63,8 @@ LAST_TRIGGER=0
 #+begin_src sh
 # monitor the journal for the specific user unit
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
-case "$line" in
+    CURRENT_TIME=$(($(date +%s%N) / 1000000))
+    case "$line" in
 #+end_src
 ** Connection stablished
 #+begin_src sh

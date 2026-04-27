@@ -33,6 +33,7 @@ LAST_TRIGGER=0
 
 # monitor the journal for the specific user unit
 journalctl --user -u $UNIT -f -n 0 | while read -r line; do
+    CURRENT_TIME=$(($(date +%s%N) / 1000000))
     case "$line" in
 
     *"$TRIGGER_CONNECTION"*)
