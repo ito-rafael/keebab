@@ -287,32 +287,32 @@ keymap:
   - name: speaker control
     exact_match: true
     remap:
-      F15-k:         { launch: ["bash", "-c", "amixer -q sset Master toggle"] }
-      F15-esc:       { launch: ["bash", "-c", "amixer -q sset Master 0%"] }
-      F15-space:     { launch: ["bash", "-c", "amixer -q sset Master 25%"] }
-      F15-tab:       { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
-      F15-enter:     { launch: ["bash", "-c", "amixer -q sset Master 75%"] }
-      F15-backspace: { launch: ["bash", "-c", "amixer -q sset Master 100%"] }
-      F15-e:         { launch: ["bash", "-c", "amixer -q sset Master 5%-"] }
-      F15-i:         { launch: ["bash", "-c", "amixer -q sset Master 5%+"] }
-      Shift-F15-e:   { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
-      Shift-F15-i:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
-      F15-comma:     { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
-      F15-dot:       { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
+      F15-k:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ toggle"] }
+      F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%"] }
+      F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 25%"] }
+      F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%"] }
+      F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 75%"] }
+      F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%"] }
+      F15-e:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"] }
+      F15-i:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"] }
+      Shift-F15-e:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-i:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"] }
+      F15-comma:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"] }
+      F15-dot:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"] }
     mode: default
 
   - name: microphone control
     remap:
-      F15-j: { launch: ["bash", "-c", "amixer -q sset Capture toggle"] }
-      Alt-F15-esc:       { launch: ["bash", "-c", "amixer -q sset Capture 0%"] }
-      Alt-F15-space:     { launch: ["bash", "-c", "amixer -q sset Capture 25%"] }
-      Alt-F15-tab:       { launch: ["bash", "-c", "amixer -q sset Capture 50%"] }
-      Alt-F15-enter:     { launch: ["bash", "-c", "amixer -q sset Capture 75%"] }
-      Alt-F15-backspace: { launch: ["bash", "-c", "amixer -q sset Capture 100%"] }
-      F15-u:         { launch: ["bash", "-c", "amixer -q sset Capture 5%-"] }
-      F15-y:         { launch: ["bash", "-c", "amixer -q sset Capture 5%+"] }
-      Shift-F15-u:       { launch: ["bash", "-c", "amixer -q sset Capture 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
-      Shift-F15-y:       { launch: ["bash", "-c", "amixer -q sset Capture 1%+"] }
+      F15-j: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle"] }
+      Alt-F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0%"] }
+      Alt-F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 25%"] }
+      Alt-F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50%"] }
+      Alt-F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 75%"] }
+      Alt-F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"] }
+      F15-u:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"] }
+      F15-y:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"] }
+      Shift-F15-u:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-y:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"] }
     mode: default
 
   - name: YouTube speed control
@@ -476,27 +476,27 @@ keymap:
   - name: volume control with mouse
     exact_match: true
     remap:
-      F21-XDOWNSCROLL: { launch: ["bash", "-c", "amixer -q sset Master 1%-"] }
-      F21-XUPSCROLL:   { launch: ["bash", "-c", "amixer -q sset Master 1%+"] }
+      F21-XDOWNSCROLL: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"] }
+      F21-XUPSCROLL:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"] }
       #F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       #F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_LEFT:    Shift-Ctrl-Tab  # web browser previous tab
       F21-BTN_RIGHT:   Ctrl-Tab        # web browser next tab
-      F21-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
-      F21-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 98%"] }
+      F21-BTN_MIDDLE:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%"] }
+      F21-Enter:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 98%"] }
     mode: default
 
   - name: placeholder for side-bottom button + mode shift gestures control with mouse
     exact_match: true
     remap:
       # down
-      F21-F17:     { launch: ["bash", "-c", "amixer -q sset Master 11%"] }
+      F21-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 11%"] }
       # up
-      F21-F18:     { launch: ["bash", "-c", "amixer -q sset Master 22%"] }
+      F21-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 22%"] }
       # left
-      F21-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 33%"] }
+      F21-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 33%"] }
       # right
-      F21-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 44%"] }
+      F21-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 44%"] }
     mode: default
 
   - name: zoom control with mouse
@@ -508,21 +508,21 @@ keymap:
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
-      F22-BTN_MIDDLE:  { launch: ["bash", "-c", "amixer -q sset Master 50%"] }
-      F22-Enter:       { launch: ["bash", "-c", "amixer -q sset Master 76%"] }
+      F22-BTN_MIDDLE:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%"] }
+      F22-Enter:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 76%"] }
     mode: default
 
   - name: placeholder for side-top button + mode shift gestures control with mouse
     exact_match: true
     remap:
       # down
-      F22-F17:     { launch: ["bash", "-c", "amixer -q sset Master 55%"] }
+      F22-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 55%"] }
       # up
-      F22-F18:     { launch: ["bash", "-c", "amixer -q sset Master 66%"] }
+      F22-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 66%"] }
       # left
-      F22-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 77%"] }
+      F22-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 77%"] }
       # right
-      F22-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 88%"] }
+      F22-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 88%"] }
     mode: default
 
   - name: brightness control with mouse
@@ -545,11 +545,11 @@ keymap:
     exact_match: true
     remap:
       # down
-      F23-F17:     { launch: ["bash", "-c", "amixer -q sset Master 12%"] }
+      F23-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 12%"] }
       # up
-      F23-F18:     { launch: ["bash", "-c", "amixer -q sset Master 34%"] }
+      F23-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 34%"] }
       # left
-      F23-Shift-n: { launch: ["bash", "-c", "amixer -q sset Master 56%"] }
+      F23-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 56%"] }
       # right
-      F23-Shift-o: { launch: ["bash", "-c", "amixer -q sset Master 78%"] }
+      F23-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 78%"] }
     mode: default
