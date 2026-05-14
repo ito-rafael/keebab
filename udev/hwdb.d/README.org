@@ -81,6 +81,16 @@ The match in the hwdb file will be in the following format.
 #+begin_src comment
 evdev:<INPUT_DEVICE_NAME>:dmi:<DMI_FROM_EVEMU>
 #+end_src
+
+Another option to get the DMI is by simply reading the modalias file:
+#+begin_src comment
+cat /sys/class/dmi/id/modalias
+#+end_src
+
+Tip: istead of copying the full DMI value, using a simpler version with wildcards is recommended.
+- full DMI: =evdev:atkbd:dmi:bvnLENOVO:bvrJ7CN31WW:bd05/17/2022:br1.31:efr1.26:svnLENOVO:pn82R7:pvrIdeaPadFlex514IAU7:rvnLENOVO:rnLNVNB161216:rvrSDK0T76463WIN:cvnLENOVO:ct31:cvrIdeaPadFlex514IAU7:skuLENOVO_MT_82R7_BU_idea_FM_IdeaPadFlex514IAU7:pfaIdeaPadFlex514IAU7:=
+- simplified DMI: =evdev:atkbd:dmi:bvnLENOVO:*pvrIdeaPadFlex514IAU7:*=
+
 * Writing a udev rule
 There are three options:
 
