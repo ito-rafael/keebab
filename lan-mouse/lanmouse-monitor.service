@@ -1,6 +1,8 @@
 [Unit]
 Description=Monitor lan-mouse logs to trigger appropriate commands
-# starts after lan-mouse and graphical session
+# create a strict dependency. If lanmouse stop/crash, this stops too.
+BindsTo=lanmouse.service
+# ensure it starts after lanmouse
 After=lanmouse.service
 
 [Service]
@@ -15,4 +17,5 @@ Environment=XDG_RUNTIME_DIR=/run/user/%U
 Environment=XDG_CONFIG_HOME=%h/.config
 
 [Install]
-WantedBy=default.target
+# tie this service to lanmouse
+WantedBy=lanmouse.service
