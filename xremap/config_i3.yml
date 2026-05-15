@@ -170,6 +170,14 @@ keymap:
       Ctrl-space: Shift-Ctrl-Tab
     mode: default
 
+  - name: Brave new window
+    exact_match: true
+    application:
+      only: brave-browser
+    remap:
+      Ctrl-N: { launch: ["bash", "-c", "brave --new-window 'chrome-extension://iaiomicjabeggjcfkbimgmglanimpnae/popup/index.html#inTab'"] }
+    mode: default
+
   - name: open browser in private window
     # Firefox
     application:
@@ -180,7 +188,7 @@ keymap:
         launch: ["bash", "-c", "ydotool key 29:1 42:1 25:1 25:0 42:0 29:0"]
     mode: default
 
-  - name: Prev/Next tab
+  - name: Brave tab navigation
     exact_match: true
     application:
       only: brave-browser

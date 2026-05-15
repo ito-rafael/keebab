@@ -599,7 +599,7 @@ keymap:
 *** Brave
 **** Tab navigation with on forbidden pages (Surfingkeys)
 #+begin_src conf :noweb-ref surfingkeys
-  - name: Prev/Next tab
+  - name: Brave tab navigation
     exact_match: true
     application:
       only: brave-browser
@@ -611,6 +611,16 @@ keymap:
       Shift-I: Ctrl-Shift-Tab  # previous tab
       Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
+    mode: default
+#+end_src
+**** New window in Tab Session Manager
+#+begin_src conf :noweb-ref browsers
+  - name: Brave new window
+    exact_match: true
+    application:
+      only: brave-browser
+    remap:
+      Ctrl-N: { launch: ["bash", "-c", "brave --new-window 'chrome-extension://iaiomicjabeggjcfkbimgmglanimpnae/popup/index.html#inTab'"] }
     mode: default
 #+end_src
 *** Firefox
