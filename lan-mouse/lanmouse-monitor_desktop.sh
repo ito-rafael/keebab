@@ -24,59 +24,60 @@ TRIGGER_CONNECTION='lan_mouse::connect] client (0) connected @ '
 TRIGGER_DISCONNECTION_START='lan_mouse::connect] '
 TRIGGER_DISCONNECTION_END_1=' send error `conn is closed`, closing connection'
 TRIGGER_DISCONNECTION_END_2=' connection closed'
-TRIGGER_LEAVING='client 0 acknowledged the connection!'
+TRIGGER_LEAVING='entering client'
 TRIGGER_RETURNING='releasing capture: left remote client device region'
 
-# set cooldown (in miliseconds) to avoid double trigger
-COOLDOWN=250
-LAST_TRIGGER=0
+# state machine: tracks where the mouse currently is to prevent double triggers
+# valid states: "disconnected", "server", "client"
+MOUSE_STATE="disconnected"
 
 # monitor the journal for the specific user unit
-journalctl --user -u $UNIT -f -n 0 | while read -r line; do
-    CURRENT_TIME=$(($(date +%s%N) / 1000000))
+journalctl --user -u "$UNIT" -f -n 0 | while read -r line; do
     case "$line" in
 
     *"$TRIGGER_CONNECTION"*)
-        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection stablished. Updating lanmouse-status file to \"connected\"."
+        echo "Connection established. Updating lanmouse-status file to \"connected\"."
         echo "connected" >$STATUS_FILE
+        MOUSE_STATE="server"
         ;;
 
     *"$TRIGGER_DISCONNECTION_START"*@("$TRIGGER_DISCONNECTION_END_1"|"$TRIGGER_DISCONNECTION_END_2")*)
-        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Connection interrupted. Updating lanmouse-status file to \"disconnected\"."
+        echo "Connection interrupted. Updating lanmouse-status file to \"disconnected\"."
         echo "disconnected" >$STATUS_FILE
+        MOUSE_STATE="disconnected"
         # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
         ydotool key 467:1 467:0 # FN_F2
         ;;
 
     # switching to client
     *"$TRIGGER_LEAVING"*)
-        # check if enough time (cooldown) has passed since the last trigger
-        if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
-            echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Switching mouse/keyboard to the client. Disabling xremap..."
+        # check the state machine to prevent double-triggers
+        if [[ "$MOUSE_STATE" != "client" ]]; then
+            echo -n "Switching mouse/keyboard to the client. Disabling xremap..."
             # FN_F1: xremap keybinding for switching mode: default --> lan-mouse
             ydotool key 466:1 466:0 # FN_F1
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
-            LAST_TRIGGER=$CURRENT_TIME
 
             # update status file
             echo "active" >$STATUS_FILE
+            MOUSE_STATE="client"
         fi
         ;;
 
     # returning to server
     *"$TRIGGER_RETURNING"*)
-        # check if enough time (cooldown) has passed since the last trigger
-        if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
-            echo -n "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse/keyboard returned to server. Enabling xremap back..."
+        # check the state machine to prevent double-triggers
+        if [[ "$MOUSE_STATE" != "server" ]]; then
+            echo -n "Mouse/keyboard returned to server. Enabling xremap back..."
             # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
             ydotool key 467:1 467:0 # FN_F2
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
-            LAST_TRIGGER=$CURRENT_TIME
 
             # update status file
             echo "connected" >$STATUS_FILE
+            MOUSE_STATE="server"
         fi
         ;;
 
