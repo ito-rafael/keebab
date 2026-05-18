@@ -270,7 +270,7 @@
 
   pom M-j  ;; pomodoro timer
   lms M-m  ;; lan-mouse switch
-  sps M-i  ;; scratchpad scrcpy
+  sps M-k  ;; scratchpad scrcpy
 
   rof M-ret  ;; open rofi (application launcher)
   emc A-C-l  ;; launch emacsclient
