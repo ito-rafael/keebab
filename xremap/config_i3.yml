@@ -303,16 +303,16 @@ keymap:
 
   - name: microphone control
     remap:
-      F15-j: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle"] }
-      Alt-F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0%"] }
-      Alt-F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 25%"] }
-      Alt-F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50%"] }
-      Alt-F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 75%"] }
-      Alt-F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"] }
-      F15-u:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"] }
-      F15-y:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"] }
-      Shift-F15-u:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
-      Shift-F15-y:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"] }
+      F15-j: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 25% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 75% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100% && ~/.config/scripts/osd.sh mic"] }
+      F15-u:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && ~/.config/scripts/osd.sh mic"] }
+      F15-y:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && ~/.config/scripts/osd.sh mic"] }
+      Shift-F15-u:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%- && ~/.config/scripts/osd.sh mic"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-y:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+ && ~/.config/scripts/osd.sh mic"] }
     mode: default
 
   - name: YouTube speed control

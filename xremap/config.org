@@ -843,25 +843,25 @@ keymap:
 #+end_src
 ***** Toggle
 #+begin_src conf :noweb-ref control
-      F15-j: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle"] }
+      F15-j: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle && ~/.config/scripts/osd.sh mic"] }
 #+end_src
 ***** Levels
 #+begin_src conf :noweb-ref control
-      Alt-F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0%"] }
-      Alt-F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 25%"] }
-      Alt-F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50%"] }
-      Alt-F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 75%"] }
-      Alt-F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"] }
+      Alt-F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 25% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 50% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 75% && ~/.config/scripts/osd.sh mic"] }
+      Alt-F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100% && ~/.config/scripts/osd.sh mic"] }
 #+end_src
 ***** Coarse
 #+begin_src conf :noweb-ref control
-      F15-u:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"] }
-      F15-y:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+"] }
+      F15-u:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && ~/.config/scripts/osd.sh mic"] }
+      F15-y:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && ~/.config/scripts/osd.sh mic"] }
 #+end_src
 ***** Fine
 #+begin_src conf :noweb-ref control
-      Shift-F15-u:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
-      Shift-F15-y:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"] }
+      Shift-F15-u:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%- && ~/.config/scripts/osd.sh mic"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-y:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+ && ~/.config/scripts/osd.sh mic"] }
 #+end_src
 ***** EoS :noexport:
 #+begin_src conf :noweb-ref control :noweb-sep "\n\n"
