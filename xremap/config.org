@@ -422,9 +422,9 @@ keymap:
     remap:
       PLAYPAUSE:  { launch: ["swaymsg", "exec", "playerctl play-pause"] }
       VOLUMEUP:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume"] }
-      VOLUMEDOWN: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume"] }
+      VOLUMEDOWN: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/scripts/osd.sh volume"] }
       F15-comma:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }
-      F15-dot:    { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }
+      F15-dot:    { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/scripts/osd.sh volume"] }
 #+end_src
 **** Scratchpad
 #+begin_src conf :noweb-ref lan-mouse
