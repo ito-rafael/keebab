@@ -78,10 +78,10 @@ keymap:
     mode: lan-mouse
     remap:
       PLAYPAUSE:  { launch: ["swaymsg", "exec", "playerctl play-pause"] }
-      VOLUMEUP:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5% && ~/.config/eww/volume.sh+"] }
-      VOLUMEDOWN: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5% && ~/.config/eww/volume.sh-"] }
-      F15-comma:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh-"] }
-      F15-dot:    { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh+"] }
+      VOLUMEUP:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume"] }
+      VOLUMEDOWN: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume"] }
+      F15-comma:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }
+      F15-dot:    { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }
 
   - name: open scratchpads in server from remote
     mode: lan-mouse
@@ -319,17 +319,17 @@ keymap:
     exact_match: true
     remap:
       F15-k:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ toggle"] }
-      F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% && ~/.config/eww/volume.sh"] }
-      F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 25% && ~/.config/eww/volume.sh"] }
-      F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% && ~/.config/eww/volume.sh"] }
-      F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 75% && ~/.config/eww/volume.sh"] }
-      F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100% && ~/.config/eww/volume.sh"] }
-      F15-e:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5% && ~/.config/eww/volume.sh-"] }
-      F15-i:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5% && ~/.config/eww/volume.sh+"] }
-      Shift-F15-e:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh-"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
-      Shift-F15-i:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh+"] }
-      F15-comma:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh-"] }
-      F15-dot:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh+"] }
+      F15-esc:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0% && ~/.config/scripts/osd.sh volume"] }
+      F15-space:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 25% && ~/.config/scripts/osd.sh volume"] }
+      F15-tab:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% && ~/.config/scripts/osd.sh volume"] }
+      F15-enter:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 75% && ~/.config/scripts/osd.sh volume"] }
+      F15-backspace: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 100% && ~/.config/scripts/osd.sh volume"] }
+      F15-e:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/scripts/osd.sh volume"] }
+      F15-i:         { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume"] }
+      Shift-F15-e:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }  # not working on IPF laptop due to hardware limitations (key ghosting)
+      Shift-F15-i:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/scripts/osd.sh volume"] }
+      F15-comma:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }
+      F15-dot:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/scripts/osd.sh volume"] }
     mode: default
 
   - name: microphone control
@@ -507,27 +507,27 @@ keymap:
   - name: volume control with mouse
     exact_match: true
     remap:
-      F21-XDOWNSCROLL: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh-"] }
-      F21-XUPSCROLL:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1% && ~/.config/eww/volume.sh+"] }
+      F21-XDOWNSCROLL: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume"] }
+      F21-XUPSCROLL:   { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/scripts/osd.sh volume"] }
       #F21-BTN_LEFT:    { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "down", "25"] }
       #F21-BTN_RIGHT:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/volume-control.sh", "up", "25"] }
       F21-BTN_LEFT:    Shift-Ctrl-Tab  # web browser previous tab
       F21-BTN_RIGHT:   Ctrl-Tab        # web browser next tab
-      F21-BTN_MIDDLE:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% && ~/.config/eww/volume.sh"] }
-      F21-Enter:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 98% && ~/.config/eww/volume.sh"] }
+      F21-BTN_MIDDLE:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% && ~/.config/scripts/osd.sh volume"] }
+      F21-Enter:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 98% && ~/.config/scripts/osd.sh volume"] }
     mode: default
 
   - name: placeholder for side-bottom button + mode shift gestures control with mouse
     exact_match: true
     remap:
       # down
-      F21-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 11% && ~/.config/eww/volume.sh"] }
+      F21-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 11% && ~/.config/scripts/osd.sh volume"] }
       # up
-      F21-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 22% && ~/.config/eww/volume.sh"] }
+      F21-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 22% && ~/.config/scripts/osd.sh volume"] }
       # left
-      F21-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 33% && ~/.config/eww/volume.sh"] }
+      F21-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 33% && ~/.config/scripts/osd.sh volume"] }
       # right
-      F21-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 44% && ~/.config/eww/volume.sh"] }
+      F21-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 44% && ~/.config/scripts/osd.sh volume"] }
     mode: default
 
   - name: zoom control with mouse
@@ -539,21 +539,21 @@ keymap:
       F22-XUPSCROLL:   Ctrl-Shift-equal
       F22-BTN_LEFT:    { launch: ["swaymsg", "workspace", "prev_on_output"] }
       F22-BTN_RIGHT:   { launch: ["swaymsg", "workspace", "next_on_output"] }
-      F22-BTN_MIDDLE:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% && ~/.config/eww/volume.sh"] }
-      F22-Enter:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 76% && ~/.config/eww/volume.sh"] }
+      F22-BTN_MIDDLE:  { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% && ~/.config/scripts/osd.sh volume"] }
+      F22-Enter:       { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 76% && ~/.config/scripts/osd.sh volume"] }
     mode: default
 
   - name: placeholder for side-top button + mode shift gestures control with mouse
     exact_match: true
     remap:
       # down
-      F22-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 55% && ~/.config/eww/volume.sh"] }
+      F22-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 55% && ~/.config/scripts/osd.sh volume"] }
       # up
-      F22-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 66% && ~/.config/eww/volume.sh"] }
+      F22-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 66% && ~/.config/scripts/osd.sh volume"] }
       # left
-      F22-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 77% && ~/.config/eww/volume.sh"] }
+      F22-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 77% && ~/.config/scripts/osd.sh volume"] }
       # right
-      F22-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 88% && ~/.config/eww/volume.sh"] }
+      F22-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 88% && ~/.config/scripts/osd.sh volume"] }
     mode: default
 
   - name: brightness control with mouse
@@ -576,11 +576,11 @@ keymap:
     exact_match: true
     remap:
       # down
-      F23-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 12% && ~/.config/eww/volume.sh"] }
+      F23-F17:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 12% && ~/.config/scripts/osd.sh volume"] }
       # up
-      F23-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 34% && ~/.config/eww/volume.sh"] }
+      F23-F18:     { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 34% && ~/.config/scripts/osd.sh volume"] }
       # left
-      F23-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 56% && ~/.config/eww/volume.sh"] }
+      F23-Shift-n: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 56% && ~/.config/scripts/osd.sh volume"] }
       # right
-      F23-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 78% && ~/.config/eww/volume.sh"] }
+      F23-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 78% && ~/.config/scripts/osd.sh volume"] }
     mode: default
