@@ -934,9 +934,9 @@ keymap:
 #+begin_src conf :noweb-ref control
   - name: backlit control
     remap:
-      F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle"] }
-      F19-comma: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "dec"] }
-      F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc"] }
+      F19-d:     { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "toggle", "&&", "~/.config/scripts/osd.sh backlit"] }
+      F19-comma: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "dec", "&&", "~/.config/scripts/osd.sh backlit"] }
+      F19-dot:   { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/keeb-backlit.sh", "inc", "&&", "~/.config/scripts/osd.sh backlit"] }
     mode: default
 #+end_src
 **** Gamma
