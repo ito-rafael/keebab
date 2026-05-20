@@ -326,15 +326,15 @@ keymap:
 
   - name: brightness control
     remap:
-      F19-esc:       { launch: ["bash", "-c", "brightnessctl set 0%"] }
-      F19-space:     { launch: ["bash", "-c", "brightnessctl set 25%"] }
-      F19-tab:       { launch: ["bash", "-c", "brightnessctl set 50%"] }
-      F19-enter:     { launch: ["bash", "-c", "brightnessctl set 75%"] }
-      F19-backspace: { launch: ["bash", "-c", "brightnessctl set 100%"] }
-      F19-e:         { launch: ["bash", "-c", "brightnessctl set 5%-"] }
-      F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+"] }
-      S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%-"] }
-      S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+"] }
+      F19-esc:       { launch: ["bash", "-c", "brightnessctl set 0% && ~/.config/scripts/osd.sh brightness"] }
+      F19-space:     { launch: ["bash", "-c", "brightnessctl set 25% && ~/.config/scripts/osd.sh brightness"] }
+      F19-tab:       { launch: ["bash", "-c", "brightnessctl set 50% && ~/.config/scripts/osd.sh brightness"] }
+      F19-enter:     { launch: ["bash", "-c", "brightnessctl set 75% && ~/.config/scripts/osd.sh brightness"] }
+      F19-backspace: { launch: ["bash", "-c", "brightnessctl set 100% && ~/.config/scripts/osd.sh brightness"] }
+      F19-e:         { launch: ["bash", "-c", "brightnessctl set 5%- && ~/.config/scripts/osd.sh brightness"] }
+      F19-i:         { launch: ["bash", "-c", "brightnessctl set 5%+ && ~/.config/scripts/osd.sh brightness"] }
+      S-F19-e:       { launch: ["bash", "-c", "brightnessctl set 1%- && ~/.config/scripts/osd.sh brightness"] }
+      S-F19-i:       { launch: ["bash", "-c", "brightnessctl set 1%+ && ~/.config/scripts/osd.sh brightness"] }
     mode: default
 
   - name: opacity control
@@ -528,8 +528,8 @@ keymap:
   - name: brightness control with mouse
     exact_match: true
     remap:
-      F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%-"] }
-      F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+"] }
+      F23-XDOWNSCROLL: { launch: ["bash", "-c", "brightnessctl set 5%- && ~/.config/scripts/osd.sh brightness"] }
+      F23-XUPSCROLL:   { launch: ["bash", "-c", "brightnessctl set 5%+ && ~/.config/scripts/osd.sh brightness"] }
     mode: default
 
   - name: video speed control with mouse
@@ -538,7 +538,7 @@ keymap:
       F23-BTN_LEFT:    Shift-leftbrace   # decrease speed
       F23-BTN_RIGHT:   Shift-rightbrace  # increase speed
       F23-BTN_MIDDLE:  u                 # reset speed
-      F23-Enter:       { launch: ["bash", "-c", "brightnessctl set 54%"] }
+      F23-Enter:       { launch: ["bash", "-c", "brightnessctl set 54% && ~/.config/scripts/osd.sh brightness"] }
     mode: default
 
   - name: placeholder for gestures button + mode shift gestures control with mouse
