@@ -943,9 +943,9 @@ keymap:
 #+begin_src conf :noweb-ref control
   - name: gamma control
     remap:
-      F19-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "dec"] }
-      F19-o: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "inc"] }
-      F19-m: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "toggle"] }
+      F19-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "dec", "&&", "~/.config/scripts/osd.sh backlit"] }
+      F19-o: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "inc", "&&", "~/.config/scripts/osd.sh backlit"] }
+      F19-m: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/gammactl.sh", "toggle", "&&", "~/.config/scripts/osd.sh backlit"] }
     mode: default
 #+end_src
 ** Scratchpad navigation
