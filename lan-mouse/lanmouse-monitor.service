@@ -1,7 +1,9 @@
 [Unit]
 Description=Monitor lan-mouse logs to trigger appropriate commands
-# create a strict dependency. If lanmouse stop/crash, this stops too.
-BindsTo=lanmouse.service
+# ensures that a manual stop/restart on lanmouse affects this as well
+PartOf=lanmouse.service
+# ensures systemd tries to start them together, but won't abort if lanmouse crashes
+Wants=lanmouse.service
 # ensure it starts after lanmouse
 After=lanmouse.service
 
