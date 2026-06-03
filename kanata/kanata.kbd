@@ -234,7 +234,7 @@
 (defalias
   klw M-q       ;; kill window
   klt A-M-w     ;; kill tab
-  fsc A-M-f     ;; fullscreen
+  fsc M-f       ;; fullscreen
   lck M-home    ;; i3/sway mode_system
   flt M-b       ;; i3/sway floating mode
 
