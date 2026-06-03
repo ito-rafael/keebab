@@ -167,13 +167,13 @@
 
   ;; one-hand media control
   hpa (tap-hold-release $mt $mt pp ralt)    ;; hold for alt_r / song play/pause
-  
+
   ;; one-hand arrows
   hal (tap-hold-release $mt $mt left lsft)  ;; hold for mod / arrow left
   had (tap-hold-release $mt $mt down rctl)  ;; hold for mod / arrow down
   hau (tap-hold-release $mt $mt up   lalt)  ;; hold for mod / arrow up
   har (tap-hold-release $mt $mt rght lmet)  ;; hold for mod / arrow right
-  
+
   ;; one-hand navigation
   btn C-tab    ;; browser tab previous
   btp S-C-tab  ;; browser tab next
@@ -232,7 +232,7 @@
 )
 
 (defalias
-  klw A-M-q     ;; kill window
+  klw M-q       ;; kill window
   klt A-M-w     ;; kill tab
   fsc A-M-f     ;; fullscreen
   lck M-home    ;; i3/sway mode_system
@@ -524,7 +524,7 @@
   me2 RA-l  ;; email #2: Unicamp/DAC
   me3 RA-u  ;; email #3: Unicamp/Recod
   mid RA-i  ;; ID number
-  
+
   ;; symbol
   sdm RA-q  ;; diameter
 )
