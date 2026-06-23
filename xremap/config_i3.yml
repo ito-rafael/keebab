@@ -381,6 +381,7 @@ keymap:
       Alt_R-l: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_2)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-u: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_3)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name)\"      | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-k: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name_2)\"    | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/id)\"        | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
   - name: miscellaneous text - macros
@@ -397,6 +398,7 @@ keymap:
       Alt_R-l: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-u: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-k: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name_2    | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
 
   - name: miscellaneous text - currency & symbol (terminal)
