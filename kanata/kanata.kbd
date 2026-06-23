@@ -496,7 +496,7 @@
 (deflayer misc
   @sdm _    _    @cyp _         _    @me2 @me3 @cyy _         _  _  _
   @sla @cyr @mst @mnh @mca      _    @me1 @cye @mid @slo      _  _  _
-  _    _    @mzc @mpn _         _    @mnm _    _    _         _  _  _
+  _    _    @mzc @mpn _         @mn2 @mnm _    _    _         _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
 )
@@ -524,6 +524,8 @@
   me2 RA-l  ;; email #2: Unicamp/DAC
   me3 RA-u  ;; email #3: Unicamp/Recod
   mid RA-i  ;; ID number
+  ;;----------
+  mn2 RA-k  ;; name #2
 
   ;; symbol
   sdm RA-q  ;; diameter
