@@ -720,7 +720,7 @@
 #+begin_src kbd
 (deflayer misc
   @sdm _    _    @cyp _         _    @me2 @me3 @cyy _         _  _  _
-  @sla @cyr @mst @mnh @mca      _    @me1 @cye @mid @slo      _  _  _
+  @sla @cyr @mst @mnh @mca      @me4 @me1 @cye @mid @slo      _  _  _
   _    _    @mzc @mpn _         @mn2 @mnm _    _    _         _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
@@ -753,6 +753,7 @@
   mid RA-i  ;; ID number
   ;;----------
   mn2 RA-k  ;; name #2
+  me4 RA-m  ;; email #4: partner
 
   ;; symbol
   sdm RA-q  ;; diameter
