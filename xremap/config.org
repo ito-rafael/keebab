@@ -323,6 +323,7 @@ shared:
     - kitty
     - dropdown_terminal
     - dropdown_python
+    - dropdown_pacman
 #+end_src
 ** Scratchpads
 #+begin_src conf :noweb-ref shared-common

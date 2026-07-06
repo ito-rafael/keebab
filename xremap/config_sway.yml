@@ -11,6 +11,7 @@ shared:
     - kitty
     - dropdown_terminal
     - dropdown_python
+    - dropdown_pacman
 
   scratchpads: &scratchpads
     - dropdown_terminal
