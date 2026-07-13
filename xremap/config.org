@@ -639,36 +639,36 @@ keymap:
     mode: default
 #+end_src
 ** Dead acute
-*** i3wm
+*** Composite keys
 :PROPERTIES:
 :header-args: :noweb-sep "\n"
 :END:
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: [Emacs, "/emacs.*/"]
+      only: "/brave.*/"
     remap:
 #+end_src
 **** F13
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
       F13:
         remap:
 #+end_src
 ***** Apostrophe
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # apostrophe
           F13: [APOSTROPHE, SPACE]
           space: [APOSTROPHE, SPACE]
 #+end_src
 ***** Cedilla
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # cedilla
           c: [APOSTROPHE, c]
           Shift-c: [APOSTROPHE, Shift-c]
 #+end_src
 ***** Vowel lowercase
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # lowercase vowels
           a: [APOSTROPHE, a]
           e: [APOSTROPHE, e]
@@ -677,7 +677,7 @@ keymap:
           u: [APOSTROPHE, u]
 #+end_src
 ***** Vowel uppercase
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # uppercase vowels
           Shift-a: [APOSTROPHE, Shift-a]
           Shift-e: [APOSTROPHE, Shift-e]
@@ -686,7 +686,7 @@ keymap:
           Shift-u: [APOSTROPHE, Shift-u]
 #+end_src
 ***** Misc lowercase
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # miscellaneous lowercase
           l: [APOSTROPHE, SPACE, l]
           n: [APOSTROPHE, SPACE, n]
@@ -696,7 +696,7 @@ keymap:
           t: [APOSTROPHE, SPACE, t, SPACE]
 #+end_src
 ***** Misc uppercase
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # miscellaneous uppercase
           Shift-l: [APOSTROPHE, SPACE, Shift-l]
           Shift-n: [APOSTROPHE, SPACE, Shift-n]
@@ -706,40 +706,40 @@ keymap:
           Shift-t: [APOSTROPHE, SPACE, Shift-t, SPACE]
 #+end_src
 **** Shift-F13
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
       Shift-F13:
         remap:
 #+end_src
 ***** Double quotes
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # double quotes
           F13: [Shift-APOSTROPHE, SPACE]
           space: [Shift-APOSTROPHE, SPACE]
           #Shift-F13: [Shift-APOSTROPHE, SPACE]
 #+end_src
 ***** Tilde lowercase
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # tilde lowercase
           a: [Shift-GRAVE, a]
           o: [Shift-GRAVE, o]
           n: [Shift-GRAVE, n]
 #+end_src
 ***** Tilde uppercase
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # tilde uppercase
           Shift-A: [Shift-GRAVE, Shift-A]
           Shift-O: [Shift-GRAVE, Shift-O]
           Shift-N: [Shift-GRAVE, Shift-N]
 #+end_src
 ***** Tilde misc
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # tilde miscellaneous
           Shift-F13: [Shift-GRAVE, SPACE]
           SLASH:     [Shift-GRAVE, SPACE, SLASH]
           DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
 #+end_src
 ***** Tilde paths
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
           # tilde paths
           h: [Shift-GRAVE, SPACE, SLASH]
           g: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH]
@@ -756,14 +756,14 @@ keymap:
           z: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, z,s,h, SLASH]
 #+end_src
 **** EoS :noexport:
-#+begin_src conf :noweb-ref dead-acute-i3
+#+begin_src conf :noweb-ref dead-acute-composite
     mode: default
 #+end_src
-*** Sway
+*** wtype
 :PROPERTIES:
 :header-args: :noweb-sep "\n"
 :END:
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
   - name: forward char / dead_acute
     exact_match: true
     application:
@@ -771,24 +771,24 @@ keymap:
     remap:
 #+end_src
 **** F13
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
       F13:
         remap:
 #+end_src
 ***** Apostrophe
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # apostrophe
           F13: { launch: ["wtype", "'"] }
           space: { launch: ["wtype", "'"] }
 #+end_src
 ***** Cedilla
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # cedilla
           c: { launch: ["wtype", "ç"] }
           Shift-c: { launch: ["wtype", "Ç"] }
 #+end_src
 ***** Vowel lowercase
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # lowercase vowels
           a: { launch: ["wtype", "á"] }
           e: { launch: ["wtype", "é"] }
@@ -797,7 +797,7 @@ keymap:
           u: { launch: ["wtype", "ú"] }
 #+end_src
 ***** Vowel uppercase
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # uppercase vowels
           Shift-a: { launch: ["wtype", "Á"] }
           Shift-e: { launch: ["wtype", "É"] }
@@ -806,7 +806,7 @@ keymap:
           Shift-u: { launch: ["wtype", "Ú"] }
 #+end_src
 ***** Misc lowercase
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # miscellaneous lowercase
           l: { launch: ["wtype", "'l"] }
           n: { launch: ["wtype", "'n"] }
@@ -816,7 +816,7 @@ keymap:
           t: { launch: ["wtype", "'t "] }
 #+end_src
 ***** Misc uppercase
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # miscellaneous uppercase
           Shift-l: { launch: ["wtype", "'L"] }
           Shift-n: { launch: ["wtype", "'N"] }
@@ -826,40 +826,40 @@ keymap:
           Shift-t: { launch: ["wtype", "'T "] }
 #+end_src
 **** Shift-F13
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
       Shift-F13:
         remap:
 #+end_src
 ***** Double quotes
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # double quotes
           F13: { launch: ["wtype", "\""] }
           space: { launch: ["wtype", "\""] }
           #Shift-F13: { launch: ["wtype", "\""] }
 #+end_src
 ***** Tilde lowercase
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # tilde lowercase
           a: { launch: ["wtype", "ã"] }
           o: { launch: ["wtype", "õ"] }
           n: { launch: ["wtype", "ñ"] }
 #+end_src
 ***** Tilde uppercase
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # tilde uppercase
           Shift-a: { launch: ["wtype", "Ã"] }
           Shift-o: { launch: ["wtype", "Õ"] }
           Shift-n: { launch: ["wtype", "Ñ"] }
 #+end_src
 ***** Tilde misc
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # tilde miscellaneous
           Shift-F13: { launch: ["wtype", "~"] }
           SLASH:     { launch: ["wtype", "~/"] }
           DOT:       { launch: ["wtype", "~/."] }
 #+end_src
 ***** Tilde paths
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
           # tilde paths
           h: { launch: ["wtype", "~/"] }
           g: { launch: ["wtype", "~/git/"] }
@@ -876,7 +876,7 @@ keymap:
           z: { launch: ["wtype", "~/.config/zsh/"] }
 #+end_src
 **** EoS :noexport:
-#+begin_src conf :noweb-ref dead-acute-sway
+#+begin_src conf :noweb-ref dead-acute-wtype
     mode: default
 #+end_src
 ** Emote navigation
@@ -1381,7 +1381,7 @@ keymap:
 
 <<surfingkeys>>
 
-<<dead-acute-i3>>
+<<dead-acute-composite>>
 
 <<emote>>
 
@@ -1431,7 +1431,8 @@ keymap:
 
 <<cedilla>>
 
-<<dead-acute-sway>>
+<<dead-acute-composite>>
+<<dead-acute-wtype>>
 
 <<emote>>
 <<emote-sway>>

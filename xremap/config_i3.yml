@@ -198,7 +198,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: [Emacs, "/emacs.*/"]
+      only: "/brave.*/"
     remap:
       F13:
         remap:
