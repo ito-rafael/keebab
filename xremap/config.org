@@ -349,6 +349,7 @@ shared:
     - "/brave.*/"
     - "/firefox.*/"
     - chromium
+    - zen
 #+end_src
 ** Cedilla
 Obs.: Sway only

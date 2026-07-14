@@ -28,6 +28,7 @@ shared:
     - "/brave.*/"
     - "/firefox.*/"
     - chromium
+    - zen
 
 modmap:
 
