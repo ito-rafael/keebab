@@ -288,7 +288,7 @@
 (deflayer number
   [    4    5    6    ]         @vp0 @vp1 @vp2 @vp3 @vp4      _  _  _
   @:   1    2    3    -         @mo3 @spt @spp @mo2 @mo1      _  _  _
-  @~   7    8    9    +         x    spc  ,    .    /         _  _  _
+  @~   7    8    9    +         @ans spc  ,    .    /         _  _  _
             @t2n 0    =         _    _    _                   _  _  _
                                                               _  _  _
 )
@@ -308,6 +308,7 @@
   ;; scratchpads
   spt (tap-hold-release $mt $mt M-n rsft)  ;; terminal
   spp (tap-hold-release $mt $mt M-e rctl)  ;; python
+  ans A-M-k  ;; ansible-provision
 
   ;; VPNs
   vp0 M-A-0  ;; connect to VPN #0: Proton VPN
