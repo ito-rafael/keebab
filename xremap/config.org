@@ -321,15 +321,18 @@ shared:
 #+begin_src conf :noweb-ref shared-common
   terminals: &terminals
     - kitty
-    - dropdown_terminal
-    - dropdown_python
+    - dropdown_ansible
     - dropdown_pacman
+    - dropdown_python
+    - dropdown_terminal
 #+end_src
 ** Scratchpads
 #+begin_src conf :noweb-ref shared-common
   scratchpads: &scratchpads
-    - dropdown_terminal
+    - dropdown_ansible
+    - dropdown_pacman
     - dropdown_python
+    - dropdown_terminal
     - scrcpy
     - Brave-browser-beta
     - Keymapp

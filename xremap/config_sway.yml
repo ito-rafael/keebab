@@ -9,13 +9,16 @@ shared:
 
   terminals: &terminals
     - kitty
-    - dropdown_terminal
-    - dropdown_python
+    - dropdown_ansible
     - dropdown_pacman
+    - dropdown_python
+    - dropdown_terminal
 
   scratchpads: &scratchpads
-    - dropdown_terminal
+    - dropdown_ansible
+    - dropdown_pacman
     - dropdown_python
+    - dropdown_terminal
     - scrcpy
     - Brave-browser-beta
     - Keymapp
