@@ -438,6 +438,24 @@ keymap:
     remap:
       Super_L-s: { launch: ["swaymsg", "exec", "'$XDG_CONFIG_HOME/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9 --primary'"] }
 #+end_src
+**** Macros
+#+begin_src conf :noweb-ref lan-mouse
+  - name: macros in remote
+    mode: lan-mouse
+    remap:
+      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/address_1)\" | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/address_2)\" | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/address_3)\" | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/zip_code)\"  | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/phone)\"     | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/email_1)\"   | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/email_2)\"   | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/email_3)\"   | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-m: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/email_4)\"   | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/name)\"      | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-k: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/name_2)\"    | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(pass show macro/id)\"        | wl-copy && /home/rafael/.config/scripts/push-clipboard.sh ipf && sleep 0.2 && ydotool key 29:1 186:1 186:0 29:0"] }
+#+end_src
 ** CPC: Copy/Paste/Cut
 *** Terminal
 #+begin_src conf :noweb-ref cpc-terminal
