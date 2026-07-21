@@ -443,18 +443,18 @@ keymap:
   - name: macros in remote
     mode: lan-mouse
     remap:
-      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_1 | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_2 | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_3 | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/zip_code  | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/phone     | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_1   | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_2   | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_3   | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-m: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_4   | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name      | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-k: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name_2    | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
-      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/id        | tr -d '\n' | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_1 | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_2 | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_3 | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/zip_code  | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/phone     | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_1   | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_2   | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_3   | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-m: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_4   | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name      | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-k: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name_2    | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
+      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/id        | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
 #+end_src
 ** CPC: Copy/Paste/Cut
 *** Terminal
