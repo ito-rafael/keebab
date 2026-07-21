@@ -152,8 +152,8 @@ keymap:
       Ctrl-e: down
       Ctrl-i: up
       Ctrl-o: right
-      Alt-n: home
-      Alt-o: end
+      Alt_L-n: home
+      Alt_L-o: end
       Ctrl-Alt-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/wlprop.sh focused"] }
     mode: default
 

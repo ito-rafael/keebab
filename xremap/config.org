@@ -583,8 +583,8 @@ keymap:
 #+end_src
 **** Beginning/End of line
 #+begin_src conf :noweb-ref kitty
-      Alt-n: home
-      Alt-o: end
+      Alt_L-n: home
+      Alt_L-o: end
 #+end_src
 **** Fix window properties snapshot
 #+begin_src conf :noweb-ref kitty
