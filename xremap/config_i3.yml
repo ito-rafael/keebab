@@ -396,18 +396,18 @@ keymap:
       not: *terminals
     remap:
       # macro
-      Alt_R-s: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-t: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-g: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-c: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-d: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-n: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-l: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-u: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-m: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_4   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-k: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name_2    | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-s: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/address_1 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-t: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/address_2 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-g: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/address_3 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-c: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/zip_code  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-d: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/phone     | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-n: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/email_1   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-l: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/email_2   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-u: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/email_3   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-m: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/email_4   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/name      | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-k: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/name_2    | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && pass show macro/id        | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
 
   - name: miscellaneous text - currency & symbol (terminal)
     application:

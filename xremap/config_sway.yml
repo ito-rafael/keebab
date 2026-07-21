@@ -79,6 +79,7 @@ keymap:
       FN_F2:
         - { set_mode: default }
         - { launch: ["swaymsg", "exec", "echo default > /tmp/xremap_mode.tmp"] }
+
   - name: control server volume from remote
     mode: lan-mouse
     remap:
@@ -499,18 +500,18 @@ keymap:
       not: *terminals
     remap:
       # macro
-      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-m: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_4   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-k: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name_2    | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_1 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_2 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/address_3 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/zip_code  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/phone     | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_1   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_2   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_3   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-m: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/email_4   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name      | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-k: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name_2    | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/id        | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
 
   - name: miscellaneous text - currency & symbol (terminal)
     application:
