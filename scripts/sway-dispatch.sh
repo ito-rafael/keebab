@@ -158,6 +158,13 @@ case "$COMMAND" in
     esac
     ;;
 
+"resize")
+    case "$FOCUSED_APP" in
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(hydra-window-resize/body)" ;;
+        *) swaymsg mode resize ;;
+    esac
+    ;;
+
 "new_terminal")
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -n -s efs --suppress-output --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" ;;

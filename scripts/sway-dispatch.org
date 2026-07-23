@@ -16,6 +16,7 @@
   - [[#copy][Copy]]
   - [[#paste][Paste]]
 - [[#fullscreen][Fullscreen]]
+- [[#resize][Resize]]
 - [[#new-terminal][New terminal]]
 - [[#type][Type]]
 
@@ -226,6 +227,15 @@ case "$COMMAND" in
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --suppress-output --eval "(with-current-buffer (window-buffer (selected-window)) (zoom-window-zoom))" ;;
         ,*) swaymsg fullscreen toggle ;;
+    esac
+    ;;
+#+end_src
+* Resize
+#+begin_src sh
+"resize")
+    case "$FOCUSED_APP" in
+        [Ee]macs*) emacsclient -s efs --suppress-output --eval "(hydra-window-resize/body)" ;;
+        ,*) swaymsg mode resize ;;
     esac
     ;;
 #+end_src
