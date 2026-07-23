@@ -41,6 +41,7 @@
   - [[#pdfpc][pdfpc]]
   - [[#libreoffice][LibreOffice]]
   - [[#wasistlos][WasIstLos]]
+  - [[#gimp][GIMP]]
   - [[#mouse-controller][Mouse controller]]
 
 * Information
@@ -1277,6 +1278,19 @@ keymap:
     remap:
       Ctrl-KPPLUS: Ctrl-Shift-EQUAL  # zoom in
 #+end_src
+** GIMP
+*** Zoom control
+#+begin_src conf :noweb-ref gimp
+  - name: zoom control in GIMP
+    application:
+      only: gimp
+    remap:
+      F22-XDOWNSCROLL:  minus
+      F22-XUPSCROLL:    Shift-equal
+      Ctrl-XDOWNSCROLL: minus
+      Ctrl-XUPSCROLL:   Shift-equal
+    mode: default
+#+end_src
 ** Mouse controller
 *** Side-bottom
 **** Volume control
@@ -1474,6 +1488,8 @@ keymap:
 <<libreoffice>>
 
 <<whatsapp>>
+
+<<gimp>>
 
 <<mouse>>
 #+end_src

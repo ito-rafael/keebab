@@ -603,6 +603,16 @@ keymap:
     remap:
       Ctrl-KPPLUS: Ctrl-Shift-EQUAL  # zoom in
 
+  - name: zoom control in GIMP
+    application:
+      only: gimp
+    remap:
+      F22-XDOWNSCROLL:  minus
+      F22-XUPSCROLL:    Shift-equal
+      Ctrl-XDOWNSCROLL: minus
+      Ctrl-XUPSCROLL:   Shift-equal
+    mode: default
+
   - name: volume control with mouse
     exact_match: true
     remap:
