@@ -577,10 +577,10 @@ keymap:
 #+end_src
 **** Arrows
 #+begin_src conf :noweb-ref kitty
-      Ctrl-n: left
-      Ctrl-e: down
-      Ctrl-i: up
-      Ctrl-o: right
+      #Ctrl-n: left
+      #Ctrl-e: down
+      #Ctrl-i: up
+      #Ctrl-o: right
 #+end_src
 **** Beginning/End of line
 #+begin_src conf :noweb-ref kitty
