@@ -693,3 +693,11 @@ keymap:
       # right
       F23-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 78% && ~/.config/scripts/osd.sh volume"] }
     mode: default
+
+  - name: Prev tab
+    exact_match: true
+    application:
+      only: eu.betterbird.Betterbird
+    remap:
+      Ctrl-space: Shift-Ctrl-Tab
+    mode: default

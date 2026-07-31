@@ -43,6 +43,7 @@
   - [[#wasistlos][WasIstLos]]
   - [[#gimp][GIMP]]
   - [[#mouse-controller][Mouse controller]]
+  - [[#betterbird][Betterbird]]
 
 * Information
 ** Table
@@ -1390,6 +1391,17 @@ keymap:
       F23-Shift-o: { launch: ["bash", "-c", "wpctl set-volume @DEFAULT_AUDIO_SINK@ 78% && ~/.config/scripts/osd.sh volume"] }
     mode: default
 #+end_src
+** Betterbird
+*** Previous tab
+#+begin_src conf :noweb-ref betterbird
+  - name: Prev tab
+    exact_match: true
+    application:
+      only: eu.betterbird.Betterbird
+    remap:
+      Ctrl-space: Shift-Ctrl-Tab
+    mode: default
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
@@ -1492,4 +1504,6 @@ keymap:
 <<gimp>>
 
 <<mouse>>
+
+<<betterbird>>
 #+end_src
