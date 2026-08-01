@@ -62,6 +62,9 @@ journalctl --user -u "$UNIT" -f -n 0 | while read -r line; do
             # update status file
             echo "active" >$STATUS_FILE
             MOUSE_STATE="client"
+
+            # change Waybar color to red
+            echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' >~/.config/waybar/dynamic-bg.css
         fi
         ;;
 
@@ -78,6 +81,9 @@ journalctl --user -u "$UNIT" -f -n 0 | while read -r line; do
             # update status file
             echo "connected" >$STATUS_FILE
             MOUSE_STATE="server"
+
+            # reset Waybar color
+            echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
         fi
         ;;
 

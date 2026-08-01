@@ -66,6 +66,9 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
 
             # update status file
             echo "connected" >$STATUS_FILE
+
+            # reset Waybar color
+            echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
         fi
         ;;
 
@@ -74,6 +77,9 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
         # update status file
         echo "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse entered in client. Updating lan-mouse status file."
         echo "active" >$STATUS_FILE
+
+        # change Waybar color to red
+        echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' >~/.config/waybar/dynamic-bg.css
         ;;
 
     esac

@@ -25,7 +25,7 @@
 # description:
 #   script for desktops to disable/enable xremap keybindings for lan-mouse (software KVM).
 # how it works:
-#   it monitors the output of the journal for the lan-mouse unit, and once it 
+#   it monitors the output of the journal for the lan-mouse unit, and once it
 #   detects that the cursor leaved/returned to/from the client (laptop), it runs
 #   a ydotool command to disable/enable xremap keybindings. This allows
 #   keybindings bypasses for the cliend when the mouse/keyboard is there.
@@ -101,6 +101,9 @@ Leaving desktop. Enter in xremap's lan-mouse mode (bypass keybindings).
         # update status file
         echo "active" > $STATUS_FILE
         MOUSE_STATE="client"
+
+        # change Waybar color to red
+        echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' > ~/.config/waybar/dynamic-bg.css
     fi
     ;;
 #+end_src
@@ -122,6 +125,9 @@ Returning to desktop. Enter in xremap's default mode (re-enable keybindings).
         # update status file
         echo "connected" > $STATUS_FILE
         MOUSE_STATE="server"
+
+        # reset Waybar color
+        echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' > ~/.config/waybar/dynamic-bg.css
     fi
     ;;
 #+end_src

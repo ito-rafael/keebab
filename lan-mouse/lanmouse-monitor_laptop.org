@@ -11,8 +11,8 @@
 - [[#monitoring][Monitoring]]
   - [[#connection-stablished][Connection stablished]]
   - [[#connection-interrupted][Connection interrupted]]
-  - [[#keyboard-and-mouse-leaving-host][Keyboard and mouse LEAVING host]]
-  - [[#keyboard-and-mouse-entering-host][Keyboard and mouse ENTERING host]]
+  - [[#laptop----desktop][Laptop --> Desktop]]
+  - [[#desktop----laptop][Desktop --> Laptop]]
   - [[#eos][EoS]]
 
 * Header :noexport_1:
@@ -25,9 +25,9 @@
 # description:
 #   script to share clipboard via lan-mouse (software KVM) with the sender host.
 # how it works:
-#   it monitors the output of the journal for the lan-mouse unit, and once it 
+#   it monitors the output of the journal for the lan-mouse unit, and once it
 #   detects that the cursor moved back to the sender, it runs push-clipboard.sh
-#   script that sends the clipboard back via SSH forced commands (previously 
+#   script that sends the clipboard back via SSH forced commands (previously
 #   configured in ~/.ssh/authorized-keys).
 #+end_src
 ** Help menu
@@ -83,7 +83,7 @@ case "$line" in
     echo "disconnected" > $STATUS_FILE
     ;;
 #+end_src
-** Keyboard and mouse LEAVING host
+** Laptop --> Desktop
 Leaving laptop. Share clipboard with sender.
   - laptop --> desktop
   - client --> server
@@ -104,11 +104,14 @@ Leaving laptop. Share clipboard with sender.
 
         # update status file
         echo "connected" > $STATUS_FILE
+
+        # reset Waybar color
+        echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' > ~/.config/waybar/dynamic-bg.css
     fi
     ;;
 #+end_src
-** Keyboard and mouse ENTERING host
-Entering laptop. No functionality yet.
+** Desktop --> Laptop
+Entering laptop.
   - desktop --> laptop
   - server --> client
   - sender --> receiving
@@ -118,6 +121,9 @@ Entering laptop. No functionality yet.
     # update status file
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Mouse entered in client. Updating lan-mouse status file."
     echo "active" > $STATUS_FILE
+
+    # change Waybar color to red
+    echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' > ~/.config/waybar/dynamic-bg.css
     ;;
 #+end_src
 ** EoS
