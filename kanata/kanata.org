@@ -676,7 +676,7 @@
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
   @ren XX   @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
-  XX   XX   XX   XX   @aur      XX   @mwl @mwd @mwu @mwr      _  _  _
+  XX   XX   XX   @wtf @aur      XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
 )
@@ -690,7 +690,8 @@
   ;;mft (movemouse-speed 15)
 
   ren (tap-hold-release $mt $mt f2 lmet) ;; rename (F2) to meta_l
-  aur A-M-v
+  wtf A-M-d  ;; weather forecast (Mousam)
+  aur A-M-v  ;; AUR update (Arch Linux)
 
   ;; cursor navigation
   mcl (movemouse-accel-left  5 1000 1 15) ;; mouse cursor left
