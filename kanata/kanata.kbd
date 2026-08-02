@@ -454,7 +454,7 @@
 
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
-  @ren XX   @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
+  @ren @ema @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
   XX   XX   XX   @wtf @aur      XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
@@ -492,6 +492,7 @@
   mbr mrgt  ;; right button click  (button3)
 
   ;; scratchpads
+  ema (tap-hold-release $mt $mt M-A-r lalt)                  ;; email client (Betterbird)
   llm (tap-hold-release $mt $mt M-A-t lsft)                  ;; large language model
   trl (tap-hold-release $mt $mt M-A-s (movemouse-speed 15))  ;; translator / slowdown mouse cursor
 )
