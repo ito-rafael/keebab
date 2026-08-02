@@ -13,7 +13,7 @@
 )
 
 (defvar
-  st 110  ;; shift timeout
+  st 100  ;; shift timeout
   mt 150  ;; other modifiers timeout
   rt 250  ;; repeat tap window
 )
