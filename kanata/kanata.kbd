@@ -279,7 +279,7 @@
 
 (deflayer navigation
   XX   4    5    6    XX        @cw  @ps  home end  XX        _  _  _
-  @mwp @hn1 @hn2 @hn3 @mwn      caps left down up   rght      _  _  _
+  @mwp @hn1 @hn2 @hn3 @mwn      @cap left down up   rght      _  _  _
   @obs 7    8    9    0         @key @pss pgdn pgup XX        _  _  _
             _    _    _         _    _    del                 _  _  _
                                                               _  _  _
@@ -287,6 +287,7 @@
 
 (defalias
   cw (caps-word 2000)  ;; Caps WORD
+  cap A-C-c            ;; Caps Lock
   ps  prnt             ;; PrintScreen
   pss S-prnt           ;; Shift-PrintScreen
   key A-C-k            ;; launch screenkey
