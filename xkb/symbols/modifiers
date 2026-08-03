@@ -1,6 +1,9 @@
 xkb_symbols "modifiers" {
     // source: https://gdratp.medium.com/remapping-modifier-keys-in-manjaro-sway-linux-or-any-linux-desktop-1a9c6e565468
 
+    // Declare the virtual modifier so XKB knows it exists
+    virtual_modifiers ScrollLock;
+
     // Beginning of modifier mappings.
     modifier_map Shift  { Shift_L, Shift_R };
     modifier_map Lock   { Caps_Lock };
@@ -9,9 +12,14 @@ xkb_symbols "modifiers" {
     modifier_map Mod3   { Super_R };
     modifier_map Mod4   { Super_L };
 
+    // Explicitly make the Scroll Lock key a toggle for the virtual modifier
+    key <SCLK> {
+        type="ONE_LEVEL",
+        symbols[Group1] = [ Scroll_Lock ],
+        actions[Group1] = [ LockMods(modifiers=ScrollLock) ]
+    };
 
     // Fake keys for virtual<->real modifiers mapping:
-
     key <MUHE> {[  Muhenkan           ]};
     key <HENK> {[  Henkan             ]};
     // key <HYPR> {    [ NoSymbol, Hyper_L ]   };

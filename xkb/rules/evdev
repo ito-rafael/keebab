@@ -4,3 +4,6 @@
 ! option = symbols
   fn-keys:fnkeys = +fn-keys(fnkeys)
   modifiers:modifiers = +modifiers(modifiers)
+
+! option = compat
+  leds:decouple = +capslock-led-decouple(decouple)

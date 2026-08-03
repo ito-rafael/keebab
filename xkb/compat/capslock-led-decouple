@@ -1,0 +1,7 @@
+default partial xkb_compatibility "decouple" {
+    indicator "Caps Lock" {
+        !allowExplicit;
+        whichModState = locked;
+        modifiers = ScrollLock;
+    };
+};
