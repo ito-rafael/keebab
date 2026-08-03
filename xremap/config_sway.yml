@@ -708,7 +708,7 @@ keymap:
       only: io.github.amit9838.mousam
     remap:
       KEY_R: Ctrl-R
-      KEY_L: Ctrl-L
+      KEY_L: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mousam-toggle-city.sh"] }
       KEY_Q: { launch: ["swaymsg", "exec", "'$XDG_CONFIG_HOME/scripts/show-or-launch.sh io.github.amit9838.mousam'"] }
       Shift-Slash: Ctrl-Shift-Slash
     mode: default
