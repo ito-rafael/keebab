@@ -701,3 +701,14 @@ keymap:
     remap:
       Ctrl-space: Shift-Ctrl-Tab
     mode: default
+
+  - name: Mousam custom keybindings
+    exact_match: true
+    application:
+      only: io.github.amit9838.mousam
+    remap:
+      KEY_R: Ctrl-R
+      KEY_L: Ctrl-L
+      KEY_Q: { launch: ["swaymsg", "exec", "'$XDG_CONFIG_HOME/scripts/show-or-launch.sh io.github.amit9838.mousam'"] }
+      Shift-Slash: Ctrl-Shift-Slash
+    mode: default

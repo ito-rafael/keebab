@@ -44,6 +44,7 @@
   - [[#gimp][GIMP]]
   - [[#mouse-controller][Mouse controller]]
   - [[#betterbird][Betterbird]]
+  - [[#mousam][Mousam]]
 
 * Information
 ** Table
@@ -1400,6 +1401,19 @@ keymap:
       only: eu.betterbird.Betterbird
     remap:
       Ctrl-space: Shift-Ctrl-Tab
+    mode: default
+#+end_src
+** Mousam
+#+begin_src conf :noweb-ref betterbird
+  - name: Mousam custom keybindings
+    exact_match: true
+    application:
+      only: io.github.amit9838.mousam
+    remap:
+      KEY_R: Ctrl-R
+      KEY_L: Ctrl-L
+      KEY_Q: { launch: ["swaymsg", "exec", "'$XDG_CONFIG_HOME/scripts/show-or-launch.sh io.github.amit9838.mousam'"] }
+      Shift-Slash: Ctrl-Shift-Slash
     mode: default
 #+end_src
 * Tangle :noexport:
