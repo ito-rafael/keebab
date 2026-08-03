@@ -937,8 +937,9 @@ keymap:
 ** Capslock
 #+begin_src conf :noweb-ref capslock
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
+    exact_match: true
     remap:
-      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock-status.sh toggle"] }
+      Alt-Ctrl-c: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock-status.sh toggle"] }
     mode: default
 #+end_src
 ** System control
