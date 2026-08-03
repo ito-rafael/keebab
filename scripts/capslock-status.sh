@@ -6,7 +6,7 @@
 #=================================================
 # help menu and usage message
 #=================================================
-usage="$(basename "$0") destination action [-h]
+usage="$(basename "$0") action [-h]
 
 where:
     -h, --help      show this help text
@@ -30,50 +30,74 @@ ACTION=$1
 CAPSLOCK_FILE='/tmp/capslock_status.tmp'
 
 # read Caps Lock brightness LED
-PATH_PREFIX="/sys/class/leds"
-CAPSLOCK_INPUT=$(ls $PATH_PREFIX | grep capslock | sort -V | head -n1)
-BRIGHTNESS_FILE=$PATH_PREFIX"/"$CAPSLOCK_INPUT"/brightness"
-BRIGHTNESS=$(cat $BRIGHTNESS_FILE)
+#PATH_PREFIX="/sys/class/leds"
+#CAPSLOCK_INPUT=$(command ls $PATH_PREFIX | grep capslock | sort -V | head -n1)
+#BRIGHTNESS_FILE=$PATH_PREFIX"/"$CAPSLOCK_INPUT"/brightness"
+#BRIGHTNESS=$(cat $BRIGHTNESS_FILE)
+
+# initialize the state file if it doesn't exist (eg: after a reboot)
+if [ ! -f "$CAPSLOCK_FILE" ]; then
+    echo 0 > "$CAPSLOCK_FILE"
+fi
 
 #=================================================
-# function to toggle Caps Lock
-toggle_caps(){
+# helper functions
+#=================================================
+# get Caps Lock status ("0" or "1")
+capslock_status() {
+    cat "$CAPSLOCK_FILE"
+}
+#---------------------------
+# ensure Caps Lock is ON
+capslock_on() {
+    # if capslock_status outputs 0, the Caps Lock is off, so we toggle it on
+    if [ "$(capslock_status)" -eq 0 ]; then
+        ydotool key 58:1 58:0
+        echo 1 > "$CAPSLOCK_FILE"
+    fi
+}
+#---------------------------
+# ensure Caps Lock is OFF
+capslock_off() {
+    # if capslock_status outputs 1, the Caps Lock is on, so we toggle it off
+    if [ "$(capslock_status)" -eq 1 ]; then
+        ydotool key 58:1 58:0
+        echo 0 > "$CAPSLOCK_FILE"
+    fi
+}
+#---------------------------
+# toggle Caps Lock
+capslock_toggle() {
     ydotool key 58:1 58:0
+    if [ "$(capslock_status)" -eq 0 ]; then
+        echo 1 > "$CAPSLOCK_FILE"
+    else
+        echo 0 > "$CAPSLOCK_FILE"
+    fi
 }
 
+#=================================================
 # perform action requested
 case "${ACTION}" in
     "status")
-        echo $BRIGHTNESS
+        capslock_status
         exit 0
         ;;
-    "on")
-        if [[ "$BRIGHTNESS" == "0" ]]; then
-            echo 1 > $CAPSLOCK_FILE
-            #echo 1 > $BRIGHTNESS_FILE
-            toggle_caps
-        fi
+    "on"|"1")
+        capslock_on
         exit 0
         ;;
-    "off")
-        if [[ "$BRIGHTNESS" == "1" ]]; then
-            echo 0 > $CAPSLOCK_FILE
-            #echo 0 > $BRIGHTNESS_FILE
-            toggle_caps
-        fi
+    "off"|"0")
+        capslock_off
         exit 0
         ;;
     "toggle")
-        if [[ "$BRIGHTNESS" == "0" ]]; then
-            echo 1 > $CAPSLOCK_FILE
-        else
-            echo 0 > $CAPSLOCK_FILE
-        fi
-        toggle_caps
+        capslock_toggle
         exit 0
         ;;
     *)
-        echo "Option no supported. Exiting..."
+        echo "Error: Unknown action '${ACTION}'"
+        echo "$usage"
         exit 1
         ;;
 esac
