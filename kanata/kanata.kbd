@@ -141,7 +141,7 @@
 (deflayer symbol
   @{   @$   @%   @^   @}        @emo @{   vold volu @}        _  _  _
   ;    @!   @@   @#   @_        @hpa @hal @had @hau @har      _  _  _
-  grv  @&   @*   @lp  \         spc  @wsp @btp @btn @wsn      _  _  _
+  grv  @&   @*   @lp  \         @the @wsp @btp @btn @wsn      _  _  _
             _    @rp  @|        _    XX   XX                  _  _  _
                                                               _  _  _
 )
@@ -165,6 +165,7 @@
   _   S--    ;; underscore
   |   S-\    ;; vertical bar
   emo A-C-e  ;; launch Emote emoji picker
+  the M-S-t  ;; toggle system theme via gsettings
 
   ;; one-hand media control
   hpa (tap-hold-release $mt $mt pp ralt)    ;; hold for alt_r / song play/pause
