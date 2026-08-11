@@ -6,4 +6,4 @@
   modifiers:modifiers = +modifiers(modifiers)
 
 ! option = compat
-  capslock:decouple = +capslock(decouple)
+  capslockled:decouple = +capslockled(decouple)
