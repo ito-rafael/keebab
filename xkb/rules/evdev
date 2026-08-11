@@ -2,8 +2,8 @@
 ! include %S/evdev
 
 ! option = symbols
-  fn-keys:fnkeys = +fnkeys(fnkeys)
+  fnkeys:fnkeys = +fnkeys(fnkeys)
   modifiers:modifiers = +modifiers(modifiers)
 
 ! option = compat
-  capslock-led:decouple = +capslock(decouple)
+  capslock:decouple = +capslock(decouple)
