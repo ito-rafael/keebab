@@ -6,4 +6,4 @@
   modifiers:modifiers = +modifiers(modifiers)
 
 ! option = compat
-  leds:decouple = +capslock-led-decouple(decouple)
+  capslock-led:decouple = +capslock-led(decouple)
