@@ -35,9 +35,9 @@ shared:
     - "/firefox.*/"
     - chromium
     - zen
-  cedilla: &cedilla
-    - "/brave.*/"
-    - chromium
+#  cedilla: &cedilla
+#    - "/brave.*/"
+#    - chromium
 
 modmap:
 
@@ -232,15 +232,15 @@ keymap:
       Shift-X: Ctrl-Shift-T    # reopen tab
     mode: default
 
-  - name: cedilla
-    application:
-      only: *cedilla
-    remap:
-      F13:
-        remap:
-          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-    mode: default
+#  - name: cedilla
+#    application:
+#      only: *cedilla
+#    remap:
+#      F13:
+#        remap:
+#          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+#          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+#    mode: default
 
   - name: forward char / dead_acute
     exact_match: true

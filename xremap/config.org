@@ -360,9 +360,9 @@ shared:
 ** Cedilla
 Obs.: Sway only
 #+begin_src conf :noweb-ref shared-sway
-  cedilla: &cedilla
-    - "/brave.*/"
-    - chromium
+#  cedilla: &cedilla
+#    - "/brave.*/"
+#    - chromium
 #+end_src
 * Modmap
 #+begin_src conf :noweb-ref modmap
@@ -653,15 +653,15 @@ keymap:
 #+end_src
 ** Cedilla
 #+begin_src conf :noweb-ref cedilla
-  - name: cedilla
-    application:
-      only: *cedilla
-    remap:
-      F13:
-        remap:
-          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-    mode: default
+#  - name: cedilla
+#    application:
+#      only: *cedilla
+#    remap:
+#      F13:
+#        remap:
+#          c:       { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+#          Shift-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"Ç\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+#    mode: default
 #+end_src
 ** Dead acute
 *** Composite keys
