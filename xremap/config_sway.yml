@@ -225,6 +225,20 @@ keymap:
       Ctrl-space: Shift-Ctrl-Tab
     mode: default
 
+  - name: Prev/Next tab
+    exact_match: true
+    application:
+      only: brave-origin
+    window:
+      only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
+    remap:
+      Shift-N: Alt-Left        # go back
+      Shift-E: Ctrl-Tab        # next tab
+      Shift-I: Ctrl-Shift-Tab  # previous tab
+      Shift-O: Alt-Right       # go forward
+      Shift-X: Ctrl-Shift-T    # reopen tab
+    mode: default
+
   - name: "Focus Pelando extension popup"
     application:
       only: brave-origin
@@ -243,20 +257,6 @@ keymap:
       Ctrl-Shift-n:
         # remap to C-S-p
         launch: ["bash", "-c", "ydotool key 29:1 42:1 25:1 25:0 42:0 29:0"]
-    mode: default
-
-  - name: Prev/Next tab
-    exact_match: true
-    application:
-      only: brave-browser
-    window:
-      only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
-    remap:
-      Shift-N: Alt-Left        # go back
-      Shift-E: Ctrl-Tab        # next tab
-      Shift-I: Ctrl-Shift-Tab  # previous tab
-      Shift-O: Alt-Right       # go forward
-      Shift-X: Ctrl-Shift-T    # reopen tab
     mode: default
 
 #  - name: cedilla
