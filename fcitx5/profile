@@ -1,0 +1,11 @@
+[Groups/0]
+Name=Default
+Default Layout=us(intl)
+DefaultIM=keyboard-us-intl
+
+[Groups/0/Items/0]
+Name=keyboard-us-intl
+Layout=
+
+[Setup]
+Current=keyboard-us-intl
