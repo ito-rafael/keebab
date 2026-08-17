@@ -12,14 +12,20 @@ shared:
     - dropdown_terminal
 
   scratchpads: &scratchpads
+    - brave-calendar.google.com__-Default
+    - brave-chatgpt.com__-Default
+    - brave-music.youtube.com__-Default
+    - brave-translate.google.com__-Default
     - dropdown_ansible
+    - dropdown_aur
     - dropdown_pacman
     - dropdown_python
     - dropdown_terminal
-    - scrcpy
-    - Brave-browser-beta
+    - eu.betterbird.Betterbird
     - Keymapp
     - keymapp
+    - scrcpy
+    - wasistlos
 
   emacs-ssh: &emacs-ssh
     - "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"

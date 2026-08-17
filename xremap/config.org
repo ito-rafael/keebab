@@ -332,14 +332,20 @@ shared:
 ** Scratchpads
 #+begin_src conf :noweb-ref shared-common
   scratchpads: &scratchpads
+    - brave-calendar.google.com__-Default
+    - brave-chatgpt.com__-Default
+    - brave-music.youtube.com__-Default
+    - brave-translate.google.com__-Default
     - dropdown_ansible
+    - dropdown_aur
     - dropdown_pacman
     - dropdown_python
     - dropdown_terminal
-    - scrcpy
-    - Brave-browser-beta
+    - eu.betterbird.Betterbird
     - Keymapp
     - keymapp
+    - scrcpy
+    - wasistlos
 #+end_src
 ** Emacs over SSH
 #+begin_src conf :noweb-ref shared-common
