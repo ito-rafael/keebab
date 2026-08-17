@@ -80,6 +80,17 @@ keymap:
         - { set_mode: default }
         - { launch: ["swaymsg", "exec", "echo default > /tmp/xremap_mode.tmp"] }
 
+  - name: Pelando popup focused
+    mode: pelando
+    remap:
+      e: PAGEDOWN
+      i: PAGEUP
+      # close popup + return to "default" mode
+      ESC:
+        - Alt_L-Shift-P
+        - { set_mode: default }
+        - { launch: ["swaymsg", "exec", "echo default > /tmp/xremap_mode.tmp"] }
+
   - name: copy/paste/cut - terminal
     application:
       only: *terminals
@@ -180,6 +191,16 @@ keymap:
     remap:
       Ctrl-space: Shift-Ctrl-Tab
     mode: default
+
+  - name: "Focus Pelando extension popup"
+    application:
+      only: brave-origin
+    remap:
+      # open extension + change to "pelando" mode
+      Alt_L-P:
+        - Alt_L-Shift-P
+        - { launch: ["bash", "-c", "~/.config/scripts/brave-focus-extension.sh"] }
+        - { set_mode: pelando }
 
   - name: open browser in private window
     # Firefox

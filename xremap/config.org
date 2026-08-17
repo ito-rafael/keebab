@@ -465,6 +465,19 @@ keymap:
       Alt_R-k: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/name_2    | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
       Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && pass show macro/id        | ssh ipf 'WAYLAND_DISPLAY=\"wayland-1\" wl-copy -n' && sleep 0.1 && ydotool key 29:1 186:1 186:0 29:0"] }
 #+end_src
+*** Browser extension: Pelando
+#+begin_src conf :noweb-ref modes
+  - name: Pelando popup focused
+    mode: pelando
+    remap:
+      e: PAGEDOWN
+      i: PAGEUP
+      # close popup + return to "default" mode
+      ESC:
+        - Alt_L-Shift-P
+        - { set_mode: default }
+        - { launch: ["swaymsg", "exec", "echo default > /tmp/xremap_mode.tmp"] }
+#+end_src
 ** CPC: Copy/Paste/Cut
 *** Terminal
 #+begin_src conf :noweb-ref cpc-terminal
@@ -644,6 +657,18 @@ keymap:
       Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
     mode: default
+#+end_src
+**** Extension popup focus
+#+begin_src conf :noweb-ref browsers
+  - name: "Focus Pelando extension popup"
+    application:
+      only: brave-origin
+    remap:
+      # open extension + change to "pelando" mode
+      Alt_L-P:
+        - Alt_L-Shift-P
+        - { launch: ["bash", "-c", "~/.config/scripts/brave-focus-extension.sh"] }
+        - { set_mode: pelando }
 #+end_src
 *** Firefox
 #+begin_src conf :noweb-ref browsers
