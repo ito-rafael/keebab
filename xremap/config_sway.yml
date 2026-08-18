@@ -249,6 +249,14 @@ keymap:
         - { launch: ["bash", "-c", "~/.config/scripts/brave-focus-extension.sh"] }
         - { set_mode: pelando }
 
+  - name: "Toggle theme in PDF.js"
+    application:
+      only: brave-origin
+    window:
+      only: /\[pdfjs\]/
+    remap:
+      Alt_L-d: Alt_L-t
+
   - name: open browser in private window
     # Firefox
     application:
