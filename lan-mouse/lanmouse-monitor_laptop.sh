@@ -59,7 +59,7 @@ journalctl --user -u "$UNIT" -f -n 0 | cat | while read -r line; do
             # send clipboard via SSH forced command
             $HOME/.config/scripts/push-clipboard.sh catuaba >/dev/null
             # re-enable xremap's default mode (FN_F2)
-            ssh catuaba "ydotool key 467:1 467:0"
+            #ssh catuaba "ydotool key 467:1 467:0"
             # append "Done!" or "Failed!" to the previous line according to the script status
             [ $? -eq 0 ] && echo " Done!" || echo " Failed!"
             LAST_TRIGGER=$CURRENT_TIME

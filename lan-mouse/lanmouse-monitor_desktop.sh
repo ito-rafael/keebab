@@ -37,12 +37,16 @@ journalctl --user -u "$UNIT" -f -n 0 | while read -r line; do
 
     *"$TRIGGER_CONNECTION"*)
         echo "Connection established. Updating lanmouse-status file to \"connected\"."
+        # adjust Sway scale
+        ssh ipf "swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.25"
         echo "connected" >$STATUS_FILE
         MOUSE_STATE="server"
         ;;
 
     *"$TRIGGER_DISCONNECTION_START"*@("$TRIGGER_DISCONNECTION_END_1"|"$TRIGGER_DISCONNECTION_END_2")*)
         echo "Connection interrupted. Updating lanmouse-status file to \"disconnected\"."
+        # adjust Sway scale
+        ssh ipf "swaymsg exec $XDG_CONFIG_HOME/scripts/sway-scale.sh 1.00"
         echo "disconnected" >$STATUS_FILE
         MOUSE_STATE="disconnected"
         # FN_F2: xremap keybinding for switching mode: lan-mouse --> default
@@ -63,8 +67,8 @@ journalctl --user -u "$UNIT" -f -n 0 | while read -r line; do
             echo "active" >$STATUS_FILE
             MOUSE_STATE="client"
 
-            # change Waybar color to red
-            echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' >~/.config/waybar/dynamic-bg.css
+            # change Waybar color to red (deprecated: command moved to ~/.config/waybar/scripts/xremap-mode.sh)
+            #echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' > ~/.config/waybar/dynamic-bg.css
         fi
         ;;
 
@@ -82,8 +86,8 @@ journalctl --user -u "$UNIT" -f -n 0 | while read -r line; do
             echo "connected" >$STATUS_FILE
             MOUSE_STATE="server"
 
-            # reset Waybar color
-            echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
+            # reset Waybar color (deprecated: command moved to ~/.config/waybar/scripts/xremap-mode.sh)
+            #echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' > ~/.config/waybar/dynamic-bg.css
         fi
         ;;
 

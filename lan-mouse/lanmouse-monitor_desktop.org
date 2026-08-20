@@ -102,8 +102,8 @@ Leaving desktop. Enter in xremap's lan-mouse mode (bypass keybindings).
         echo "active" > $STATUS_FILE
         MOUSE_STATE="client"
 
-        # change Waybar color to red
-        echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' > ~/.config/waybar/dynamic-bg.css
+        # change Waybar color to red (deprecated: command moved to ~/.config/waybar/scripts/xremap-mode.sh)
+        #echo '@define-color dynamic_bg rgba(255, 0, 0, 0.5);' > ~/.config/waybar/dynamic-bg.css
     fi
     ;;
 #+end_src
@@ -126,8 +126,8 @@ Returning to desktop. Enter in xremap's default mode (re-enable keybindings).
         echo "connected" > $STATUS_FILE
         MOUSE_STATE="server"
 
-        # reset Waybar color
-        echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' > ~/.config/waybar/dynamic-bg.css
+        # reset Waybar color (deprecated: command moved to ~/.config/waybar/scripts/xremap-mode.sh)
+        #echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' > ~/.config/waybar/dynamic-bg.css
     fi
     ;;
 #+end_src
