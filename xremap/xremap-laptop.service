@@ -6,6 +6,7 @@ ExecStart=/usr/bin/xremap \
     --mouse \
     --device "Logitech Wireless Mouse MX Master 3" \
     --device "Logitech USB Receiver Mouse" \
+    --device "Logitech MX Master 3" \
     --device "LogiOps Virtual Input" \
     --device "ZSA Technology Labs Moonlander Mark I" \
     --device "ZSA Technology Labs Planck EZ Glow" \
