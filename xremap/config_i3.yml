@@ -237,7 +237,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      only: "/brave.*/"
+      not: [Emacs, "/emacs.*/"]
     remap:
       F13:
         remap:

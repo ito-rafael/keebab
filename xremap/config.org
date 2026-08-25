@@ -713,7 +713,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      only: "/brave.*/"
+      not: [Emacs, "/emacs.*/"]
     remap:
 #+end_src
 **** F13
@@ -823,126 +823,6 @@ keymap:
 #+end_src
 **** EoS :noexport:
 #+begin_src conf :noweb-ref dead-acute-composite
-    mode: default
-#+end_src
-*** wtype
-:PROPERTIES:
-:header-args: :noweb-sep "\n"
-:END:
-#+begin_src conf :noweb-ref dead-acute-wtype
-  - name: forward char / dead_acute
-    exact_match: true
-    application:
-      not: [Emacs, "/emacs.*/"]
-    remap:
-#+end_src
-**** F13
-#+begin_src conf :noweb-ref dead-acute-wtype
-      F13:
-        remap:
-#+end_src
-***** Apostrophe
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # apostrophe
-          F13: { launch: ["wtype", "'"] }
-          space: { launch: ["wtype", "'"] }
-#+end_src
-***** Cedilla
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # cedilla
-          c: { launch: ["wtype", "ç"] }
-          Shift-c: { launch: ["wtype", "Ç"] }
-#+end_src
-***** Vowel lowercase
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # lowercase vowels
-          a: { launch: ["wtype", "á"] }
-          e: { launch: ["wtype", "é"] }
-          i: { launch: ["wtype", "í"] }
-          o: { launch: ["wtype", "ó"] }
-          u: { launch: ["wtype", "ú"] }
-#+end_src
-***** Vowel uppercase
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # uppercase vowels
-          Shift-a: { launch: ["wtype", "Á"] }
-          Shift-e: { launch: ["wtype", "É"] }
-          Shift-i: { launch: ["wtype", "Í"] }
-          Shift-o: { launch: ["wtype", "Ó"] }
-          Shift-u: { launch: ["wtype", "Ú"] }
-#+end_src
-***** Misc lowercase
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # miscellaneous lowercase
-          l: { launch: ["wtype", "'l"] }
-          n: { launch: ["wtype", "'n"] }
-          m: { launch: ["wtype", "'m "] }
-          r: { launch: ["wtype", "'r"] }
-          s: { launch: ["wtype", "'s "] }
-          t: { launch: ["wtype", "'t "] }
-#+end_src
-***** Misc uppercase
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # miscellaneous uppercase
-          Shift-l: { launch: ["wtype", "'L"] }
-          Shift-n: { launch: ["wtype", "'N"] }
-          Shift-m: { launch: ["wtype", "'M "] }
-          Shift-r: { launch: ["wtype", "'R"] }
-          Shift-s: { launch: ["wtype", "'S "] }
-          Shift-t: { launch: ["wtype", "'T "] }
-#+end_src
-**** Shift-F13
-#+begin_src conf :noweb-ref dead-acute-wtype
-      Shift-F13:
-        remap:
-#+end_src
-***** Double quotes
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # double quotes
-          F13: { launch: ["wtype", "\""] }
-          space: { launch: ["wtype", "\""] }
-          #Shift-F13: { launch: ["wtype", "\""] }
-#+end_src
-***** Tilde lowercase
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # tilde lowercase
-          a: { launch: ["wtype", "ã"] }
-          o: { launch: ["wtype", "õ"] }
-          n: { launch: ["wtype", "ñ"] }
-#+end_src
-***** Tilde uppercase
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # tilde uppercase
-          Shift-a: { launch: ["wtype", "Ã"] }
-          Shift-o: { launch: ["wtype", "Õ"] }
-          Shift-n: { launch: ["wtype", "Ñ"] }
-#+end_src
-***** Tilde misc
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # tilde miscellaneous
-          Shift-F13: { launch: ["wtype", "~"] }
-          SLASH:     { launch: ["wtype", "~/"] }
-          DOT:       { launch: ["wtype", "~/."] }
-#+end_src
-***** Tilde paths
-#+begin_src conf :noweb-ref dead-acute-wtype
-          # tilde paths
-          h: { launch: ["wtype", "~/"] }
-          g: { launch: ["wtype", "~/git/"] }
-          k: { launch: ["wtype", "~/git/keebab/"] }
-          d: { launch: ["wtype", "~/git/dotfiles/"] }
-          l: { launch: ["wtype", "~/.local/"] }
-          c: { launch: ["wtype", "~/.config/"] }
-          e: { launch: ["wtype", "~/.config/emacs-efs/"] }
-          i: { launch: ["wtype", "~/.config/sway"] }
-          s: { launch: ["wtype", "~/.config/scripts/"] }
-          v: { launch: ["wtype", "~/.config/nvim/"] }
-          x: { launch: ["wtype", "~/.config/xremap/"] }
-          w: { launch: ["wtype", "~/.config/waybar/"] }
-          z: { launch: ["wtype", "~/.config/zsh/"] }
-#+end_src
-**** EoS :noexport:
-#+begin_src conf :noweb-ref dead-acute-wtype
     mode: default
 #+end_src
 ** Emote navigation
@@ -1533,7 +1413,6 @@ keymap:
 <<cedilla>>
 
 <<dead-acute-composite>>
-<<dead-acute-wtype>>
 
 <<emote>>
 <<emote-sway>>
