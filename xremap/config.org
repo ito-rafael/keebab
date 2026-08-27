@@ -324,6 +324,7 @@ shared:
 #+begin_src conf :noweb-ref shared-common
   terminals: &terminals
     - kitty
+    - dropdown_aur
     - dropdown_ansible
     - dropdown_pacman
     - dropdown_python

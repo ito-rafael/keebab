@@ -6,6 +6,7 @@ shared:
 
   terminals: &terminals
     - kitty
+    - dropdown_aur
     - dropdown_ansible
     - dropdown_pacman
     - dropdown_python
