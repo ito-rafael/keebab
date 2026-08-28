@@ -71,8 +71,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LAYER0] = LAYOUT_planck_grid(
     KC_Q,           LT(10, KC_W),   LT(7, KC_F),    KC_P,           LT(16, KC_B),   KC_TRANSPARENT, KC_TRANSPARENT, LT(15, KC_J),   KC_L,           KC_U,           LT(14, KC_Y),   KC_F13,
     MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_R),MT(MOD_LCTL, KC_S),MT(MOD_LSFT, KC_T),MT(MOD_RGUI, KC_G),KC_TRANSPARENT, KC_TRANSPARENT, LT(13, KC_M),   MT(MOD_LSFT, KC_N),MT(MOD_RCTL, KC_E),LT(12, KC_I),   LT(21, KC_O),
-    LT(8, KC_Z),    KC_X,           KC_C,           KC_D,           KC_V,           KC_TRANSPARENT, KC_TRANSPARENT, KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_A,           
-    KC_TRANSPARENT, KC_TRANSPARENT, LT(6, KC_ESCAPE),LT(5, KC_SPACE),LT(9, KC_TAB),  KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, LT(1, KC_ENTER),LT(2, KC_BSPC), KC_TRANSPARENT, KC_TRANSPARENT
+    LT(8, KC_Z),    KC_X,           KC_C,           KC_D,           KC_V,           KC_TRANSPARENT, KC_TRANSPARENT, KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_A,
+    KC_TRANSPARENT, KC_TRANSPARENT, LT(6, KC_ESCAPE),LT(5, KC_SPACE),LT(9, KC_TAB),  KC_TRANSPARENT, KC_NO,          KC_B, LT(1, KC_ENTER),LT(2, KC_BSPC), KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [_LAYER1] = LAYOUT_planck_grid(
