@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: moonlander
 
@@ -114,7 +114,7 @@ jobs:
           echo normalized_layout_geometry=${normalized_layout_geometry} >> "$GITHUB_OUTPUT"
 
       - name: Upload layout
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: moonlander_${{ github.event.inputs.layout_id }}
           path: ${{ steps.build-layout.outputs.built_layout_file }}

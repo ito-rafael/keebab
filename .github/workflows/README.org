@@ -64,7 +64,7 @@ jobs:
 #+name: checkout
 #+begin_src python :var branch_name="moonlander" :results output
 print('      - name: Checkout Repository')
-print('        uses: actions/checkout@v4')
+print('        uses: actions/checkout@v5')
 print('        with:')
 print('          ref: ' + branch_name)
 #+end_src
@@ -176,7 +176,7 @@ print('          echo normalized_layout_geometry=${normalized_layout_geometry} >
 #+name: upload
 #+begin_src python :var artifact="${{ steps.build-layout.outputs.normalized_layout_geometry }}_${{ github.event.inputs.layout_id }}" :results output
 print('      - name: Upload layout')
-print('        uses: actions/upload-artifact@v4')
+print('        uses: actions/upload-artifact@v7')
 print('        with:')
 print('          name: ' + artifact + '_${{ github.event.inputs.layout_id }}')
 print('          path: ${{ steps.build-layout.outputs.built_layout_file }}')
