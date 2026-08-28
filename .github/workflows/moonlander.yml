@@ -116,5 +116,5 @@ jobs:
       - name: Upload layout
         uses: actions/upload-artifact@v4
         with:
-          name: moolander_${{ github.event.inputs.layout_id }}
+          name: moonlander_${{ github.event.inputs.layout_id }}
           path: ${{ steps.build-layout.outputs.built_layout_file }}

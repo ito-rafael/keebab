@@ -196,7 +196,7 @@ print('          path: ${{ steps.build-layout.outputs.built_layout_file }}')
 <<update(message="⚙️ [GH Actions] Moonlander (QMK): update qmk_firmware")>>
 <<docker(directory="moonlander")>>
 <<build(directory="moonlander/firmware")>>
-<<upload(artifact="moolander")>>
+<<upload(artifact="moonlander")>>
 #+end_src
 ** Planck EZ
 #+begin_src conf :noweb yes :tangle planck.yml :results output
