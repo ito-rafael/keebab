@@ -89,8 +89,8 @@ jobs:
       - name: Build the layout
         id: build-layout
         run: |
-          # Set keyboard directory and make prefix based on firmware version
-          if [ "${{ steps.download-layout-source.outputs.firmware_version }}" -ge 24 ]; then
+          # Dynamically find where the keyboard folder actually lives in ZSA's QMK fork
+          if [ -d "qmk_firmware/keyboards/zsa/${{ github.event.inputs.layout_geometry }}" ]; then
             keyboard_directory="qmk_firmware/keyboards/zsa"
             make_prefix="zsa/"
           else
@@ -102,10 +102,16 @@ jobs:
           rm -rf ${keyboard_directory}/${{ github.event.inputs.layout_geometry }}/keymaps/${{ github.event.inputs.layout_id }}
           mkdir -p ${keyboard_directory}/${{ github.event.inputs.layout_geometry }}/keymaps/${{ github.event.inputs.layout_id }} && cp -r moonlander/firmware/* "$_"
           
+          # Handle Moonlander Rev A vs Rev B split for QMK compilation
+          make_target="${make_prefix}${{ github.event.inputs.layout_geometry }}"
+          if [ "${{ github.event.inputs.layout_geometry }}" = "moonlander" ]; then
+            make_target="${make_target}/reva"  # <--- Change this to /revb if your keyboard is newer than Spring 2024
+          fi
+          
           # Build the layout
           docker run -v ./qmk_firmware:/root --rm qmk /bin/sh -c "
             qmk setup zsa/qmk_firmware -b firmware${{ steps.download-layout-source.outputs.firmware_version }} -y
-            make ${make_prefix}${{ github.event.inputs.layout_geometry }}:${{ github.event.inputs.layout_id }}
+            make ${make_target}:${{ github.event.inputs.layout_id }}
           "
           
           # Find and export built layout
