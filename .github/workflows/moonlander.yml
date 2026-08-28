@@ -109,9 +109,16 @@ jobs:
           "
           
           # Find and export built layout
-          normalized_layout_geometry="$(echo "${{ github.event.inputs.layout_geometry }}" | sed 's/\//_/g')"
-          echo built_layout_file=$(find ./qmk_firmware -type f -regex ".*${normalized_layout_geometry}.*\.\(bin\|hex\|uf2\)$" | head -n 1) >> "$GITHUB_OUTPUT"
-          echo normalized_layout_geometry=${normalized_layout_geometry} >> "$GITHUB_OUTPUT"
+          normalized_layout_geometry="$(echo "${{ github.event.inputs.layout_geometry }}" | sed 's|/|_|g')"
+          
+          # Debug: Show exactly where QMK dropped the binaries in the Action logs
+          find ./qmk_firmware -type f -name "*.bin" -o -type f -name "*.hex" -o -type f -name "*.uf2"
+          
+          # Find the exact file without using fragile regex
+          found_file=$(find ./qmk_firmware -type f -name "*${normalized_layout_geometry}*.bin" -o -type f -name "*${normalized_layout_geometry}*.hex" -o -type f -name "*${normalized_layout_geometry}*.uf2" | head -n 1)
+          
+          echo "built_layout_file=${found_file}" >> "$GITHUB_OUTPUT"
+          echo "normalized_layout_geometry=${normalized_layout_geometry}" >> "$GITHUB_OUTPUT"
 
       - name: Upload layout
         uses: actions/upload-artifact@v7

@@ -168,9 +168,16 @@ print('            make ${make_prefix}${{ github.event.inputs.layout_geometry }}
 print('          "')
 print('          ')
 print('          # Find and export built layout')
-print('          normalized_layout_geometry="$(echo "${{ github.event.inputs.layout_geometry }}" | sed \'s/\//_/g\')"')
-print('          echo built_layout_file=$(find ./qmk_firmware -type f -regex ".*${normalized_layout_geometry}.*\.\(bin\|hex\|uf2\)$" | head -n 1) >> "$GITHUB_OUTPUT"')
-print('          echo normalized_layout_geometry=${normalized_layout_geometry} >> "$GITHUB_OUTPUT"')
+print('          normalized_layout_geometry="$(echo "${{ github.event.inputs.layout_geometry }}" | sed \'s|/|_|g\')"')
+print('          ')
+print('          # Debug: Show exactly where QMK dropped the binaries in the Action logs')
+print('          find ./qmk_firmware -type f -name "*.bin" -o -type f -name "*.hex" -o -type f -name "*.uf2"')
+print('          ')
+print('          # Find the exact file without using fragile regex')
+print('          found_file=$(find ./qmk_firmware -type f -name "*${normalized_layout_geometry}*.bin" -o -type f -name "*${normalized_layout_geometry}*.hex" -o -type f -name "*${normalized_layout_geometry}*.uf2" | head -n 1)')
+print('          ')
+print('          echo "built_layout_file=${found_file}" >> "$GITHUB_OUTPUT"')
+print('          echo "normalized_layout_geometry=${normalized_layout_geometry}" >> "$GITHUB_OUTPUT"')
 #+end_src
 ** Upload the builded firmware
 #+name: upload
