@@ -169,7 +169,7 @@ print('          "')
 print('          ')
 print('          # Find and export built layout')
 print('          normalized_layout_geometry="$(echo "${{ github.event.inputs.layout_geometry }}" | sed \'s/\//_/g\')"')
-print('          echo built_layout_file=$(find ./qmk_firmware -maxdepth 1 -type f -regex ".*${normalized_layout_geometry}.*\.\(bin\|hex\)$") >> "$GITHUB_OUTPUT"')
+print('          echo built_layout_file=$(find ./qmk_firmware -type f -regex ".*${normalized_layout_geometry}.*\.\(bin\|hex\|uf2\)$" | head -n 1) >> "$GITHUB_OUTPUT"')
 print('          echo normalized_layout_geometry=${normalized_layout_geometry} >> "$GITHUB_OUTPUT"')
 #+end_src
 ** Upload the builded firmware
