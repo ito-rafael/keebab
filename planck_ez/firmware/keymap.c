@@ -50,28 +50,28 @@ enum planck_layers {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
-#define DUAL_FUNC_0 LT(2, KC_J)
-#define DUAL_FUNC_1 LT(5, KC_6)
-#define DUAL_FUNC_2 LT(8, KC_S)
-#define DUAL_FUNC_3 LT(9, KC_F8)
-#define DUAL_FUNC_4 LT(14, KC_P)
-#define DUAL_FUNC_5 LT(4, KC_F8)
-#define DUAL_FUNC_6 LT(9, KC_F14)
-#define DUAL_FUNC_7 LT(13, KC_F17)
-#define DUAL_FUNC_8 LT(13, KC_F19)
-#define DUAL_FUNC_9 LT(8, KC_N)
-#define DUAL_FUNC_10 LT(9, KC_9)
-#define DUAL_FUNC_11 LT(6, KC_9)
-#define DUAL_FUNC_12 LT(9, KC_F23)
-#define DUAL_FUNC_13 LT(13, KC_Y)
-#define DUAL_FUNC_14 LT(3, KC_F17)
-#define DUAL_FUNC_15 LT(7, KC_F21)
+#define DUAL_FUNC_0 LT(1, KC_Z)
+#define DUAL_FUNC_1 LT(5, KC_F2)
+#define DUAL_FUNC_2 LT(2, KC_N)
+#define DUAL_FUNC_3 LT(14, KC_F21)
+#define DUAL_FUNC_4 LT(7, KC_U)
+#define DUAL_FUNC_5 LT(12, KC_X)
+#define DUAL_FUNC_6 LT(5, KC_F7)
+#define DUAL_FUNC_7 LT(1, KC_E)
+#define DUAL_FUNC_8 LT(2, KC_T)
+#define DUAL_FUNC_9 LT(13, KC_K)
+#define DUAL_FUNC_10 LT(10, KC_F20)
+#define DUAL_FUNC_11 LT(14, KC_C)
+#define DUAL_FUNC_12 LT(6, KC_F23)
+#define DUAL_FUNC_13 LT(1, KC_X)
+#define DUAL_FUNC_14 LT(15, KC_V)
+#define DUAL_FUNC_15 LT(1, KC_F5)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LAYER0] = LAYOUT_planck_grid(
     KC_Q,           LT(10, KC_W),   LT(7, KC_F),    KC_P,           LT(16, KC_B),   KC_TRANSPARENT, KC_TRANSPARENT, LT(15, KC_J),   KC_L,           KC_U,           LT(14, KC_Y),   KC_F13,         
     MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_R),MT(MOD_LCTL, KC_S),MT(MOD_LSFT, KC_T),MT(MOD_RGUI, KC_G),KC_TRANSPARENT, KC_TRANSPARENT, LT(13, KC_M),   MT(MOD_LSFT, KC_N),MT(MOD_RCTL, KC_E),LT(12, KC_I),   LT(21, KC_O),   
-    LT(8, KC_Z),    KC_X,           KC_C,           KC_D,           KC_V,           KC_TRANSPARENT, KC_TRANSPARENT, KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_A,           
+    LT(8, KC_Z),    KC_X,           KC_C,           KC_D,           KC_V,           KC_TRANSPARENT, KC_TRANSPARENT, KC_K,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       
     KC_TRANSPARENT, KC_TRANSPARENT, LT(6, KC_ESCAPE),LT(5, KC_SPACE),LT(9, KC_TAB),  KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, LT(1, KC_ENTER),LT(2, KC_BSPC), KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
