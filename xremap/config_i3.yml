@@ -267,6 +267,7 @@ keymap:
           r: [APOSTROPHE, SPACE, r]
           s: [APOSTROPHE, SPACE, s, SPACE]
           t: [APOSTROPHE, SPACE, t, SPACE]
+          v: [APOSTROPHE, SPACE, v, SPACE]
           # miscellaneous uppercase
           Shift-l: [APOSTROPHE, SPACE, Shift-l]
           Shift-n: [APOSTROPHE, SPACE, Shift-n]
@@ -274,6 +275,7 @@ keymap:
           Shift-r: [APOSTROPHE, SPACE, Shift-r]
           Shift-s: [APOSTROPHE, SPACE, Shift-s, SPACE]
           Shift-t: [APOSTROPHE, SPACE, Shift-t, SPACE]
+          Shift-v: [APOSTROPHE, SPACE, Shift-v, SPACE]
       Shift-F13:
         remap:
           # double quotes

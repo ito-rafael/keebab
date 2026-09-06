@@ -761,6 +761,7 @@ keymap:
           r: [APOSTROPHE, SPACE, r]
           s: [APOSTROPHE, SPACE, s, SPACE]
           t: [APOSTROPHE, SPACE, t, SPACE]
+          v: [APOSTROPHE, SPACE, v, SPACE]
 #+end_src
 ***** Misc uppercase
 #+begin_src conf :noweb-ref dead-acute-composite
@@ -771,6 +772,7 @@ keymap:
           Shift-r: [APOSTROPHE, SPACE, Shift-r]
           Shift-s: [APOSTROPHE, SPACE, Shift-s, SPACE]
           Shift-t: [APOSTROPHE, SPACE, Shift-t, SPACE]
+          Shift-v: [APOSTROPHE, SPACE, Shift-v, SPACE]
 #+end_src
 **** Shift-F13
 #+begin_src conf :noweb-ref dead-acute-composite
