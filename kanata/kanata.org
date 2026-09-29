@@ -323,7 +323,7 @@
 (deflayer symbol
   @{   @$   @%   @^   @}        @emo @{   vold volu @}        _  _  _
   ;    @!   @@   @#   @_        @hpa @hal @had @hau @har      _  _  _
-  grv  @&   @*   @lp  \         @the @wsp @btp @btn @wsn      _  _  _
+  grv  @&   @*   @lp  \         @wsp spc  @btp @btn @wsn      _  _  _
             _    @rp  @|        _    XX   XX                  _  _  _
                                                               _  _  _
 )
@@ -349,7 +349,6 @@
   _   S--    ;; underscore
   |   S-\    ;; vertical bar
   emo A-C-e  ;; launch Emote emoji picker
-  the M-S-t  ;; toggle system theme via gsettings
 
   ;; one-hand media control
   hpa (tap-hold-release $mt $mt pp ralt)    ;; hold for alt_r / song play/pause
@@ -678,7 +677,7 @@
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
   @ren @ema @trl @llm @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
-  XX   XX   XX   @wtf @aur      XX   @mwl @mwd @mwu @mwr      _  _  _
+  @the XX   XX   @wtf @aur      XX   @mwl @mwd @mwu @mwr      _  _  _
             _    _    XX        @mbl @mbl @mbr                _  _  _
                                                               _  _  _
 )
@@ -692,6 +691,7 @@
   ;;mft (movemouse-speed 15)
 
   ren (tap-hold-release $mt $mt f2 lmet) ;; rename (F2) to meta_l
+  the M-S-t  ;; toggle system theme via gsettings
   wtf A-M-d  ;; weather forecast (Mousam)
   aur A-M-v  ;; AUR update (Arch Linux)
 
