@@ -7,3 +7,5 @@
 
 ! option = compat
   capslockled:decouple = +capslockled(decouple)
+
+// newline at EOF
