@@ -1,8 +1,15 @@
-ACTION=="add",
-  SUBSYSTEM=="input",                                   \
-  ATTR{id/product}=="b023",                             \
-  ATTR{id/vendor}=="046d",                              \
-  ATTR{name}=="Logitech Wireless Mouse MX Master 3",    \
-  TAG+="systemd",                                       \
-  ENV{SYSTEMD_WANTS}="logid-restart.service"
+# Disable USB Autosuspend for the Unifying Receiver
+ACTION=="add",              \
+  SUBSYSTEM=="usb",         \
+  ATTR{idVendor}=="046d",   \
+  ATTR{idProduct}=="c52b",  \
+  ATTR{power/control}="on"
 
+# Trigger logid-restart when the MX Master 3 input device reconnects
+ACTION=="add",
+  SUBSYSTEM=="input",                                 \
+  ATTR{id/product}=="b023",                           \
+  ATTR{id/vendor}=="046d",                            \
+  ATTR{name}=="Logitech Wireless Mouse MX Master 3",  \
+  TAG+="systemd",                                     \
+  ENV{SYSTEMD_WANTS}="logid-restart.service"
