@@ -613,6 +613,11 @@ keymap:
 #+begin_src conf :noweb-ref kitty
       Ctrl-Alt-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/wlprop.sh focused"] }
 #+end_src
+**** ZSH History Search
+#+begin_src conf :noweb-ref kitty
+      Ctrl-e: Alt-e
+      Ctrl-i: Alt-i
+#+end_src
 **** EoS :noexport:
 #+begin_src conf :noweb-sep "\n\n" :noweb-ref kitty
     mode: default

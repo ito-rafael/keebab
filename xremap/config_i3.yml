@@ -173,6 +173,8 @@ keymap:
       Alt_L-n: home
       Alt_L-o: end
       Ctrl-Alt-n: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/wlprop.sh focused"] }
+      Ctrl-e: Alt-e
+      Ctrl-i: Alt-i
     mode: default
 
   - name: terminal zoom with mouse
