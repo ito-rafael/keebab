@@ -283,7 +283,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: [Emacs, "/emacs.*/"]
+      not: [Emacs, "/emacs.*/", eu.betterbird.Betterbird]
     remap:
       F13:
         remap:
